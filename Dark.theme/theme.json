@@ -1,8 +1,8 @@
 {
     "ToolbarTopColor": "#222326",
     "ToolbarBottomColor": "#222326",
-    "SliderPopupTopColor": "#f0f0f0",
-    "SliderPopupBottomColor": "#e0e0e0",
+    "SliderPopupTopColor": "#121212",
+    "SliderPopupBottomColor": "#121212",
     "BorderColor": "#393b40",
     "LightBorderColor": "#393b40",
     "TabBarTopColor": "#222326",
@@ -23,4 +23,9 @@
     "RoundButtonTextColor": "#d6d6d6",
     "SelectedTabTextColor": "#dfe1e5",
     "TabTextColor": "#949599",
+    "SliderTickColor": "#949599",
+    "PopupMenuBackgroundColor": "#121212",
+    "PopupMenuTextColor": "#dfe1e5",
+    "PopupMenuTitleBackgroundColor": "#222326",
+    "PopupMenuTitleTextColor": "#dfe1e5",
 }
