@@ -1,0 +1,136 @@
+{
+  "type": "horizontalLayout",
+  "width": "fillParent",
+  "height": "wrapContent",
+  "padding": 10,
+  "spacing": 10,
+  "subViews":
+  [
+    {
+      "type": "verticalLayout",
+      "width": "wrapContent",
+      "height": "fillParent",
+      "padding": 20,
+      "groupPanel": true,
+      "gravity": "Center",
+      "menuGroup": true,
+      "subViews":
+      [
+          {
+          "type": "label",
+          "text": "$(TransportPosition)",
+          "measureText": "100:100.000",
+          "gravity": "Center",
+          "width": "wrapContent",
+          "height": "wrapContent",
+          "fontBold": true,
+          "fontSize":32,
+          "displayName": "Transport Position",
+          },
+
+          {
+          "type": "label",
+          "text": "$(TimeSignature) $(Tempo)bpm",
+          "gravity": "Center",
+          "width": "fillParent",
+          "height": "wrapContent",
+          "fontBold": true,
+          "fontSize":20,
+          "displayName": "Tempo/Time Signature",
+          },
+
+          {
+          "type": "beatIndicator",
+          "width": "fillParent",
+          "indicatorWidth": 30,
+          "indicatorHeight": 8,
+          "marginTop": 5,
+          "marginBottom": 10,
+          "gapSize": 3,
+          "displayName": "Beat Indicator",
+          },
+          
+          {
+          "type": "label",
+          "text": "$(MemoryUsage)/$(MemoryWorkingSet)Mb $(MemoryPageFaults)pf $(h):$(min)$(am)",
+          "measureText": "1000/1000Mb 10000pf 12:12pm",
+          "gravity": "Center",
+          "width": "fillParent",
+          "height": "wrapContent",
+          "fontBold": false,
+          "fontSize":12,
+          "displayName": "Memory Usage",
+          },
+      ]
+    },
+    {
+      "type": "verticalLayout",
+      "width": "fillParent",
+      "height": "fillParent",
+      "padding": 20,
+      "groupPanel": true,
+      "menuGroup": true,
+      "subViews":
+      [
+          {
+          "type": "label",
+          "text": "$(Song)",
+          "gravity": "Center",
+          "width": "fillParent",
+          "height": "wrapContent",
+          "fontBold": true,
+          "fontSize":40,
+          "displayName": "Song Name",
+          },
+
+          {
+          "type": "label",
+          "text": "$(SessionState)",
+          "gravity": "Center",
+          "width": "fillParent",
+          "height": "wrapContent",
+          "fontBold": true,
+          "fontSize":20,
+          "displayName": "Session State Name",
+          "visible": false,
+          },
+
+          {
+          "type": "label",
+          "text": "Part: $(SongPart) of $(SongPartCount)",
+          "gravity": "Center",
+          "width": "fillParent",
+          "height": "wrapContent",
+          "fontBold": true,
+          "fontSize":20,
+          "displayName": "Song Part Number",
+          },
+
+          {
+          "type": "label",
+          "text": "Next: $(NextSong)",
+          "gravity": "Center",
+          "width": "fillParent",
+          "height": "wrapContent",
+          "fontBold": true,
+          "fontSize":20,
+          "displayName": "Next Song Name",
+          },
+
+          {
+          "type": "label",
+          "text": "Next: $(NextSessionState)",
+          "gravity": "Center",
+          "width": "fillParent",
+          "height": "wrapContent",
+          "fontBold": true,
+          "fontSize":20,
+          "displayName": "Next Session State Name",
+          "visible": false,
+          },
+
+      ]
+    },
+      
+  ]
+}
