@@ -28,6 +28,8 @@
     "PopupMenuTextColor": "#dfe1e5",
     "PopupMenuTitleBackgroundColor": "#222326",
     "PopupMenuTitleTextColor": "#949599",
+    "LevelMeterColorCold":"#404040",
+    "LevelMeterColorHot":"#ff6600",
 
     "BasicColor_Red":"#6B0B0B",
     "BasicColor_Maroon":"#3B0B0B",
