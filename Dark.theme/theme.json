@@ -20,6 +20,7 @@
     "ColumnHeadersTextColor":"#949599",
     "StatusPanelTextColor": "#dfe1e5",
     "FocusedTextColor": "#FFFFFF",
+	"FocusedText": "#0480f1",
     "RoundButtonTextColor": "#d6d6d6",
     "SelectedTabTextColor": "#dfe1e5",
     "TabTextColor": "#949599",
