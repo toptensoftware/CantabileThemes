@@ -33,6 +33,9 @@
     "LevelMeterColorHot":"#ff6600",
 	"FirstBeatColor":"#00FF00",
 
+    "ButtonCaption":"#a6a8ac",
+    "ButtonCaptionPressed":"#dfe1e5",
+
     "BasicColor_Red":"#6B0B0B",
     "BasicColor_Maroon":"#3B0B0B",
     "BasicColor_Green":"#0B3B0B",
