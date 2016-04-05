@@ -1,0 +1,26 @@
+{
+	"debug": true,
+	"definitions":
+	{
+		"positionToScalar(x)": "x<=0 ? 0 : x<0.73 ? fromDb((x/0.73-1)*60, -60) : x<0.77 ? 1 : fromDb((x-0.77)/0.23*14, -60)",
+		"scalarToPosition(x)": "x<=0 ? 0 : x==1 ? 0.75 : x<1 ? (1+toDb(x, -60)/60)*0.73 : 0.77+0.23*toDb(x, -60)/14",
+	},
+	"uiKinds":
+	{
+		"horizontalSlider":
+		{
+			"ticks":
+			[
+				{ "kind": "major", "scalar": 0, "label": "-\u221E", },
+				{ "kind": "major", "scalar": "fromDb(-50)",	"label": "-50",	},
+				{ "kind": "major", "scalar": "fromDb(-40)",	"label": "-40",	},
+				{ "kind": "major", "scalar": "fromDb(-30)",	"label": "-30",	},
+				{ "kind": "major", "scalar": "fromDb(-20)",	"label": "-20",	},
+				{ "kind": "major", "scalar": "fromDb(-10)",	"label": "-10",	},
+				{ "kind": "major", "scalar": 1,	"label": "0",	},
+				{ "kind": "major", "scalar": "fromDb(7)",	"label": "+7",	},
+				{ "kind": "major", "scalar": "fromDb(14)",	"label": "+14",	},
+			]
+		}
+	}
+}	
