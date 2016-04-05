@@ -16,7 +16,7 @@
 		"slope" : 60,				
 
 		// Position of the 0 dB mark
-		"zeroDbPos": "96/127",	
+		"zeroDbPos": "64/127",	
 	},
 
 	"uiKinds":
@@ -28,7 +28,6 @@
 				{ "scalar": 0, 				"label": "-\u221E", "kind": "major" },
 				{ "scalar": "fromDb(-45)",	"label": "-45",	"kind": "minor" },
 				{ "scalar": "fromDb(-30)",	"label": "-30",	"kind": "minor" },
-				{ "scalar": "fromDb(-20)",	"label": "-20",	"kind": "minor" },
 				{ "scalar": "fromDb(-15)",	"label": "-15",	"kind": "minor" },
 				{ "scalar": "fromDb(-9)",	"label": "-9",	"kind": "minor" },
 				{ "scalar": "fromDb(-6)",	"label": "-6",	"kind": "minor" },
@@ -53,7 +52,8 @@
 				{ "scalar": "fromDb(-6)",	"label": "-6",	"kind": "minor" },
 				{ "scalar": 1,	"label": "0",	"kind": "major" },
 				{ "scalar": "fromDb(6)",	"label": "+6",	"kind": "minor" },
-				{ "scalar": "fromDb(15)",	"label": "+15",	"kind": "minor" },
+				{ "scalar": "fromDb(12)",	"label": "+12",	"kind": "minor" },
+				{ "scalar": "fromDb(18)",	"label": "+18",	"kind": "major" },
 			]
 		},
 
