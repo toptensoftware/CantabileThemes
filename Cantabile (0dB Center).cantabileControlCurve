@@ -67,6 +67,9 @@
 				{ "scalar": "fromDb(-6)",	"kind": "minor" },
 				{ "scalar": 1,				"kind": "major" },
 
+				{ "scalar": "fromDb(6)",	"kind": "minor" },
+				{ "scalar": "fromDb(15)",	"kind": "minor" },
+
 				// These describe how the transition to hot orange works
 				{ "scalar": "fromDb(-6)",	"kind": "hotStart" },
 				{ "scalar": "1",			"kind": "hotEnd" },
