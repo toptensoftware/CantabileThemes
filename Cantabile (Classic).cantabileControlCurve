@@ -1,5 +1,4 @@
 {
-	"debug": true,
 	"definitions":
 	{
 		"positionToScalar(x)": "x<=0 ? 0 : x<0.73 ? fromDb((x/0.73-1)*60, -60) : x<0.77 ? 1 : fromDb((x-0.77)/0.23*14, -60)",
