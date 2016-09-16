@@ -11,6 +11,7 @@
     "SidePanelHighlightedColor": "#ede4df",
     "DarkTextColor": "#dfe1e5",
     "LightTextColor": "#949599",
+    "ActiveListItemColor": "#002d62",
     "UltraLightTextColor": "#707070",
     "SlotBackgroundColor": "#f8f8f8",
     "SlotPanelBackgroundColor": "#121212",
@@ -36,6 +37,10 @@
 
     "ButtonCaption":"#a6a8ac",
     "ButtonCaptionPressed":"#dfe1e5",
+
+    "TooltipColorTop":"#FFFFFF",
+    "TooltipColorBottom":"#FFFFFF",
+    "TooltipColorText":"#000000",
 
     "BasicColor_Red":"#6B0B0B",
     "BasicColor_Maroon":"#3B0B0B",
