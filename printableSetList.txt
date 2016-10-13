@@ -8,7 +8,9 @@ body { font-family:Arial; margin:20px; font-size:14pt}
 <body>
 <h1>{Title}</h1>
 {foreach Sections}
+	{if Title}
 	<h2>{Title}</h2>
+	{/if}
 	<ol>
 		{foreach Songs}
 		<li>{Name}</li>
