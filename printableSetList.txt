@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>{Title}</title>
+<style>
+body { font-family:Arial; margin:20px; font-size:14pt}
+</style>
+</head>
+<body>
+<h1>{Title}</h1>
+{foreach Sections}
+	<h2>{Title}</h2>
+	<ol>
+		{foreach Songs}
+		<li>{Name}</li>
+		{/foreach}
+	</ol>
+{/foreach}
+</body>
+</html>
