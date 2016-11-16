@@ -58,4 +58,7 @@
     "BasicColor_Orange":"#6B3B0B",
     "BasicColor_Brown":"#3B230B",
 
+	"ModifiedSetListSuffix":" \u2022",
+	"ModifiedSongSuffix":" \u2022",
+	"ModifiedRackSuffix":" \u2022",
 }
