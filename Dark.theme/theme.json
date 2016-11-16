@@ -34,14 +34,15 @@
     "LevelMeterColorCold":"#404040",
     "LevelMeterColorHot":"#ff6600",
 	"FirstBeatColor":"#00FF00",
-
+	"SelectedListViewRowTop":"#058cF5",
+    "SelectedListViewRowBottom":"#015DE6",
+	"UnfocusedSelectedListViewRowTop":"#FFFFFF",
+    "UnfocusedSelectedListViewRowBottom":"#D3D3D3",
     "ButtonCaption":"#a6a8ac",
     "ButtonCaptionPressed":"#dfe1e5",
-
     "TooltipColorTop":"#FFFFFF",
     "TooltipColorBottom":"#FFFFFF",
     "TooltipColorText":"#000000",
-
     "BasicColor_Red":"#6B0B0B",
     "BasicColor_Maroon":"#3B0B0B",
     "BasicColor_Green":"#0B3B0B",
