@@ -59,5 +59,6 @@
   "BasicColor_Brown": "#3B230B",
   "ModifiedSetListSuffix": " •",
   "ModifiedSongSuffix": " •",
-  "ModifiedRackSuffix": " •"
+  "ModifiedRackSuffix": " •",
+  "InsertMarkerColor": "#FFA500"
 }
