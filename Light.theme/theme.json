@@ -61,5 +61,6 @@
   "ModifiedSetListSuffix": " •",
   "ModifiedSongSuffix": " •",
   "ModifiedRackSuffix": " •",
-  "InsertMarkerColor": "#FFA500"
+  "InsertMarkerColor": "#FFA500",
+  "ActiveSlotHighlightColor": "#dcecfa"
 }
