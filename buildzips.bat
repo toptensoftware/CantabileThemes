@@ -1,12 +1,13 @@
-if "%1"=="" (
-	set TARGETDIR=Build
-) ELSE (
-	set TARGETDIR=%1
-)
+@echo off
 
-if not exist %TARGETDIR% mkdir %TARGETDIR%
+echo Building theme packages...
+
+if EXIST "%~dp0build\" rd /s /q "%~dp0build\"
+mkdir "%~dp0build\"
 
 for /D %%D in ("*.theme") do (
-	if exist .\%TARGETDIR%\%%D del .\PackagedThemes\%%D.zip
-	zip -0 -j .\%TARGETDIR%\%%D %%D\*
+	if exist .\Build\%%D del .\Build\%%D
+	zip -0 -j .\Build\%%D %%D\* > NUL
 )
+
+echo.
