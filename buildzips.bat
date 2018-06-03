@@ -10,4 +10,9 @@ for /D %%D in ("*.theme") do (
 	zip -0 -j .\Build\%%D %%D\* > NUL
 )
 
+for /D %%D in ("*.webfolder") do (
+	if exist .\Build\%%D del .\Build\%%D
+	zip -0 -j .\Build\%%D %%D\*
+)
+
 echo.
