@@ -710,6 +710,7 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],3:[function(require,module,exports){
+(function (process){
 'use strict';
 
 const WebSocket = require('isomorphic-ws');
@@ -729,7 +730,9 @@ class Cantabile extends EventEmitter
 	constructor(socketUrl)
 	{
 		super();
-		this.socketUrl = socketUrl || 'ws://localhost:35007/api/socket/';
+
+		var defaultHost = process.browser ? window.location.host : "localhost:35007";
+		this.socketUrl = socketUrl || `ws://${defaultHost}/api/socket/`;
 		this.shouldConnect = false;
 		this._nextRid = 1;
 		this._pendingResponseHandlers = {};
@@ -1010,7 +1013,8 @@ const eventDiconnected = "disconnected";
 
 
 module.exports = Cantabile;
-},{"./setList":9,"debug":5,"events":1,"isomorphic-ws":7}],4:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"./setList":9,"_process":2,"debug":5,"events":1,"isomorphic-ws":7}],4:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1073,6 +1077,19 @@ class EndPoint extends EventEmitter
 
 		delete this._epid;
 		delete this._data;
+	}
+
+	post(endPoint, data)
+	{
+		if (this._epid)
+		{
+			this.owner.send({
+				ep: endPoint,
+				epid: this._epid,
+				method: 'post',
+				data: data
+			});
+		}
 	}
 
 	async _onConnected()
@@ -1751,12 +1768,15 @@ class SetList extends EndPoint
 	constructor(owner)
 	{
 		super(owner, "/api/setlist");
+		this._currentSong = null;
 	}
 
 	_onOpen()
 	{
+		this._currentSong = this._data.current>=0 ? this._data.items[this._data.current] : null;
 		this.emit('reload');
 		this.emit('changed');
+		this.emit('preLoadedChanged');
 	}
 
 	/**
@@ -1785,15 +1805,32 @@ class SetList extends EndPoint
 	 * @property currentSongIndex
 	 * @type {Number}
 	 */
-	get currentSongIndex() { return this._data ? this.data.current : -1 }
+	get currentSongIndex() { return this._data.items.indexOf(this._currentSong); }
+
+	/**
+	 * The currently loaded item (or null if the current song isn't in the set list)
+	 * @property currentSong
+	 * @type {SetListItem}
+	 */
+	get currentSong() { return this._currentSong; }
+
+	loadSongByIndex(index, delayed)
+	{
+		this.post("/loadSongByIndex", {
+			index: index,
+			delayed: delayed,
+		})
+	}
 
 	_onEvent_setListChanged(data)
 	{
 		this._data = data;
+		this._currentSong = this._data.current>=0 ? this._data.items[this._data.current] : null;
 		this.emit('reload');
 		this.emit('changed');
 		this.emit('preLoadedChanged');
 	}
+
 	_onEvent_itemAdded(data)
 	{
 		this._data.items.splice(data.index, 0, data.item);
@@ -1816,6 +1853,9 @@ class SetList extends EndPoint
 	}
 	_onEvent_itemRemoved(data)
 	{
+		if (this._data.current >= data.index)
+			this._data.current--;
+
 		this._data.items.splice(data.index, 1);		
 		this.emit('itemRemoved', data.index);
 		this.emit('changed');
@@ -1847,8 +1887,11 @@ class SetList extends EndPoint
 
 	_onEvent_itemChanged(data)
 	{
-		this._data.items.splice(data.index, 1, data.item);
-		//this._data.items[data.index] = data.item;
+		if (this._data.items[data.index] == this._currentSong)
+			this._currentSong = data;
+
+		this._data.items.splice(data.index, 1, data.item);		// Don't use [] so Vue can handle it
+
 		this.emit('itemChanged', data.index);
 		this.emit('changed');
 
@@ -1864,6 +1907,7 @@ class SetList extends EndPoint
 	{
 		this._data.items = data.items;
 		this._data.current = data.current;
+		this._currentSong = this._data.current>=0 ? this._data.items[this._data.current] : null;
 		this.emit('reload');
 		this.emit('changed');
 
@@ -1884,6 +1928,13 @@ class SetList extends EndPoint
 		 * 
 		 * @event preLoadedChanged
 		 */
+	}
+
+	_onEvent_currentSongChanged(data)
+	{
+		this._data.current = data.current;
+		this._currentSong = this._data.current>=0 ? this._data.items[this._data.current] : null;
+		this.emit('currentSongChanged');
 	}
 }
 
