@@ -723,7 +723,9 @@ const EventEmitter = require('events');
 * @class Cantabile
 * @extends EventEmitter
 * @constructor
-* @param {String} [socketUrl='http://localhost:35007/api/socket/'] The URL of the Cantabile instance to connect to.
+* @param {String} [socketUrl] The websocket URL of the Cantabile instance to connect to.
+* When running in a browser, the defaults to `ws://${window.location.host}/api/socket`.  In other
+* environments it defaults to `ws://localhost:35007/api/socket`.
 */
 class Cantabile extends EventEmitter
 {
@@ -909,15 +911,13 @@ class Cantabile extends EventEmitter
 			delete this._ws;
 
 			// Reject any pending requests
-			/*
 			var pending = this._pendingResponseHandlers;
 			console.log(pending);
 			this._pendingResponseHandlers = {};
-			for (let [key, handlerInfo] of pending) 
+			for (let [key, handlerInfo] in pending) 
 			{
 			  	handlerInfo.reject(new Error("Disconnected"));
 			}
-			*/
 		}
 
 		// Try to reconnect...
@@ -1020,6 +1020,17 @@ module.exports = Cantabile;
 const debug = require('debug')('Cantabile');
 const EventEmitter = require('events');
 
+
+// Helper to correctly join two paths ensuring only a single slash between them
+function joinPath(a,b)
+{
+	while (a.endsWith('/'))
+		a = a.substr(0, a.length - 1);
+	while (b.startsWith('/'))
+		b = b.substr(1);
+	return `${a}/${b}`;
+}
+
 /**
  * Common functionality for all end point handlers
  *
@@ -1079,17 +1090,32 @@ class EndPoint extends EventEmitter
 		delete this._data;
 	}
 
-	post(endPoint, data)
+	send(method, endPoint, data)
 	{
 		if (this._epid)
 		{
-			this.owner.send({
+			// If connection is open, pass the epid and just the sub-url path
+			return this.owner.request({
 				ep: endPoint,
 				epid: this._epid,
-				method: 'post',
-				data: data
+				method: method,
+				data: data,
 			});
 		}
+		else
+		{
+			// If connection isn't open, need to specify the full end point url
+			return this.owner.request({
+				ep: joinPath(this.endPoint, endPoint),
+				method: method,
+				data: data,
+			});
+		}
+	}
+
+	post(endPoint, data)
+	{
+		return this.send('post', endPoint, data);
 	}
 
 	async _onConnected()
@@ -1751,10 +1777,6 @@ function plural(ms, n, name) {
 const debug = require('debug')('Cantabile');
 const EndPoint = require('./EndPoint');
 
-
-
-
-
 /**
  * Used to access and control Cantabile's set list functionality.
  * 
@@ -1773,7 +1795,7 @@ class SetList extends EndPoint
 
 	_onOpen()
 	{
-		this._currentSong = this._data.current>=0 ? this._data.items[this._data.current] : null;
+		this._resolveCurrentSong();
 		this.emit('reload');
 		this.emit('changed');
 		this.emit('preLoadedChanged');
@@ -1814,6 +1836,12 @@ class SetList extends EndPoint
 	 */
 	get currentSong() { return this._currentSong; }
 
+	/**
+	 * Load the song at a given index position
+	 * @method loadSongByIndex
+	 * @param {Number} index The zero based index of the song to load
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
 	loadSongByIndex(index, delayed)
 	{
 		this.post("/loadSongByIndex", {
@@ -1822,10 +1850,78 @@ class SetList extends EndPoint
 		})
 	}
 
+	/**
+	 * Load the song with a given program number
+	 * @method loadSongByProgram
+	 * @param {Number} index The zero based program number of the song to load
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadSongByProgram(pr, delayed)
+	{
+		this.post("/loadSongByProgram", {
+			pr: pr,
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the first song in the set list
+	 * @method loadFirstSong
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadFirstSong(delayed)
+	{
+		this.post("/loadFirstSong", {
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the last song in the set list
+	 * @method loadLastSong
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadLastSong(delayed)
+	{
+		this.post("/loadLastSong", {
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the next or previous song in the set list
+	 * @method loadNextSong
+	 * @param {Number} direction Direction to move (1 = next, -1 = previous)
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 * @param {Boolean} [wrap=false] Whether to wrap around at the start/end of the list
+	 */
+	loadNextSong(direction, delayed, wrap)
+	{
+		this.post("/loadNextSong", {
+			direction: direction,
+			delayed: delayed,
+			wrap: wrap,
+		})
+	}
+
+
+	_resolveCurrentSong()
+	{
+		// Check have data and current index is in range and record the current song
+		if (this._data && this._data.current>=0 && this._data.current < this._data.items.length)
+		{
+			this._currentSong = this._data.items[this._data.current];
+		}
+		else
+		{
+			this._currentSong = null;
+		}
+	}
+
 	_onEvent_setListChanged(data)
 	{
 		this._data = data;
-		this._currentSong = this._data.current>=0 ? this._data.items[this._data.current] : null;
+		this._resolveCurrentSong();
 		this.emit('reload');
 		this.emit('changed');
 		this.emit('preLoadedChanged');
@@ -1853,9 +1949,6 @@ class SetList extends EndPoint
 	}
 	_onEvent_itemRemoved(data)
 	{
-		if (this._data.current >= data.index)
-			this._data.current--;
-
 		this._data.items.splice(data.index, 1);		
 		this.emit('itemRemoved', data.index);
 		this.emit('changed');
@@ -1907,7 +2000,7 @@ class SetList extends EndPoint
 	{
 		this._data.items = data.items;
 		this._data.current = data.current;
-		this._currentSong = this._data.current>=0 ? this._data.items[this._data.current] : null;
+		this._resolveCurrentSong();
 		this.emit('reload');
 		this.emit('changed');
 
@@ -1933,8 +2026,28 @@ class SetList extends EndPoint
 	_onEvent_currentSongChanged(data)
 	{
 		this._data.current = data.current;
-		this._currentSong = this._data.current>=0 ? this._data.items[this._data.current] : null;
+		this._resolveCurrentSong();
 		this.emit('currentSongChanged');
+
+		/**
+		 * Fired when the currently loaded song changes
+		 * 
+		 * @event currentSongChanged
+		 */
+	}
+
+	_onEvent_nameChanged(data)
+	{
+		if (this._data)
+			this._data.name = data ? data.name : null;
+		this.emit('nameChanged');
+		this.emit('changed');
+
+		/**
+		 * Fired when the name of the currently loaded set list changes
+		 * 
+		 * @event nameChanged
+		 */
 	}
 }
 
