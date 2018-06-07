@@ -1,0 +1,83 @@
+<html>
+<head>
+	<!-- Import the Cantabile Javscript API library -->
+	<script src="/lib/CantabileApi.js"></script>
+
+	<!-- Cantabile bundles a copy of vue -->
+	<script src="/lib/vue.js"></script>
+
+	<!-- Styles -->
+	<link href="/styles.css" type="text/css" rel="stylesheet" />
+
+	<!-- Scale -->
+	<meta name="viewport" content="initial-scale=1">
+</head>
+<body>
+
+<div id="main">
+<div class="content">
+
+	<!-- This is the template for the displayed HTML -->
+	<div class="states" id="states">
+		<h1>{{name}}</h1>
+		<div v-for="(i, index) in items" 
+				class="state"
+		    	v-bind:class="itemClasses(i)" 
+		    	v-on:click="loadState(index)">
+	    	<span class="pr">{{i.pr+1}}</span>
+	    	<span class="title">{{i.name}}</span>
+	    </div>
+	</div>
+
+</div>
+</div>
+
+<script>
+
+	// Create an instance of the Cantabile library and connect it
+	var C = new Cantabile();
+	C.connect();
+
+	// When anything in the list changed, update the view
+	C.songStates.on('changed', () => {
+		states.items = C.songStates.items;
+		states.currentState = C.songStates.currentState;
+		states.name = C.songStates.name;
+	});
+
+	// When the currently selected State changes, update the view
+	C.songStates.on('currentStateChanged', () => {
+		states.currentState = C.songStates.currentState;
+	});
+
+	C.songStates.open();
+
+	// Connect data to the HTML template via Vue
+	var states = new Vue({
+		el: "#states",
+		data: {
+			items: C.songStates.items,
+			currentState: C.songStates.currentState,
+			name: C.songStates.name,
+		},
+		methods: {
+			loadState: function(item)
+			{
+				C.songStates.loadStateByIndex(item);
+			},
+			isActive: function(item)
+			{
+				return C.songStates.currentState === item;
+			},
+			itemClasses: function(item)
+			{
+				return {
+					"active": this.currentState === item,
+				}
+			}
+		}
+	});
+
+</script>
+</body>
+</html>

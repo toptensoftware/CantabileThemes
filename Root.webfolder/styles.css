@@ -57,3 +57,18 @@ div.setlist div.sli-break {
   text-align: center;
   margin-top: 20px;
 }
+div.states div.state {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+div.states div.state:hover {
+  background-color: #E0E0E0;
+}
+div.states div.state.active {
+  background-color: #0372ed;
+  color: white;
+}

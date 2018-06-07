@@ -747,7 +747,15 @@ class Cantabile extends EventEmitter
 		 * @property setList
 		 * @type {SetList} 
 		 */
-		this.setList = new (require('./setList'))(this);
+		this.setList = new (require('./SetList'))(this);
+
+		/**
+		 * Gets the states of the current song
+		 *
+		 * @property songStates
+		 * @type {SongStates} 
+		 */
+		this.songStates = new (require('./SongStates'))(this);
 	}
 
 	/**
@@ -1014,7 +1022,7 @@ const eventDiconnected = "disconnected";
 
 module.exports = Cantabile;
 }).call(this,require('_process'))
-},{"./setList":9,"_process":2,"debug":5,"events":1,"isomorphic-ws":7}],4:[function(require,module,exports){
+},{"./SetList":5,"./SongStates":6,"_process":2,"debug":8,"events":1,"isomorphic-ws":10}],4:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1170,7 +1178,573 @@ class EndPoint extends EventEmitter
 }
 
 module.exports = EndPoint;
-},{"debug":5,"events":1}],5:[function(require,module,exports){
+},{"debug":8,"events":1}],5:[function(require,module,exports){
+'use strict';
+
+const debug = require('debug')('Cantabile');
+const EndPoint = require('./EndPoint');
+
+/**
+ * Used to access and control Cantabile's set list functionality.
+ * 
+ * Access this object via the {{#crossLink "Cantabile/setList:property"}}{{/crossLink}} property.
+ *
+ * @class SetList
+ * @extends EndPoint
+ */
+class SetList extends EndPoint
+{
+	constructor(owner)
+	{
+		super(owner, "/api/setlist");
+		this._currentSong = null;
+	}
+
+	_onOpen()
+	{
+		this._resolveCurrentSong();
+		this.emit('reload');
+		this.emit('changed');
+		this.emit('preLoadedChanged');
+	}
+
+	/**
+	 * An array of items in the set list
+	 * @property items
+	 * @type {SetListItem[]}
+	 */
+	get items() { return this._data ? this._data.items : null; }
+
+	/**
+	 * The display name of the current set list (ie: its file name with path and extension removed)
+	 * @property name
+	 * @type {String} 
+	 */
+	get name() { return this._data ? this._data.name : null; }
+
+	/**
+	 * Indicates if the set list is currently pre-loaded
+	 * @property preLoaded
+	 * @type {Boolean}
+	 */
+	get preLoaded() { return this._data ? this._data.preLoaded : false; }
+
+	/**
+	 * The index of the currently loaded song (or -1 if the current song isn't in the set list)
+	 * @property currentSongIndex
+	 * @type {Number}
+	 */
+	get currentSongIndex() { return this._data.items.indexOf(this._currentSong); }
+
+	/**
+	 * The currently loaded item (or null if the current song isn't in the set list)
+	 * @property currentSong
+	 * @type {SetListItem}
+	 */
+	get currentSong() { return this._currentSong; }
+
+	/**
+	 * Load the song at a given index position
+	 * @method loadSongByIndex
+	 * @param {Number} index The zero based index of the song to load
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadSongByIndex(index, delayed)
+	{
+		this.post("/loadSongByIndex", {
+			index: index,
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the song with a given program number
+	 * @method loadSongByProgram
+	 * @param {Number} index The zero based program number of the song to load
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadSongByProgram(pr, delayed)
+	{
+		this.post("/loadSongByProgram", {
+			pr: pr,
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the first song in the set list
+	 * @method loadFirstSong
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadFirstSong(delayed)
+	{
+		this.post("/loadFirstSong", {
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the last song in the set list
+	 * @method loadLastSong
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadLastSong(delayed)
+	{
+		this.post("/loadLastSong", {
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the next or previous song in the set list
+	 * @method loadNextSong
+	 * @param {Number} direction Direction to move (1 = next, -1 = previous)
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 * @param {Boolean} [wrap=false] Whether to wrap around at the start/end of the list
+	 */
+	loadNextSong(direction, delayed, wrap)
+	{
+		this.post("/loadNextSong", {
+			direction: direction,
+			delayed: delayed,
+			wrap: wrap,
+		})
+	}
+
+
+	_resolveCurrentSong()
+	{
+		// Check have data and current index is in range and record the current song
+		if (this._data && this._data.current>=0 && this._data.current < this._data.items.length)
+		{
+			this._currentSong = this._data.items[this._data.current];
+		}
+		else
+		{
+			this._currentSong = null;
+		}
+	}
+
+	_onEvent_setListChanged(data)
+	{
+		this._data = data;
+		this._resolveCurrentSong();
+		this.emit('reload');
+		this.emit('changed');
+		this.emit('preLoadedChanged');
+	}
+
+	_onEvent_itemAdded(data)
+	{
+		this._data.items.splice(data.index, 0, data.item);
+		this.emit('itemAdded', data.index);
+		this.emit('changed');
+
+		/**
+		 * Fired after a new item has been added to the set list
+		 *
+		 * @event itemAdded
+		 * @param {Number} index The zero based index of the newly added item 
+		 */
+
+		/**
+		 * Fired when anything about the contents of the set list changes
+		 *
+		 * @event changed
+		 */
+
+	}
+	_onEvent_itemRemoved(data)
+	{
+		this._data.items.splice(data.index, 1);		
+		this.emit('itemRemoved', data.index);
+		this.emit('changed');
+
+		/**
+		 * Fired after an item has been removed from the set list
+		 *
+		 * @event itemRemoved
+		 * @param {Number} index The zero based index of the removed item 
+		 */
+
+	}
+	_onEvent_itemMoved(data)
+	{
+		var item = this._data.items[data.from];
+		this._data.items.splice(data.from, 1);		
+		this._data.items.splice(data.to, 0, item);
+		this.emit('itemMoved', data.from, data.to);
+		this.emit('changed');
+
+		/**
+		 * Fired when an item in the set list has been moved
+		 *
+		 * @event itemMoved
+		 * @param {Number} from The zero based index of the item before being moved
+		 * @param {Number} to The zero based index of the item's new position
+		 */
+	}
+
+	_onEvent_itemChanged(data)
+	{
+		if (this.currentSongIndex == data.index)
+			this._currentSong = data.item;
+
+		this._data.items.splice(data.index, 1, data.item);		// Don't use [] so Vue can handle it
+
+		this.emit('itemChanged', data.index);
+		this.emit('changed');
+
+		/**
+		 * Fired when something about an item has changed
+		 *
+		 * @event itemChanged
+		 * @param {Number} index The zero based index of the item that changed
+		 */
+
+	}
+	_onEvent_itemsReload(data)
+	{
+		this._data.items = data.items;
+		this._data.current = data.current;
+		this._resolveCurrentSong();
+		this.emit('reload');
+		this.emit('changed');
+
+		/**
+		 * Fired when the entire set list has changed (eg: after a sort operation, or loading a new set list)
+		 * 
+		 * @event reload
+		 */
+	}
+
+	_onEvent_preLoadedChanged(data)
+	{
+		this._data.preLoaded = data.preLoaded;
+		this.emit('preLoadedChanged');
+
+		/**
+		 * Fired when the pre-loaded state of the list has changed
+		 * 
+		 * @event preLoadedChanged
+		 */
+	}
+
+	_onEvent_currentSongChanged(data)
+	{
+		this._data.current = data.current;
+		this._resolveCurrentSong();
+		this.emit('currentSongChanged');
+
+		/**
+		 * Fired when the currently loaded song changes
+		 * 
+		 * @event currentSongChanged
+		 */
+	}
+
+	_onEvent_nameChanged(data)
+	{
+		if (this._data)
+			this._data.name = data ? data.name : null;
+		this.emit('nameChanged');
+		this.emit('changed');
+
+		/**
+		 * Fired when the name of the currently loaded set list changes
+		 * 
+		 * @event nameChanged
+		 */
+	}
+}
+
+
+
+module.exports = SetList;
+},{"./EndPoint":4,"debug":8}],6:[function(require,module,exports){
+'use strict';
+
+const States = require('./States');
+
+/**
+ * Interface to the states of the current song
+ * 
+ * Access this object via the {{#crossLink "Cantabile/songStates:property"}}{{/crossLink}} property.
+ *
+ * @class SongStates
+ * @extends States
+ */
+class SongStates extends States
+{
+	constructor(owner)
+	{
+		super(owner, "/api/songStates");
+	}
+}
+
+
+module.exports = SongStates;
+},{"./States":7}],7:[function(require,module,exports){
+'use strict';
+
+const debug = require('debug')('Cantabile');
+const EndPoint = require('./EndPoint');
+
+/**
+ * Base states functionality for State and racks
+ * 
+ * @class States
+ * @extends EndPoint
+ */
+class States extends EndPoint
+{
+	constructor(owner, endPoint)
+	{
+		super(owner, endPoint);
+		this._currentState = null;
+	}
+
+	_onOpen()
+	{
+		this._resolveCurrentState();
+		this.emit('reload');
+		this.emit('changed');
+	}
+
+	/**
+	 * An array of states
+	 * @property items
+	 * @type {State[]}
+	 */
+	get items() { return this._data ? this._data.items : null; }
+
+	/**
+	 * The display name of the containing song or rack
+	 * @property name
+	 * @type {String} 
+	 */
+	get name() { return this._data ? this._data.name : null; }
+
+	/**
+	 * The index of the currently loaded State (or -1 if no active state)
+	 * @property currentStateIndex
+	 * @type {Number}
+	 */
+	get currentStateIndex() { return this._data.items.indexOf(this._currentState); }
+
+	/**
+	 * The currently loaded item (or null if no active state)
+	 * @property currentState
+	 * @type {State}
+	 */
+	get currentState() { return this._currentState; }
+
+	/**
+	 * Load the State at a given index position
+	 * @method loadStateByIndex
+	 * @param {Number} index The zero based index of the State to load
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadStateByIndex(index, delayed)
+	{
+		this.post("/loadStateByIndex", {
+			index: index,
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the State with a given program number
+	 * @method loadStateByProgram
+	 * @param {Number} index The zero based program number of the State to load
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadStateByProgram(pr, delayed)
+	{
+		this.post("/loadStateByProgram", {
+			pr: pr,
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the first state
+	 * @method loadFirstState
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadFirstState(delayed)
+	{
+		this.post("/loadFirstState", {
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the last state
+	 * @method loadLastState
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 */
+	loadLastState(delayed)
+	{
+		this.post("/loadLastState", {
+			delayed: delayed,
+		})
+	}
+
+	/**
+	 * Load the next or previous state
+	 * @method loadNextState
+	 * @param {Number} direction Direction to move (1 = next, -1 = previous)
+	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
+	 * @param {Boolean} [wrap=false] Whether to wrap around at the start/end
+	 */
+	loadNextState(direction, delayed, wrap)
+	{
+		this.post("/loadNextState", {
+			direction: direction,
+			delayed: delayed,
+			wrap: wrap,
+		})
+	}
+
+
+	_resolveCurrentState()
+	{
+		// Check have data and current index is in range and record the current State
+		if (this._data && this._data.current>=0 && this._data.current < this._data.items.length)
+		{
+			this._currentState = this._data.items[this._data.current];
+		}
+		else
+		{
+			this._currentState = null;
+		}
+	}
+
+	_onEvent_songChanged(data)
+	{
+		this._data = data;
+		this._resolveCurrentState();
+		this.emit('reload');
+		this.emit('changed');
+	}
+
+	_onEvent_itemAdded(data)
+	{
+		this._data.items.splice(data.index, 0, data.item);
+		this.emit('itemAdded', data.index);
+		this.emit('changed');
+
+		/**
+		 * Fired after a new state has been added
+		 *
+		 * @event itemAdded
+		 * @param {Number} index The zero based index of the newly added item 
+		 */
+
+		/**
+		 * Fired when anything about the contents of state list changes
+		 *
+		 * @event changed
+		 */
+
+	}
+	_onEvent_itemRemoved(data)
+	{
+		this._data.items.splice(data.index, 1);		
+		this.emit('itemRemoved', data.index);
+		this.emit('changed');
+
+		/**
+		 * Fired after a state has been removed
+		 *
+		 * @event itemRemoved
+		 * @param {Number} index The zero based index of the removed item 
+		 */
+
+	}
+	_onEvent_itemMoved(data)
+	{
+		var item = this._data.items[data.from];
+		this._data.items.splice(data.from, 1);		
+		this._data.items.splice(data.to, 0, item);
+		this.emit('itemMoved', data.from, data.to);
+		this.emit('changed');
+
+		/**
+		 * Fired when an item has been moved
+		 *
+		 * @event itemMoved
+		 * @param {Number} from The zero based index of the item before being moved
+		 * @param {Number} to The zero based index of the item's new position
+		 */
+	}
+
+	_onEvent_itemChanged(data)
+	{
+		if (this.currentStateIndex == data.index)
+			this._currentState = data.item;
+
+		this._data.items.splice(data.index, 1, data.item);		// Don't use [] so Vue can handle it
+
+		this.emit('itemChanged', data.index);
+		this.emit('changed');
+
+		/**
+		 * Fired when something about an state has changed
+		 *
+		 * @event itemChanged
+		 * @param {Number} index The zero based index of the item that changed
+		 */
+
+	}
+	_onEvent_itemsReload(data)
+	{
+		this._data.items = data.items;
+		this._data.current = data.current;
+		this._resolveCurrentState();
+		this.emit('reload');
+		this.emit('changed');
+
+		/**
+		 * Fired when the entire set of states has changed (eg: after a sort operation, or loading a new song/rack)
+		 * 
+		 * @event reload
+		 */
+	}
+
+	_onEvent_currentStateChanged(data)
+	{
+		this._data.current = data.current;
+		this._resolveCurrentState();
+		this.emit('currentStateChanged');
+
+		/**
+		 * Fired when the current state changes
+		 * 
+		 * @event currentStateChanged
+		 */
+	}
+
+	_onEvent_nameChanged(data)
+	{
+		if (this._data)
+			this._data.name = data ? data.name : null;
+		this.emit('nameChanged');
+		this.emit('changed');
+
+		/**
+		 * Fired when the name of the containing song or rack changes
+		 * 
+		 * @event nameChanged
+		 */
+	}
+}
+
+
+
+module.exports = States;
+},{"./EndPoint":4,"debug":8}],8:[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -1369,7 +1943,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":6,"_process":2}],6:[function(require,module,exports){
+},{"./debug":9,"_process":2}],9:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -1596,7 +2170,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":8}],7:[function(require,module,exports){
+},{"ms":11}],10:[function(require,module,exports){
 (function (global){
 // https://github.com/maxogden/websocket-stream/blob/48dc3ddf943e5ada668c31ccd94e9186f02fafbd/ws-fallback.js
 
@@ -1617,7 +2191,7 @@ if (typeof WebSocket !== 'undefined') {
 module.exports = ws
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],8:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -1771,288 +2345,5 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],9:[function(require,module,exports){
-'use strict';
-
-const debug = require('debug')('Cantabile');
-const EndPoint = require('./EndPoint');
-
-/**
- * Used to access and control Cantabile's set list functionality.
- * 
- * Access this object via the {{#crossLink "Cantabile/setList:property"}}{{/crossLink}} property.
- *
- * @class SetList
- * @extends EndPoint
- */
-class SetList extends EndPoint
-{
-	constructor(owner)
-	{
-		super(owner, "/api/setlist");
-		this._currentSong = null;
-	}
-
-	_onOpen()
-	{
-		this._resolveCurrentSong();
-		this.emit('reload');
-		this.emit('changed');
-		this.emit('preLoadedChanged');
-	}
-
-	/**
-	 * An array of items in the set list
-	 * @property items
-	 * @type {SetListItem[]}
-	 */
-	get items() { return this._data ? this._data.items : null; }
-
-	/**
-	 * The display name of the current set list (ie: its file name with path and extension removed)
-	 * @property name
-	 * @type {String} 
-	 */
-	get name() { return this._data ? this._data.name : null; }
-
-	/**
-	 * Indicates if the set list is currently pre-loaded
-	 * @property preLoaded
-	 * @type {Boolean}
-	 */
-	get preLoaded() { return this._data ? this._data.preLoaded : false; }
-
-	/**
-	 * The index of the currently loaded song (or -1 if the current song isn't in the set list)
-	 * @property currentSongIndex
-	 * @type {Number}
-	 */
-	get currentSongIndex() { return this._data.items.indexOf(this._currentSong); }
-
-	/**
-	 * The currently loaded item (or null if the current song isn't in the set list)
-	 * @property currentSong
-	 * @type {SetListItem}
-	 */
-	get currentSong() { return this._currentSong; }
-
-	/**
-	 * Load the song at a given index position
-	 * @method loadSongByIndex
-	 * @param {Number} index The zero based index of the song to load
-	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
-	 */
-	loadSongByIndex(index, delayed)
-	{
-		this.post("/loadSongByIndex", {
-			index: index,
-			delayed: delayed,
-		})
-	}
-
-	/**
-	 * Load the song with a given program number
-	 * @method loadSongByProgram
-	 * @param {Number} index The zero based program number of the song to load
-	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
-	 */
-	loadSongByProgram(pr, delayed)
-	{
-		this.post("/loadSongByProgram", {
-			pr: pr,
-			delayed: delayed,
-		})
-	}
-
-	/**
-	 * Load the first song in the set list
-	 * @method loadFirstSong
-	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
-	 */
-	loadFirstSong(delayed)
-	{
-		this.post("/loadFirstSong", {
-			delayed: delayed,
-		})
-	}
-
-	/**
-	 * Load the last song in the set list
-	 * @method loadLastSong
-	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
-	 */
-	loadLastSong(delayed)
-	{
-		this.post("/loadLastSong", {
-			delayed: delayed,
-		})
-	}
-
-	/**
-	 * Load the next or previous song in the set list
-	 * @method loadNextSong
-	 * @param {Number} direction Direction to move (1 = next, -1 = previous)
-	 * @param {Boolean} [delayed=false] Whether to perform a delayed or immediate load
-	 * @param {Boolean} [wrap=false] Whether to wrap around at the start/end of the list
-	 */
-	loadNextSong(direction, delayed, wrap)
-	{
-		this.post("/loadNextSong", {
-			direction: direction,
-			delayed: delayed,
-			wrap: wrap,
-		})
-	}
-
-
-	_resolveCurrentSong()
-	{
-		// Check have data and current index is in range and record the current song
-		if (this._data && this._data.current>=0 && this._data.current < this._data.items.length)
-		{
-			this._currentSong = this._data.items[this._data.current];
-		}
-		else
-		{
-			this._currentSong = null;
-		}
-	}
-
-	_onEvent_setListChanged(data)
-	{
-		this._data = data;
-		this._resolveCurrentSong();
-		this.emit('reload');
-		this.emit('changed');
-		this.emit('preLoadedChanged');
-	}
-
-	_onEvent_itemAdded(data)
-	{
-		this._data.items.splice(data.index, 0, data.item);
-		this.emit('itemAdded', data.index);
-		this.emit('changed');
-
-		/**
-		 * Fired after a new item has been added to the set list
-		 *
-		 * @event itemAdded
-		 * @param {Number} index The zero based index of the newly added item 
-		 */
-
-		/**
-		 * Fired when anything about the contents of the set list changes
-		 *
-		 * @event changed
-		 */
-
-	}
-	_onEvent_itemRemoved(data)
-	{
-		this._data.items.splice(data.index, 1);		
-		this.emit('itemRemoved', data.index);
-		this.emit('changed');
-
-		/**
-		 * Fired after an item has been removed from the set list
-		 *
-		 * @event itemRemoved
-		 * @param {Number} index The zero based index of the removed item 
-		 */
-
-	}
-	_onEvent_itemMoved(data)
-	{
-		var item = this._data.items[data.from];
-		this._data.items.splice(data.from, 1);		
-		this._data.items.splice(data.to, 0, item);
-		this.emit('itemMoved', data.from, data.to);
-		this.emit('changed');
-
-		/**
-		 * Fired when an item in the set list has been moved
-		 *
-		 * @event itemMoved
-		 * @param {Number} from The zero based index of the item before being moved
-		 * @param {Number} to The zero based index of the item's new position
-		 */
-	}
-
-	_onEvent_itemChanged(data)
-	{
-		if (this._data.items[data.index] == this._currentSong)
-			this._currentSong = data;
-
-		this._data.items.splice(data.index, 1, data.item);		// Don't use [] so Vue can handle it
-
-		this.emit('itemChanged', data.index);
-		this.emit('changed');
-
-		/**
-		 * Fired when something about an item has changed
-		 *
-		 * @event itemChanged
-		 * @param {Number} index The zero based index of the item that changed
-		 */
-
-	}
-	_onEvent_itemsReload(data)
-	{
-		this._data.items = data.items;
-		this._data.current = data.current;
-		this._resolveCurrentSong();
-		this.emit('reload');
-		this.emit('changed');
-
-		/**
-		 * Fired when the entire set list has changed (eg: after a sort operation, or loading a new set list)
-		 * 
-		 * @event reload
-		 */
-	}
-
-	_onEvent_preLoadedChanged(data)
-	{
-		this._data.preLoaded = data.preLoaded;
-		this.emit('preLoadedChanged');
-
-		/**
-		 * Fired when the pre-loaded state of the list has changed
-		 * 
-		 * @event preLoadedChanged
-		 */
-	}
-
-	_onEvent_currentSongChanged(data)
-	{
-		this._data.current = data.current;
-		this._resolveCurrentSong();
-		this.emit('currentSongChanged');
-
-		/**
-		 * Fired when the currently loaded song changes
-		 * 
-		 * @event currentSongChanged
-		 */
-	}
-
-	_onEvent_nameChanged(data)
-	{
-		if (this._data)
-			this._data.name = data ? data.name : null;
-		this.emit('nameChanged');
-		this.emit('changed');
-
-		/**
-		 * Fired when the name of the currently loaded set list changes
-		 * 
-		 * @event nameChanged
-		 */
-	}
-}
-
-
-
-module.exports = SetList;
-},{"./EndPoint":4,"debug":5}]},{},[3])(3)
+},{}]},{},[3])(3)
 });
