@@ -710,6 +710,378 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],3:[function(require,module,exports){
+'use strict';
+
+const debug = require('debug')('Cantabile');
+const EndPoint = require('./EndPoint');
+const EventEmitter = require('events');
+
+/**
+ * Represents an active connection watching a source binding point for changes/invocations
+
+ * Returned from the {{#crossLink "Bindings/watch:method"}}{{/crossLink}} method.
+ * 
+ * @class BindingWatcher
+ * @extends EventEmitter
+ */
+class BindingWatcher extends EventEmitter
+{
+	constructor(owner, name, indicies, condition, listener)
+	{
+		super();
+		this.owner = owner;
+		this._name = name;
+		this._indicies = indicies;
+		this._condition = condition;
+        this._listener = listener;
+        this._value = null;
+	}
+
+	/**
+	 * Returns the name of the binding point being listened to
+	 *
+	 * @property name
+	 * @type {String} 
+	 */
+	get name() { return this._name; }
+
+	/**
+	 * Returns the indicies of the binding point being listened to
+	 *
+	 * @property indicies
+	 * @type {Number[]} 
+	 */
+    get indicies() { return this._indicies; }
+    
+	/**
+	 * Returns the condition of the binding point being listened to
+	 *
+	 * @property condition
+	 * @type {Object} 
+	 */
+    get condition() { return this._condition; }
+
+	/**
+	 * Returns the last received value for the source binding point
+	 *
+	 * @property value
+	 * @type {Object} 
+	 */
+    get value() { return this._value; }
+    
+	_start()
+	{
+		this.owner.post("/watch", {
+            name: this._name,
+            indicies: this._indicies,
+            condition: this._condition
+		}).then(r => {
+            this.owner._registerWatchId(r.data.watchId, this);
+			this._watchId = r.data.watchId;
+			if (r.data.value !== null && r.data.value !== undefined)
+			{
+				this._value = r.data.value;
+				this._fireInvoked();
+			}
+		});
+	}
+
+	_stop()
+	{
+		if (this.owner._epid && this._watchId)
+		{
+			this.owner.send("/unwatch", { watchId: this._watchId})
+			this.owner._revokeWatchId(this._watchId);
+			this._watchId = 0;
+			if (this._value !== null && this._value !== undefined)
+			{
+				this._value = null;
+				this._fireInvoked();
+			}
+		}
+	}
+
+	/**
+	 * Stops monitoring this binding source
+	 *
+	 * @method unwatch
+	 */
+	unwatch()
+	{
+		this._stop();
+		this.owner._revokeWatcher(this);
+	}
+
+	_update(data)
+	{
+		this._value = data.value;
+		this._fireInvoked();
+	}
+
+	_fireInvoked()
+	{
+		// Function listener?
+		if (this._listener)
+			this._listener(this._value, this);
+
+		/**
+		 * Fired when the source binding point is triggered
+		 *
+		 * @event invoked
+		 * @param {Object} value The value supplied from the source binding
+		 * @param {BindingWatcher} source This object
+		 */
+		this.emit('invoked', this.value, this);
+	}
+}
+
+/**
+ * Provides access to Cantabile's binding points.
+ * 
+ * Access this object via the {{#crossLink "Cantabile/bindings:property"}}{{/crossLink}} property.
+ *
+ * @class Bindings
+ * @extends EndPoint
+ */
+class Bindings extends EndPoint
+{
+    constructor(owner)
+    {
+        super(owner, "/api/bindings");
+		this._watchers = [];
+		this._watchIds = {};
+    }
+
+    _onOpen()
+    {
+		for (let i=0; i<this._watchers.length; i++)
+		{
+			this._watchers[i]._start();
+		}
+    }
+
+    _onClose()
+    {
+		for (let i=0; i<this._watchers.length; i++)
+		{
+			this._watchers[i]._stop();
+		}
+    }
+
+
+    /**
+     * Retrieves a list of available binding points
+     * 
+     * @example
+     * 
+     *     let C = new CantabileApi();
+     *     C.connect();
+     *     console.log(await C.bindings.availableBindingPoints());
+     * 
+     * @method availableBindingPoints
+     * @returns {Promise|BindingPointInfo[]} A promise to return an array of BindingPointInfo
+     */
+    async availableBindingPoints()
+    {
+        await this.owner.untilConnected();
+        return (await this.request("GET", "/availableBindingPoints")).data;
+    }
+
+    /**
+     * Invokes a target binding point
+     * 
+     * @example
+     * 
+     * Set the master output level gain
+	 * 
+     *     C.bindings.invoke("global.masterLevels.outputGain", 0.5);
+     * 
+     * @example
+     * 
+     * Suspend the 2nd plugin in the song
+	 * 
+     *     C.bindings.invoke("global.indexedPlugin.suspend", true, [
+     * 	        0,     // Rack index (zero = song)
+     *          1      // Plugin index (zero based, 1 = the second plugin)
+     * 		]);
+     * 
+	 * 
+	 * @example
+	 * 
+	 * Sending a MIDI Controller Event
+	 * 
+	 *     C.bindings.invoke("midiInputPort.Main Keyboard", new {
+	 *         kind: "FineController",
+	 *         controller: 10,
+	 *         value: 1000,
+	 * 	   });
+	 *
+	 * @example
+	 * 
+	 * Sending MIDI Data directly
+	 * 
+	 *     C.bindings.invoke("midiInputPort.Main Keyboard", [ 0xb0, 23, 99 ]);
+	 * 
+	 * @example
+	 * 
+	 * Sending MIDI Sysex Data directly
+	 * 
+	 *     C.bindings.invoke("midiInputPort.Main Keyboard", [ 0xF7, 0x00, 0x00, 0x00, 0xF0 ]);
+	 * 
+     * @example
+     * 
+     * Some binding points expect a "parameter" value.  Parameter values are similar to the `value` parameter
+     * in that they specify a value to invoke on the target of the binding.  The difference is related to the
+     * way they're managed internally for user created bindings.  The `value` comes from the source of the binding 
+     * whereas a `parameter` value is stored with the binding itself.
+     * 
+     * eg: Load the song with program number 12
+	 * 
+     *     C.bindings.invoke("global.setList.loadSpecificSongByProgramInstant", null, null, 12);
+     * 
+     * @param {String} name The name of the binding point to invoke
+     * @param {Object} [value] The value to pass to the binding point
+     * @param {Number[]} [indicies] The integer indicies of the target binding point
+     * @param {Object} [parameter] The parameter value to invoke the target with
+     * @method invoke
+     * @returns {Promise} A promise that resolves once the target binding point has been invoked
+     */
+    async invoke(name, value, indicies, parameter)
+    {
+        return (await this.request("POST", "/invoke", {
+            name: name,
+            value: value,
+            indicies: indicies,
+            parameter: parameter,
+        }));
+    }
+
+    /**
+     * Queries a source binding point for it's current value.
+     * 
+     * @example
+     * 
+     *     console.log("Current Output Gain:", await C.bindings.query("global.masterLevels.outputGain"));
+     * 
+	 * @method query
+     * @param {String} name The name of the binding point to query
+     * @param {Number[]} [indicies] The integer indicies of the binding point
+	 * @returns {Object} The current value of the binding source
+     */
+    async query(name, indicies)
+    {
+        return (await this.request("POST", "/query", {
+            name: name,
+            indicies: indicies,
+        })).data.value;
+    }
+
+	/**
+	 * Starts watching a source binding point for changes (or invocations)
+	 * 
+	 * @example
+	 * 
+	 * Using a callback function:
+	 * 
+	 *     let C = new CantabileApi();
+	 *     
+	 *     // Watch a source binding point using a callback function
+	 *     C.bindings.watch("global.masterLevels.outputGain", null, null, function(value) {
+	 *         console.log("Master output gain changed to:", value);
+	 *     })
+	 *     
+	 * 	   // The "bindings" end point must be opened before callbacks will happen
+	 *     C.bindings.open();
+	 * 
+	 * @example
+	 * 
+	 * Using the BindingWatcher class and events:
+	 * 
+	 *     let C = new CantabileApi();
+	 *     let watcher = C.bindings.watch("global.masterLevels.outputGain");
+	 *     watcher.on('invoked', function(value) {
+	 *         console.log("Master output gain changed to:", value);
+	 *     });
+	 *     
+	 * 	   // The "variables" end point must be opened before callbacks will happen
+	 *     C.variables.open();
+	 *     
+	 *     /// later, stop listening
+	 *     watcher.unwatch();
+	 * 
+	 * @example
+	 * 
+	 * Watching for a MIDI event:
+	 * 
+     *     C.bindings.watch("midiInputPort.Onscreen Keyboard", null, {
+     *         channel: 0,
+     *         kind: "ProgramChange",
+     *         controller: -1,
+     *     }, function(value) {
+     *         console.log("Program Change: ", value);
+     *     })
+	 * 
+	 * @example
+
+	 * Watching for a keystroke:
+	 * 
+	 *     C.bindings.watch("global.pckeyboard.keyPress", null, "Ctrl+Alt+M", function() {
+     *         console.log("Key press!");
+     *     })
+	 * 
+	 * 
+	 * 
+	 *
+	 * @method watch
+     * @param {String} name The name of the binding point to query
+     * @param {Number[]} [indicies] The integer indicies of the binding point
+     * @param {Object} [condition] The condition for triggering the binding
+	 * @param {Function} [callback] Optional callback function to be called when the source binding triggers
+	 * 
+	 * The callback function has the form function(resolved, source) where resolved is the resolved display string and source
+	 * is the BindingWatcher instance.
+	 * 
+	 * @returns {BindingWatcher}
+	 */
+	watch(name, indicies, condition, listener)
+	{
+		let w = new BindingWatcher(this, name, indicies, condition, listener);
+		this._watchers.push(w);
+
+		if (this.isOpen)
+			w._start();
+	}
+
+	_registerWatchId(watchId, watcher)
+	{
+		this._watchIds[watchId] = watcher;
+	}
+
+	_revokeWatchId(watchId)
+	{
+		delete this._watchIds[watchId];
+	}
+
+	_revokeWatcher(w)
+	{
+		this._watchers = this._watchers.filter(x=>x != w);
+	}
+
+	_onEvent_invoked(data)
+	{
+		// Get the watcher
+		let w = this._watchIds[data.watchId];
+		if (w)
+		{
+			w._update(data);
+		}
+	}
+}
+
+
+
+module.exports = Bindings;
+},{"./EndPoint":5,"debug":12,"events":1}],4:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -756,6 +1128,38 @@ class Cantabile extends EventEmitter
 		 * @type {SongStates} 
 		 */
 		this.songStates = new (require('./SongStates'))(this);
+
+		/**
+		 * Gets the currently active key ranges
+		 *
+		 * @property keyRanges
+		 * @type {KeyRanges} 
+		 */
+		this.keyRanges = new (require('./KeyRanges'))(this);
+
+		/**
+		 * Gets the current set of show notes
+		 *
+		 * @property showNotes
+		 * @type {ShowNotes} 
+		 */
+		this.showNotes = new (require('./ShowNotes'))(this);
+
+		/**
+		 * Provides access to variable expansion facilities
+		 *
+		 * @property variables
+		 * @type {Variables} 
+		 */
+		this.variables = new (require('./Variables'))(this);
+
+		/**
+		 * Provides access to global binding points
+		 *
+		 * @property bindings
+		 * @type {Bindings} 
+		 */
+		this.bindings = new (require('./Bindings'))(this);
 	}
 
 	/**
@@ -828,6 +1232,34 @@ class Cantabile extends EventEmitter
 		}.bind(this));
 	}
 
+	/**
+	 * Returns a promise that will be resolved when connected
+	 * 
+	 * @example
+	 * 
+	 *     let C = new CantabileApi();
+	 *     await C.untilConnected();
+	 *
+	 * @method untilConnected
+	 * @returns {Promise}
+	 */
+	untilConnected()
+	{
+		if (this._state == "connected")
+		{
+			return Promise.resolve();		
+		}
+		else
+		{
+			return new Promise((resolve, reject) => {
+				if (!this.pendingConnectPromises)
+					 this.pendingConnectPromises = [resolve];
+				else
+					this.pendingConnectPromises.push(resolve);
+			});
+		}
+	}
+
 	// PRIVATE:
 
 	// Internal helper to change state, log it and fire event
@@ -839,6 +1271,18 @@ class Cantabile extends EventEmitter
 			this.emit('stateChanged', value);
 			this.emit(value);
 			debug(value);
+
+			if (this._state == "connected")
+			{
+				if (this.pendingConnectPromises)
+				{
+					for (let i=0; i<this.pendingConnectPromises.length; i++)
+					{
+						this.pendingConnectPromises[i]();
+					}
+					this.pendingConnectPromises = null;
+				}
+			}
 		}
 	}
 
@@ -922,9 +1366,10 @@ class Cantabile extends EventEmitter
 			var pending = this._pendingResponseHandlers;
 			console.log(pending);
 			this._pendingResponseHandlers = {};
-			for (let [key, handlerInfo] in pending) 
+			for (let key in pending) 
 			{
-			  	handlerInfo.reject(new Error("Disconnected"));
+				console.log("===> disconnecting", key);
+			  	pending[key].reject(new Error("Disconnected"));
 			}
 		}
 
@@ -1022,7 +1467,7 @@ const eventDiconnected = "disconnected";
 
 module.exports = Cantabile;
 }).call(this,require('_process'))
-},{"./SetList":5,"./SongStates":6,"_process":2,"debug":8,"events":1,"isomorphic-ws":10}],4:[function(require,module,exports){
+},{"./Bindings":3,"./KeyRanges":6,"./SetList":7,"./ShowNotes":8,"./SongStates":9,"./Variables":11,"_process":2,"debug":12,"events":1,"isomorphic-ws":14}],5:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1103,6 +1548,29 @@ class EndPoint extends EventEmitter
 		if (this._epid)
 		{
 			// If connection is open, pass the epid and just the sub-url path
+			return this.owner.send({
+				ep: endPoint,
+				epid: this._epid,
+				method: method,
+				data: data,
+			});
+		}
+		else
+		{
+			// If connection isn't open, need to specify the full end point url
+			return this.owner.send({
+				ep: joinPath(this.endPoint, endPoint),
+				method: method,
+				data: data,
+			});
+		}
+	}
+
+	request(method, endPoint, data)
+	{
+		if (this._epid)
+		{
+			// If connection is open, pass the epid and just the sub-url path
 			return this.owner.request({
 				ep: endPoint,
 				epid: this._epid,
@@ -1123,13 +1591,18 @@ class EndPoint extends EventEmitter
 
 	post(endPoint, data)
 	{
-		return this.send('post', endPoint, data);
+		return this.request('post', endPoint, data);
 	}
+
+	get isOpen() { return !!this._epid }
 
 	async _onConnected()
 	{
 		try
 		{
+			if (this.openCount == 0)
+				return;
+				
 			var msg = await this.owner.request(
 			{ 
 				method: "open",
@@ -1152,11 +1625,11 @@ class EndPoint extends EventEmitter
 
 	_onDisconnected()
 	{
-		this._onClose();
 		if (this._epid)
 			this.owner._revokeEndPointEventHandler(this._epid);
 		delete this._epid;
 		delete this._data;
+		this._onClose();
 	}
 
 	_onOpen()
@@ -1178,7 +1651,55 @@ class EndPoint extends EventEmitter
 }
 
 module.exports = EndPoint;
-},{"debug":8,"events":1}],5:[function(require,module,exports){
+},{"debug":12,"events":1}],6:[function(require,module,exports){
+'use strict';
+
+const debug = require('debug')('Cantabile');
+const EndPoint = require('./EndPoint');
+
+/**
+ * Provides access to information about the currently active set of key ranges
+ * 
+ * Access this object via the {{#crossLink "Cantabile/keyRanges:property"}}{{/crossLink}} property.
+ *
+ * @class KeyRanges
+ * @extends EndPoint
+ */
+class KeyRanges extends EndPoint
+{
+	constructor(owner)
+	{
+		super(owner, "/api/keyranges");
+	}
+
+	_onOpen()
+	{
+		/**
+		 * Fired when the active set of key ranges has changed
+		 *
+		 * @event changed
+		 */
+		this.emit('changed');
+	}
+
+	/**
+	 * An array of key ranges
+	 * @property items
+	 * @type {KeyRange[]}
+	 */
+	get items() { return this._data ? this._data.items : null; }
+
+	_onEvent_keyRangesChanged(data)
+	{
+		this._data = data;
+		this.emit('changed');
+	}
+}
+
+
+
+module.exports = KeyRanges;
+},{"./EndPoint":5,"debug":12}],7:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1461,7 +1982,124 @@ class SetList extends EndPoint
 
 
 module.exports = SetList;
-},{"./EndPoint":4,"debug":8}],6:[function(require,module,exports){
+},{"./EndPoint":5,"debug":12}],8:[function(require,module,exports){
+'use strict';
+
+const debug = require('debug')('Cantabile');
+const EndPoint = require('./EndPoint');
+
+/**
+ * Used to access the current set of show notes
+ * 
+ * Access this object via the {{#crossLink "Cantabile/showNotes:property"}}{{/crossLink}} property.
+ *
+ * @class ShowNotes
+ * @extends EndPoint
+ */
+class ShowNotes extends EndPoint
+{
+	constructor(owner)
+	{
+		super(owner, "/api/shownotes");
+	}
+
+	_onOpen()
+	{
+		this.emit('reload');
+		this.emit('changed');
+	}
+
+	/**
+	 * An array of show note items
+	 * @property items
+	 * @type {ShowNote[]}
+	 */
+	get items() { return this._data ? this._data.items : null; }
+
+	_onEvent_itemAdded(data)
+	{
+		this._data.items.splice(data.index, 0, data.item);
+		this.emit('itemAdded', data.index);
+		this.emit('changed');
+
+		/**
+		 * Fired after a new show note has been added
+		 *
+		 * @event itemAdded
+		 * @param {Number} index The zero based index of the newly added item 
+		 */
+
+		/**
+		 * Fired when anything about the current set of show notes changes
+		 *
+		 * @event changed
+		 */
+
+	}
+	_onEvent_itemRemoved(data)
+	{
+		this._data.items.splice(data.index, 1);		
+		this.emit('itemRemoved', data.index);
+		this.emit('changed');
+
+		/**
+		 * Fired after a show note has been removed
+		 *
+		 * @event itemRemoved
+		 * @param {Number} index The zero based index of the removed item 
+		 */
+
+	}
+	_onEvent_itemMoved(data)
+	{
+		var item = this._data.items[data.from];
+		this._data.items.splice(data.from, 1);		
+		this._data.items.splice(data.to, 0, item);
+		this.emit('itemMoved', data.from, data.to);
+		this.emit('changed');
+
+		/**
+		 * Fired when an show note has been moved
+		 *
+		 * @event itemMoved
+		 * @param {Number} from The zero based index of the item before being moved
+		 * @param {Number} to The zero based index of the item's new position
+		 */
+	}
+
+	_onEvent_itemChanged(data)
+	{
+		this._data.items.splice(data.index, 1, data.item);		// Don't use [] so Vue can handle it
+
+		this.emit('itemChanged', data.index);
+		this.emit('changed');
+
+		/**
+		 * Fired when something about an show note has changed
+		 *
+		 * @event itemChanged
+		 * @param {Number} index The zero based index of the item that changed
+		 */
+
+	}
+	_onEvent_itemsReload(data)
+	{
+		this._data.items = data.items;
+		this.emit('reload');
+		this.emit('changed');
+
+		/**
+		 * Fired when the entire set of show notes has changed (eg: after  loading a new song)
+		 * 
+		 * @event reload
+		 */
+	}
+}
+
+
+
+module.exports = ShowNotes;
+},{"./EndPoint":5,"debug":12}],9:[function(require,module,exports){
 'use strict';
 
 const States = require('./States');
@@ -1484,7 +2122,7 @@ class SongStates extends States
 
 
 module.exports = SongStates;
-},{"./States":7}],7:[function(require,module,exports){
+},{"./States":10}],10:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1744,7 +2382,253 @@ class States extends EndPoint
 
 
 module.exports = States;
-},{"./EndPoint":4,"debug":8}],8:[function(require,module,exports){
+},{"./EndPoint":5,"debug":12}],11:[function(require,module,exports){
+'use strict';
+
+const debug = require('debug')('Cantabile');
+const EndPoint = require('./EndPoint');
+const EventEmitter = require('events');
+
+/**
+ * Represents a monitored pattern string.
+
+ * Returned from the {{#crossLink "Variables/watch:method"}}{{/crossLink}} method.
+ *
+ * @class PatternWatcher
+ * @extends EventEmitter
+ */
+class PatternWatcher extends EventEmitter
+{
+	constructor(owner, pattern, listener)
+	{
+		super();
+		this.owner = owner;
+		this._pattern = pattern;	
+		this._patternId = 0;
+		this._resolved = "";
+		this._listener = listener;
+	}
+
+	/**
+	 * Returns the pattern string being watched
+	 *
+	 * @property pattern
+	 * @type {String} 
+	 */
+	get pattern() { return this._pattern; }
+
+	/**
+	 * Returns the current resolved display string
+	 *
+	 * @property resolved
+	 * @type {String} 
+	 */
+	get resolved() { return this._resolved; }
+
+	_start()
+	{
+		this.owner.post("/watch", {
+			pattern: this._pattern,
+		}).then(r => {
+			if (r.data.patternId)
+			{
+				this.owner._registerPatternId(r.data.patternId, this);
+				this._patternId = r.data.patternId;
+			}
+			this._resolved = r.data.resolved;
+			this._fireChanged();
+		});
+	}
+
+	_stop()
+	{
+		if (this.owner._epid && this._patternId)
+		{
+			this.owner.send("/unwatch", { patternId: this._patternId})
+			this.owner._revokePatternId(this._patternId);
+			this._patternId = 0;
+			this.resolved = "";
+			this._fireChanged();
+		}
+	}
+
+	/**
+	 * Stops monitoring this pattern string for changes
+	 *
+	 * @method unwatch
+	 */
+	unwatch()
+	{
+		this._stop();
+		this.owner._revokeWatcher(this);
+	}
+
+	_update(data)
+	{
+		this._resolved = data.resolved;
+		this._fireChanged();
+	}
+
+	_fireChanged()
+	{
+		// Function listener?
+		if (this._listener)
+			this._listener(this.resolved, this);
+
+		/**
+		 * Fired after a new show note has been added
+		 *
+		 * @event changed
+		 * @param {String} resolved The new display string
+		 * @param {PatternWatcher} source This object
+		 */
+		this.emit('changed', this.resolved, this);
+	}
+}
+
+
+
+/**
+ * Provides access to Cantabile's internal variables by allowing a pattern string to be
+ * expanded into a final display string.
+ * 
+ * Access this object via the {{#crossLink "Cantabile/variables:property"}}{{/crossLink}} property.
+ *
+ * @class Variables
+ * @extends EndPoint
+ */
+class Variables extends EndPoint
+{
+	constructor(owner)
+	{
+		super(owner, "/api/variables");
+		this.watchers = [];
+		this.patternIds = {};
+	}
+
+
+	/**
+	 * Resolves a variable pattern string into a final display string
+	 * 
+	 * @example
+	 * 
+	 *     let C = new CantabileApi();
+	 *     console.log(await C.variables.resolve("Song: $(SongTitle)"));
+	 * 
+	 * @example
+	 * 
+	 *     let C = new CantabileApi();
+	 *     C.variables.resolve("Song: $(SongTitle)").then(r => console.log(r)));
+	 *
+	 * @method resolve
+	 * @returns {Promise|String} A promise to provide the resolved string
+	 */
+	async resolve(pattern)
+	{
+		await this.owner.untilConnected();
+
+		return (await this.post("/resolve", {
+			pattern: pattern
+		})).data.resolved;
+	}
+
+	_onOpen()
+	{
+		for (let i=0; i<this.watchers.length; i++)
+		{
+			this.watchers[i]._start();
+		}
+	}
+
+	_onClose()
+	{
+		for (let i=0; i<this.watchers.length; i++)
+		{
+			this.watchers[i]._stop();
+		}
+	}
+
+	/**
+	 * Starts watching a pattern string for changes
+	 * 
+	 * @example
+	 * 
+	 * Using a callback function:
+	 * 
+	 *     let C = new CantabileApi();
+	 *     
+	 *     // Watch a string pattern using a callback function
+	 *     C.variables.watch("Song: $(SongTitle)", function(resolved) {
+	 *         console.log(resolved);
+	 *     })
+	 *     
+	 * 	   // The "variables" end point must be opened before callbacks will happen
+	 *     C.variables.open();
+	 * 
+	 * @example
+	 * 
+	 * Using the PatternWatcher class and events:
+	 * 
+	 *     let C = new CantabileApi();
+	 *     let watcher = C.variables.watch("Song: $(SongTitle)");
+	 *     watcher.on('changed', function(resolved) {
+	 *         console.log(resolved);
+	 *     });
+	 *     
+	 * 	   // The "variables" end point must be opened before callbacks will happen
+	 *     C.variables.open();
+	 *     
+	 *     /// later, stop listening
+	 *     watcher.unwatch();
+	 *
+	 * @method watch
+	 * @param {String} pattern The string pattern to watch
+	 * @param {Function} [callback] Optional callback function to be called when the resolved display string changes.
+	 * 
+	 * The callback function has the form function(resolved, source) where resolved is the resolved display string and source
+	 * is the PatternWatcher instance.
+	 * 
+	 * @returns {PatternWatcher}
+	 */
+	watch(pattern, listener)
+	{
+		let w = new PatternWatcher(this, pattern, listener);
+		this.watchers.push(w);
+
+		if (this.isOpen)
+			w._start();
+	}
+
+	_registerPatternId(patternId, watcher)
+	{
+		this.patternIds[patternId] = watcher;
+	}
+
+	_revokePatternId(patternId)
+	{
+		delete this.patternIds[patternId];
+	}
+
+	_revokeWatcher(w)
+	{
+		this.watchers = this.watchers.filter(x=>x != w);
+	}
+
+	_onEvent_patternChanged(data)
+	{
+		// Get the watcher
+		let w = this.patternIds[data.patternId];
+		if (w)
+		{
+			w._update(data);
+		}
+	}
+}
+
+
+
+module.exports = Variables;
+},{"./EndPoint":5,"debug":12,"events":1}],12:[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -1943,7 +2827,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":9,"_process":2}],9:[function(require,module,exports){
+},{"./debug":13,"_process":2}],13:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -2170,7 +3054,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":11}],10:[function(require,module,exports){
+},{"ms":15}],14:[function(require,module,exports){
 (function (global){
 // https://github.com/maxogden/websocket-stream/blob/48dc3ddf943e5ada668c31ccd94e9186f02fafbd/ws-fallback.js
 
@@ -2191,7 +3075,7 @@ if (typeof WebSocket !== 'undefined') {
 module.exports = ws
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],11:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -2345,5 +3229,5 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}]},{},[3])(3)
+},{}]},{},[4])(4)
 });
