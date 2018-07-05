@@ -1,0 +1,74 @@
+@import url("fonts/open-sans/open-sans.css");
+/* -----------------  basics  ----------------- */
+html {
+  position: relative;
+  min-height: 100%;
+  height: auto!important;
+}
+body {
+  margin: 0 0 75px;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  position: static!important;
+  min-height: 0!important;
+  box-sizing: border-box;
+}
+/* -----------------  main content  ----------------- */
+div#main {
+  height: auto;
+  overflow: auto;
+}
+div.content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1000px;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  color: #404040;
+  margin: 0 auto;
+  margin-top: 20px;
+  position: relative;
+  padding-bottom: 50px;
+}
+div.content a {
+  color: #404040;
+}
+@media only screen and (max-width: 979px) {
+  div.content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+div.setlist div.sli-song {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+div.setlist div.sli-song:hover {
+  background-color: #E0E0E0;
+}
+div.setlist div.sli-song.active {
+  background-color: #0372ed;
+  color: white;
+}
+div.setlist div.sli-break {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+div.states div.state {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+div.states div.state:hover {
+  background-color: #E0E0E0;
+}
+div.states div.state.active {
+  background-color: #0372ed;
+  color: white;
+}

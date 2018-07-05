@@ -1,0 +1,85 @@
+<html>
+<head>
+	<!-- Import the Cantabile Javscript API library -->
+	<script src="/lib/cantabile-js.min.js"></script>
+
+	<!-- Cantabile bundles a copy of vue -->
+	<script src="/lib/vue.js"></script>
+
+	<!-- Styles -->
+	<link href="/styles.css" type="text/css" rel="stylesheet" />
+
+	<!-- Scale -->
+	<meta name="viewport" content="initial-scale=1">
+</head>
+<body>
+
+<div id="main">
+<div class="content">
+
+	<div class="setlist" id="setlist">
+		<h1>{{name}}</h1>
+
+	<!-- This is the template for the displayed HTML -->
+	    <div v-for="(i, index) in items" 
+		    	v-bind:class="itemClasses(i)" 
+		    	v-on:click="loadSong(index)">
+	    	<span v-if="i.kind == 'song'" class="pr">{{i.pr+1}}</span>
+	    	<span class="title">{{i.name}}</span>
+	    </div>
+	</div>
+
+</div>
+</div>
+
+<script>
+
+	// Create an instance of the Cantabile library and connect it
+	var C = new Cantabile();
+	C.connect();
+
+	// When anything in the set list changed, update the view
+	C.setList.on('changed', () => {
+		setlist.items = C.setList.items;
+		setlist.currentSong = C.setList.currentSong;
+		setlist.name = C.setList.name;
+	});
+
+	// When the currently selected song changes, update the view
+	C.setList.on('currentSongChanged', () => {
+		setlist.currentSong = C.setList.currentSong;
+	});
+
+	C.setList.open();
+
+	// Connect set list data to the HTML template via Vue
+	var setlist = new Vue({
+		el: "#setlist",
+		data: {
+			items: C.setList.items,
+			currentSong: C.setList.currentSong,
+			name: C.setList.name,
+		},
+		methods: {
+			loadSong: function(item)
+			{
+				C.setList.loadSongByIndex(item);
+			},
+			isActive: function(item)
+			{
+				return C.setList.currentSong === item;
+			},
+			itemClasses: function(item)
+			{
+				return {
+					"sli-song": item.kind == 'song',
+					"sli-break": item.kind == 'break',
+					"active": this.currentSong === item,
+				}
+			}
+		}
+	});
+
+</script>
+</body>
+</html>
