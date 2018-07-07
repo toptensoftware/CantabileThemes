@@ -24,7 +24,7 @@
 <div class="content">
 
 	<!-- This is the template for the displayed HTML -->
-	<div class="states" id="states">
+	<div class="header" id="header">
 		<p>Song: <strong>{{name}}</strong> State:<strong>{{currentState}}</strong></p>
 	</div>
 
@@ -41,10 +41,30 @@
 	var C = new Cantabile();
 	C.connect();
 
-	// When anything in the list changed, update the view
+	C.song.open();
+	C.bindings.open();
+
+	// Watch for CC 16 on the onscreen keyboard
+	C.bindings.watch(
+		"midiInputPort.Onscreen Keyboard",                      // The source binding point
+		null,                                                   // No indicies needed
+		{ kind: "Controller", controller: 16, channel: 0 },     // The event to watch for (CC 16 on channel 1)
+		onScroll                                                  // The function to call when triggered
+	);
+
+	// This function will be called whenever CC 16 changes
+	function onScroll(value)
+	{
+		console.log(value);
+		var body = document.body;
+		body.scrollTop = (value / 127) * (body.scrollHeight-body.clientHeight);
+	}
+
+	// watch for the current song changing...
 	C.song.on('changed', () => {
-		states.currentState = C.song.currentState;
-		states.name = C.song.name;
+
+		header.currentState = C.song.currentState;
+		header.name = C.song.name;
 
 		$("div#notesView").html("Loading...");
 
@@ -69,14 +89,13 @@
 		});
 	});
 
-	C.song.open();
 
 	// Connect data to the HTML template via Vue
-	var states = new Vue({
-		el: "#states",
+	var header = new Vue({
+		el: "#header",
 		data: {
-			currentState: C.songStates.currentState,
-			name: C.songStates.name,
+			currentState: C.song.currentState,
+			name: C.song.name,
 		},
 	});
 

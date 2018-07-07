@@ -12,6 +12,9 @@ body {
   min-height: 0!important;
   box-sizing: border-box;
 }
+p img {
+  max-width: 100%;
+}
 /* -----------------  main content  ----------------- */
 div#main {
   height: auto;
