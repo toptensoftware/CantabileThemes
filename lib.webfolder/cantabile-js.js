@@ -1093,7 +1093,7 @@ class Bindings extends EndPoint
 
 
 module.exports = Bindings;
-},{"./EndPoint":5,"debug":12,"events":1}],4:[function(require,module,exports){
+},{"./EndPoint":5,"debug":13,"events":1}],4:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1172,6 +1172,14 @@ class Cantabile extends EventEmitter
 		 * @type {Bindings} 
 		 */
 		this.bindings = new (require('./Bindings'))(this);
+
+		/**
+		 * Provides access to information about the current song
+		 *
+		 * @property song
+		 * @type {Song} 
+		 */
+		this.song = new (require('./Song'))(this);
 	}
 
 	/**
@@ -1482,7 +1490,7 @@ const eventDiconnected = "disconnected";
 
 module.exports = Cantabile;
 }).call(this,require('_process'))
-},{"./Bindings":3,"./KeyRanges":6,"./SetList":7,"./ShowNotes":8,"./SongStates":9,"./Variables":11,"_process":2,"debug":12,"events":1,"isomorphic-ws":14}],5:[function(require,module,exports){
+},{"./Bindings":3,"./KeyRanges":6,"./SetList":7,"./ShowNotes":8,"./Song":9,"./SongStates":10,"./Variables":12,"_process":2,"debug":13,"events":1,"isomorphic-ws":15}],5:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1666,7 +1674,7 @@ class EndPoint extends EventEmitter
 }
 
 module.exports = EndPoint;
-},{"debug":12,"events":1}],6:[function(require,module,exports){
+},{"debug":13,"events":1}],6:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1714,7 +1722,7 @@ class KeyRanges extends EndPoint
 
 
 module.exports = KeyRanges;
-},{"./EndPoint":5,"debug":12}],7:[function(require,module,exports){
+},{"./EndPoint":5,"debug":13}],7:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1997,7 +2005,7 @@ class SetList extends EndPoint
 
 
 module.exports = SetList;
-},{"./EndPoint":5,"debug":12}],8:[function(require,module,exports){
+},{"./EndPoint":5,"debug":13}],8:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -2114,7 +2122,63 @@ class ShowNotes extends EndPoint
 
 
 module.exports = ShowNotes;
-},{"./EndPoint":5,"debug":12}],9:[function(require,module,exports){
+},{"./EndPoint":5,"debug":13}],9:[function(require,module,exports){
+'use strict';
+
+const EndPoint = require('./EndPoint');
+
+/**
+ * Interface to the current song
+ * 
+ * Access this object via the {{#crossLink "Cantabile/song:property"}}{{/crossLink}} property.
+ *
+ * @class Song
+ * @extends EndPoint
+ */
+class SongStates extends EndPoint
+{
+	constructor(owner)
+	{
+		super(owner, "/api/song");
+	}
+
+	_onOpen()
+	{
+		this.emit('changed');
+		this.emit('nameChanged');
+		this.emit('currentStateChanged');
+	}
+
+	get name() { return this._data ? this._data.name : null; }
+	get currentState() { return this._data ? this._data.currentState : null; }
+
+	_onEvent_songChanged(data)
+	{
+		this._data = data;
+		this.emit('changed');
+		this.emit('nameChanged');
+		this.emit('currentStateChanged');
+	}
+
+	_onEvent_nameChanged(data)
+	{
+		this._data.name = data.name;
+		this.emit('changed');
+		this.emit('nameChanged');
+	}
+
+	_onEvent_currentStateChanged(data)
+	{
+		this._data.currentState = data.currentState;
+		this.emit('changed');
+		this.emit('currentStateChanged');
+	}
+
+}
+
+
+module.exports = SongStates;
+},{"./EndPoint":5}],10:[function(require,module,exports){
 'use strict';
 
 const States = require('./States');
@@ -2137,7 +2201,7 @@ class SongStates extends States
 
 
 module.exports = SongStates;
-},{"./States":10}],10:[function(require,module,exports){
+},{"./States":11}],11:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -2397,7 +2461,7 @@ class States extends EndPoint
 
 
 module.exports = States;
-},{"./EndPoint":5,"debug":12}],11:[function(require,module,exports){
+},{"./EndPoint":5,"debug":13}],12:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -2643,7 +2707,7 @@ class Variables extends EndPoint
 
 
 module.exports = Variables;
-},{"./EndPoint":5,"debug":12,"events":1}],12:[function(require,module,exports){
+},{"./EndPoint":5,"debug":13,"events":1}],13:[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -2842,7 +2906,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":13,"_process":2}],13:[function(require,module,exports){
+},{"./debug":14,"_process":2}],14:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -3069,7 +3133,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":15}],14:[function(require,module,exports){
+},{"ms":16}],15:[function(require,module,exports){
 (function (global){
 // https://github.com/maxogden/websocket-stream/blob/48dc3ddf943e5ada668c31ccd94e9186f02fafbd/ws-fallback.js
 
@@ -3090,7 +3154,7 @@ if (typeof WebSocket !== 'undefined') {
 module.exports = ws
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /**
  * Helpers.
  */
