@@ -46,10 +46,10 @@
 
 	// Watch for CC 16 on the onscreen keyboard
 	C.bindings.watch(
-		"midiInputPort.Onscreen Keyboard",                      // The source binding point
+		"midiOutputPort.Network Client",                         // The source binding point
 		null,                                                   // No indicies needed
 		{ kind: "Controller", controller: 16, channel: 0 },     // The event to watch for (CC 16 on channel 1)
-		onScroll                                                  // The function to call when triggered
+		onScroll                                                // The function to call when triggered
 	);
 
 	// This function will be called whenever CC 16 changes
