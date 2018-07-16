@@ -1,85 +1,125 @@
 <html>
 <head>
-	<!-- Import the Cantabile Javscript API library -->
-	<script src="/lib/cantabile-js.min.js"></script>
+    <!-- Libraries -->
+    <script src="/lib/cantabile-js.min.js"></script>
+    <script src="/lib/vue.js"></script>
+    <script src="/lib/vue-router.js"></script>
 
-	<!-- Cantabile bundles a copy of vue -->
-	<script src="/lib/vue.js"></script>
+    <!-- Styles -->
+    <link href="/styles.css?v=1" type="text/css" rel="stylesheet" />
 
-	<!-- Styles -->
-	<link href="/styles.css" type="text/css" rel="stylesheet" />
-
-	<!-- Scale -->
-	<meta name="viewport" content="initial-scale=1">
+    <!-- Scale -->
+    <meta name="viewport" content="initial-scale=1">
 </head>
 <body>
+<div id="app">
+    <header> 
+        <ul>
+            <li><router-link to="/setlist">Set List</router-link></li>
+            <li><router-link to="/states">States</router-link></li>
+            <li><router-link to="/notes">Notes</router-link></li>
+        </ul>
+    </header> 
 
-<div id="main">
-<div class="content">
+    <main> 
+        <keep-alive>
+        <router-view></router-view>
+        </keep-alive>
+    </main> 
 
-	<div class="setlist" id="setlist">
-		<h1>{{name}}</h1>
-
-	<!-- This is the template for the displayed HTML -->
-	    <div v-for="(i, index) in items" 
-		    	v-bind:class="itemClasses(i)" 
-		    	v-on:click="loadSong(index)">
-	    	<span v-if="i.kind == 'song'" class="pr">{{i.pr+1}}</span>
-	    	<span class="title">{{i.name}}</span>
-	    </div>
-	</div>
-
+    <footer> 
+        Footer
+    </footer>
 </div>
-</div>
+
+<template id="setlist-template">
+    <div class="itemlist">
+        <div v-for="(i, index) in items" v-bind:class="itemClasses(i)" v-on:click="loadSong(index)">
+            <span v-if="i.kind == 'song'" class="pr">{{i.pr+1}}</span>
+            <span class="title">{{i.name}}</span>
+        </div>
+    </div>
+</template>
 
 <script>
-
 	// Create an instance of the Cantabile library and connect it
-	var C = new Cantabile();
+	const C = new Cantabile();
 	C.connect();
 
-	// When anything in the set list changed, update the view
-	C.setList.on('changed', () => {
-		setlist.items = C.setList.items;
-		setlist.currentSong = C.setList.currentSong;
-		setlist.name = C.setList.name;
-	});
 
-	// When the currently selected song changes, update the view
-	C.setList.on('currentSongChanged', () => {
-		setlist.currentSong = C.setList.currentSong;
-	});
-
-	C.setList.open();
-
-	// Connect set list data to the HTML template via Vue
-	var setlist = new Vue({
-		el: "#setlist",
-		data: {
-			items: C.setList.items,
-			currentSong: C.setList.currentSong,
-			name: C.setList.name,
-		},
+    // SetList component
+    const SetList = {
+        data: function() {
+            return {
+                items: C.setList.items,
+                currentSong: C.setList.currentSong,
+                name: C.setList.name,
+            };
+        },
+        created: function() {
+            C.setList.on('changed', this.h1 = () => {
+                this.items = C.setList.items;
+                this.currentSong = C.setList.currentSong;
+                this.name = C.setList.name;
+            });
+            C.setList.on('currentSongChanged', this.h2 = () => {
+                this.currentSong = C.setList.currentSong;
+                Vue.nextTick(() => {
+                    this.$el.querySelector("div.item.active").scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
+                        inline: "center",
+                    })
+                });
+            });
+            C.setList.open();
+        },
+        destroyed: function() {
+            C.setList.removeListener('changed', this.h1);
+            C.setList.removeListener('currentSongChanged', this.h2);
+            C.setList.close();
+        },
 		methods: {
 			loadSong: function(item)
 			{
 				C.setList.loadSongByIndex(item);
 			},
-			isActive: function(item)
-			{
-				return C.setList.currentSong === item;
-			},
 			itemClasses: function(item)
 			{
 				return {
-					"sli-song": item.kind == 'song',
-					"sli-break": item.kind == 'break',
 					"active": this.currentSong === item,
+					"item": item.kind == 'song',
+					"item-break": item.kind == 'break',
 				}
 			}
-		}
-	});
+		},
+        template: '#setlist-template',
+    }
 
+    // State component
+    const States = { template: '<div>notes</div>' }
+
+    // Notes component
+    const Notes = { template: '<div>notes</div>' }
+
+    // Routes
+    const routes = [
+        { path: '/setlist', component: SetList },
+        { path: '/states', component: States },
+        { path: '/notes', component: Notes },
+        { path: '*', redirect: '/setlist' }
+    ]
+    
+    // Router
+    const router = new VueRouter({
+        routes // short for `routes: routes`
+    })
+    
+    // App
+    const app = new Vue({
+        router
+    }).$mount('#app');
+    
 </script>
 </body>
-</html>
+</html> 

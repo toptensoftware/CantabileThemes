@@ -3,7 +3,18 @@
 
 
 
-// ----------------- screen sizes ------------------
+/* -----------------  color sizes  ----------------- */
+@background: black;
+@top-bar-background:#222326;
+@top-bar-text:white;
+@bottom-bar-background:#222326;
+@bottom-bar-text:white;
+@item-background: rgba(255,255,255,0.2);
+@item-background-hover: rgba(255,255,255,0.3);
+@item-background-active: #0372ed;
+@item-text: white;
+
+/* -----------------  screen sizes  ----------------- */
 @vga-max:  ~"only screen and (max-width: 979px)";
 @tablet-max: ~"only screen and (max-width: 767px)";
 @phone-max: ~"only screen and (max-width: 479px)";
@@ -23,11 +34,84 @@ html
 
 body
 {
-    margin:0 0 75px;
+	height:100%; 
+	width:100%; 
+	margin:0;
 	font-family:'Open Sans', 'Arial', sans-serif;
-    position: static!important;
-    min-height: 0!important;
 	box-sizing: border-box;
+	background-color: @background;
+}
+
+/* -----------------  top bar  ----------------- */
+
+header
+{
+	position:absolute; 
+	top:0px; 
+	left:0px; 
+	height:50px; 
+	right:0px;
+	overflow:hidden; 
+	background-color:@top-bar-background;
+	color:@top-bar-text;
+	text-align: center;
+
+	ul
+	{
+		li
+		{
+			display: inline;
+			padding: 10px 10px;
+
+			a
+			{
+				border-radius: 5px;
+				text-decoration: none;
+				color:@top-bar-text;
+				text-transform: uppercase;
+				font-weight:bold;
+				padding: 5px 5px;
+			}
+
+			a.router-link-active
+			{
+				background-color: #002d62;
+			}
+		}
+	}
+
+}
+
+/* -----------------  bottom bar  ----------------- */
+
+footer
+{
+	position:absolute; 
+	bottom:0px; 
+	height:50px; 
+	left:0px; 
+	right:0px; 
+	overflow:hidden; 
+	background-color:green;
+	background-color:@bottom-bar-background;
+	color:@bottom-bar-text;
+}
+
+main
+{
+	position:absolute; 
+	top:50px; 
+	bottom:50px; 
+	left:0px; 
+	right:0px; 
+	overflow:auto;	
+	padding:50px;
+	color:white;
+
+	@media @vga-max
+	{
+		padding:20px;
+	}
 }
 
 p
@@ -39,18 +123,8 @@ p
 }
 
 
-/* -----------------  main content  ----------------- */
-
-
-div#main
-{
-	height:auto;
-	overflow:auto;
-}
-
 div.content
 {
-	box-sizing: border-box;
 	width:100%;
 	max-width:1000px;
 	font-family:'Open Sans', 'Arial', sans-serif;
@@ -73,12 +147,19 @@ div.content
 
 }
 
+/* -----------------  item list  ----------------- */
 
-div.setlist
+div.itemlist
 {
-	div.sli-song
+	width:100%;
+	max-width:1000px;
+	margin:0 auto;
+	position:relative;
+
+	div.item
 	{
-		background-color: #F0F0F0;
+		background-color: @item-background;
+		color: @item-text;
 		border-radius: 10px;
 		padding:10px;
 		margin-top:5px;
@@ -87,17 +168,16 @@ div.setlist
 
 		&:hover
 		{
-			background-color: #E0E0E0;
+			background-color: @item-background-hover;
+		}
+
+		&.active
+		{
+			background-color: @item-background-active;
 		}
 	}
 
-	div.sli-song.active
-	{
-		background-color: #0372ed;
-		color: white;
-	}
-
-	div.sli-break
+	div.item-break
 	{
 		font-weight:bold;
 		text-align:center;
@@ -105,26 +185,3 @@ div.setlist
 	}
 }
 
-div.states
-{
-	div.state
-	{
-		background-color: #F0F0F0;
-		border-radius: 10px;
-		padding:10px;
-		margin-top:5px;
-		text-align:center;
-		cursor:pointer;
-
-		&:hover
-		{
-			background-color: #E0E0E0;
-		}
-	}
-
-	div.state.active
-	{
-		background-color: #0372ed;
-		color: white;
-	}
-}
