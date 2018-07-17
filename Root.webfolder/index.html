@@ -6,7 +6,7 @@
     <script src="/lib/vue-router.js"></script>
 
     <!-- Styles -->
-    <link href="/styles.css?v=1" type="text/css" rel="stylesheet" />
+    <link href="/styles.css?v=4" type="text/css" rel="stylesheet" />
 
     <!-- Scale -->
     <meta name="viewport" content="initial-scale=1">
@@ -23,7 +23,7 @@
 
     <main> 
         <keep-alive>
-        <router-view></router-view>
+            <router-view></router-view>
         </keep-alive>
     </main> 
 
@@ -41,11 +41,29 @@
     </div>
 </template>
 
+<template id="states-template">
+    <div class="itemlist">
+        <div class="item" v-for="(i, index) in items" v-bind:class="itemClasses(i)" v-on:click="loadState(index)">
+            <span class="pr">{{i.pr+1}}</span>
+            <span class="title">{{i.name}}</span>
+        </div>
+    </div>
+</template>
+
+<template id="notes-template">
+    <div class="notelist">
+        <div class="note" v-for="(i, index) in items" v-bind:style="itemStyles(i)" >
+            <img class="noteImage" v-bind:style="imageStyles(i)" :src="i.imageUrl" :width="i.imageWidth * i.imageScale" height="auto"/>
+            <div class="noteText" v-bind:style="textStyles(i)" v-bind:class="textClasses(i)">{{i.text}}</div>
+        </div>
+    </div>
+</template>
+
+
 <script>
 	// Create an instance of the Cantabile library and connect it
 	const C = new Cantabile();
 	C.connect();
-
 
     // SetList component
     const SetList = {
@@ -61,23 +79,35 @@
                 this.items = C.setList.items;
                 this.currentSong = C.setList.currentSong;
                 this.name = C.setList.name;
+                if (this.oldScrollPosition === undefined)
+                {
+                    scrollIntoView(this.$el, "div.item.active", "instant");
+                }
             });
             C.setList.on('currentSongChanged', this.h2 = () => {
                 this.currentSong = C.setList.currentSong;
-                Vue.nextTick(() => {
-                    this.$el.querySelector("div.item.active").scrollIntoView({
-                        behavior: "smooth",
-                        block: "center",
-                        inline: "center",
-                    })
-                });
+                scrollIntoView(this.$el, "div.item.active", "smooth");
             });
             C.setList.open();
+        },
+        beforeDestroy: function() {
         },
         destroyed: function() {
             C.setList.removeListener('changed', this.h1);
             C.setList.removeListener('currentSongChanged', this.h2);
             C.setList.close();
+        },
+        beforeRouteLeave: function(to, from, next) {
+            this.oldScrollPosition = document.querySelector("main").scrollTop;
+            next();
+        },
+        beforeRouteEnter: function(to, from, next) {
+            next(vm => {
+                Vue.nextTick(() => {
+                    document.querySelector("main").scrollTop = vm.oldScrollPosition;
+                });
+            });
+            next();
         },
 		methods: {
 			loadSong: function(item)
@@ -97,10 +127,117 @@
     }
 
     // State component
-    const States = { template: '<div>notes</div>' }
+    const States = {
+        data: function() {
+            return {
+                items: C.songStates.items,
+                currentState: C.songStates.currentSong,
+                name: C.songStates.name,
+            };
+        },
+        created: function() {
+            C.songStates.on('changed', this.h1 = () => {
+                this.items = C.songStates.items;
+                this.currentState = C.songStates.currentState;
+                this.name = C.songStates.name;
+                if (this.oldScrollPosition === undefined)
+                {
+                    scrollIntoView(this.$el, "div.item.active", "instant");
+                }
+            });
+            C.songStates.on('currentStateChanged', this.h2 = () => {
+                this.currentState = C.songStates.currentState;
+                scrollIntoView(this.$el, "div.item.active", "smooth");
+            });
+            C.songStates.on('reload', this.h3 = () => {
+                delete this.oldScrollPosition;
+            });
+            C.songStates.open();
+        },
+        destroyed: function() {
+            C.songStates.removeListener('changed', this.h1);
+            C.songStates.removeListener('currentStateChanged', this.h2);
+            C.songStates.removeListener('reload', this.h3);
+            C.songStates.close();
+        },
+        beforeRouteLeave: function(to, from, next) {
+            this.oldScrollPosition = document.querySelector("main").scrollTop;
+            next();
+        },
+        beforeRouteEnter: function(to, from, next) {
+            next(vm => {
+                Vue.nextTick(() => {
+                    document.querySelector("main").scrollTop = vm.oldScrollPosition;
+                });
+            });
+            next();
+        },
+		methods: {
+			loadState: function(item)
+			{
+				C.songStates.loadStateByIndex(item);
+			},
+			itemClasses: function(item)
+			{
+				return {
+					"active": this.currentState === item,
+				}
+			}
+		},
+        template: '#states-template',
+    }
+
 
     // Notes component
-    const Notes = { template: '<div>notes</div>' }
+    const Notes = {
+        data: function() {
+            return {
+                items: C.showNotes.items,
+            };
+        },
+        created: function() {
+            C.showNotes.on('changed', this.h1 = () => {
+                this.items = C.showNotes.items;
+            });
+            C.showNotes.open();
+        },
+        destroyed: function() {
+            C.showNotes.removeListener('changed', this.h1);
+            C.showNotes.close();
+        },
+		methods: {
+			itemStyles: function(item)
+			{
+				return {
+                    "display": item.hidden ? "none" : null,
+                    "background-color": backgroundColors[item.backgroundColor],
+				}
+			},
+            textClasses: function(item)
+            {
+                return {
+                    "placeOverImage": !!item.imageUrl,
+                }
+            },
+			textStyles: function(item)
+			{
+				return {
+                    "font-family": item.fixedPitch ? "'Courier New', monospace" : null,
+                    "font-weight": item.bold ? "bold" : null,
+                    "text-align": item.textAlign,
+                    "font-size": "" + item.fontSize + "px",
+                    "color": foregroundColors[item.textColor],
+				}
+			},
+            imageStyles: function(item)
+            {
+                return {
+                    "display": item.imageUrl ? null : "none",
+                }
+            },
+		},
+        template: '#notes-template',
+    }
 
     // Routes
     const routes = [
@@ -109,16 +246,48 @@
         { path: '/notes', component: Notes },
         { path: '*', redirect: '/setlist' }
     ]
-    
+
     // Router
     const router = new VueRouter({
-        routes // short for `routes: routes`
+        routes, // short for `routes: routes`
     })
-    
+
     // App
     const app = new Vue({
         router
     }).$mount('#app');
+
+    // Colors (matches default Dark theme)
+    var backgroundColors = [ 
+        null, 
+        "#6B0B0B","#3B0B0B","#0B3B0B","#0B6B0B","#0B0B6B","#0B0B3B","#6B6B0B",
+        "#3B3B0B","#6B0B6B","#3B0B3B","#0B6B6B","#0B3B3B","#6B3B0B", "#3B230B",
+    ];
+    var foregroundColors = [
+        null,
+        "#FF0000","#800000","#008000","#00FF00","#0000FF","#000080","#FFFF00",
+        "#808000","#FF00FF","#800080","#00FFFF","#008080","#FF8000","#804000",
+    ];
+
+    // Helper to scroll an element into view
+    function scrollIntoView(parentElement, selector, behavior)
+    {
+        // Wait till next tick when DOM is loaded
+        Vue.nextTick(() => {
+            // Find the element
+            var el = parentElement.querySelector(selector);
+            if (el != null)
+            {
+                // Scroll it
+                el.scrollIntoView({
+                    behavior: behavior,
+                    block: "center",
+                    inline: "center",
+                });
+            }
+        });
+    }
+
     
 </script>
 </body>

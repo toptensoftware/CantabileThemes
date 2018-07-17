@@ -27,6 +27,9 @@ header {
   color: white;
   text-align: center;
 }
+header ul {
+  padding: 0;
+}
 header ul li {
   display: inline;
   padding: 10px 10px;
@@ -60,7 +63,10 @@ main {
   bottom: 50px;
   left: 0px;
   right: 0px;
-  overflow: auto;
+  overflow: scroll;
+  overflow-y: scroll;
+  /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
   padding: 50px;
   color: white;
 }
@@ -71,6 +77,7 @@ main {
 }
 p img {
   max-width: 100%;
+  height: auto;
 }
 div.content {
   width: 100%;
@@ -117,4 +124,23 @@ div.itemlist div.item-break {
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
+}
+/* -----------------  show note  ----------------- */
+div.noteList div.note {
+  padding: 10px;
+  position: relative;
+  text-align: center;
+}
+div.noteList div.note img.noteImage {
+  max-width: 100%;
+}
+div.noteList div.note div.noteText {
+  white-space: pre;
+  font-family: "SegoeUI", "Open Sans";
+}
+div.noteList div.note div.placeOverImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

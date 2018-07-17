@@ -58,6 +58,7 @@ header
 
 	ul
 	{
+		padding: 0;
 		li
 		{
 			display: inline;
@@ -104,7 +105,10 @@ main
 	bottom:50px; 
 	left:0px; 
 	right:0px; 
-	overflow:auto;	
+	overflow:scroll;	
+	overflow-y: scroll; /* has to be scroll, not auto */
+	-webkit-overflow-scrolling: touch;
+	
 	padding:50px;
 	color:white;
 
@@ -119,6 +123,7 @@ p
 	img
 	{
 		max-width: 100%;
+		height:auto;
 	}
 }
 
@@ -185,3 +190,33 @@ div.itemlist
 	}
 }
 
+/* -----------------  show note  ----------------- */
+
+div.noteList
+{
+	div.note
+	{
+		padding: 10px;
+		position: relative;
+		text-align: center;
+
+		img.noteImage
+		{
+			max-width: 100%;
+		}
+
+		div.noteText
+		{
+			white-space: pre;
+			font-family: "SegoeUI", "Open Sans";
+		}
+
+		div.placeOverImage
+		{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);		
+		}
+	}
+}
