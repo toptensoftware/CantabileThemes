@@ -1,12 +1,12 @@
 <html>
 <head>
     <!-- Libraries -->
-    <script src="/lib/cantabile-js.min.js"></script>
+    <script src="/lib/cantabile-js.js"></script>
     <script src="/lib/vue.js"></script>
     <script src="/lib/vue-router.js"></script>
 
     <!-- Styles -->
-    <link href="/styles.css?v=4" type="text/css" rel="stylesheet" />
+    <link href="/styles.css?v=5" type="text/css" rel="stylesheet" />
 
     <!-- Scale -->
     <meta name="viewport" content="initial-scale=1">
@@ -28,7 +28,7 @@
     </main> 
 
     <footer> 
-        Footer
+        <transport-buttons></transport-buttons>
     </footer>
 </div>
 
@@ -56,6 +56,14 @@
             <img class="noteImage" v-bind:style="imageStyles(i)" :src="i.imageUrl" :width="i.imageWidth * i.imageScale" height="auto"/>
             <div class="noteText" v-bind:style="textStyles(i)" v-bind:class="textClasses(i)">{{i.text}}</div>
         </div>
+    </div>
+</template>
+
+<template id="transportButtons-template">
+    <div class="transportButtons">
+        <button id="play" v-bind:class="{checked: state!='stopped'}" v-on:click="play()"></button>
+        <button id="pause" v-bind:class="{checked: state=='paused'}" v-on:click="pause()"></button>
+        <button id="stop" v-on:click="stop()"></button>
     </div>
 </template>
 
@@ -239,6 +247,40 @@
         template: '#notes-template',
     }
 
+    // Tranport Controller
+	Vue.component('transport-buttons', {
+		data: function() { 
+            return {
+                state: C.transport.state,
+            }
+        },
+        created: function() {
+            C.transport.on('stateChanged', this.h1 = () => {
+                this.state = C.transport.state;
+            });
+            C.transport.open();
+        },
+        destroyed: function() {
+            C.transport.removeListener('stateChanged', this.h1);
+            C.transport.close();
+        },
+		methods: {
+            play: function() 
+            {
+                C.transport.togglePlay();
+            },
+            pause: function()
+            {
+                C.transport.togglePause();
+            },
+            stop: function()
+            {
+                C.transport.stop();
+            }
+		},
+        template: '#transportButtons-template',
+	});
+
     // Routes
     const routes = [
         { path: '/setlist', component: SetList },
@@ -252,6 +294,7 @@
         routes, // short for `routes: routes`
     })
 
+    
     // App
     const app = new Vue({
         router

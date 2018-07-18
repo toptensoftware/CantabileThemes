@@ -1093,7 +1093,7 @@ class Bindings extends EndPoint
 
 
 module.exports = Bindings;
-},{"./EndPoint":5,"debug":13,"events":1}],4:[function(require,module,exports){
+},{"./EndPoint":5,"debug":14,"events":1}],4:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1180,6 +1180,14 @@ class Cantabile extends EventEmitter
 		 * @type {Song} 
 		 */
 		this.song = new (require('./Song'))(this);
+
+		/**
+		 * Provides access to master transport controls
+		 *
+		 * @property song
+		 * @type {Song} 
+		 */
+		this.transport = new (require('./Transport'))(this);
 	}
 
 	/**
@@ -1490,7 +1498,7 @@ const eventDiconnected = "disconnected";
 
 module.exports = Cantabile;
 }).call(this,require('_process'))
-},{"./Bindings":3,"./KeyRanges":6,"./SetList":7,"./ShowNotes":8,"./Song":9,"./SongStates":10,"./Variables":12,"_process":2,"debug":13,"events":1,"isomorphic-ws":15}],5:[function(require,module,exports){
+},{"./Bindings":3,"./KeyRanges":6,"./SetList":7,"./ShowNotes":8,"./Song":9,"./SongStates":10,"./Transport":12,"./Variables":13,"_process":2,"debug":14,"events":1,"isomorphic-ws":16}],5:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1674,7 +1682,7 @@ class EndPoint extends EventEmitter
 }
 
 module.exports = EndPoint;
-},{"debug":13,"events":1}],6:[function(require,module,exports){
+},{"debug":14,"events":1}],6:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1722,7 +1730,7 @@ class KeyRanges extends EndPoint
 
 
 module.exports = KeyRanges;
-},{"./EndPoint":5,"debug":13}],7:[function(require,module,exports){
+},{"./EndPoint":5,"debug":14}],7:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -2005,7 +2013,7 @@ class SetList extends EndPoint
 
 
 module.exports = SetList;
-},{"./EndPoint":5,"debug":13}],8:[function(require,module,exports){
+},{"./EndPoint":5,"debug":14}],8:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -2122,7 +2130,7 @@ class ShowNotes extends EndPoint
 
 
 module.exports = ShowNotes;
-},{"./EndPoint":5,"debug":13}],9:[function(require,module,exports){
+},{"./EndPoint":5,"debug":14}],9:[function(require,module,exports){
 'use strict';
 
 const EndPoint = require('./EndPoint');
@@ -2144,12 +2152,40 @@ class SongStates extends EndPoint
 
 	_onOpen()
 	{
+		/**
+		 * Fired when anything about the current song changes
+		 *
+		 * @event changed
+		 */
 		this.emit('changed');
+
+		/**
+		 * Fired when the name of the current song changes
+		 *
+		 * @event changed
+		 */
 		this.emit('nameChanged');
+
+		/**
+		 * Fired when the name of the current state changes
+		 *
+		 * @event changed
+		 */
 		this.emit('currentStateChanged');
 	}
 
+	/**
+	 * The name of the current song
+	 * @property name
+	 * @type {String}
+	 */
 	get name() { return this._data ? this._data.name : null; }
+
+	/**
+	 * The name of the current song state
+	 * @property currentState
+	 * @type {String}
+	 */
 	get currentState() { return this._data ? this._data.currentState : null; }
 
 	_onEvent_songChanged(data)
@@ -2461,7 +2497,150 @@ class States extends EndPoint
 
 
 module.exports = States;
-},{"./EndPoint":5,"debug":13}],12:[function(require,module,exports){
+},{"./EndPoint":5,"debug":14}],12:[function(require,module,exports){
+'use strict';
+
+const EndPoint = require('./EndPoint');
+
+/**
+ * Interface to the master transport
+ * 
+ * Access this object via the {{#crossLink "Cantabile/transport:property"}}{{/crossLink}} property.
+ *
+ * @class Transport
+ * @extends EndPoint
+ */
+class Transport extends EndPoint
+{
+	constructor(owner)
+	{
+		super(owner, "/api/transport");
+	}
+
+	_onOpen()
+	{
+		/**
+		 * Fired when the current transport state has changed
+		 *
+		 * @event stateChanged
+		 */
+        this.emit('stateChanged');
+	}
+
+	/**
+	 * Gets or sets the current transport state.  Supported values include "playing", "paused" or "stopped"
+	 * @property state
+	 * @type {String}
+	 */
+    get state() { return this._data ? this._data.state : "stopped"; }
+    set state(value)
+    {
+        if (this.state == value)
+            return;
+        switch (value)
+        {
+            case "playing": this.play(); break;
+            case "paused": this.pause(); break;
+            case "stopped": this.stop(); break;
+        }
+    }
+
+
+	_onEvent_stateChanged(data)
+	{
+		/**
+		 * Fired when the current transport state changes
+		 *
+		 * @event stateChanged
+		 */
+
+         this._data.state = data.state;
+		this.emit('stateChanged');
+    }
+    
+	/**
+	 * Starts transport playback
+	 * @method play
+	 */
+    play()
+    {
+        if (this.state != "playing")
+            this.post("/play", {});
+    }
+
+	/**
+	 * Toggles between play and pause states
+	 * @method togglePlayPause
+	 */
+    togglePlayPause()
+    {
+        if (this.state == "playing")
+            this.pause();
+        else
+            this.play();
+    }
+
+	/**
+	 * Toggles pause and play states (unless stopped)
+	 * @method togglePlayPause
+	 */
+    togglePause()
+    {
+        if (this.state == "paused")
+            this.play();
+        else if (this.state == "playing")
+            this.pause();
+    }
+
+    /**
+	 * Toggles play and stopped states
+	 * @method togglePlay
+	 */
+    togglePlay()
+    {
+        if (this.state == "stopped")
+            this.play();
+        else
+            this.stop();
+    }
+
+	/**
+	 * Toggles between play and stop states
+	 * @method togglePlayStop
+	 */
+    togglePlayStop()
+    {
+        if (this.state != "playing")
+            this.play();
+        else
+            this.stop();
+    }
+
+	/**
+	 * Pauses the master transport
+	 * @method play
+	 */
+    pause()
+    {
+        if (this.state != "paused")
+            this.post("/pause", {});
+    }
+
+	/**
+	 * Stops the master transport
+	 * @method play
+	 */
+    stop()
+    {
+        if (this.state != "stopped")
+            this.post("/stop", {});
+    }
+
+}
+
+
+module.exports = Transport;
+},{"./EndPoint":5}],13:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -2707,7 +2886,7 @@ class Variables extends EndPoint
 
 
 module.exports = Variables;
-},{"./EndPoint":5,"debug":13,"events":1}],13:[function(require,module,exports){
+},{"./EndPoint":5,"debug":14,"events":1}],14:[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -2906,7 +3085,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":14,"_process":2}],14:[function(require,module,exports){
+},{"./debug":15,"_process":2}],15:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -3133,7 +3312,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":16}],15:[function(require,module,exports){
+},{"ms":17}],16:[function(require,module,exports){
 (function (global){
 // https://github.com/maxogden/websocket-stream/blob/48dc3ddf943e5ada668c31ccd94e9186f02fafbd/ws-fallback.js
 
@@ -3154,7 +3333,7 @@ if (typeof WebSocket !== 'undefined') {
 module.exports = ws
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 /**
  * Helpers.
  */

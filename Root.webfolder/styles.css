@@ -1,7 +1,4 @@
 @import url("fonts/open-sans/open-sans.css");
-/* -----------------  color sizes  ----------------- */
-/* -----------------  screen sizes  ----------------- */
-/* -----------------  basics  ----------------- */
 html {
   position: relative;
   min-height: 100%;
@@ -15,7 +12,6 @@ body {
   box-sizing: border-box;
   background-color: black;
 }
-/* -----------------  top bar  ----------------- */
 header {
   position: absolute;
   top: 0px;
@@ -45,27 +41,69 @@ header ul li a {
 header ul li a.router-link-active {
   background-color: #002d62;
 }
-/* -----------------  bottom bar  ----------------- */
 footer {
   position: absolute;
   bottom: 0px;
-  height: 50px;
+  height: 70px;
   left: 0px;
   right: 0px;
   overflow: hidden;
   background-color: green;
   background-color: #222326;
   color: white;
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+footer button {
+  height: 100%;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 75%;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+}
+footer button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+footer button#play {
+  background-image: url(/theme/dark/PlayButton@2x.png);
+}
+footer button#play:active {
+  background-image: url(/theme/dark/PlayButton_pressed@2x.png);
+}
+footer button#play.checked {
+  background-image: url(/theme/dark/PlayButton_hot@2x.png);
+}
+footer button#pause {
+  background-image: url(/theme/dark/PauseButton@2x.png);
+}
+footer button#pause:active {
+  background-image: url(/theme/dark/PauseButton_pressed@2x.png);
+}
+footer button#pause.checked {
+  background-image: url(/theme/dark/PauseButton_hot@2x.png);
+}
+footer button#stop {
+  background-image: url(/theme/dark/StopButton@2x.png);
+}
+footer button#stop:active {
+  background-image: url(/theme/dark/StopButton_pressed@2x.png);
 }
 main {
   position: absolute;
   top: 50px;
-  bottom: 50px;
+  bottom: 70px;
   left: 0px;
   right: 0px;
-  overflow: scroll;
+  overflow-x: hidden;
   overflow-y: scroll;
-  /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
   padding: 50px;
   color: white;
@@ -74,10 +112,6 @@ main {
   main {
     padding: 20px;
   }
-}
-p img {
-  max-width: 100%;
-  height: auto;
 }
 div.content {
   width: 100%;
@@ -98,7 +132,6 @@ div.content a {
     padding-right: 20px;
   }
 }
-/* -----------------  item list  ----------------- */
 div.itemlist {
   width: 100%;
   max-width: 1000px;
@@ -125,7 +158,6 @@ div.itemlist div.item-break {
   text-align: center;
   margin-top: 20px;
 }
-/* -----------------  show note  ----------------- */
 div.noteList div.note {
   padding: 10px;
   position: relative;
@@ -136,11 +168,23 @@ div.noteList div.note img.noteImage {
 }
 div.noteList div.note div.noteText {
   white-space: pre;
-  font-family: "SegoeUI", "Open Sans";
+  font-family: "Segoe UI", "Open Sans";
 }
 div.noteList div.note div.placeOverImage {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+::-webkit-scrollbar {
+  width: 14px;
+}
+::-webkit-scrollbar-track {
+  background: #444;
+}
+::-webkit-scrollbar-thumb {
+  background: #999;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
 }
