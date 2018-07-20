@@ -13,12 +13,15 @@
 @item-background-hover: rgba(255,255,255,0.3);
 @item-background-active: #0372ed;
 @item-text: white;
-
+@button-background: rgba(255,255,255,0.2);
+@button-background-active: #0372ed;
 
 // -----------------  Layout -----------------
 
 @top-bar-height: 50px;
-@bottom-bar-height: 70px;
+@status-panel-height: 50px;
+@bottom-bar-height-normal: 70px;
+@bottom-bar-height-small: 44px;
 
 // ----------------- Screen Sizes -----------------
 
@@ -50,6 +53,15 @@ body
 	background-color: @background;
 }
 
+h1, h2
+{
+	text-align:center;
+}
+
+h1 + h2
+{
+	margin-top: -20px;
+}
 
 // ----------------- Top Bar ----------------- 
 
@@ -64,6 +76,16 @@ header
 	background-color:@top-bar-background;
 	color:@top-bar-text;
 	text-align: center;
+	background-image:url("/CantabileHeader@2x.png");
+	background-size:auto (@top-bar-height - 20);
+	background-repeat: no-repeat;
+	background-position: 10 10;
+
+	@media only screen and (max-width: 550px)
+	{
+		background-image:url("/CantabileIcon@2x.png");
+	}
+
 
 	ul
 	{
@@ -90,6 +112,39 @@ header
 		}
 	}
 
+	div#clock
+	{
+		position: absolute;
+		right:0;
+		top:0;
+		padding-right:10px;
+		padding-top:16px;
+	}
+
+}
+
+// ----------------- status panel -----------------
+
+div.status-panel
+{
+	box-sizing: border-box;
+	background-color:@top-bar-background;
+	color:@top-bar-text;
+	position:absolute; 
+	top:@top-bar-height; 
+	left:0px; 
+	height:@status-panel-height; 
+	right:0px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding: 7px;
+	overflow:hidden;
+
+	h1
+	{
+		font-size: 24px;
+		margin-top: 0;
+	}
 }
 
 
@@ -99,7 +154,7 @@ footer
 {
 	position:absolute; 
 	bottom:0px; 
-	height:@bottom-bar-height; 
+	height:@bottom-bar-height-normal; 
 	left:0px; 
 	right:0px; 
 	overflow:hidden; 
@@ -108,8 +163,24 @@ footer
 	color:@bottom-bar-text;
 	box-sizing: border-box;
 	padding: 5px;
-	display: flex;
-	justify-content: center;
+	text-align: center;
+	border-top: 1px solid black;
+
+	div.leftControls
+	{
+		float:left;
+	}
+
+	div.rightControls
+	{
+		float:right;
+	}
+
+	div.transportButtons
+	{
+		display:inline-block;
+		//display:inline-block;
+	}
 
 	button
 	{
@@ -117,11 +188,11 @@ footer
 		width: 100px;	
 		border: none;
 		border-radius: 10px;
-		background: rgba(255,255,255,0.2);
+		background: @button-background;
 		outline: none;
 		background-repeat: no-repeat;
 		background-position: center center;
-		background-size: auto 75%;
+		background-size: auto 50%;
 		margin-left:2.5px;
 		margin-right:2.5px;
 	}
@@ -131,12 +202,13 @@ footer
 		background-color: rgba(255,255,255,0.3);
 	}
 
+	button:active{
+		background-color: @button-background-active;
+	}
+
 	button#play
 	{
 		background-image:url(/theme/dark/PlayButton@2x.png);
-		&:active{
-			background-image:url(/theme/dark/PlayButton_pressed@2x.png);
-		}
 		&.checked{
 			background-image:url(/theme/dark/PlayButton_hot@2x.png);
 		}
@@ -144,9 +216,6 @@ footer
 	button#pause
 	{
 		background-image:url(/theme/dark/PauseButton@2x.png);
-		&:active{
-			background-image:url(/theme/dark/PauseButton_pressed@2x.png);
-		}
 		&.checked{
 			background-image:url(/theme/dark/PauseButton_hot@2x.png);
 		}
@@ -154,11 +223,34 @@ footer
 	button#stop
 	{
 		background-image:url(/theme/dark/StopButton@2x.png);
-		&:active{
-			background-image:url(/theme/dark/StopButton_pressed@2x.png);
-		}
+	}
+	button#continue
+	{
+		background-image:url(/theme/dark/NextButton@2x.png);
+	}
+	button#panic
+	{
+		background-image:url(/theme/dark/PanicButton@2x.png);
 	}
 }
+
+@media only screen and (max-width: 550px)
+{
+	main
+	{
+		bottom:@bottom-bar-height-small; 
+	}
+	footer
+	{
+		height:@bottom-bar-height-small; 
+	}
+	footer button
+	{
+		width: 50px;	
+		background-size: auto 70%;
+	}
+}
+
 
 
 // ----------------- Main Content Area -----------------
@@ -166,27 +258,27 @@ footer
 main
 {
 	position:absolute; 
-	top:@top-bar-height; 
-	bottom:@bottom-bar-height; 
+	top:(@top-bar-height + @status-panel-height); 
+	bottom:@bottom-bar-height-normal; 
 	left:0px; 
 	right:0px; 
 	overflow-x: hidden;	
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
 	
-	padding:50px;
+	padding:25px;
 	color:white;
 
 	@media @vga-max
 	{
-		padding:20px;
+		padding:10px;
 	}
 }
 
 div.content
 {
 	width:100%;
-	max-width:1000px;
+	max-width:950px;
 	font-family:'Open Sans', 'Arial', sans-serif;
 	color:#404040;
 	margin:0 auto;

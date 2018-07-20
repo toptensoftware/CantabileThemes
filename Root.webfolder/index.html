@@ -6,7 +6,7 @@
     <script src="/lib/vue-router.js"></script>
 
     <!-- Styles -->
-    <link href="/styles.css?v=5" type="text/css" rel="stylesheet" />
+    <link href="/styles.css?v=7" type="text/css" rel="stylesheet" />
 
     <!-- Scale -->
     <meta name="viewport" content="initial-scale=1">
@@ -14,12 +14,16 @@
 <body>
 <div id="app">
     <header> 
+        <div id="clock">
+        </div>
         <ul>
             <li><router-link to="/setlist">Set List</router-link></li>
             <li><router-link to="/states">States</router-link></li>
             <li><router-link to="/notes">Notes</router-link></li>
         </ul>
     </header> 
+
+    <status-panel></status-panel>
 
     <main> 
         <keep-alive>
@@ -28,12 +32,26 @@
     </main> 
 
     <footer> 
+        <div class="leftControls">
+            <button id="panic" onclick="onPanic()"></button>
+        </div>
         <transport-buttons></transport-buttons>
+        <div class="rightControls">
+            <button id="continue" onclick="onContinue()"></button>
+        </div>
     </footer>
 </div>
 
+<template id="status-panel-template">
+    <div class="status-panel">
+        <h1>{{display()}}</h1>
+    </div>
+</template>
+    
+    
 <template id="setlist-template">
     <div class="itemlist">
+        <h1>{{name}}</h1>
         <div v-for="(i, index) in items" v-bind:class="itemClasses(i)" v-on:click="loadSong(index)">
             <span v-if="i.kind == 'song'" class="pr">{{i.pr+1}}</span>
             <span class="title">{{i.name}}</span>
@@ -52,6 +70,8 @@
 
 <template id="notes-template">
     <div class="notelist">
+        <!--h1>{{name}}</h1>
+        <h2>{{currentState}}</h2-->
         <div class="note" v-for="(i, index) in items" v-bind:style="itemStyles(i)" >
             <img class="noteImage" v-bind:style="imageStyles(i)" :src="i.imageUrl" :width="i.imageWidth * i.imageScale" height="auto"/>
             <div class="noteText" v-bind:style="textStyles(i)" v-bind:class="textClasses(i)">{{i.text}}</div>
@@ -61,7 +81,7 @@
 
 <template id="transportButtons-template">
     <div class="transportButtons">
-        <button id="play" v-bind:class="{checked: state!='stopped'}" v-on:click="play()"></button>
+        <button id="play" v-bind:class="{checked: state=='playing'}" v-on:click="play()"></button>
         <button id="pause" v-bind:class="{checked: state=='paused'}" v-on:click="pause()"></button>
         <button id="stop" v-on:click="stop()"></button>
     </div>
@@ -72,6 +92,10 @@
 	// Create an instance of the Cantabile library and connect it
 	const C = new Cantabile();
 	C.connect();
+
+    // Open the bindings endpoint so target bindings can be invoked
+    // via WebSockets instead of REST
+    C.bindings.open();
 
     // SetList component
     const SetList = {
@@ -201,17 +225,29 @@
         data: function() {
             return {
                 items: C.showNotes.items,
+                name: C.song.name,
+                currentState: C.song.currentState,
             };
         },
         created: function() {
             C.showNotes.on('changed', this.h1 = () => {
                 this.items = C.showNotes.items;
             });
+            C.song.on('nameChanged', this.h2 = () => {
+                this.name = C.song.name;
+            });
+            C.song.on('currentStateChanged', this.h3 = () => {
+                this.currentState = C.song.currentState;
+            });
             C.showNotes.open();
+            C.song.open();
         },
         destroyed: function() {
             C.showNotes.removeListener('changed', this.h1);
+            C.song.removeListener('nameChanged', this.h2);
+            C.song.removeListener('currentStateChanged', this.h3);
             C.showNotes.close();
+            C.song.close();
         },
 		methods: {
 			itemStyles: function(item)
@@ -267,7 +303,7 @@
 		methods: {
             play: function() 
             {
-                C.transport.togglePlay();
+                C.transport.play();
             },
             pause: function()
             {
@@ -280,6 +316,52 @@
 		},
         template: '#transportButtons-template',
 	});
+
+    Vue.component('status-panel', {
+		data: function() { 
+            return {
+                songName: C.song.name,
+                stateName: C.song.currentState,
+                tempo: C.transport.tempo,
+                timeSignature: C.transport.timeSignature,
+            }
+        },
+        created: function() {
+            C.song.on('changed', this.h1 = () => {
+                this.songName = C.song.name;
+                this.stateName = C.song.currentState;
+            });
+            C.transport.on('tempoChanged', this.h2 = () => {
+                this.tempo = C.transport.tempo;
+            });
+            C.transport.on('timeSignatureChanged', this.h3 = () => {
+                this.timeSignature = C.transport.timeSignature;
+            });
+            C.song.open();
+            C.transport.open();
+        },
+        destroyed: function() {
+            C.song.removeListener('stateChanged', this.h1);
+            C.song.close();
+            C.transport.removeListner('tempoChanged', this.h2);
+            C.transport.removeListener('timeSignatureChanged', this.h3);
+            C.transport.close();
+        },
+        methods: 
+        {
+            display: function()
+            {
+                //if (C.state != "connected")
+                //  return "(disconnected)"
+                var str = this.songName;
+                if (this.stateName)
+                    str += " - " + this.stateName;
+                str += " - " + this.timeSignature + " - " + this.tempo + "bpm";
+                return str;
+            }
+        },
+        template: "#status-panel-template",
+    });
 
     // Routes
     const routes = [
@@ -330,6 +412,32 @@
             }
         });
     }
+
+    function onPanic()
+    {
+        C.bindings.invoke("global.engine.allSoundsOff");
+    }
+
+    function onContinue()
+    {
+        C.bindings.invoke("global.setList.nextSongPartInstant");
+    }
+
+    var lastShownTime = "";
+    function showTime()
+    {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var time = (hours > 12 ? hours - 12 : hours) + ":" + ("0" + minutes).substr(-2);
+        if (time != lastShownTime)
+        {
+            document.querySelector("div#clock").innerHTML = time;
+            lastShownTime = time;
+        }
+    }
+    showTime();
+    setInterval(showTime, 1000);
 
     
 </script>

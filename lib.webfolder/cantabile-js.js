@@ -1366,9 +1366,6 @@ class Cantabile extends EventEmitter
 	// Socket onerror handler
 	_onSocketError(evt)
 	{
-		// Log it
-		debug("socket error: %j", evt.error.message);
-
 		// Disconnect
 		this._internalDisconnect();
 
@@ -1713,6 +1710,11 @@ class KeyRanges extends EndPoint
 		this.emit('changed');
 	}
 
+	_onClose()
+	{
+		this.emit('changed');
+	}
+
 	/**
 	 * An array of key ranges
 	 * @property items
@@ -1753,6 +1755,14 @@ class SetList extends EndPoint
 	}
 
 	_onOpen()
+	{
+		this._resolveCurrentSong();
+		this.emit('reload');
+		this.emit('changed');
+		this.emit('preLoadedChanged');
+	}
+
+	_onClose()
 	{
 		this._resolveCurrentSong();
 		this.emit('reload');
@@ -2040,6 +2050,12 @@ class ShowNotes extends EndPoint
 		this.emit('changed');
 	}
 
+	_onClose()
+	{
+		this.emit('reload');
+		this.emit('changed');
+	}
+
 	/**
 	 * An array of show note items
 	 * @property items
@@ -2174,6 +2190,13 @@ class SongStates extends EndPoint
 		this.emit('currentStateChanged');
 	}
 
+	_onClose()
+	{
+		this.emit('changed');
+		this.emit('nameChanged');
+		this.emit('currentStateChanged');
+	}
+
 	/**
 	 * The name of the current song
 	 * @property name
@@ -2258,6 +2281,13 @@ class States extends EndPoint
 	}
 
 	_onOpen()
+	{
+		this._resolveCurrentState();
+		this.emit('reload');
+		this.emit('changed');
+	}
+
+	_onClose()
 	{
 		this._resolveCurrentState();
 		this.emit('reload');
@@ -2519,12 +2549,16 @@ class Transport extends EndPoint
 
 	_onOpen()
 	{
-		/**
-		 * Fired when the current transport state has changed
-		 *
-		 * @event stateChanged
-		 */
         this.emit('stateChanged');
+        this.emit('timeSignatureChanged');
+        this.emit('tempoChanged');
+    }
+
+	_onClose()
+	{
+        this.emit('stateChanged');
+        this.emit('timeSignatureChanged');
+        this.emit('tempoChanged');
 	}
 
 	/**
@@ -2545,17 +2579,49 @@ class Transport extends EndPoint
         }
     }
 
+    get timeSignatureNum() { return this._data ? this._data.timeSigNum : 0 }
+
+    get timeSignatureDen() { return this._data ? this._data.timeSigDen : 0 }
+
+    get timeSignature() { return this._data ? this._data.timeSigNum + "/" + this._data.timeSigDen : "-" }
+
+    get tempo() { return this._data ? this._data.tempo : 0 }
 
 	_onEvent_stateChanged(data)
 	{
 		/**
-		 * Fired when the current transport state changes
+		 * Fired when the current transport state has changed
 		 *
 		 * @event stateChanged
 		 */
 
-         this._data.state = data.state;
+        this._data.state = data.state;
 		this.emit('stateChanged');
+    }
+
+    _onEvent_timeSigChanged(data)
+    {
+		/**
+		 * Fired when the current time signature has changed
+		 *
+		 * @event timeSignatureChanged
+		 */
+
+        this._data.timeSigNum = data.timeSigNum;
+        this._data.timeSigDen = data.timeSigDen;
+        this.emit('timeSignatureChanged');
+    }
+    
+    _onEvent_tempoChanged(data)
+    {
+        /**
+		 * Fired when the current tempo has changed
+		 *
+		 * @event tempoChanged
+		 */
+
+        this._data.tempo  = data.tempo;
+        this.emit('tempoChanged');
     }
     
 	/**

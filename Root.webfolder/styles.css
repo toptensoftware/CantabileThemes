@@ -12,6 +12,13 @@ body {
   box-sizing: border-box;
   background-color: black;
 }
+h1,
+h2 {
+  text-align: center;
+}
+h1 + h2 {
+  margin-top: -20px;
+}
 header {
   position: absolute;
   top: 0px;
@@ -22,6 +29,15 @@ header {
   background-color: #222326;
   color: white;
   text-align: center;
+  background-image: url("/CantabileHeader@2x.png");
+  background-size: auto 30px;
+  background-repeat: no-repeat;
+  background-position: 10 10;
+}
+@media only screen and (max-width: 550px) {
+  header {
+    background-image: url("/CantabileIcon@2x.png");
+  }
 }
 header ul {
   padding: 0;
@@ -41,6 +57,31 @@ header ul li a {
 header ul li a.router-link-active {
   background-color: #002d62;
 }
+header div#clock {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-right: 10px;
+  padding-top: 16px;
+}
+div.status-panel {
+  box-sizing: border-box;
+  background-color: #222326;
+  color: white;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  height: 50px;
+  right: 0px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 7px;
+  overflow: hidden;
+}
+div.status-panel h1 {
+  font-size: 24px;
+  margin-top: 0;
+}
 footer {
   position: absolute;
   bottom: 0px;
@@ -53,8 +94,17 @@ footer {
   color: white;
   box-sizing: border-box;
   padding: 5px;
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  border-top: 1px solid black;
+}
+footer div.leftControls {
+  float: left;
+}
+footer div.rightControls {
+  float: right;
+}
+footer div.transportButtons {
+  display: inline-block;
 }
 footer button {
   height: 100%;
@@ -65,18 +115,18 @@ footer button {
   outline: none;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 75%;
+  background-size: auto 50%;
   margin-left: 2.5px;
   margin-right: 2.5px;
 }
 footer button:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
+footer button:active {
+  background-color: #0372ed;
+}
 footer button#play {
   background-image: url(/theme/dark/PlayButton@2x.png);
-}
-footer button#play:active {
-  background-image: url(/theme/dark/PlayButton_pressed@2x.png);
 }
 footer button#play.checked {
   background-image: url(/theme/dark/PlayButton_hot@2x.png);
@@ -84,38 +134,50 @@ footer button#play.checked {
 footer button#pause {
   background-image: url(/theme/dark/PauseButton@2x.png);
 }
-footer button#pause:active {
-  background-image: url(/theme/dark/PauseButton_pressed@2x.png);
-}
 footer button#pause.checked {
   background-image: url(/theme/dark/PauseButton_hot@2x.png);
 }
 footer button#stop {
   background-image: url(/theme/dark/StopButton@2x.png);
 }
-footer button#stop:active {
-  background-image: url(/theme/dark/StopButton_pressed@2x.png);
+footer button#continue {
+  background-image: url(/theme/dark/NextButton@2x.png);
+}
+footer button#panic {
+  background-image: url(/theme/dark/PanicButton@2x.png);
+}
+@media only screen and (max-width: 550px) {
+  main {
+    bottom: 44px;
+  }
+  footer {
+    height: 44px;
+  }
+  footer button {
+    width: 50px;
+    background-size: auto 70%;
+  }
 }
 main {
   position: absolute;
-  top: 50px;
+  top: 100px;
   bottom: 70px;
   left: 0px;
   right: 0px;
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  padding: 50px;
+  padding: 25px;
   color: white;
 }
 @media only screen and (max-width: 979px) {
   main {
-    padding: 20px;
+    padding: 10px;
   }
 }
 div.content {
   width: 100%;
-  max-width: 1000px;
+  max-width: 950px;
   font-family: 'Open Sans', 'Arial', sans-serif;
   color: #404040;
   margin: 0 auto;
