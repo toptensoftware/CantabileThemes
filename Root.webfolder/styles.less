@@ -16,12 +16,14 @@
 @button-background: rgba(255,255,255,0.2);
 @button-background-active: #0372ed;
 
+
 // -----------------  Layout -----------------
 
 @top-bar-height: 50px;
 @status-panel-height: 50px;
 @bottom-bar-height-normal: 70px;
 @bottom-bar-height-small: 44px;
+
 
 // ----------------- Screen Sizes -----------------
 
@@ -45,12 +47,12 @@ html
 
 body
 {
-	height:100%; 
-	width:100%; 
 	margin:0;
 	font-family:'Open Sans', 'Arial', sans-serif;
 	box-sizing: border-box;
 	background-color: @background;
+	overflow-x: hide;
+	overflow-y: scroll;
 }
 
 h1, h2
@@ -67,7 +69,8 @@ h1 + h2
 
 header
 {
-	position:absolute; 
+	position:fixed; 
+	z-index: 100;
 	top:0px; 
 	left:0px; 
 	height:@top-bar-height; 
@@ -127,10 +130,11 @@ header
 
 div.status-panel
 {
+	z-index: 100;
 	box-sizing: border-box;
 	background-color:@top-bar-background;
 	color:@top-bar-text;
-	position:absolute; 
+	position:fixed; 
 	top:@top-bar-height; 
 	left:0px; 
 	height:@status-panel-height; 
@@ -145,6 +149,7 @@ div.status-panel
 		font-size: 24px;
 		margin-top: 0;
 	}
+	
 }
 
 
@@ -152,13 +157,12 @@ div.status-panel
 
 footer
 {
-	position:absolute; 
+	position:fixed; 
 	bottom:0px; 
 	height:@bottom-bar-height-normal; 
 	left:0px; 
 	right:0px; 
 	overflow:hidden; 
-	background-color:green;
 	background-color:@bottom-bar-background;
 	color:@bottom-bar-text;
 	box-sizing: border-box;
@@ -179,7 +183,6 @@ footer
 	div.transportButtons
 	{
 		display:inline-block;
-		//display:inline-block;
 	}
 
 	button
@@ -238,7 +241,7 @@ footer
 {
 	main
 	{
-		bottom:@bottom-bar-height-small; 
+		margin-bottom:@bottom-bar-height-small;
 	}
 	footer
 	{
@@ -249,6 +252,26 @@ footer
 		width: 50px;	
 		background-size: auto 70%;
 	}
+	div.status-panel
+	{
+		h1
+		{
+			font-size: 18px;
+			margin-top:5px;
+		}
+	}
+}
+
+@media only screen and (max-width: 450px)
+{
+	div.status-panel
+	{
+		h1
+		{
+			font-size: 12px;
+			margin-top:8px;
+		}
+	}
 }
 
 
@@ -257,15 +280,8 @@ footer
 
 main
 {
-	position:absolute; 
-	top:(@top-bar-height + @status-panel-height); 
-	bottom:@bottom-bar-height-normal; 
-	left:0px; 
-	right:0px; 
-	overflow-x: hidden;	
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-	
+	margin-top:(@top-bar-height + @status-panel-height);
+	margin-bottom:@bottom-bar-height-normal;
 	padding:25px;
 	color:white;
 
@@ -273,6 +289,7 @@ main
 	{
 		padding:10px;
 	}
+
 }
 
 div.content

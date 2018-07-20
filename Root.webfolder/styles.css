@@ -5,12 +5,12 @@ html {
   height: auto!important;
 }
 body {
-  height: 100%;
-  width: 100%;
   margin: 0;
   font-family: 'Open Sans', 'Arial', sans-serif;
   box-sizing: border-box;
   background-color: black;
+  overflow-x: hide;
+  overflow-y: scroll;
 }
 h1,
 h2 {
@@ -20,7 +20,8 @@ h1 + h2 {
   margin-top: -20px;
 }
 header {
-  position: absolute;
+  position: fixed;
+  z-index: 100;
   top: 0px;
   left: 0px;
   height: 50px;
@@ -65,10 +66,11 @@ header div#clock {
   padding-top: 16px;
 }
 div.status-panel {
+  z-index: 100;
   box-sizing: border-box;
   background-color: #222326;
   color: white;
-  position: absolute;
+  position: fixed;
   top: 50px;
   left: 0px;
   height: 50px;
@@ -83,13 +85,12 @@ div.status-panel h1 {
   margin-top: 0;
 }
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   height: 70px;
   left: 0px;
   right: 0px;
   overflow: hidden;
-  background-color: green;
   background-color: #222326;
   color: white;
   box-sizing: border-box;
@@ -148,7 +149,7 @@ footer button#panic {
 }
 @media only screen and (max-width: 550px) {
   main {
-    bottom: 44px;
+    margin-bottom: 44px;
   }
   footer {
     height: 44px;
@@ -157,16 +158,20 @@ footer button#panic {
     width: 50px;
     background-size: auto 70%;
   }
+  div.status-panel h1 {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  div.status-panel h1 {
+    font-size: 12px;
+    margin-top: 8px;
+  }
 }
 main {
-  position: absolute;
-  top: 100px;
-  bottom: 70px;
-  left: 0px;
-  right: 0px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  margin-top: 100px;
+  margin-bottom: 70px;
   padding: 25px;
   color: white;
 }

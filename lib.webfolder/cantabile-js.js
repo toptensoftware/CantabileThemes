@@ -2579,12 +2579,32 @@ class Transport extends EndPoint
         }
     }
 
+	/**
+	 * Gets the current time signture numerator
+	 * @property timeSignatureNum
+	 * @type {Number}
+	 */
     get timeSignatureNum() { return this._data ? this._data.timeSigNum : 0 }
 
+	/**
+	 * Gets the current time signture denominator
+	 * @property timeSignatureDen
+	 * @type {Number}
+	 */
     get timeSignatureDen() { return this._data ? this._data.timeSigDen : 0 }
 
+	/**
+	 * Gets the current time signture as a string (eg: "3/4")
+	 * @property timeSignature
+	 * @type {String}
+	 */
     get timeSignature() { return this._data ? this._data.timeSigNum + "/" + this._data.timeSigDen : "-" }
 
+	/**
+	 * Gets the current tempo
+	 * @property tempo
+	 * @type {Number}
+	 */
     get tempo() { return this._data ? this._data.tempo : 0 }
 
 	_onEvent_stateChanged(data)
@@ -2684,7 +2704,7 @@ class Transport extends EndPoint
 
 	/**
 	 * Pauses the master transport
-	 * @method play
+	 * @method pause
 	 */
     pause()
     {
@@ -2694,7 +2714,7 @@ class Transport extends EndPoint
 
 	/**
 	 * Stops the master transport
-	 * @method play
+	 * @method stop
 	 */
     stop()
     {
