@@ -1,9 +1,9 @@
 <html>
 <head>
     <!-- Libraries -->
-    <script src="/lib/cantabile-js.js?v=13"></script>
-    <script src="/lib/vue.js"></script>
-    <script src="/lib/vue-router.js"></script>
+    <script src="/lib/cantabile-js.min.js?v=13"></script>
+    <script src="/lib/vue.min.js"></script>
+    <script src="/lib/vue-router.min.js"></script>
 
     <!-- Styles -->
     <link href="/styles.css?v=13" type="text/css" rel="stylesheet" />
@@ -105,12 +105,16 @@
     /// Opent he application endpoint so we can watch for busy status
     C.application.open();
 
-    C.application.on('busyChanged', (busy) => {
-        if (busy)
+    function updateBusyIndicator()
+    {
+        if (C.application.busy || C.state != "connected")
             document.getElementById("continue").classList.add("busy");
         else
             document.getElementById("continue").classList.remove("busy");
-    });
+    }
+
+    C.application.on('busyChanged', updateBusyIndicator);
+    C.on('stateChanged', updateBusyIndicator);
 
     // SetList component
     const SetList = {
@@ -339,6 +343,7 @@
                 stateName: C.song.currentState,
                 tempo: C.transport.tempo,
                 timeSignature: C.transport.timeSignature,
+                state: C.state,
             }
         },
         created: function() {
@@ -352,6 +357,9 @@
             C.transport.on('timeSignatureChanged', this.h3 = () => {
                 this.timeSignature = C.transport.timeSignature;
             });
+            C.on('stateChanged', this.h4 = () => {
+                this.state = C.state;
+            });
             C.song.open();
             C.transport.open();
         },
@@ -361,13 +369,14 @@
             C.transport.removeListner('tempoChanged', this.h2);
             C.transport.removeListener('timeSignatureChanged', this.h3);
             C.transport.close();
+            C.removeListener('stateChanged', this.h4);
         },
         methods: 
         {
             display: function()
             {
-                //if (C.state != "connected")
-                //  return "(disconnected)"
+                if (this.state != "connected")
+                    return "(disconnected)"
                 var str = this.songName;
                 if (this.stateName)
                     str += " - " + this.stateName;
