@@ -40,7 +40,9 @@
         </div>
         <transport-buttons></transport-buttons>
         <div class="rightControls">
-            <button id="continue" onclick="onContinue()"></button>
+            <button id="continue" onclick="onContinue()">
+                <div id="busySpinner" class="lds-dual-ring"></div>
+            </button>
         </div>
     </footer>
 </div>
@@ -99,6 +101,16 @@
     // Open the bindings endpoint so target bindings can be invoked
     // via WebSockets instead of REST
     C.bindings.open();
+
+    /// Opent he application endpoint so we can watch for busy status
+    C.application.open();
+
+    C.application.on('busyChanged', (busy) => {
+        if (busy)
+            document.getElementById("continue").classList.add("busy");
+        else
+            document.getElementById("continue").classList.remove("busy");
+    });
 
     // SetList component
     const SetList = {

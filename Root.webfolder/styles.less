@@ -235,7 +235,51 @@ footer
 	{
 		background-image:url(/theme/dark/PanicButton@2x.png);
 	}
+
+	button.busy 
+	{
+		div
+		{
+			display:inline-block
+		}
+	}
 }
+
+
+// ----------------- busy spinner -----------------
+
+// https://loading.io/css/
+.lds-dual-ring 
+{
+	display: none;
+	width: 64px;
+	height: 64px;
+}
+.lds-dual-ring:after 
+{
+	content: " ";
+	display: block;
+	width: 46px;
+	height: 46px;
+	margin: 1px;
+	border-radius: 50%;
+	border: 5px solid #fff;
+	border-color: #fff transparent #fff transparent;
+	animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring 
+{
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
+// ----------------- responsive -----------------
+
 
 @media only screen and (max-width: 550px)
 {
@@ -252,6 +296,18 @@ footer
 		width: 50px;	
 		background-size: auto 70%;
 	}
+	.lds-dual-ring 
+	{
+		width: 35px;
+		height: 35px;
+	}
+	.lds-dual-ring:after 
+	{
+		width: 26px;
+		height: 26px;
+		border-width: 2px;
+	}
+	
 	div.status-panel
 	{
 		h1

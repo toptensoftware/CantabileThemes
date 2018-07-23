@@ -712,6 +712,98 @@ process.umask = function() { return 0; };
 },{}],3:[function(require,module,exports){
 'use strict';
 
+const EndPoint = require('./EndPoint');
+
+/**
+ * Interface to the application object
+ * 
+ * Access this object via the {{#crossLink "Cantabile/application:property"}}{{/crossLink}} property.
+ *
+ * @class Application
+ * @extends EndPoint
+ */
+class Application extends EndPoint
+{
+	constructor(owner)
+	{
+		super(owner, "/api/application");
+	}
+
+	_onOpen()
+	{
+		this.emit('busyChanged', this.busy);
+		this.emit('changed');
+	}
+
+	_onClose()
+	{
+		this.emit('busyChanged', this.busy);
+		this.emit('changed');
+	}
+
+	/**
+	 * The application's company name
+	 * @property companyName
+	 * @type {String}
+	 */
+	get companyName() { return this._data ? this._data.companyName : null; }
+
+	/**
+	 * The application name
+	 * @property name
+	 * @type {String}
+	 */
+	get name() { return this._data ? this._data.name : null; }
+
+	/**
+	 * The application version string
+	 * @property version
+	 * @type {String}
+	 */
+	get version() { return this._data ? this._data.version : null; }
+
+	/**
+	 * The application edition string
+	 * @property edition
+	 * @type {String}
+	 */
+	get edition() { return this._data ? this._data.edition : null; }
+
+	/**
+	 * The application's copyright message
+	 * @property copyright
+	 * @type {String}
+	 */
+	get copyright() { return this._data ? this._data.copyright : null; }
+
+	/**
+	 * The application's build number
+	 * @property build
+	 * @type {Number}
+	 */
+	get build() { return this._data ? this._data.build : null; }
+
+	/**
+	 * The application's busy status
+	 * @property busy
+	 * @type {Boolean}
+	 */
+	get busy() { return this._data ? this._data.busy : false; }
+
+	_onEvent_busyChanged(data)
+	{
+		this._data.busy = data.busy;
+		this.emit('busyChanged', this.busy);
+	}
+
+
+}
+
+
+module.exports = Application;
+},{"./EndPoint":6}],4:[function(require,module,exports){
+'use strict';
+
 const debug = require('debug')('Cantabile');
 const EndPoint = require('./EndPoint');
 const EventEmitter = require('events');
@@ -1093,7 +1185,7 @@ class Bindings extends EndPoint
 
 
 module.exports = Bindings;
-},{"./EndPoint":5,"debug":14,"events":1}],4:[function(require,module,exports){
+},{"./EndPoint":6,"debug":15,"events":1}],5:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1188,6 +1280,14 @@ class Cantabile extends EventEmitter
 		 * @type {Song} 
 		 */
 		this.transport = new (require('./Transport'))(this);
+
+		/**
+		 * Provides access to the application object
+		 *
+		 * @property application
+		 * @type {Application} 
+		 */
+		this.application = new (require('./Application'))(this);
 	}
 
 	/**
@@ -1495,7 +1595,7 @@ const eventDiconnected = "disconnected";
 
 module.exports = Cantabile;
 }).call(this,require('_process'))
-},{"./Bindings":3,"./KeyRanges":6,"./SetList":7,"./ShowNotes":8,"./Song":9,"./SongStates":10,"./Transport":12,"./Variables":13,"_process":2,"debug":14,"events":1,"isomorphic-ws":16}],5:[function(require,module,exports){
+},{"./Application":3,"./Bindings":4,"./KeyRanges":7,"./SetList":8,"./ShowNotes":9,"./Song":10,"./SongStates":11,"./Transport":13,"./Variables":14,"_process":2,"debug":15,"events":1,"isomorphic-ws":17}],6:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1679,7 +1779,7 @@ class EndPoint extends EventEmitter
 }
 
 module.exports = EndPoint;
-},{"debug":14,"events":1}],6:[function(require,module,exports){
+},{"debug":15,"events":1}],7:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -1732,7 +1832,7 @@ class KeyRanges extends EndPoint
 
 
 module.exports = KeyRanges;
-},{"./EndPoint":5,"debug":14}],7:[function(require,module,exports){
+},{"./EndPoint":6,"debug":15}],8:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -2023,7 +2123,7 @@ class SetList extends EndPoint
 
 
 module.exports = SetList;
-},{"./EndPoint":5,"debug":14}],8:[function(require,module,exports){
+},{"./EndPoint":6,"debug":15}],9:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -2146,7 +2246,7 @@ class ShowNotes extends EndPoint
 
 
 module.exports = ShowNotes;
-},{"./EndPoint":5,"debug":14}],9:[function(require,module,exports){
+},{"./EndPoint":6,"debug":15}],10:[function(require,module,exports){
 'use strict';
 
 const EndPoint = require('./EndPoint');
@@ -2237,7 +2337,7 @@ class SongStates extends EndPoint
 
 
 module.exports = SongStates;
-},{"./EndPoint":5}],10:[function(require,module,exports){
+},{"./EndPoint":6}],11:[function(require,module,exports){
 'use strict';
 
 const States = require('./States');
@@ -2260,7 +2360,7 @@ class SongStates extends States
 
 
 module.exports = SongStates;
-},{"./States":11}],11:[function(require,module,exports){
+},{"./States":12}],12:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -2527,7 +2627,7 @@ class States extends EndPoint
 
 
 module.exports = States;
-},{"./EndPoint":5,"debug":14}],12:[function(require,module,exports){
+},{"./EndPoint":6,"debug":15}],13:[function(require,module,exports){
 'use strict';
 
 const EndPoint = require('./EndPoint');
@@ -2726,7 +2826,7 @@ class Transport extends EndPoint
 
 
 module.exports = Transport;
-},{"./EndPoint":5}],13:[function(require,module,exports){
+},{"./EndPoint":6}],14:[function(require,module,exports){
 'use strict';
 
 const debug = require('debug')('Cantabile');
@@ -2972,7 +3072,7 @@ class Variables extends EndPoint
 
 
 module.exports = Variables;
-},{"./EndPoint":5,"debug":14,"events":1}],14:[function(require,module,exports){
+},{"./EndPoint":6,"debug":15,"events":1}],15:[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -3171,7 +3271,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":15,"_process":2}],15:[function(require,module,exports){
+},{"./debug":16,"_process":2}],16:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -3398,7 +3498,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":17}],16:[function(require,module,exports){
+},{"ms":18}],17:[function(require,module,exports){
 (function (global){
 // https://github.com/maxogden/websocket-stream/blob/48dc3ddf943e5ada668c31ccd94e9186f02fafbd/ws-fallback.js
 
@@ -3419,7 +3519,7 @@ if (typeof WebSocket !== 'undefined') {
 module.exports = ws
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -3573,5 +3673,5 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}]},{},[4])(4)
+},{}]},{},[5])(5)
 });
