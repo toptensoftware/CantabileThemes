@@ -152,8 +152,8 @@ footer button.busy div {
 }
 .lds-dual-ring {
   display: none;
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 57px;
 }
 .lds-dual-ring:after {
   content: " ";
@@ -162,8 +162,8 @@ footer button.busy div {
   height: 46px;
   margin: 1px;
   border-radius: 50%;
-  border: 5px solid #fff;
-  border-color: #fff transparent #fff transparent;
+  border: 5px solid orange;
+  border-color: orange transparent orange transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {
@@ -186,8 +186,8 @@ footer button.busy div {
     background-size: auto 70%;
   }
   .lds-dual-ring {
-    width: 35px;
-    height: 35px;
+    width: 34px;
+    height: 32px;
   }
   .lds-dual-ring:after {
     width: 26px;
