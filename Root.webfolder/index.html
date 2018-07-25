@@ -151,13 +151,13 @@
             C.setList.close();
         },
         beforeRouteLeave: function(to, from, next) {
-            this.oldScrollPosition = document.querySelector("main").scrollTop;
+            this.oldScrollPosition = document.querySelector("body").scrollTop;
             next();
         },
         beforeRouteEnter: function(to, from, next) {
             next(vm => {
                 Vue.nextTick(() => {
-                    document.querySelector("main").scrollTop = vm.oldScrollPosition;
+                    document.querySelector("body").scrollTop = vm.oldScrollPosition;
                 });
             });
             next();
@@ -214,13 +214,13 @@
             C.songStates.close();
         },
         beforeRouteLeave: function(to, from, next) {
-            this.oldScrollPosition = document.querySelector("main").scrollTop;
+            this.oldScrollPosition = document.querySelector("body").scrollTop;
             next();
         },
         beforeRouteEnter: function(to, from, next) {
             next(vm => {
                 Vue.nextTick(() => {
-                    document.querySelector("main").scrollTop = vm.oldScrollPosition;
+                    document.querySelector("body").scrollTop = vm.oldScrollPosition;
                 });
             });
             next();
