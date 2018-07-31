@@ -1,12 +1,12 @@
 <html>
 <head>
     <!-- Libraries -->
-    <script src="/lib/cantabile-js.min.js?v=14"></script>
+    <script src="/lib/cantabile-js.min.js?v=15"></script>
     <script src="/lib/vue.min.js"></script>
     <script src="/lib/vue-router.min.js"></script>
 
     <!-- Styles -->
-    <link href="/styles.css?v=14" type="text/css" rel="stylesheet" />
+    <link href="/styles.css?v=15" type="text/css" rel="stylesheet" />
 
     <!-- Scale -->
     <meta name="viewport" content="initial-scale=1">
@@ -128,7 +128,7 @@
             };
         },
         created: function() {
-            C.setList.on('changed', this.h1 = () => {
+            C.setList.on('changed', this.h1 = (function() {
                 this.items = C.setList.items;
                 this.currentSong = C.setList.currentSong;
                 this.name = C.setList.name;
@@ -136,11 +136,11 @@
                 {
                     scrollIntoView(this.$el, "div.item.active", "instant");
                 }
-            });
-            C.setList.on('currentSongChanged', this.h2 = () => {
+            }).bind(this));
+            C.setList.on('currentSongChanged', this.h2 = (function() {
                 this.currentSong = C.setList.currentSong;
                 scrollIntoView(this.$el, "div.item.active", "smooth");
-            });
+            }).bind(this));
             C.setList.open();
         },
         beforeDestroy: function() {
@@ -155,8 +155,8 @@
             next();
         },
         beforeRouteEnter: function(to, from, next) {
-            next(vm => {
-                Vue.nextTick(() => {
+            next(function(vm) {
+                Vue.nextTick(function() {
                     document.querySelector("body").scrollTop = vm.oldScrollPosition;
                 });
             });
@@ -189,7 +189,7 @@
             };
         },
         created: function() {
-            C.songStates.on('changed', this.h1 = () => {
+            C.songStates.on('changed', this.h1 = (function() {
                 this.items = C.songStates.items;
                 this.currentState = C.songStates.currentState;
                 this.name = C.songStates.name;
@@ -197,14 +197,14 @@
                 {
                     scrollIntoView(this.$el, "div.item.active", "instant");
                 }
-            });
-            C.songStates.on('currentStateChanged', this.h2 = () => {
+            }).bind(this));
+            C.songStates.on('currentStateChanged', this.h2 = (function() {
                 this.currentState = C.songStates.currentState;
                 scrollIntoView(this.$el, "div.item.active", "smooth");
-            });
-            C.songStates.on('reload', this.h3 = () => {
+            }).bind(this));
+            C.songStates.on('reload', this.h3 = (function() {
                 delete this.oldScrollPosition;
-            });
+            }).bind(this));
             C.songStates.open();
         },
         destroyed: function() {
@@ -218,8 +218,8 @@
             next();
         },
         beforeRouteEnter: function(to, from, next) {
-            next(vm => {
-                Vue.nextTick(() => {
+            next(function(vm) {
+                Vue.nextTick(function() {
                     document.querySelector("body").scrollTop = vm.oldScrollPosition;
                 });
             });
@@ -251,15 +251,15 @@
             };
         },
         created: function() {
-            C.showNotes.on('changed', this.h1 = () => {
+            C.showNotes.on('changed', this.h1 = (function() {
                 this.items = C.showNotes.items;
-            });
-            C.song.on('nameChanged', this.h2 = () => {
+            }).bind(this));
+            C.song.on('nameChanged', this.h2 = (function() {
                 this.name = C.song.name;
-            });
-            C.song.on('currentStateChanged', this.h3 = () => {
+            }).bind(this));
+            C.song.on('currentStateChanged', this.h3 = (function() {
                 this.currentState = C.song.currentState;
-            });
+            }).bind(this));
             C.showNotes.open();
             C.song.open();
         },
@@ -312,9 +312,9 @@
             }
         },
         created: function() {
-            C.transport.on('stateChanged', this.h1 = () => {
+            C.transport.on('stateChanged', this.h1 = (function() {
                 this.state = C.transport.state;
-            });
+            }).bind(this));
             C.transport.open();
         },
         destroyed: function() {
@@ -349,19 +349,19 @@
             }
         },
         created: function() {
-            C.song.on('changed', this.h1 = () => {
+            C.song.on('changed', this.h1 = (function() {
                 this.songName = C.song.name;
                 this.stateName = C.song.currentState;
-            });
-            C.transport.on('tempoChanged', this.h2 = () => {
+            }).bind(this));
+            C.transport.on('tempoChanged', this.h2 = (function() {
                 this.tempo = C.transport.tempo;
-            });
-            C.transport.on('timeSignatureChanged', this.h3 = () => {
+            }).bind(this));
+            C.transport.on('timeSignatureChanged', this.h3 = (function() {
                 this.timeSignature = C.transport.timeSignature;
-            });
-            C.on('stateChanged', this.h4 = () => {
+            }).bind(this));
+            C.on('stateChanged', this.h4 = (function() {
                 this.state = C.state;
-            });
+            }).bind(this));
             C.song.open();
             C.transport.open();
         },
@@ -425,7 +425,7 @@
     function scrollIntoView(parentElement, selector, behavior)
     {
         // Wait till next tick when DOM is loaded
-        Vue.nextTick(() => {
+        Vue.nextTick(function() {
             // Find the element
             var el = parentElement.querySelector(selector);
             if (el != null)
