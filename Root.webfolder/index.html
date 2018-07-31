@@ -4,6 +4,7 @@
     <script src="/lib/cantabile-js.min.js?v=15"></script>
     <script src="/lib/vue.min.js"></script>
     <script src="/lib/vue-router.min.js"></script>
+    <script src="/lib/smoothscroll.min.js"></script>
 
     <!-- Styles -->
     <link href="/styles.css?v=15" type="text/css" rel="stylesheet" />
@@ -96,6 +97,7 @@
 
 
 <script>
+
 	// Create an instance of the Cantabile library and connect it
 	const C = new Cantabile();
 	C.connect();
@@ -430,12 +432,8 @@
             var el = parentElement.querySelector(selector);
             if (el != null)
             {
-                // Scroll it
-                el.scrollIntoView({
-                    behavior: behavior,
-                    block: "center",
-                    inline: "center",
-                });
+                var topOfElement = el.offsetTop - 100;
+                window.scroll({ top: topOfElement, behavior: "smooth" });
             }
         });
     }
