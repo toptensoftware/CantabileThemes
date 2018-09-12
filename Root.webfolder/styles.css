@@ -9,7 +9,7 @@ body {
   font-family: 'Open Sans', 'Arial', sans-serif;
   box-sizing: border-box;
   background-color: black;
-  overflow-x: hide;
+  overflow-x: hidden;
   overflow-y: scroll;
 }
 h1,
@@ -215,6 +215,35 @@ main {
   main {
     padding: 10px;
   }
+}
+div.splitter {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  top: 100px;
+  height: calc(100vh - 50px -  50px - 70px);
+  color: white;
+}
+@media only screen and (max-width: 979px) {
+  div.splitter {
+    padding: 10px;
+  }
+}
+div.splitter div.left-panel {
+  overflow: auto;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  flex: 0.5;
+  padding: 25px;
+}
+div.splitter div.right-panel {
+  overflow: auto;
+  height: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  flex: 0.5;
+  padding: 25px;
 }
 div.content {
   width: 100%;

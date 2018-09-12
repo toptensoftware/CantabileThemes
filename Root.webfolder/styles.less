@@ -51,7 +51,7 @@ body
 	font-family:'Open Sans', 'Arial', sans-serif;
 	box-sizing: border-box;
 	background-color: @background;
-	overflow-x: hide;
+	overflow-x: hidden;
 	overflow-y: scroll;
 }
 
@@ -346,6 +346,41 @@ main
 		padding:10px;
 	}
 
+}
+
+div.splitter
+{
+	display:flex;
+	position:relative;
+	overflow:hidden;
+	top:(@top-bar-height + @status-panel-height);
+	height: ~"calc(100vh - @{top-bar-height} -  @{status-panel-height} - @{bottom-bar-height-normal})";
+	color:white;
+
+	@media @vga-max
+	{
+		padding:10px;
+	}
+
+	div.left-panel
+	{
+		overflow: auto;
+		height:auto;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: none;
+		flex: 0.5;
+		padding:25px;
+	}
+
+	div.right-panel
+	{
+		overflow: auto;
+		height:auto;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: none;
+		flex: 0.5;
+		padding:25px;
+	}
 }
 
 div.content

@@ -1,0 +1,480 @@
+<html>
+<head>
+    <!-- Libraries -->
+    <script src="/lib/cantabile-js.min.js?v=15"></script>
+    <script src="/lib/vue.min.js"></script>
+    <script src="/lib/vue-router.min.js"></script>
+    <script src="/lib/smoothscroll.min.js"></script>
+
+    <!-- Styles -->
+    <link href="/styles.css?v=15" type="text/css" rel="stylesheet" />
+
+    <!-- Scale -->
+    <meta name="viewport" content="initial-scale=1">
+
+    <!-- App Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <title>Cantabile WebUI</title>
+</head>
+<body style="overflow-y: hidden">
+<div id="app">
+    <header> 
+        <div id="clock">
+        </div>
+        <ul>
+            <li><router-link to="/setlist">Set List</router-link></li>
+            <li><router-link to="/states">States</router-link></li>
+        </ul>
+    </header> 
+
+    <status-panel></status-panel>
+
+    <div class="splitter"> 
+        <div class="left-panel">
+            <keep-alive>
+                    <router-view></router-view>
+            </keep-alive>
+        </div>
+        <div class="right-panel">
+            <notes-panel></notes-panel>
+        </div>
+    </div> 
+
+
+    <footer> 
+        <div class="leftControls">
+            <button id="panic" onclick="onPanic()"></button>
+        </div>
+        <transport-buttons></transport-buttons>
+        <div class="rightControls">
+            <button id="continue" onclick="onContinue()">
+                <div id="busySpinner" class="lds-dual-ring"></div>
+            </button>
+        </div>
+    </footer>
+</div>
+
+<template id="status-panel-template">
+    <div class="status-panel">
+        <h1>{{display()}}</h1>
+    </div>
+</template>
+    
+    
+<template id="setlist-template">
+    <div class="itemlist">
+        <h1>{{name}}</h1>
+        <div v-for="(i, index) in items" v-bind:class="itemClasses(i)" v-on:click="loadSong(index)">
+            <span v-if="i.kind == 'song'" class="pr">{{i.pr+1}}</span>
+            <span class="title">{{i.name}}</span>
+        </div>
+    </div>
+</template>
+
+<template id="states-template">
+    <div class="itemlist">
+        <div class="item" v-for="(i, index) in items" v-bind:class="itemClasses(i)" v-on:click="loadState(index)">
+            <span class="pr">{{i.pr+1}}</span>
+            <span class="title">{{i.name}}</span>
+        </div>
+    </div>
+</template>
+
+<template id="notes-template">
+    <div class="notelist">
+        <!--h1>{{name}}</h1>
+        <h2>{{currentState}}</h2-->
+        <div class="note" v-for="(i, index) in items" v-bind:style="itemStyles(i)" >
+            <img class="noteImage" v-bind:style="imageStyles(i)" :src="i.imageUrl" :width="i.imageWidth * i.imageScale" height="auto"/>
+            <div class="noteText" v-bind:style="textStyles(i)" v-bind:class="textClasses(i)">{{i.text}}</div>
+        </div>
+    </div>
+</template>
+
+<template id="transportButtons-template">
+    <div class="transportButtons">
+        <button id="play" v-bind:class="{checked: state=='playing'}" v-on:click="play()"></button>
+        <button id="pause" v-bind:class="{checked: state=='paused'}" v-on:click="pause()"></button>
+        <button id="stop" v-on:click="stop()"></button>
+    </div>
+</template>
+
+
+<script>
+
+	// Create an instance of the Cantabile library and connect it
+	const C = new Cantabile();
+	C.connect();
+
+    // Open the bindings endpoint so target bindings can be invoked
+    // via WebSockets instead of REST
+    C.bindings.open();
+
+    /// Opent he application endpoint so we can watch for busy status
+    C.application.open();
+
+    function updateBusyIndicator()
+    {
+        if (C.application.busy || C.state != "connected")
+            document.getElementById("continue").classList.add("busy");
+        else
+            document.getElementById("continue").classList.remove("busy");
+    }
+
+    C.application.on('busyChanged', updateBusyIndicator);
+    C.on('stateChanged', updateBusyIndicator);
+
+    // SetList component
+    const SetList = {
+        data: function() {
+            return {
+                items: C.setList.items,
+                currentSong: C.setList.currentSong,
+                name: C.setList.name,
+            };
+        },
+        created: function() {
+            C.setList.on('changed', this.h1 = (function() {
+                this.items = C.setList.items;
+                this.currentSong = C.setList.currentSong;
+                this.name = C.setList.name;
+                if (this.oldScrollPosition === undefined)
+                {
+                    scrollIntoView(this.$el, "div.item.active", "instant");
+                }
+            }).bind(this));
+            C.setList.on('currentSongChanged', this.h2 = (function() {
+                this.currentSong = C.setList.currentSong;
+                scrollIntoView(this.$el, "div.item.active", "smooth");
+            }).bind(this));
+            C.setList.open();
+        },
+        beforeDestroy: function() {
+        },
+        destroyed: function() {
+            C.setList.removeListener('changed', this.h1);
+            C.setList.removeListener('currentSongChanged', this.h2);
+            C.setList.close();
+        },
+        beforeRouteLeave: function(to, from, next) {
+            this.oldScrollPosition = document.querySelector("body").scrollTop;
+            next();
+        },
+        beforeRouteEnter: function(to, from, next) {
+            next(function(vm) {
+                Vue.nextTick(function() {
+                    document.querySelector("body").scrollTop = vm.oldScrollPosition;
+                });
+            });
+            next();
+        },
+		methods: {
+			loadSong: function(item)
+			{
+				C.setList.loadSongByIndex(item);
+			},
+			itemClasses: function(item)
+			{
+				return {
+					"active": this.currentSong === item,
+					"item": item.kind == 'song',
+					"item-break": item.kind == 'break',
+				}
+			}
+		},
+        template: '#setlist-template',
+    }
+
+    // State component
+    const States = {
+        data: function() {
+            return {
+                items: C.songStates.items,
+                currentState: C.songStates.currentSong,
+                name: C.songStates.name,
+            };
+        },
+        created: function() {
+            C.songStates.on('changed', this.h1 = (function() {
+                this.items = C.songStates.items;
+                this.currentState = C.songStates.currentState;
+                this.name = C.songStates.name;
+                if (this.oldScrollPosition === undefined)
+                {
+                    scrollIntoView(this.$el, "div.item.active", "instant");
+                }
+            }).bind(this));
+            C.songStates.on('currentStateChanged', this.h2 = (function() {
+                this.currentState = C.songStates.currentState;
+                scrollIntoView(this.$el, "div.item.active", "smooth");
+            }).bind(this));
+            C.songStates.on('reload', this.h3 = (function() {
+                delete this.oldScrollPosition;
+            }).bind(this));
+            C.songStates.open();
+        },
+        destroyed: function() {
+            C.songStates.removeListener('changed', this.h1);
+            C.songStates.removeListener('currentStateChanged', this.h2);
+            C.songStates.removeListener('reload', this.h3);
+            C.songStates.close();
+        },
+        beforeRouteLeave: function(to, from, next) {
+            this.oldScrollPosition = document.querySelector("body").scrollTop;
+            next();
+        },
+        beforeRouteEnter: function(to, from, next) {
+            next(function(vm) {
+                Vue.nextTick(function() {
+                    document.querySelector("body").scrollTop = vm.oldScrollPosition;
+                });
+            });
+            next();
+        },
+		methods: {
+			loadState: function(item)
+			{
+				C.songStates.loadStateByIndex(item);
+			},
+			itemClasses: function(item)
+			{
+				return {
+					"active": this.currentState === item,
+				}
+			}
+		},
+        template: '#states-template',
+    }
+
+
+    // Notes component
+    const Notes = {
+        data: function() {
+            return {
+                items: C.showNotes.items,
+                name: C.song.name,
+                currentState: C.song.currentState,
+            };
+        },
+        created: function() {
+            C.showNotes.on('changed', this.h1 = (function() {
+                this.items = C.showNotes.items;
+            }).bind(this));
+            C.song.on('nameChanged', this.h2 = (function() {
+                this.name = C.song.name;
+            }).bind(this));
+            C.song.on('currentStateChanged', this.h3 = (function() {
+                this.currentState = C.song.currentState;
+            }).bind(this));
+            C.showNotes.open();
+            C.song.open();
+        },
+        destroyed: function() {
+            C.showNotes.removeListener('changed', this.h1);
+            C.song.removeListener('nameChanged', this.h2);
+            C.song.removeListener('currentStateChanged', this.h3);
+            C.showNotes.close();
+            C.song.close();
+        },
+		methods: {
+			itemStyles: function(item)
+			{
+				return {
+                    "display": item.hidden ? "none" : null,
+                    "background-color": backgroundColors[item.backgroundColor],
+				}
+			},
+            textClasses: function(item)
+            {
+                return {
+                    "placeOverImage": !!item.imageUrl,
+                }
+            },
+			textStyles: function(item)
+			{
+				return {
+                    "font-family": item.fixedPitch ? "'Courier New', monospace" : null,
+                    "font-weight": item.bold ? "bold" : null,
+                    "text-align": item.textAlign,
+                    "font-size": "" + item.fontSize + "px",
+                    "color": foregroundColors[item.textColor],
+				}
+			},
+            imageStyles: function(item)
+            {
+                return {
+                    "display": item.imageUrl ? null : "none",
+                }
+            },
+		},
+        template: '#notes-template',
+    }
+
+    // Register notes as a component
+    Vue.component('notes-panel', Notes);
+
+    // Tranport Controller
+	Vue.component('transport-buttons', {
+		data: function() { 
+            return {
+                state: C.transport.state,
+            }
+        },
+        created: function() {
+            C.transport.on('stateChanged', this.h1 = (function() {
+                this.state = C.transport.state;
+            }).bind(this));
+            C.transport.open();
+        },
+        destroyed: function() {
+            C.transport.removeListener('stateChanged', this.h1);
+            C.transport.close();
+        },
+		methods: {
+            play: function() 
+            {
+                C.transport.play();
+            },
+            pause: function()
+            {
+                C.transport.togglePause();
+            },
+            stop: function()
+            {
+                C.transport.stop();
+            }
+		},
+        template: '#transportButtons-template',
+	});
+
+    Vue.component('status-panel', {
+		data: function() { 
+            return {
+                songName: C.song.name,
+                stateName: C.song.currentState,
+                tempo: C.transport.tempo,
+                timeSignature: C.transport.timeSignature,
+                state: C.state,
+            }
+        },
+        created: function() {
+            C.song.on('changed', this.h1 = (function() {
+                this.songName = C.song.name;
+                this.stateName = C.song.currentState;
+            }).bind(this));
+            C.transport.on('tempoChanged', this.h2 = (function() {
+                this.tempo = C.transport.tempo;
+            }).bind(this));
+            C.transport.on('timeSignatureChanged', this.h3 = (function() {
+                this.timeSignature = C.transport.timeSignature;
+            }).bind(this));
+            C.on('stateChanged', this.h4 = (function() {
+                this.state = C.state;
+            }).bind(this));
+            C.song.open();
+            C.transport.open();
+        },
+        destroyed: function() {
+            C.song.removeListener('stateChanged', this.h1);
+            C.song.close();
+            C.transport.removeListner('tempoChanged', this.h2);
+            C.transport.removeListener('timeSignatureChanged', this.h3);
+            C.transport.close();
+            C.removeListener('stateChanged', this.h4);
+        },
+        methods: 
+        {
+            display: function()
+            {
+                if (this.state != "connected")
+                    return "(disconnected)"
+                var str = this.songName == null ? "NewSong" : this.songName;
+                if (this.stateName)
+                    str += " - " + this.stateName;
+                if (this.tempo != 0)
+                    str += " - " + this.timeSignature + " - " + this.tempo + "bpm";
+                return str;
+            }
+        },
+        template: "#status-panel-template",
+    });
+
+    // Routes
+    const routes = [
+        { path: '/setlist', component: SetList },
+        { path: '/states', component: States },
+        { path: '*', redirect: '/setlist' }
+    ]
+
+    // Router
+    const router = new VueRouter({
+        routes, // short for `routes: routes`
+    })
+
+    
+    // App
+    const app = new Vue({
+        router
+    }).$mount('#app');
+
+    // Colors (matches default Dark theme)
+    var backgroundColors = [ 
+        null, 
+        "#6B0B0B","#3B0B0B","#0B3B0B","#0B6B0B","#0B0B6B","#0B0B3B","#6B6B0B",
+        "#3B3B0B","#6B0B6B","#3B0B3B","#0B6B6B","#0B3B3B","#6B3B0B", "#3B230B",
+    ];
+    var foregroundColors = [
+        null,
+        "#FF0000","#800000","#008000","#00FF00","#0000FF","#000080","#FFFF00",
+        "#808000","#FF00FF","#800080","#00FFFF","#008080","#FF8000","#804000",
+    ];
+
+    // Helper to scroll an element into view
+    function scrollIntoView(parentElement, selector, behavior)
+    {
+        // Wait till next tick when DOM is loaded
+        Vue.nextTick(function() {
+            // Find the element
+            var el = parentElement.querySelector(selector);
+            if (el != null)
+            {
+                var topOfElement = el.offsetTop - 100;
+                window.scroll({ top: topOfElement, behavior: "smooth" });
+            }
+        });
+    }
+
+    function onPanic()
+    {
+        C.bindings.invoke("global.engine.allSoundsOff");
+    }
+
+    function onContinue()
+    {
+        C.bindings.invoke("global.setList.nextSongPartInstant");
+    }
+
+    var lastShownTime = "";
+    function showTime()
+    {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var time = (hours > 12 ? hours - 12 : hours) + ":" + ("0" + minutes).substr(-2);
+        if (time != lastShownTime)
+        {
+            document.querySelector("div#clock").innerHTML = time;
+            lastShownTime = time;
+        }
+    }
+    showTime();
+    setInterval(showTime, 1000);
+
+    
+</script>
+
+<script src="/lib/manup.js"></script>
+
+</body>
+</html> 
