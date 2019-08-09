@@ -4,6 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <style>
 body { font-family:Arial; margin:20px; font-size:14pt}
+td { font-size:14pt }
+td:first-child { width: 100px; text-align:center  }
 </style>
 </head>
 <body>
@@ -12,11 +14,14 @@ body { font-family:Arial; margin:20px; font-size:14pt}
 	{if Title}
 	<h2>{Title}</h2>
 	{/if}
-	<ol>
-		{foreach Songs}
-		<li>{Name}</li>
-		{/foreach}
-	</ol>
+	<table>
+	{foreach Songs}
+	<tr>
+	<td>{FormattedProgramNumber}</td>
+	<td>{Name}</td>
+	</tr>
+	{/foreach}
+	</table>
 {/foreach}
 </body>
 </html>
