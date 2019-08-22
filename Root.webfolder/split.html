@@ -141,12 +141,12 @@
                 this.name = C.setList.name;
                 if (this.oldScrollPosition === undefined)
                 {
-                    scrollIntoView(this.$el, "div.item.active", "instant");
+                    scrollIntoView(this.$el, "div.item.active", "instant", document.querySelector("div.left-panel"));
                 }
             }).bind(this));
             C.setList.on('currentSongChanged', this.h2 = (function() {
                 this.currentSong = C.setList.currentSong;
-                scrollIntoView(this.$el, "div.item.active", "smooth");
+                scrollIntoView(this.$el, "div.item.active", "smooth", document.querySelector("div.left-panel"));
             }).bind(this));
             C.setList.open();
         },
@@ -431,7 +431,7 @@
     ];
 
     // Helper to scroll an element into view
-    function scrollIntoView(parentElement, selector, behavior)
+    function scrollIntoView(parentElement, selector, behavior, scroller)
     {
         // Wait till next tick when DOM is loaded
         Vue.nextTick(function() {
@@ -440,7 +440,11 @@
             if (el != null)
             {
                 var topOfElement = el.offsetTop - 100;
-                window.scroll({ top: topOfElement, behavior: "smooth" });
+
+                if (!scroller)
+                    scroller = window;
+
+                scroller.scroll({ top: topOfElement, behavior: "smooth" });
             }
         });
     }
