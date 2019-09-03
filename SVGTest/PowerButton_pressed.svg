@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>PowerButton_pressed</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="41.0795666%" y1="23.757208%" x2="0%" y2="103.341239%" id="linearGradient-1">
+            <stop stop-color="#767676" offset="0%"></stop>
+            <stop stop-color="#4C4C4D" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Main-Toolbar-Buttons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PowerButton_pressed" fill="#DFE1E5" fill-rule="nonzero">
+            <g id="PowerButton" transform="translate(3.000000, 2.000000)">
+                <polygon id="Path-18" points="10.8306933 12.2985172 13.7100567 12.2377791 13.4920698 1.83996601 13.456898 0.162298746 10.5775346 0.223036902"></polygon>
+                <path d="M20.64,14.7797701 C20.64,19.5099444 16.7748086,23.3501405 12,23.3501405 C7.22519142,23.3501405 3.36,19.5099444 3.36,14.7797701 C3.36,11.2721695 5.50432953,8.15651368 8.72363595,6.84667204 L7.64111603,4.16962426 C3.34714954,5.91671365 0.48,10.0826085 0.48,14.7797701 C0.48,21.1116548 5.64074802,26.2390294 12,26.2390294 C18.359252,26.2390294 23.52,21.1116548 23.52,14.7797701 C23.52,10.1212761 20.6998185,5.98283643 16.4583459,4.2106362 L15.3509382,6.87742182 C18.5309322,8.20610802 20.64,11.3010329 20.64,14.7797701 Z" id="Oval-3"></path>
+            </g>
+        </g>
+    </g>
+</svg>

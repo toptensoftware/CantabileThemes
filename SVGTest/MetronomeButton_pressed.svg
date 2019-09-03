@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>MetronomeButton_pressed</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="41.0795666%" y1="23.757208%" x2="0%" y2="103.341239%" id="linearGradient-1">
+            <stop stop-color="#767676" offset="0%"></stop>
+            <stop stop-color="#4C4C4D" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Main-Toolbar-Buttons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="MetronomeButton_pressed" fill="#DFE1E5">
+            <g id="Metronome" transform="translate(6.000000, 2.000000)">
+                <path d="M6.88405797,0.0256578947 L0,24.6572368 L1.37681159,26.0256579 L16.5217391,26.0256579 L17.8985507,24.6572368 L11.0144928,0.0256578947 L6.88405797,0.0256578947 L6.88405797,0.0256578947 Z M7.16908213,4.02565789 L10.5845411,4.02565789 L14,17.8151316 L3.75362319,17.8151316 L7.16908213,4.02565789 L7.16908213,4.02565789 Z" id="path4304"></path>
+                <polygon id="path4310" points="16.7485414 5.29879129 18.2623795 2.8950886 18.6206129 3.11262366 17.1084669 5.51439039 18.3331564 6.24799211 16.9190898 7.76435521 16.0279684 7.23056422 9.07981113 18.2664385 8.71941166 18.047606 15.6677976 7.01481818 14.8396741 6.51876357 15.560602 4.58720324 16.7485414 5.29879129"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

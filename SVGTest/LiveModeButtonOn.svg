@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>LiveModeButtonOn</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Main-Toolbar-Buttons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LiveModeButtonOn" fill="#1FE728">
+            <g id="Oval-5-+-Path-50-+-Path-50-Copy-2" transform="translate(1.000000, 3.000000)">
+                <polygon id="Path-50" opacity="0.25" points="0.654296875 0.157226562 4.02441406 19.4824219 24.1623535 19.4824219"></polygon>
+                <polygon id="Path-50-Copy" opacity="0.25" transform="translate(15.561523, 9.814453) scale(-1, 1) translate(-15.561523, -9.814453) " points="4.07519531 0.157226562 7.11938477 19.4716797 27.0478516 19.4716797"></polygon>
+                <ellipse id="Oval-5" filter="url(#filter-1)" cx="14" cy="19.5" rx="10" ry="3.5"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

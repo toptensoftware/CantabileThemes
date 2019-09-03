@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>MuteButton</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Main-Toolbar-Buttons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="MuteButton" fill="#A6A8AC">
+            <path d="M4,9.3828125 L7.72908864,9.3828125 L13,4 L13,20 L7.72908864,14.6230469 L4,14.6230469 L4,9.3828125 Z M14.5440113,14.0113804 C16.3860259,13.6665952 16.4415994,10.5691352 14.4729308,9.97122898 L14.8604026,8.69543769 C18.129897,9.68841893 18.039738,14.7135456 14.789322,15.3219529 L14.5440113,14.0113804 Z M15.210678,16.6780471 C19.5989078,15.8566656 19.7273476,8.69791222 15.1395974,7.30456231 L15.5270692,6.02877102 C21.4156453,7.81719598 21.2526199,16.9036159 15.4559887,17.9886196 L15.210678,16.6780471 Z" id="Path-41"></path>
+        </g>
+    </g>
+</svg>
