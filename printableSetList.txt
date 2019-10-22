@@ -19,6 +19,7 @@ td:first-child { width: 100px; text-align:center  }
 	<tr>
 	<td>{FormattedProgramNumber}</td>
 	<td>{Name}</td>
+	<td>{FormattedOverrides}</td>
 	</tr>
 	{/foreach}
 	</table>
