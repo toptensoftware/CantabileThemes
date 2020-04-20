@@ -1970,10 +1970,37 @@ var EndPoint = function (_EventEmitter) {
 			return this.request('post', endPoint, data);
 		}
 	}, {
+		key: 'untilOpen',
+
+
+		/**
+   * Returns a promise that will be resolved when this end point is opened
+   * 
+   * @example
+   * 
+   *     let C = new CantabileApi();
+   * 	   C.application.open();
+   *     await C.application.untilOpen();
+   *
+   * @method untilOpen
+   * @returns {Promise}
+   */
+		value: function untilOpen() {
+			var _this2 = this;
+
+			if (this.isOpen) {
+				return Promise.resolve();
+			} else {
+				return new Promise(function (resolve, reject) {
+					if (!_this2._pendingOpenPromises) _this2._pendingOpenPromises = [resolve];else _this2._pendingOpenPromises.push(resolve);
+				});
+			}
+		}
+	}, {
 		key: '_onConnected',
 		value: function () {
 			var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
-				var msg;
+				var msg, i;
 				return _regenerator2.default.wrap(function _callee$(_context) {
 					while (1) {
 						switch (_context.prev = _context.next) {
@@ -2003,22 +2030,30 @@ var EndPoint = function (_EventEmitter) {
 								this.owner._registerEndPointEventHandler(this._epid, this);
 
 								this._onOpen();
-								_context.next = 16;
+
+								// Resolve open promises
+								if (this._pendingOpenPromises) {
+									for (i = 0; i < this._pendingOpenPromises.length; i++) {
+										this._pendingOpenPromises[i]();
+									}
+									this._pendingOpenPromises = null;
+								}
+								_context.next = 17;
 								break;
 
-							case 12:
-								_context.prev = 12;
+							case 13:
+								_context.prev = 13;
 								_context.t0 = _context['catch'](0);
 
 								debug(_context.t0);
 								throw _context.t0;
 
-							case 16:
+							case 17:
 							case 'end':
 								return _context.stop();
 						}
 					}
-				}, _callee, this, [[0, 12]]);
+				}, _callee, this, [[0, 13]]);
 			}));
 
 			function _onConnected() {
