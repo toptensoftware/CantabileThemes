@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>NextStopButton</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="NextStopButton" transform="translate(-4.000000, -4.000000)" fill="#DFE1E5">
+            <rect id="Rectangle-3-Copy" x="12" y="5" width="2" height="8"></rect>
+            <polygon id="PlayButton-2" points="4.4 4.8 4.4 13.2 11.6 9"></polygon>
+        </g>
+    </g>
+</svg>
