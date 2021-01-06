@@ -1346,6 +1346,8 @@ var Bindings = function (_EndPoint) {
 			this._watchers.push(w);
 
 			if (this.isOpen) w._start();
+
+			return w;
 		}
 	}, {
 		key: '_registerWatchId',
