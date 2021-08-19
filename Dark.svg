@@ -191,11 +191,13 @@
          inkscape:collect="always" />
     </filter>
     <linearGradient
-       x1="0.5"
+       x1="3.7041667"
        y1="0"
-       x2="0.5"
-       y2="1"
-       id="linearGradient-5">
+       x2="3.7041667"
+       y2="7.4083333"
+       id="linearGradient-5"
+       gradientTransform="scale(0.5,2)"
+       gradientUnits="userSpaceOnUse">
       <stop
          stop-color="#0487F3"
          offset="0%"
@@ -205,21 +207,346 @@
          offset="100%"
          id="stop26-6" />
     </linearGradient>
+    <linearGradient
+       x1="0.5"
+       y1="2.2291017"
+       x2="0.5"
+       y2="0"
+       id="linearGradient-1">
+      <stop
+         stop-color="#002D62"
+         offset="0%"
+         id="stop4-7" />
+      <stop
+         stop-color="#010205"
+         offset="100%"
+         id="stop6-63" />
+    </linearGradient>
+    <filter
+       x="-0.45354332"
+       y="-0.45354332"
+       width="2.096063"
+       height="2.096063"
+       filterUnits="objectBoundingBox"
+       id="filter-3-3">
+      <feGaussianBlur
+         stdDeviation="1"
+         in="SourceAlpha"
+         result="shadowBlurInner1"
+         id="feGaussianBlur10" />
+      <feOffset
+         dx="1"
+         dy="1"
+         in="shadowBlurInner1"
+         result="shadowOffsetInner1"
+         id="feOffset12-1" />
+      <feComposite
+         in="shadowOffsetInner1"
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowInnerInner1"
+         id="feComposite14"
+         k1="0"
+         k4="0" />
+      <feColorMatrix
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0"
+         type="matrix"
+         in="shadowInnerInner1"
+         id="feColorMatrix16" />
+    </filter>
+    <filter
+       x="-0.45354332"
+       y="-0.45354332"
+       width="2.096063"
+       height="2.096063"
+       filterUnits="objectBoundingBox"
+       id="filter-5">
+      <feGaussianBlur
+         stdDeviation="1"
+         in="SourceAlpha"
+         result="shadowBlurInner1"
+         id="feGaussianBlur20" />
+      <feOffset
+         dx="1"
+         dy="1"
+         in="shadowBlurInner1"
+         result="shadowOffsetInner1"
+         id="feOffset22" />
+      <feComposite
+         in="shadowOffsetInner1"
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowInnerInner1"
+         id="feComposite24"
+         k1="0"
+         k4="0" />
+      <feColorMatrix
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0"
+         type="matrix"
+         in="shadowInnerInner1"
+         id="feColorMatrix26" />
+    </filter>
+    <filter
+       x="-1.2958397"
+       y="-1.2958383"
+       width="3.5916793"
+       height="3.5916765"
+       filterUnits="objectBoundingBox"
+       id="filter-7">
+      <feOffset
+         dx="0"
+         dy="0"
+         in="SourceAlpha"
+         result="shadowOffsetOuter1"
+         id="feOffset30" />
+      <feGaussianBlur
+         stdDeviation="1"
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         id="feGaussianBlur32" />
+      <feColorMatrix
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0"
+         type="matrix"
+         in="shadowBlurOuter1"
+         id="feColorMatrix34" />
+    </filter>
+    <filter
+       x="-1.2958383"
+       y="-1.2958383"
+       width="3.5916765"
+       height="3.5916765"
+       filterUnits="objectBoundingBox"
+       id="filter-9">
+      <feOffset
+         dx="0"
+         dy="0"
+         in="SourceAlpha"
+         result="shadowOffsetOuter1"
+         id="feOffset38" />
+      <feGaussianBlur
+         stdDeviation="1"
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         id="feGaussianBlur40" />
+      <feColorMatrix
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0"
+         type="matrix"
+         in="shadowBlurOuter1"
+         id="feColorMatrix42" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter16317"
+       x="-0.27701464"
+       y="-0.27701433"
+       width="1.5540293"
+       height="1.5540287">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.8079594"
+         id="feGaussianBlur16319" />
+    </filter>
+    <linearGradient
+       x1="0.5"
+       y1="0.036778148"
+       x2="0.5"
+       y2="1"
+       id="linearGradient-1-9">
+      <stop
+         stop-color="#00B2FE"
+         offset="0%"
+         id="stop4-2" />
+      <stop
+         stop-color="#0497D6"
+         offset="100%"
+         id="stop6-8" />
+    </linearGradient>
+    <filter
+       x="-0.97187852"
+       y="-0.24296963"
+       width="3.2137233"
+       height="1.5534308"
+       filterUnits="objectBoundingBox"
+       id="filter-4">
+      <feGaussianBlur
+         stdDeviation="1.5"
+         in="SourceAlpha"
+         result="shadowBlurInner1"
+         id="feGaussianBlur15" />
+      <feOffset
+         dx="1"
+         dy="1"
+         in="shadowBlurInner1"
+         result="shadowOffsetInner1"
+         id="feOffset17" />
+      <feComposite
+         in="shadowOffsetInner1"
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowInnerInner1"
+         id="feComposite19"
+         k1="0"
+         k4="0" />
+      <feColorMatrix
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"
+         type="matrix"
+         in="shadowInnerInner1"
+         id="feColorMatrix21" />
+    </filter>
+    <linearGradient
+       x1="0.5"
+       y1="0"
+       x2="0.5"
+       y2="1"
+       id="linearGradient-5-7">
+      <stop
+         stop-color="#0487F3"
+         offset="0%"
+         id="stop24-1" />
+      <stop
+         stop-color="#015EE6"
+         offset="100%"
+         id="stop26-4" />
+    </linearGradient>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath46241">
+      <rect
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:none;stroke-width:0.309507;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+         id="rect46245"
+         width="3.7041667"
+         height="6.8791666"
+         x="5.2916665"
+         y="26.987499">
+        <title
+           id="title46243">OskKey_white</title>
+      </rect>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath46249">
+      <rect
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:none;stroke-width:0.309507;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+         id="rect46253"
+         width="3.7041667"
+         height="6.8791666"
+         x="10.054166"
+         y="26.987499">
+        <title
+           id="title46251">OskKey_white</title>
+      </rect>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath46257">
+      <rect
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:none;stroke-width:0.309507;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+         id="rect46261"
+         width="3.7041667"
+         height="6.8791666"
+         x="14.816669"
+         y="26.987499">
+        <title
+           id="title46259">OskKey_white</title>
+      </rect>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath46367">
+      <rect
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:none;stroke-width:0.309507;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+         id="rect46371"
+         width="3.7041667"
+         height="6.8791666"
+         x="19.579174"
+         y="26.987499">
+        <title
+           id="title46369">OskKey_white</title>
+      </rect>
+    </clipPath>
+    <filter
+       x="-1.3955179"
+       y="-1.3955179"
+       width="3.7910358"
+       height="3.7910358"
+       filterUnits="objectBoundingBox"
+       id="filter-2">
+      <feOffset
+         dx="0"
+         dy="0"
+         in="SourceAlpha"
+         result="shadowOffsetOuter1"
+         id="feOffset5" />
+      <feGaussianBlur
+         stdDeviation="2"
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         id="feGaussianBlur7" />
+      <feColorMatrix
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0"
+         type="matrix"
+         in="shadowBlurOuter1"
+         id="feColorMatrix9" />
+    </filter>
+    <filter
+       x="-1.3955179"
+       y="-1.3955179"
+       width="3.7910358"
+       height="3.7910358"
+       filterUnits="objectBoundingBox"
+       id="filter-4-2">
+      <feOffset
+         dx="0"
+         dy="0"
+         in="SourceAlpha"
+         result="shadowOffsetOuter1"
+         id="feOffset13" />
+      <feGaussianBlur
+         stdDeviation="2"
+         in="shadowOffsetOuter1"
+         result="shadowBlurOuter1"
+         id="feGaussianBlur15-3" />
+      <feColorMatrix
+         values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0"
+         type="matrix"
+         in="shadowBlurOuter1"
+         id="feColorMatrix17" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter47589"
+       x="-0.17236921"
+       y="-0.17236921"
+       width="1.3447384"
+       height="1.3447384">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.9336665"
+         id="feGaussianBlur47587" />
+    </filter>
   </defs>
   <sodipodi:namedview
      inkscape:window-maximized="1"
      inkscape:window-y="-6"
      inkscape:window-x="-6"
-     inkscape:window-height="1018"
-     inkscape:window-width="1920"
+     inkscape:window-height="738"
+     inkscape:window-width="1280"
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="g1518"
+     inkscape:current-layer="layer1"
      inkscape:document-units="px"
-     inkscape:cy="30.374154"
-     inkscape:cx="20.171071"
-     inkscape:zoom="10.634041"
+     inkscape:cy="84.426378"
+     inkscape:cx="78.815764"
+     inkscape:zoom="1.871453"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -360,5 +687,296 @@
       <title
          id="title2895">KeyRangeIndicatorFrame</title>
     </rect>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:#393b40;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+       id="rect61"
+       width="5.0270839"
+       height="3.7041669"
+       x="5.4239583"
+       y="19.976044"
+       ry="0.5"
+       rx="0.5">
+      <title
+         id="title59">LevelMeterFrame</title>
+    </rect>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:#ff6600;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+       id="rect5924"
+       width="5.0270839"
+       height="3.7041669"
+       x="12.038544"
+       y="19.976044"
+       ry="0.5"
+       rx="0.5">
+      <title
+         id="title5922">LevelMeterFrame_clipped</title>
+    </rect>
+    <g
+       id="g16323"
+       transform="matrix(0.26458333,0,0,0.26458333,20.188598,15.684645)">
+      <title
+         id="title22910">LevelMeterHandle</title>
+      <path
+         d="m -4.1635891,27.56612 3.28516884,-3.821436 v 0 L 2.4067457,27.56612 c 0.138634,0.161235 0.214829,0.366841 0.214829,0.579463 v 1.710219 c 0,0.49092 -0.39797,0.88889 -0.888889,0.88889 h -5.2222209 c -0.4909205,0 -0.8888901,-0.39797 -0.8888901,-0.88889 v -1.710219 c 0,-0.212637 0.076222,-0.418221 0.2148362,-0.579463 z"
+         id="path15478"
+         style="mix-blend-mode:normal;fill:#333333;fill-rule:evenodd;stroke-width:1;filter:url(#filter16317)"
+         transform="matrix(1.0706825,0,0,1.0706825,0.13715086,-4.9509584)" />
+      <path
+         d="m -4.0885272,24.540884 3.28516885,-3.821436 v 0 l 3.28516595,3.821436 c 0.138634,0.161235 0.214829,0.366841 0.214829,0.579463 v 1.710219 c 0,0.49092 -0.39797,0.88889 -0.888889,0.88889 h -5.2222209 c -0.4909205,0 -0.8888901,-0.39797 -0.8888901,-0.88889 v -1.710219 c 0,-0.212637 0.076222,-0.418221 0.2148362,-0.579463 z"
+         id="use63"
+         style="fill:#dfe1e5;fill-rule:evenodd;stroke-width:1" />
+    </g>
+    <g
+       id="g16329"
+       transform="matrix(0.26458333,0,0,0.26458333,23.862339,14.319684)">
+      <title
+         id="title22912">LevelMeterHandle_hot</title>
+      <path
+         d="m -4.1635891,27.56612 3.28516884,-3.821436 v 0 L 2.4067457,27.56612 c 0.138634,0.161235 0.214829,0.366841 0.214829,0.579463 v 1.710219 c 0,0.49092 -0.39797,0.88889 -0.888889,0.88889 h -5.2222209 c -0.4909205,0 -0.8888901,-0.39797 -0.8888901,-0.88889 v -1.710219 c 0,-0.212637 0.076222,-0.418221 0.2148362,-0.579463 z"
+         id="path16325"
+         style="mix-blend-mode:normal;fill:#333333;fill-rule:evenodd;stroke-width:1;filter:url(#filter16317)"
+         transform="matrix(1.0706825,0,0,1.0706825,-0.74785214,0.20794656)" />
+      <path
+         d="m -4.9735302,29.699789 3.2851688,-3.821436 v 0 l 3.285166,3.821436 c 0.138634,0.161235 0.214829,0.366841 0.214829,0.579463 v 1.710219 c 0,0.49092 -0.39797,0.88889 -0.88888904,0.88889 H -4.2994763 c -0.4909205,0 -0.8888901,-0.39797 -0.8888901,-0.88889 v -1.710219 c 0,-0.212637 0.076222,-0.418221 0.2148362,-0.579463 z"
+         id="path16327"
+         style="fill:#0372ed;fill-opacity:1;fill-rule:evenodd;stroke-width:1" />
+    </g>
+    <rect
+       style="font-variation-settings:normal;opacity:1;fill:#c0c0c0;fill-opacity:1;stroke:#999c9c;stroke-width:0.264589;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+       id="rect23252"
+       width="3.4395776"
+       height="7.1436381"
+       x="5.4240408"
+       y="26.590656"
+       ry="0.39687499"
+       rx="0.39687499"
+       clip-path="url(#clipPath46241)"
+       transform="translate(0,-0.52916666)">
+      <title
+         id="title45343">OskKey_white</title>
+    </rect>
+    <rect
+       style="font-variation-settings:normal;opacity:1;fill:#121212;fill-opacity:1;stroke:#999c9c;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+       id="rect23358"
+       width="3.4395838"
+       height="7.1437507"
+       x="10.186459"
+       y="26.590626"
+       ry="0.39687499"
+       rx="0.39687502"
+       clip-path="url(#clipPath46249)"
+       transform="translate(0,-0.52916666)">
+      <title
+         id="title45345">OskKey_black</title>
+    </rect>
+    <rect
+       style="font-variation-settings:normal;opacity:1;fill:#01aef7;fill-opacity:1;stroke:#999c9c;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+       id="rect23362"
+       width="3.4395838"
+       height="7.1437507"
+       x="14.948959"
+       y="26.590626"
+       ry="0.39687499"
+       rx="0.39687502"
+       clip-path="url(#clipPath46257)"
+       transform="translate(0,-0.52916666)">
+      <title
+         id="title45347">OskKey_hot</title>
+    </rect>
+    <rect
+       style="font-variation-settings:normal;opacity:1;fill:#037aee;fill-opacity:1;stroke:#999c9c;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+       id="rect23366"
+       width="3.4395838"
+       height="7.1437507"
+       x="19.711458"
+       y="26.590626"
+       ry="0.39687499"
+       rx="0.39687502"
+       clip-path="url(#clipPath46367)"
+       transform="translate(0,-0.52916666)">
+      <title
+         id="title46373">OskKey_pressed</title>
+    </rect>
+    <g
+       id="OskOctaveBarActive"
+       transform="matrix(0.07150901,0,0,0.26458333,26.458333,28.574999)"
+       fill="url(#linearGradient-5)"
+       style="fill:#037aee;fill-opacity:1">
+      <title
+         id="title44957">OskOctaveBar_hot</title>
+      <rect
+         x="0"
+         y="0"
+         width="37"
+         height="3"
+         rx="5.5499997"
+         id="rect95-0"
+         style="fill:#037aee;fill-opacity:1"
+         ry="1.5" />
+    </g>
+    <g
+       id="OskOctaveBarInactive"
+       transform="matrix(0.07150901,0,0,0.26458333,26.458333,26.987503)"
+       fill="#949599">
+      <title
+         id="title44959">OskOctaveBar</title>
+      <rect
+         x="0"
+         y="0"
+         width="37"
+         height="3"
+         rx="5.5499997"
+         id="rect98"
+         ry="1.5" />
+    </g>
+    <g
+       id="RoundHandle"
+       transform="matrix(0.26458333,0,0,0.26458333,25.135421,30.1625)"
+       fill="#ffffff"
+       stroke="#949599"
+       stroke-width="1.5">
+      <title
+         id="title44955">OskRangeHandle</title>
+      <circle
+         cx="4.5"
+         cy="4.5"
+         r="3.75"
+         id="circle126" />
+    </g>
+    <g
+       id="RoundHandleFocused"
+       transform="matrix(0.26458333,0,0,0.26458333,27.781248,30.1625)"
+       fill="#ffffff"
+       stroke="#0373ed"
+       stroke-width="1.5">
+      <title
+         id="title44953">OskRangeHandle_focused</title>
+      <circle
+         cx="4.5"
+         cy="4.5"
+         r="3.75"
+         id="circle129" />
+    </g>
+    <g
+       id="g48214"
+       transform="translate(-4.3961909,0.82662973)">
+      <title
+         id="title55287">SliderHandle</title>
+      <rect
+         y="34.89212"
+         x="9.6878576"
+         height="5.0270834"
+         width="5.0270834"
+         id="rect1359-9"
+         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.373346"
+         inkscape-export-transparent="1" />
+      <circle
+         style="font-variation-settings:normal;mix-blend-mode:normal;vector-effect:none;fill:#333333;fill-opacity:0.995968;fill-rule:evenodd;stroke:none;stroke-width:0.986621;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;filter:url(#filter47589);stop-color:#000000"
+         id="circle47468"
+         cx="-23.650196"
+         cy="-0.21239154"
+         r="6.5"
+         transform="matrix(0.28712508,0,0,0.28712508,18.991964,37.466645)" />
+      <circle
+         style="fill:#dfe1e5;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path47175"
+         cx="12.201399"
+         cy="37.405663"
+         r="1.7197917" />
+    </g>
+    <g
+       id="g63103">
+      <title
+         id="title63105">SliderHandle_hot</title>
+      <rect
+         y="35.71875"
+         x="10.583333"
+         height="5.0270834"
+         width="5.0270834"
+         id="rect50636"
+         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.373346"
+         inkscape-export-transparent="1" />
+      <circle
+         style="font-variation-settings:normal;mix-blend-mode:normal;vector-effect:none;fill:#333333;fill-opacity:0.995968;fill-rule:evenodd;stroke:none;stroke-width:0.986621;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;filter:url(#filter47589);stop-color:#000000"
+         id="circle50638"
+         cx="-23.650196"
+         cy="-0.21239154"
+         r="6.5"
+         transform="matrix(0.28712508,0,0,0.28712508,19.88744,38.293275)" />
+      <circle
+         style="fill:#0372ed;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle50640"
+         cx="13.096874"
+         cy="38.232292"
+         r="1.7197917" />
+    </g>
+    <g
+       id="g63109">
+      <title
+         id="title69409">SliderTrack</title>
+      <rect
+         y="35.71875"
+         x="15.875"
+         height="5.0270834"
+         width="10.054167"
+         id="rect50636-9"
+         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.373345"
+         inkscape-export-transparent="1" />
+      <rect
+         id="Rectangle-10"
+         x="17.594791"
+         y="37.835415"
+         width="6.6145835"
+         height="0.79374999"
+         rx="0.39687502"
+         ry="0.39687499"
+         style="fill:#949599;fill-opacity:1;stroke-width:0.264583" />
+    </g>
+    <g
+       id="g63115"
+       transform="translate(10.318749)">
+      <title
+         id="title69411">SliderTrackRangeA</title>
+      <rect
+         y="35.71875"
+         x="15.875"
+         height="5.0270834"
+         width="6.6145835"
+         id="rect63111"
+         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.373345"
+         inkscape-export-transparent="1" />
+      <rect
+         id="rect63113"
+         x="15.875"
+         y="37.835415"
+         width="6.6145835"
+         height="0.79374999"
+         rx="0.39687502"
+         ry="0.39687499"
+         style="fill:#7ed321;fill-opacity:1;stroke-width:0.264583" />
+    </g>
+    <g
+       id="g65930"
+       transform="translate(17.197907)">
+      <title
+         id="title69413">SliderTrackRangeB</title>
+      <rect
+         y="35.71875"
+         x="15.875"
+         height="5.0270834"
+         width="6.6145835"
+         id="rect65926"
+         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.373345"
+         inkscape-export-transparent="1" />
+      <rect
+         id="rect65928"
+         x="15.875"
+         y="37.835415"
+         width="6.6145835"
+         height="0.79374999"
+         rx="0.39687502"
+         ry="0.39687499"
+         style="fill:#59a0ef;fill-opacity:1;stroke-width:0.264583" />
+    </g>
   </g>
 </svg>

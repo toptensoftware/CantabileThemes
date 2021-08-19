@@ -22,14 +22,14 @@ build/Cantabile.Gui.Dark.theme: Cantabile.Gui.Dark.theme/theme.gt Cantabile.Gui.
 Cantabile.Gui.Dark.theme/Knob.png: Knob.svg
 	@echo "Exporting Knob (normal)..."
 	@inkscape-export Knob.svg --scale:1 --scale:2 --scale:4 --out:temp --quiet
-	@magick montage `ls temp/Knob_??.png` -tile x1 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob.png
-	@magick montage `ls temp/Knob_??@2x.png` -tile x1 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob@2x.png
-	@magick montage `ls temp/Knob_??@4x.png` -tile x1 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob@4x.png
+	@magick montage `ls temp/Knob_??.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob.png
+	@magick montage `ls temp/Knob_??@2x.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob@2x.png
+	@magick montage `ls temp/Knob_??@4x.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob@4x.png
 
 Cantabile.Gui.Dark.theme/Knob_focused.png: Knob.svg
 	@echo "Exporting Knob (focused)..."
 	@inkscape-export Knob_focused.svg --scale:1 --scale:2 --scale:4 --out:temp --quiet
-	@magick montage `ls temp/Knob_??.png` -tile x1 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob_focused.png
-	@magick montage `ls temp/Knob_??@2x.png` -tile x1 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob_focused@2x.png
-	@magick montage `ls temp/Knob_??@4x.png` -tile x1 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob_focused@4x.png
+	@magick montage `ls temp/Knob_??.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob_focused.png
+	@magick montage `ls temp/Knob_??@2x.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob_focused@2x.png
+	@magick montage `ls temp/Knob_??@4x.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Gui.Dark.theme/Knob_focused@4x.png
 	
