@@ -1,0 +1,36 @@
+// Cantabile GUI Theme
+
+// Import the default GuiKit Dark theme
+import("GuiKit.Dark");
+
+// The beat indicator in the main status panel
+class BeatIndicator
+{
+	FirstBeatColor: #00FF00,
+	OtherBeatsColor: #dfe1e5,
+}
+
+// MIDI Activity Indicator
+class MidiActivityIndicator
+{
+	Indicator: select
+    {
+        // Checked state is used for MIDI activity (bright led)
+        checked: Image("LedSmallGreen.png", Gravity.Center),
+
+        // Indeterminate state is used for MIDI sense activity (dim led)
+        indeterminate: Image("LedSmallSense.png", Gravity.Center),
+
+        // Any other state is displayed as "off".
+        else: Image("LedSmallOff.png", Gravity.Center)
+    },
+}
+
+// Key Range Indicator
+class KeyRangeIndicator
+{
+    Frame: NineSlice("KeyRangeIndicatorFrame.png", 5),
+    KeyRangeIndicator: NineSlice("KeyRangeIndicator.png", 3, 0),
+    TransposeIndicator: NineSlice("KeyRangeIndicatorTranspose.png", 3, 0),
+    OctaveIndicatorColor: #10000000,
+}
