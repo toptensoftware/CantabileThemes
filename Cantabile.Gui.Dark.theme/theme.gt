@@ -29,8 +29,43 @@ class MidiActivityIndicator
 // Key Range Indicator
 class KeyRangeIndicator
 {
-    Frame: NineSlice("KeyRangeIndicatorFrame.png", 5),
-    KeyRangeIndicator: NineSlice("KeyRangeIndicator.png", 3, 0),
-    TransposeIndicator: NineSlice("KeyRangeIndicatorTranspose.png", 3, 0),
+    Frame: NineSliceImage("KeyRangeIndicatorFrame.png", 5),
+    KeyRangeIndicator: NineSliceImage("KeyRangeIndicator.png", 3, 0),
+    TransposeIndicator: NineSliceImage("KeyRangeIndicatorTranspose.png", 3, 0),
     OctaveIndicatorColor: #10000000,
+}
+
+// Level Meter
+class LevelMeter
+{
+    Frame: select
+    {
+        // Checked state is use for when clipped indicator active
+        checked: NineSliceImage("LevelMeterFrame_clipped.png", 3),
+
+        // Normal state
+        else: NineSliceImage("LevelMeterFrame.png", 3),
+    },
+
+    // Normal indicator level color
+    IndicatorColorCold: #404040,
+
+    // Indicator color when level is high.  Will fade to this color
+    // according to the hot levels reported by the control curve
+    // being used for level meters
+    IndicatorColorHot: #ff6600,
+
+    // Tick Colors
+    MajorTickColor: #808080,
+    MinorTickColor: #808080,
+}
+
+// Knob
+class Knob
+{
+    Knob: select
+    {
+        focused: TileSetImage("Knob_focused.png", 8, 8),
+        else: TileSetImage("Knob.png", 8, 8)
+    }
 }
