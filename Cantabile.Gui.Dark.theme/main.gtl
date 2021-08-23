@@ -13,16 +13,16 @@ class BeatIndicator
 // MIDI Activity Indicator
 class MidiActivityIndicator
 {
-	Indicator: select
+	Indicator:
     {
         // Checked state is used for MIDI activity (bright led)
-        checked: Image("LedSmallGreen.png", Gravity.Center),
+        Checked: Image("LedSmallGreen.png", Center),
 
         // Indeterminate state is used for MIDI sense activity (dim led)
-        indeterminate: Image("LedSmallSense.png", Gravity.Center),
+        Indeterminate: Image("LedSmallSense.png", Center),
 
         // Any other state is displayed as "off".
-        else: Image("LedSmallOff.png", Gravity.Center)
+        Else: Image("LedSmallOff.png", Center)
     },
 }
 
@@ -38,13 +38,13 @@ class KeyRangeIndicator
 // Level Meter
 class LevelMeter
 {
-    Frame: select
+    Frame:
     {
         // Checked state is use for when clipped indicator active
-        checked: NineSliceImage("LevelMeterFrame_clipped.png", 3),
+        Checked: NineSliceImage("LevelMeterFrame_clipped.png", 3),
 
         // Normal state
-        else: NineSliceImage("LevelMeterFrame.png", 3),
+        Else: NineSliceImage("LevelMeterFrame.png", 3),
     },
 
     // Normal indicator level color
@@ -63,9 +63,9 @@ class LevelMeter
 // Knob
 class Knob
 {
-    Knob: select
+    Knob: 
     {
-        focused: TileSetImage("Knob_focused.png", 8, 8),
-        else: TileSetImage("Knob.png", 8, 8)
+        Focused: TileSetImage("Knob_focused.png", 8, 8),
+        Else: TileSetImage("Knob.png", 8, 8)
     }
 }
