@@ -145,5 +145,7 @@ class CantabileSlider : Slider
         Focused: Image("SliderHandle_focused.png", Center),
         Else: Image("SliderHandle.png", Center),
     },
+    TrackRange: NineSliceImage("SliderTrackRangeA.png", 5, 0),
+    TrackRangeAlt: NineSliceImage("SliderTrackRangeB.png", 5, 0),
     Track: NineSliceImage("SliderTrack.png", 14, 0),
 }
