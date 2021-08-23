@@ -75,13 +75,46 @@ class Knob
     }
 }
 
+// Base class for Cantabile buttons
+class CantabileButton : Button
+{
+    Background:
+    {
+        Pressed: focusHighlightPressed,
+        Focused: focusHighlight,
+    },
+}
+
 // Number Pad Button
-class NumberPadButton : Button
+class NumberPadButton
 {
     Font: largeFont,
+
     Background:
     {
         Pressed: focusHighlightPressed,
         Else: subtleHighlight,
     },
-}   
+}
+
+// Base class for Cantabile buttons
+class CantabileButton : Button
+{
+    Background:
+    {
+        Pressed: focusHighlightPressed,
+        Focused: focusHighlight,
+    },
+}
+
+// Run Mode Button
+class RunModeButton : CantabileButton
+{
+    Image:
+    {
+        Error: Image("RunMode_error.png", Center),
+        Checked | Indeterminate: Image("RunMode_suspended.png", Center),
+        Checked: Image("RunMode_running.png", Center),
+        Else: Image("RunMode_unloaded.png", Center),
+    }
+}
