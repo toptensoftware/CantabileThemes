@@ -149,3 +149,14 @@ class CantabileSlider : Slider
     TrackRangeAlt: NineSliceImage("SliderTrackRangeB.png", 5, 0),
     Track: NineSliceImage("SliderTrack.png", 14, 0),
 }
+
+// SoloModeButton
+class SoloModeButton : CantabileButton
+{
+    Image:
+    {
+        Indeterminate: Image("SoloButton_muted.png", Center),
+        Checked: Image("SoloButton_on.png", Center),
+        Else: Image("SoloButton_off.png", Center),
+    }
+}
