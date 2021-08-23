@@ -75,7 +75,7 @@ class Knob
     }
 }
 
-// Base class for Cantabile buttons
+// Base class for Cantabile buttons with no background highlight
 class CantabileButton : Button
 {
     Background:
@@ -85,26 +85,21 @@ class CantabileButton : Button
     },
 }
 
-// Number Pad Button
-class NumberPadButton
+// Base class for buttons with a subtle background highlight
+class SubtleButton : Button
 {
-    Font: largeFont,
-
     Background:
     {
         Pressed: focusHighlightPressed,
+        Focused: focusHighlight,
         Else: subtleHighlight,
     },
 }
 
-// Base class for Cantabile buttons
-class CantabileButton : Button
+// Number Pad Button
+class NumberPadButton : SubtleButton
 {
-    Background:
-    {
-        Pressed: focusHighlightPressed,
-        Focused: focusHighlight,
-    },
+    Font: largeFont,
 }
 
 // Run Mode Button
@@ -117,4 +112,27 @@ class RunModeButton : CantabileButton
         Checked: Image("RunMode_running.png", Center),
         Else: Image("RunMode_unloaded.png", Center),
     }
+}
+
+// Base class for all side panels
+class SidePanel
+{
+    Background: #202c3a,
+}
+
+// Tip Panel
+class TipPanel : SidePanel
+{
+}
+
+// Tip Panel button
+class TipPanelButton : SubtleButton
+{
+    Padding: EdgeInsets(10, 3),
+}
+
+// Tip Panel Text
+class TipPanelText
+{
+    TextColor: #FFFFFF,
 }
