@@ -14,7 +14,7 @@ Cantabile.Gui.Dark.theme/LedSmallOff.png: Dark.svg
 	@echo "Exporting assets..."
 	@inkscape-export Dark.svg --scale:1 --scale:2 --scale:4 --quiet --out:Cantabile.Gui.Dark.theme
 
-build/Cantabile.Gui.Dark.theme: Cantabile.Gui.Dark.theme/theme.gt Cantabile.Gui.Dark.theme/LedSmallOff.png
+build/Cantabile.Gui.Dark.theme: Cantabile.Gui.Dark.theme/main.gtl Cantabile.Gui.Dark.theme/LedSmallOff.png
 	@echo "Zipping theme..."
 	@mkdir -p ./build
 	@zip -0 -j ./build/Cantabile.Gui.Dark.theme Cantabile.Gui.Dark.theme/* > /dev/null

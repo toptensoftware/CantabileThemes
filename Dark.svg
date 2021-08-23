@@ -787,28 +787,64 @@
          stdDeviation="0.60001008"
          id="feGaussianBlur25945" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient-5-7"
+       id="linearGradient2150"
+       gradientUnits="userSpaceOnUse"
+       x1="20"
+       y1="0"
+       x2="20"
+       y2="40"
+       gradientTransform="matrix(0.1190625,0,0,0.1190625,10.583333,50.270833)" />
+    <linearGradient
+       x1="0.5"
+       y1="0"
+       x2="0.5"
+       y2="1"
+       id="linearGradient-2">
+      <stop
+         stop-color="#0877D1"
+         offset="0%"
+         id="stop9" />
+      <stop
+         stop-color="#0443A0"
+         offset="100%"
+         id="stop11" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient-2"
+       id="linearGradient2460"
+       gradientUnits="userSpaceOnUse"
+       x1="20"
+       y1="0"
+       x2="20"
+       y2="40"
+       gradientTransform="matrix(0.1190625,0,0,0.1190625,15.874999,50.270832)" />
   </defs>
   <sodipodi:namedview
      inkscape:window-maximized="1"
      inkscape:window-y="-6"
      inkscape:window-x="-6"
-     inkscape:window-height="738"
-     inkscape:window-width="1280"
+     inkscape:window-height="1018"
+     inkscape:window-width="1920"
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
-     inkscape:cy="128.7621"
-     inkscape:cx="109.46634"
-     inkscape:zoom="2.6948923"
+     inkscape:cy="198.98754"
+     inkscape:cx="47.682796"
+     inkscape:zoom="10.779569"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
      bordercolor="#666666"
      pagecolor="#ffffff"
      id="base"
-     inkscape:pagecheckerboard="0" />
+     inkscape:pagecheckerboard="0"
+     inkscape:lockguides="true" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -1407,5 +1443,53 @@
         </g>
       </g>
     </g>
+    <rect
+       id="GroupShadow"
+       x="5.291666"
+       y="50.270832"
+       width="4.7625003"
+       height="4.7624998"
+       rx="0.79374999"
+       ry="0.79374999"
+       style="fill:#000000;fill-opacity:0.0806452;stroke:none;stroke-width:1">
+      <title
+         id="title2945">SubtleHighlight</title>
+    </rect>
+    <rect
+       x="10.583333"
+       y="50.270832"
+       width="4.7624998"
+       height="4.7624998"
+       rx="0.79374999"
+       id="FocusHighlight"
+       style="fill:url(#linearGradient2150);stroke-width:0.264583"
+       ry="0.79374999">
+      <title
+         id="title2947">FocusHighlight</title>
+    </rect>
+    <rect
+       id="FocusHighlightPressed"
+       x="15.874999"
+       y="50.270832"
+       width="4.7624998"
+       height="4.7624998"
+       rx="0.79374999"
+       style="fill:url(#linearGradient2460);stroke-width:0.264583"
+       ry="0.79374999">
+      <title
+         id="title2949">FocusHighlight_pressed</title>
+    </rect>
+    <rect
+       x="21.166666"
+       y="50.270832"
+       width="4.7624998"
+       height="4.7624998"
+       rx="0.79374999"
+       id="rect38"
+       ry="0.79374999"
+       style="fill:#80ff80;stroke-width:0.264583">
+      <title
+         id="title2963">TempoHighlight</title>
+    </rect>
   </g>
 </svg>

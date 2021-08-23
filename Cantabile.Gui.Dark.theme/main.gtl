@@ -3,6 +3,11 @@
 // Import the default GuiKit Dark theme
 import("GuiKit.Dark");
 
+var largeFont = Font("GuiKitSans", 18, true);
+var subtleHighlight = NineSliceImage("SubtleHighlight.png", 5, 5);
+var focusHighlight = NineSliceImage("FocusHighlight.png", 5, 5);
+var focusHighlightPressed = NineSliceImage("FocusHighlight_pressed.png", 5, 5);
+
 // The beat indicator in the main status panel
 class BeatIndicator
 {
@@ -69,3 +74,14 @@ class Knob
         Else: TileSetImage("Knob.png", 8, 8)
     }
 }
+
+// Number Pad Button
+class NumberPadButton : Button
+{
+    Font: largeFont,
+    Background:
+    {
+        Pressed: focusHighlightPressed,
+        Else: subtleHighlight,
+    },
+}   
