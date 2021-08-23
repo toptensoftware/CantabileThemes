@@ -136,3 +136,14 @@ class TipPanelText
 {
     TextColor: #FFFFFF,
 }
+
+// Slide control
+class CantabileSlider : Slider
+{
+    Thumb:
+    {
+        Focused: Image("SliderHandle_focused.png", Center),
+        Else: Image("SliderHandle.png", Center),
+    },
+    Track: NineSliceImage("SliderTrack.png", 14, 0),
+}

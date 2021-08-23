@@ -824,18 +824,18 @@
        gradientTransform="matrix(0.1190625,0,0,0.1190625,15.874999,50.270832)" />
   </defs>
   <sodipodi:namedview
-     inkscape:window-maximized="1"
-     inkscape:window-y="-6"
-     inkscape:window-x="-6"
-     inkscape:window-height="1018"
-     inkscape:window-width="1920"
+     inkscape:window-maximized="0"
+     inkscape:window-y="502"
+     inkscape:window-x="-1577"
+     inkscape:window-height="1003"
+     inkscape:window-width="1284"
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
-     inkscape:cy="177.63652"
-     inkscape:cx="83.701699"
+     inkscape:cy="177.50533"
+     inkscape:cx="83.832893"
      inkscape:zoom="3.8111532"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -1178,7 +1178,7 @@
     <g
        id="g63103">
       <title
-         id="title63105">SliderHandle_hot</title>
+         id="title63105">SliderHandle_focused</title>
       <rect
          y="35.71875"
          x="10.583333"
