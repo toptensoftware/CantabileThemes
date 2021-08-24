@@ -3,6 +3,8 @@
 // Import the default GuiKit Dark theme
 import("GuiKit.Dark");
 
+var tinyFont = Font("GuiKitSans", 10, false);
+var smallFont = Font("GuiKitSans", 11, false);
 var largeFont = Font("GuiKitSans", 18, true);
 var subtleHighlight = NineSliceImage("SubtleHighlight.png", 5, 5);
 var focusHighlight = NineSliceImage("FocusHighlight.png", 5, 5);
@@ -159,4 +161,49 @@ class SoloModeButton : CantabileButton
         Checked: Image("SoloButton_on.png", Center),
         Else: Image("SoloButton_off.png", Center),
     }
+}
+
+// Onscreen Keyboard
+class OnscreenKeyboard
+{
+    // NB: Key images use ScaleMatchMode.Lower which means to use the lower
+    //     resolution image if no exact match.  This keeps the lines between
+    //     keys thinner for intermediate scaling factors.
+
+    // White key in a normal state
+    WhiteKey: NineSliceImage("OskKey_white.png", 3) { ScaleMatchMode: Lower },
+
+    // White key in a normal state
+    MiddleCKey: NineSliceImage("OskKey_middlec.png", 3)  { ScaleMatchMode: Lower },
+
+    // Black key in a normal state
+    BlackKey: NineSliceImage("OskKey_black.png", 3)  { ScaleMatchMode: Lower },
+
+    // Black or white key highlighted (ie: showing pressed note from another source)
+    HighlightedKey: NineSliceImage("OskKey_highlight.png", 3)  { ScaleMatchMode: Lower },
+
+    // Black or white key in pressed state
+    PressedKey: NineSliceImage("OskKey_pressed.png", 3)  { ScaleMatchMode: Lower },
+
+    // The octave bar indicators below the keys
+    OctaveBar:
+    {
+        Focused: NineSliceImage("OskOctaveBar_focused.png", 4, 1),
+        Else: NineSliceImage("OskOctaveBar.png", 4, 1)
+    },
+
+    // Range handle used during key range selection and editing
+    RangeHandle:
+    {
+        Focused: Image("OskRangeHandle_focused.png", Center),
+        Else: Image("OskRangeHandle.png", Center),
+    },
+
+    RangeBar: NineSliceImage("OskOctaveBar.png", 4, 1),
+    RangeFont: smallFont,
+    RangeTextColor: #FFFFFF, 
+
+    OctaveLabelFont: tinyFont,
+    OctaveLabelTextColor: #dfe1e5,
+    OctaveLabelDividerColor: #43464c
 }

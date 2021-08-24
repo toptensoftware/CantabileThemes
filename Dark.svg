@@ -872,18 +872,18 @@
   </defs>
   <sodipodi:namedview
      inkscape:window-maximized="1"
-     inkscape:window-y="-6"
-     inkscape:window-x="-6"
-     inkscape:window-height="738"
-     inkscape:window-width="1280"
+     inkscape:window-y="428"
+     inkscape:window-x="-1926"
+     inkscape:window-height="1018"
+     inkscape:window-width="1920"
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
-     inkscape:cy="230.50682"
-     inkscape:cx="178.36257"
-     inkscape:zoom="2.052"
+     inkscape:cy="156.43275"
+     inkscape:cx="120.97953"
+     inkscape:zoom="4.104"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -1080,7 +1080,7 @@
          style="fill:#0372ed;fill-opacity:1;fill-rule:evenodd;stroke-width:1" />
     </g>
     <rect
-       style="font-variation-settings:normal;opacity:1;fill:#c0c0c0;fill-opacity:1;stroke:#999c9c;stroke-width:0.264589;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#999c9c;stroke-width:0.264589;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
        id="rect23252"
        width="3.4395776"
        height="7.1436381"
@@ -1096,14 +1096,14 @@
     <rect
        style="font-variation-settings:normal;opacity:1;fill:#121212;fill-opacity:1;stroke:#999c9c;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
        id="rect23358"
-       width="3.4395838"
+       width="3.4395833"
        height="7.1437507"
        x="10.186459"
        y="26.590626"
        ry="0.39687499"
        rx="0.39687502"
        clip-path="url(#clipPath46249)"
-       transform="translate(0,-0.52916666)">
+       transform="translate(4.7625002,-0.52916666)">
       <title
          id="title45345">OskKey_black</title>
     </rect>
@@ -1117,9 +1117,9 @@
        ry="0.39687499"
        rx="0.39687502"
        clip-path="url(#clipPath46257)"
-       transform="translate(0,-0.52916666)">
+       transform="translate(4.7625002,-0.52916666)">
       <title
-         id="title45347">OskKey_hot</title>
+         id="title45347">OskKey_highlight</title>
     </rect>
     <rect
        style="font-variation-settings:normal;opacity:1;fill:#037aee;fill-opacity:1;stroke:#999c9c;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
@@ -1131,17 +1131,17 @@
        ry="0.39687499"
        rx="0.39687502"
        clip-path="url(#clipPath46367)"
-       transform="translate(0,-0.52916666)">
+       transform="translate(4.7625002,-0.52916666)">
       <title
          id="title46373">OskKey_pressed</title>
     </rect>
     <g
        id="OskOctaveBarActive"
-       transform="matrix(0.07150901,0,0,0.26458333,26.458333,28.574999)"
+       transform="matrix(0.07150901,0,0,0.26458333,31.220836,28.574999)"
        fill="url(#linearGradient-5)"
        style="fill:#037aee;fill-opacity:1">
       <title
-         id="title44957">OskOctaveBar_hot</title>
+         id="title44957">OskOctaveBar_focused</title>
       <rect
          x="0"
          y="0"
@@ -1154,7 +1154,7 @@
     </g>
     <g
        id="OskOctaveBarInactive"
-       transform="matrix(0.07150901,0,0,0.26458333,26.458333,26.987503)"
+       transform="matrix(0.07150901,0,0,0.26458333,31.220836,26.987503)"
        fill="#949599">
       <title
          id="title44959">OskOctaveBar</title>
@@ -1169,7 +1169,7 @@
     </g>
     <g
        id="RoundHandle"
-       transform="matrix(0.26458333,0,0,0.26458333,25.135421,30.1625)"
+       transform="matrix(0.26458333,0,0,0.26458333,29.897924,30.1625)"
        fill="#ffffff"
        stroke="#949599"
        stroke-width="1.5">
@@ -1183,7 +1183,7 @@
     </g>
     <g
        id="RoundHandleFocused"
-       transform="matrix(0.26458333,0,0,0.26458333,27.781248,30.1625)"
+       transform="matrix(0.26458333,0,0,0.26458333,32.543751,30.1625)"
        fill="#ffffff"
        stroke="#0373ed"
        stroke-width="1.5">
@@ -1722,5 +1722,19 @@
            style="stroke-width:0.985096" />
       </g>
     </g>
+    <rect
+       style="font-variation-settings:normal;opacity:1;fill:#cdcdcd;fill-opacity:1;stroke:#999c9c;stroke-width:0.264589;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
+       id="rect1429"
+       width="3.4395776"
+       height="7.1436381"
+       x="5.4240408"
+       y="26.590656"
+       ry="0.39687499"
+       rx="0.39687499"
+       clip-path="url(#clipPath46241)"
+       transform="translate(4.7625002,-0.52916666)">
+      <title
+         id="title1427">OskKey_middlec</title>
+    </rect>
   </g>
 </svg>
