@@ -217,6 +217,7 @@ class ExpandButton : CantabileButton
     }
 }
 
+// Common base style for all table rows
 class TableRow_common
 {
     Background:
