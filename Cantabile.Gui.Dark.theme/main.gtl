@@ -206,3 +206,36 @@ class OnscreenKeyboard
     OctaveLabelTextColor: #dfe1e5,
     OctaveLabelDividerColor: #43464c,
 }
+
+// Expand/Collapse Button
+class ExpandButton : CantabileButton
+{
+    Image:
+    {
+        Checked: Image("ExpandButton_expanded.png", Center),
+        Else: Image("ExpandButton_collapsed.png", Center),
+    }
+}
+
+class TableRow_common
+{
+    Background:
+    {
+        Selected | ContainerFocused: VerticalGradient(#058cF5, #015DE6),
+        Selected: VerticalGradient(#023258, #00255b),
+        CurrentItem: #0e1721,
+    },
+    BorderColor: 
+    {
+        Selected: #00000000,        // Don't draw horizontal grid lines when selected
+        Else: #43464c,
+    }
+}
+
+class TableRow_TopLevelItem : TableRow_common
+{
+}
+
+class TableRow_ChildItem : TableRow_common
+{
+}
