@@ -3,6 +3,7 @@
 // Import the default GuiKit Dark theme
 import("GuiKit.Dark");
 
+// Some common used fonts and images
 var tinyFont = Font("GuiKitSans", 10, false);
 var smallFont = Font("GuiKitSans", 11, false);
 var largeFont = Font("GuiKitSans", 18, true);
@@ -173,7 +174,7 @@ class OnscreenKeyboard
     // White key in a normal state
     WhiteKey: NineSliceImage("OskKey_white.png", 3) { ScaleMatchMode: Lower },
 
-    // White key in a normal state
+    // Middle-C key in a normal state (only used in compact mode)
     MiddleCKey: NineSliceImage("OskKey_middlec.png", 3)  { ScaleMatchMode: Lower },
 
     // Black key in a normal state
@@ -185,25 +186,23 @@ class OnscreenKeyboard
     // Black or white key in pressed state
     PressedKey: NineSliceImage("OskKey_pressed.png", 3)  { ScaleMatchMode: Lower },
 
-    // The octave bar indicators below the keys
-    OctaveBar:
-    {
-        Focused: NineSliceImage("OskOctaveBar_focused.png", 4, 1),
-        Else: NineSliceImage("OskOctaveBar.png", 4, 1)
-    },
-
-    // Range handle used during key range selection and editing
+    // Range indicators
     RangeHandle:
     {
         Focused: Image("OskRangeHandle_focused.png", Center),
         Else: Image("OskRangeHandle.png", Center),
     },
-
     RangeBar: NineSliceImage("OskOctaveBar.png", 4, 1),
     RangeFont: smallFont,
     RangeTextColor: #FFFFFF, 
 
+    // Octave indicators
+    OctaveBar:
+    {
+        Focused: NineSliceImage("OskOctaveBar_focused.png", 4, 1),
+        Else: NineSliceImage("OskOctaveBar.png", 4, 1)
+    },
     OctaveLabelFont: tinyFont,
     OctaveLabelTextColor: #dfe1e5,
-    OctaveLabelDividerColor: #43464c
+    OctaveLabelDividerColor: #43464c,
 }
