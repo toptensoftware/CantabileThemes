@@ -245,3 +245,29 @@ class Gripper
 {
     Background: Image("Gripper_lhs.png", Center),
 }
+
+class SlotButton
+{
+    Background:
+    {
+        Pressed: focusHighlightPressed,
+        Focused: focusHighlight,
+    },
+    TextColor:
+    {
+        Inactive: #808080,
+        Else: #FFFFFF
+    },
+    Padding: EdgeInsets(3,4),
+}
+
+class SlotButtonDisclosureArrow
+{
+    Background:
+    {
+        ContainerFocused: Image("DisclosureButton_focused.png", Center),
+        Selected: Image("DisclosureButton_focused.png", Center),
+        Else: Image("DisclosureButton.png", Center),
+    },
+    Padding: EdgeInsets(3,4,3,3),
+}
