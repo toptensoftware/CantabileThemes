@@ -1152,11 +1152,11 @@
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g26102"
      inkscape:document-units="px"
-     inkscape:cy="361.8125"
-     inkscape:cx="99.125"
-     inkscape:zoom="16"
+     inkscape:cy="380.29087"
+     inkscape:cx="78.091105"
+     inkscape:zoom="22.627417"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -2468,6 +2468,60 @@
          style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.264583"
          d="M 7.3979185,3.8348687 6.0603769,5.1724104 9.3673549,8.4923945 6.0603769,11.799372 7.3979185,13.136913 11.380171,9.154662 12.048942,8.4858913 Z"
          id="path11380" />
+    </g>
+    <g
+       id="g26094"
+       transform="matrix(0.26458333,0,0,0.26458333,5.092873,100.14031)">
+      <title
+         id="title26210">TableRowChild</title>
+      <rect
+         style="fill:#121212;fill-opacity:1;stroke:none;stroke-width:0.373347"
+         id="rect25601"
+         width="40"
+         height="12"
+         x="0.75133651"
+         y="1.5169396" />
+      <rect
+         style="fill:#43464c;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:0.3, 0.3;stop-color:#000000"
+         id="rect25709"
+         width="1"
+         height="12"
+         x="26.751347"
+         y="1.5169396" />
+      <rect
+         style="fill:#1e1e21;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:0.3, 0.3;stop-color:#000000"
+         id="rect25991"
+         width="13"
+         height="12"
+         x="27.751347"
+         y="1.5169396" />
+    </g>
+    <g
+       id="g26102"
+       transform="matrix(0.26458333,0,0,0.26458333,16.205375,100.14031)">
+      <title
+         id="title26212">TableRowChild_focused</title>
+      <rect
+         style="fill:#121212;fill-opacity:1;stroke:none;stroke-width:0.373347"
+         id="rect26096"
+         width="40"
+         height="12"
+         x="0.75133651"
+         y="1.5169396" />
+      <rect
+         style="fill:#43464c;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:0.3, 0.3;stop-color:#000000"
+         id="rect26098"
+         width="1"
+         height="12"
+         x="26.751339"
+         y="1.5169396" />
+      <rect
+         style="fill:#0e1721;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:0.3, 0.3;stop-color:#000000"
+         id="rect26100"
+         width="13"
+         height="12"
+         x="27.751339"
+         y="1.5169396" />
     </g>
   </g>
 </svg>

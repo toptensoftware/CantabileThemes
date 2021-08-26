@@ -217,6 +217,40 @@ class ExpandButton : CantabileButton
     }
 }
 
+// Gripper handle on the LHS of table rows
+class Gripper
+{
+    Background: Image("Gripper_lhs.png", Center),
+}
+
+// A button in a table row
+class SlotButton
+{
+    Background:
+    {
+        Pressed: focusHighlightPressed,
+        Focused: focusHighlight,
+    },
+    TextColor:
+    {
+        Inactive: #808080,
+        Else: #FFFFFF
+    },
+    Padding: EdgeInsets(3, 0),
+}
+
+// The (>) "disclosure arrow" on the rhs of some slot buttons
+class DisclosureArrow
+{
+    Background:
+    {
+        ContainerFocused: Image("DisclosureButton_focused.png", Center),
+        Selected: Image("DisclosureButton_focused.png", Center),
+        Else: Image("DisclosureButton.png", Center),
+    },
+    Padding: EdgeInsets(3,4,3,3),
+}
+
 // Common base style for all table rows
 class TableRow_common
 {
@@ -225,6 +259,7 @@ class TableRow_common
         Selected | ContainerFocused: VerticalGradient(#058cF5, #015DE6),
         Selected: VerticalGradient(#023258, #00255b),
         CurrentItem: #0e1721,
+        Else: #121212,
     },
     BorderColor: 
     {
@@ -239,35 +274,25 @@ class TableRow_TopLevelItem : TableRow_common
 
 class TableRow_ChildItem : TableRow_common
 {
+    Background:
+    {
+        Selected | ContainerFocused: VerticalGradient(#058cF5, #015DE6),
+        Selected: VerticalGradient(#023258, #00255b),
+        CurrentItem: NineSliceImage("TableRowChild_focused.png", 32, 0, 0, 0),
+        Else: NineSliceImage("TableRowChild.png", 32, 0, 0, 0),
+    },
+    BorderColor: #00000000,
 }
 
-class Gripper
-{
-    Background: Image("Gripper_lhs.png", Center),
-}
-
-class SlotButton
+class TableRow_ChildFooter : TableRow_common
 {
     Background:
     {
-        Pressed: focusHighlightPressed,
-        Focused: focusHighlight,
+        Selected | ContainerFocused: VerticalGradient(#058cF5, #015DE6),
+        Selected: VerticalGradient(#023258, #00255b),
+        CurrentItem: NineSliceImage("TableRowChild_focused.png", 32, 0, 0, 0),
+        Else: NineSliceImage("TableRowChild.png", 32, 0, 0, 0),
     },
-    TextColor:
-    {
-        Inactive: #808080,
-        Else: #FFFFFF
-    },
-    Padding: EdgeInsets(3,4),
 }
 
-class SlotButtonDisclosureArrow
-{
-    Background:
-    {
-        ContainerFocused: Image("DisclosureButton_focused.png", Center),
-        Selected: Image("DisclosureButton_focused.png", Center),
-        Else: Image("DisclosureButton.png", Center),
-    },
-    Padding: EdgeInsets(3,4,3,3),
-}
+
