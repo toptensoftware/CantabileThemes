@@ -1019,19 +1019,19 @@
     </filter>
   </defs>
   <sodipodi:namedview
-     inkscape:window-maximized="1"
-     inkscape:window-y="-6"
-     inkscape:window-x="-6"
-     inkscape:window-height="1018"
-     inkscape:window-width="1920"
+     inkscape:window-maximized="0"
+     inkscape:window-y="450"
+     inkscape:window-x="-1752"
+     inkscape:window-height="1003"
+     inkscape:window-width="1284"
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g9253"
      inkscape:document-units="px"
-     inkscape:cy="381.57895"
-     inkscape:cx="87.231969"
-     inkscape:zoom="2.052"
+     inkscape:cy="357.39522"
+     inkscape:cx="56.408382"
+     inkscape:zoom="8.208"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -2194,6 +2194,114 @@
         <polygon
            id="path4203"
            points="5,2 10.999999,8.0000004 5,14 " />
+      </g>
+    </g>
+    <g
+       id="g9244">
+      <title
+         id="title9255">Gripper_lhs</title>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373347"
+         id="rect1067-3-8"
+         width="4.2333336"
+         height="4.2333336"
+         x="15.345833"
+         y="93.927086"
+         inkscape-export-transparent="1" />
+      <g
+         id="Group-Copy"
+         transform="matrix(0.18898809,0,0,0.18898809,16.895535,94.720836)"
+         fill="#808080"
+         style="fill:#cccccc;fill-opacity:1;stroke-width:1.4">
+        <ellipse
+           id="ellipse53"
+           cx="1.25"
+           cy="1.2962964"
+           rx="1.25"
+           ry="1.2962964"
+           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
+        <ellipse
+           id="ellipse55"
+           cx="1.25"
+           cy="7"
+           rx="1.25"
+           ry="1.2962964"
+           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
+        <ellipse
+           id="ellipse57"
+           cx="4.75"
+           cy="4.4074073"
+           rx="1.25"
+           ry="1.2962964"
+           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
+        <ellipse
+           id="ellipse59"
+           cx="4.75"
+           cy="10.111111"
+           rx="1.25"
+           ry="1.2962964"
+           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
+        <ellipse
+           id="ellipse61"
+           cx="1.25"
+           cy="12.703704"
+           rx="1.25"
+           ry="1.2962964"
+           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
+      </g>
+    </g>
+    <g
+       id="g9253">
+      <title
+         id="title9257">Gripper_rhs</title>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373347"
+         id="rect1273"
+         width="4.2333336"
+         height="4.2333336"
+         x="20.108339"
+         y="93.927086"
+         inkscape-export-transparent="1" />
+      <g
+         id="Group-Copy-2"
+         transform="matrix(-0.18898809,0,0,-0.18898809,22.79197,97.366669)"
+         fill="#808080"
+         style="fill:#cccccc;fill-opacity:1;stroke-width:1.4">
+        <ellipse
+           id="ellipse64"
+           cx="1.25"
+           cy="1.2962964"
+           rx="1.25"
+           ry="1.2962964"
+           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
+        <ellipse
+           id="ellipse66"
+           cx="1.25"
+           cy="7"
+           rx="1.25"
+           ry="1.2962964"
+           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
+        <ellipse
+           id="ellipse68"
+           cx="4.75"
+           cy="4.4074073"
+           rx="1.25"
+           ry="1.2962964"
+           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
+        <ellipse
+           id="ellipse70"
+           cx="4.75"
+           cy="10.111111"
+           rx="1.25"
+           ry="1.2962964"
+           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
+        <ellipse
+           id="ellipse72"
+           cx="1.25"
+           cy="12.703704"
+           rx="1.25"
+           ry="1.2962964"
+           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
       </g>
     </g>
   </g>

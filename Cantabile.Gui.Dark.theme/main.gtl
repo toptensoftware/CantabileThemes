@@ -240,3 +240,8 @@ class TableRow_TopLevelItem : TableRow_common
 class TableRow_ChildItem : TableRow_common
 {
 }
+
+class Gripper
+{
+    Background: Image("Gripper_lhs.png", Center),
+}
