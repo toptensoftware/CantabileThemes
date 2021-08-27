@@ -6,6 +6,8 @@ import("GuiKit.Dark");
 // Some common used fonts and images
 var tinyFont = Font("GuiKitSans", 10, false);
 var smallFont = Font("GuiKitSans", 11, false);
+var defaultFont = Font("GuiKitSans", 12, false);
+var boldFont = Font("GuiKitSans", 12, true);
 var largeFont = Font("GuiKitSans", 18, true);
 var subtleHighlight = NineSliceImage("SubtleHighlight.png", 5, 5);
 var focusHighlight = NineSliceImage("FocusHighlight.png", 5, 5);
@@ -295,4 +297,36 @@ class TableRow_ChildFooter : TableRow_common
     },
 }
 
+scope PopupMenu
+{
+    class PopupBackground
+    {
+        fillColor: #121212,
+    }
+
+    class Title
+    {
+        Background: #222326,
+        TextColor: #949599,
+        Padding: EdgeInsets(5, 5),
+        Font: boldFont,
+    }
+
+    class Item
+    {
+        Padding: EdgeInsets(10, 0, 0, 0),
+        Gravity: LeftCenter,
+        Background:
+        {
+            CurrentItem: focusHighlightPressed,
+            Focused: focusHighlight,
+        },
+        TextColor: #dfe1e5,
+    }
+
+    class AccessoryContainer
+    {
+        Background: #222326,
+    }
+}
 
