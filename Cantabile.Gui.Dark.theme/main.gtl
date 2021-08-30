@@ -32,7 +32,7 @@ class MidiActivityIndicator
         Indeterminate: Image("LedSmallSense.png", Center),
 
         // Any other state is displayed as "off".
-        Else: Image("LedSmallOff.png", Center)
+        else: Image("LedSmallOff.png", Center)
     },
 }
 
@@ -54,7 +54,7 @@ class LevelMeter
         Checked: NineSliceImage("LevelMeterFrame_clipped.png", 3),
 
         // Normal state
-        Else: NineSliceImage("LevelMeterFrame.png", 3),
+        else: NineSliceImage("LevelMeterFrame.png", 3),
     },
 
     // Normal indicator level color
@@ -76,7 +76,7 @@ class Knob
     Knob: 
     {
         Focused: TileSetImage("Knob_focused.png", 8, 8),
-        Else: TileSetImage("Knob.png", 8, 8)
+        else: TileSetImage("Knob.png", 8, 8)
     }
 }
 
@@ -97,7 +97,7 @@ class SubtleButton : Button
     {
         Pressed: focusHighlightPressed,
         Focused: focusHighlight,
-        Else: subtleHighlight,
+        else: subtleHighlight,
     },
 }
 
@@ -113,9 +113,9 @@ class RunModeButton : CantabileButton
     Image:
     {
         Error: Image("RunMode_error.png", Center),
-        Checked | Indeterminate: Image("RunMode_suspended.png", Center),
+        Checked && Indeterminate: Image("RunMode_suspended.png", Center),
         Checked: Image("RunMode_running.png", Center),
-        Else: Image("RunMode_unloaded.png", Center),
+        else: Image("RunMode_unloaded.png", Center),
     }
 }
 
@@ -148,7 +148,7 @@ class CantabileSlider : Slider
     Thumb:
     {
         Focused: Image("SliderHandle_focused.png", Center),
-        Else: Image("SliderHandle.png", Center),
+        else: Image("SliderHandle.png", Center),
     },
     TrackRange: NineSliceImage("SliderTrackRangeA.png", 5, 0),
     TrackRangeAlt: NineSliceImage("SliderTrackRangeB.png", 5, 0),
@@ -162,7 +162,7 @@ class SoloModeButton : CantabileButton
     {
         Indeterminate: Image("SoloButton_muted.png", Center),
         Checked: Image("SoloButton_on.png", Center),
-        Else: Image("SoloButton_off.png", Center),
+        else: Image("SoloButton_off.png", Center),
     }
 }
 
@@ -192,7 +192,7 @@ class OnscreenKeyboard
     RangeHandle:
     {
         Focused: Image("OskRangeHandle_focused.png", Center),
-        Else: Image("OskRangeHandle.png", Center),
+        else: Image("OskRangeHandle.png", Center),
     },
     RangeBar: NineSliceImage("OskOctaveBar.png", 4, 1),
     RangeFont: smallFont,
@@ -202,7 +202,7 @@ class OnscreenKeyboard
     OctaveBar:
     {
         Focused: NineSliceImage("OskOctaveBar_focused.png", 4, 1),
-        Else: NineSliceImage("OskOctaveBar.png", 4, 1)
+        else: NineSliceImage("OskOctaveBar.png", 4, 1)
     },
     OctaveLabelFont: tinyFont,
     OctaveLabelTextColor: #dfe1e5,
@@ -215,7 +215,7 @@ class ExpandButton : CantabileButton
     Image:
     {
         Checked: Image("ExpandButton_expanded.png", Center),
-        Else: Image("ExpandButton_collapsed.png", Center),
+        else: Image("ExpandButton_collapsed.png", Center),
     }
 }
 
@@ -236,7 +236,7 @@ class SlotButton
     TextColor:
     {
         Inactive: #808080,
-        Else: #FFFFFF
+        else: #FFFFFF
     },
     Padding: EdgeInsets(3, 0),
 }
@@ -248,7 +248,7 @@ class DisclosureArrow
     {
         ContainerFocused: Image("DisclosureButton_focused.png", Center),
         Selected: Image("DisclosureButton_focused.png", Center),
-        Else: Image("DisclosureButton.png", Center),
+        else: Image("DisclosureButton.png", Center),
     },
     Padding: EdgeInsets(3,4,3,3),
 }
@@ -258,15 +258,15 @@ class TableRow_common
 {
     Background:
     {
-        Selected | ContainerFocused: VerticalGradient(#058cF5, #015DE6),
+        Selected && ContainerFocused: VerticalGradient(#058cF5, #015DE6),
         Selected: VerticalGradient(#023258, #00255b),
         CurrentItem: #0e1721,
-        Else: #121212,
+        else: #121212,
     },
     BorderColor: 
     {
         Selected: #00000000,        // Don't draw horizontal grid lines when selected
-        Else: #43464c,
+        else: #43464c,
     }
 }
 
@@ -278,10 +278,10 @@ class TableRow_ChildItem : TableRow_common
 {
     Background:
     {
-        Selected | ContainerFocused: VerticalGradient(#058cF5, #015DE6),
+        Selected && ContainerFocused: VerticalGradient(#058cF5, #015DE6),
         Selected: VerticalGradient(#023258, #00255b),
         CurrentItem: NineSliceImage("TableRowChild_focused.png", 32, 0, 0, 0),
-        Else: NineSliceImage("TableRowChild.png", 32, 0, 0, 0),
+        else: NineSliceImage("TableRowChild.png", 32, 0, 0, 0),
     },
     BorderColor: #00000000,
 }
@@ -290,10 +290,10 @@ class TableRow_ChildFooter : TableRow_common
 {
     Background:
     {
-        Selected | ContainerFocused: VerticalGradient(#058cF5, #015DE6),
+        Selected && ContainerFocused: VerticalGradient(#058cF5, #015DE6),
         Selected: VerticalGradient(#023258, #00255b),
         CurrentItem: NineSliceImage("TableRowChild_focused.png", 32, 0, 0, 0),
-        Else: NineSliceImage("TableRowChild.png", 32, 0, 0, 0),
+        else: NineSliceImage("TableRowChild.png", 32, 0, 0, 0),
     },
 }
 
@@ -330,3 +330,55 @@ scope PopupMenu
     }
 }
 
+class GroupButton<align,image>
+{
+    Background:
+    {
+        Pressed: NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#404143),
+        Selected: NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#002d62),
+        else: NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#313235),
+    },
+    Image:
+    {
+        Pressed || Selected: Image(image + ".png", Center).Recolor(#FFFFFF),
+        else: Image(image + ".png", Center).Recolor(#979797),
+    }
+}
+
+class TableViewButton : GroupButton<"Left","TableView"> {}
+class DiagramViewButton : GroupButton<"Right","DiagramView"> {}
+
+
+scope TabBar
+{
+    class Button
+    {
+        Background:
+        {
+            Pressed: NineSliceImage("RoundedRect.png", 5, 5).Recolor(#404143),
+            Selected: NineSliceImage("RoundedRect.png", 5, 5).Recolor(#002d62),
+          //  else: #FF0000.WithAlpha(0.3)
+        },
+        TextColor:
+        {
+            Alternate: #00000000,               // In small mode, hide text on eject button
+            Selected || Pressed: #dfe1e5,
+            else: #949599,
+        },
+        Padding: EdgeInsets(15, 3),
+        Font: boldFont,
+    }
+
+    class EjectButton : Button
+    {
+        Padding: EdgeInsets(10, 3, 30, 3),
+        Image:
+        {
+            Pressed && Alternate: Image("EjectButton.png", Center).Recolor(#dfe1e5),
+            Alternate: Image("EjectButton.png", Center).Recolor(#949599),   
+            Pressed: Image("EjectButton.png", RightCenter).Recolor(#dfe1e5),
+            else: Image("EjectButton.png", RightCenter).Recolor(#949599),   
+        },
+    }
+
+}
