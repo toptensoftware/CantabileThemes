@@ -351,6 +351,12 @@ class DiagramViewButton : GroupButton<"Right","DiagramView"> {}
 
 scope TabBar
 {
+    class TabBar
+    {
+        Background: #222326,
+        BorderColor: #43464c,
+    }
+
     class Button
     {
         Background:
