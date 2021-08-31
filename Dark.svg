@@ -1147,16 +1147,16 @@
      inkscape:window-maximized="1"
      inkscape:window-y="-6"
      inkscape:window-x="-6"
-     inkscape:window-height="1018"
-     inkscape:window-width="1920"
+     inkscape:window-height="738"
+     inkscape:window-width="1280"
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="g11029"
+     inkscape:current-layer="g1718"
      inkscape:document-units="px"
-     inkscape:cy="361.68512"
-     inkscape:cx="127.27922"
-     inkscape:zoom="2.8284271"
+     inkscape:cy="375.4737"
+     inkscape:cx="124.94577"
+     inkscape:zoom="2.3570226"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -1173,7 +1173,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -2682,5 +2681,245 @@
       <title
          id="title18661">GroupRight</title>
     </path>
+    <g
+       id="g1670">
+      <title
+         id="title1720">TimelineRangeLeft_hot</title>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
+         id="rect17708-2"
+         width="5.5562501"
+         height="7.9375"
+         x="5.2916665"
+         y="105.83334"
+         inkscape-export-transparent="1" />
+      <g
+         id="RangeLeft_Hot"
+         transform="matrix(0.26458333,0,0,0.26458333,4.2333334,105.83334)"
+         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+        <polygon
+           id="Rectangle-1-Copy-6"
+           fill="#0480f1"
+           points="21,27 12,27 12,18 9,18 9,30 21,30 "
+           transform="translate(4)" />
+        <rect
+           id="Rectangle-1-Copy-5"
+           fill="#dfe1e5"
+           x="14"
+           y="0"
+           width="1"
+           height="17" />
+      </g>
+    </g>
+    <g
+       id="g1676">
+      <title
+         id="title1722">TimelineRangeLeft</title>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
+         id="rect1642"
+         width="5.5562501"
+         height="7.9375"
+         x="11.641667"
+         y="105.83334"
+         inkscape-export-transparent="1" />
+      <g
+         id="RangeLeft"
+         transform="matrix(0.26458333,0,0,0.26458333,11.641667,105.83334)"
+         fill="#dfe1e5"
+         style="fill-rule:evenodd;stroke:none;stroke-width:1">
+        <polygon
+           id="Rectangle-1-Copy-10"
+           points="12,18 9,18 9,30 21,30 21,27 12,27 " />
+        <rect
+           id="Rectangle-1-Copy-9"
+           x="10"
+           y="0"
+           width="1"
+           height="17" />
+      </g>
+    </g>
+    <g
+       id="g1682">
+      <title
+         id="title1724">TimelineRangeRight_hot</title>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
+         id="rect1644"
+         width="5.5562501"
+         height="7.9375"
+         x="17.991673"
+         y="105.83334"
+         inkscape-export-transparent="1" />
+      <g
+         id="RangeRight_Hot"
+         transform="matrix(0.26458333,0,0,0.26458333,17.991667,105.83334)"
+         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+        <polygon
+           id="Rectangle-1-Copy-14"
+           fill="#0480f1"
+           transform="matrix(-1,0,0,1,12,0)"
+           points="0,30 12,30 12,27 3,27 3,18 0,18 " />
+        <rect
+           id="Rectangle-1-Copy-13"
+           fill="#dfe1e5"
+           x="10"
+           y="0"
+           width="1"
+           height="17" />
+      </g>
+    </g>
+    <g
+       id="g1694">
+      <title
+         id="title1726">TimelineRangeRight</title>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
+         id="rect1646"
+         width="5.5562501"
+         height="7.9375"
+         x="24.341679"
+         y="105.83334"
+         inkscape-export-transparent="1" />
+      <g
+         id="RangeRight"
+         transform="matrix(0.26458333,0,0,0.26458333,24.341667,105.83334)"
+         fill="#dfe1e5"
+         style="fill-rule:evenodd;stroke:none;stroke-width:1">
+        <polygon
+           id="Rectangle-1-Copy-12"
+           transform="matrix(-1,0,0,1,12,0)"
+           points="3,18 0,18 0,30 12,30 12,27 3,27 " />
+        <rect
+           id="Rectangle-1-Copy-11"
+           x="10"
+           y="0"
+           width="1"
+           height="17" />
+      </g>
+    </g>
+    <g
+       id="g1701">
+      <title
+         id="title1728">TimelinePlayPos</title>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
+         id="rect1648"
+         width="5.5562501"
+         height="7.9375"
+         x="30.691685"
+         y="105.83334"
+         inkscape-export-transparent="1" />
+      <g
+         id="PlayPos"
+         transform="matrix(0.26458333,0,0,0.26458333,30.691685,105.83334)"
+         fill="#ff6600"
+         style="fill-rule:evenodd;stroke:none;stroke-width:1">
+        <polygon
+           id="Rectangle-1-Copy-15"
+           transform="rotate(180,10.5,8)"
+           points="4,10 4,13 17,13 17,10 12,3 9,3 " />
+        <rect
+           id="Rectangle-1-Copy-16"
+           x="10"
+           y="14"
+           width="1"
+           height="16" />
+        <rect
+           id="Rectangle-1-Copy-19"
+           x="10"
+           y="0"
+           width="1"
+           height="2" />
+      </g>
+    </g>
+    <g
+       id="g1708">
+      <title
+         id="title1730">TimelinePlayPos_hot</title>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
+         id="rect1650"
+         width="5.5562501"
+         height="7.9375"
+         x="37.041691"
+         y="105.83334"
+         inkscape-export-transparent="1" />
+      <g
+         id="PlayPos_Hot"
+         transform="matrix(0.26458333,0,0,0.26458333,37.041691,105.83334)"
+         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
+        <polygon
+           id="Rectangle-1-Copy-18"
+           fill="#0480f1"
+           transform="rotate(180,10.5,8)"
+           points="4,10 4,13 17,13 17,10 12,3 9,3 " />
+        <rect
+           id="Rectangle-1-Copy-17"
+           fill="#ff6600"
+           x="10"
+           y="14"
+           width="1"
+           height="16" />
+        <rect
+           id="Rectangle-1-Copy-20"
+           fill="#ff6600"
+           x="10"
+           y="0"
+           width="1"
+           height="2" />
+      </g>
+    </g>
+    <g
+       id="g1713">
+      <title
+         id="title1732">TimelineCursor</title>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
+         id="rect1652"
+         width="5.5562501"
+         height="7.9375"
+         x="43.391697"
+         y="105.83334"
+         inkscape-export-transparent="1" />
+      <g
+         id="Cursor"
+         transform="matrix(0.26458333,0,0,0.26458333,43.391697,105.83334)"
+         fill="#ff6600"
+         opacity="0.6"
+         style="fill-rule:evenodd;stroke:none;stroke-width:1">
+        <rect
+           id="rect24"
+           x="10"
+           y="0"
+           width="1"
+           height="30" />
+      </g>
+    </g>
+    <g
+       id="g1718">
+      <title
+         id="title1734">TimelineCursor_hot</title>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
+         id="rect1654"
+         width="5.5562501"
+         height="7.9375"
+         x="49.741703"
+         y="105.83334"
+         inkscape-export-transparent="1" />
+      <g
+         id="Cursor_Hot"
+         transform="matrix(0.26458333,0,0,0.26458333,49.741703,105.83334)"
+         fill="#0480f1"
+         style="fill-rule:evenodd;stroke:none;stroke-width:1">
+        <rect
+           id="rect27"
+           x="10"
+           y="0"
+           width="1"
+           height="30" />
+      </g>
+    </g>
   </g>
 </svg>
