@@ -80,6 +80,18 @@ class Knob
     }
 }
 
+// Combined level meter/slider
+class CombinedSliderMeter
+{
+    Handle:
+    {
+        // NB: Use ContainsFocus as the focus is actually given 
+        //     to the hidden child slider control
+        ContainsFocus: Image("LevelMeterHandle_hot.png", Center),
+        else: Image("LevelMeterHandle.png", Center),
+    }
+}
+
 // Base class for Cantabile buttons with no background highlight
 class CantabileButton : Button
 {
@@ -388,3 +400,4 @@ scope TabBar
     }
 
 }
+
