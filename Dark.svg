@@ -827,7 +827,7 @@
        xlink:href="#linearGradient-5-7"
        id="linearGradient318"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(30.334242,-93.604089)"
+       gradientTransform="translate(11.334242,-93.604089)"
        x1="8"
        y1="1"
        x2="8"
@@ -854,7 +854,7 @@
        xlink:href="#linearGradient-5-7"
        id="linearGradient320"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(106.33424,-93.604089)"
+       gradientTransform="translate(87.33424,-93.604089)"
        x1="8"
        y1="1"
        x2="8"
@@ -1152,11 +1152,11 @@
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="g1718"
+     inkscape:current-layer="layer1"
      inkscape:document-units="px"
-     inkscape:cy="375.4737"
-     inkscape:cx="124.94577"
-     inkscape:zoom="2.3570226"
+     inkscape:cy="239.85096"
+     inkscape:cx="119.18545"
+     inkscape:zoom="12.161719"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -1760,16 +1760,16 @@
     <path
        id="rect488"
        style="fill:#333333;stroke-width:0.373347"
-       d="M 5.2916667,58.208333 H 37.041666 v 6.35 H 5.2916667 Z"
+       d="M 5.2916667,58.208333 H 41.804167 v 6.35 H 5.2916667 Z"
        inkscape-export-transparent="1" />
     <path
        id="rect490"
        style="fill:#015ee6;stroke-width:0.373347"
-       d="M 5.2916667,64.558337 H 37.041666 v 6.35 H 5.2916667 Z"
+       d="M 5.2916665,64.558337 H 41.804166 v 6.35 H 5.2916665 Z"
        inkscape-export-transparent="1" />
     <g
        id="CheckArrow_on_selected"
-       transform="matrix(0.26458333,0,0,0.26458333,26.458312,65.616657)"
+       transform="matrix(0.26458333,0,0,0.26458333,31.485389,65.616657)"
        fill="#ffffff"
        style="stroke-width:0.803011">
       <title
@@ -1780,7 +1780,7 @@
     </g>
     <g
        id="CheckArrow_on"
-       transform="matrix(0.26458333,0,0,0.26458333,26.458312,59.266658)"
+       transform="matrix(0.26458333,0,0,0.26458333,31.485389,59.266658)"
        style="stroke-width:0.803011">
       <title
          id="title462">CheckArrow_on</title>
@@ -1886,7 +1886,7 @@
     </g>
     <g
        id="PinBox_on_selected"
-       transform="matrix(0.26458333,0,0,0.26458333,31.48542,65.616657)"
+       transform="matrix(0.26458333,0,0,0.26458333,36.512497,65.616657)"
        fill="#ffffff"
        style="stroke-width:0.803011">
       <title
@@ -1897,7 +1897,7 @@
     </g>
     <g
        id="PinBox_on"
-       transform="matrix(0.26458333,0,0,0.26458333,31.48542,59.266658)"
+       transform="matrix(0.26458333,0,0,0.26458333,36.512497,59.266658)"
        style="stroke-width:0.803011">
       <title
          id="title466">PinBox_on</title>
@@ -2920,6 +2920,46 @@
            width="1"
            height="30" />
       </g>
+    </g>
+    <g
+       id="g635">
+      <title
+         id="title2465">CheckArrow_off</title>
+      <g
+         id="g531"
+         transform="matrix(0.26458333,0,0,0.26458333,26.458337,59.266658)"
+         stroke="#979797"
+         stroke-width="0.5"
+         style="fill:none">
+        <path
+           id="path529"
+           d="m 3.25,1.25 h 9.5 c 1.108,0 2,0.892 2,2 v 9.5 c 0,1.108 -0.892,2 -2,2 h -9.5 c -1.108,0 -2,-0.892 -2,-2 v -9.5 c 0,-1.108 0.892,-2 2,-2 z" />
+      </g>
+      <path
+         d="m 28.28708,60.712479 c 0,0 0.319396,-0.313586 0.41071,-0.411345 0.09319,-0.09977 0.05091,-0.224047 -0.08034,-0.237542 0,0 -0.829061,0 -1.1578,0 -0.130268,0 -0.207567,0.105742 -0.207567,0.212043 v 1.12706 c 0,0.151107 0.158828,0.18905 0.237892,0.107261 0.1312,-0.135721 0.424633,-0.413694 0.424633,-0.413694 0,0 0.812062,0.81943 1.009469,1.001178 0.288396,0.265518 0.643956,-0.09785 0.355275,-0.387923 z"
+         id="path543"
+         fill="#ffffff"
+         style="stroke-width:0.212463;fill:#ffffff;fill-opacity:0.1733871" />
+    </g>
+    <g
+       id="g2471">
+      <title
+         id="title2473">CheckArrow_off_selected</title>
+      <g
+         id="g537"
+         transform="matrix(0.26458333,0,0,0.26458333,26.458337,65.616657)"
+         stroke="#ffffff"
+         stroke-width="0.5"
+         style="fill:none">
+        <path
+           id="path535"
+           d="m 3.25,1.25 h 9.5 c 1.108,0 2,0.892 2,2 v 9.5 c 0,1.108 -0.892,2 -2,2 h -9.5 c -1.108,0 -2,-0.892 -2,-2 v -9.5 c 0,-1.108 0.892,-2 2,-2 z" />
+      </g>
+      <path
+         d="m 28.28708,67.062479 c 0,0 0.319396,-0.313586 0.41071,-0.411345 0.09319,-0.09977 0.05091,-0.224047 -0.08034,-0.237542 0,0 -0.829061,0 -1.1578,0 -0.130268,0 -0.207567,0.105742 -0.207567,0.212043 v 1.12706 c 0,0.151107 0.158828,0.18905 0.237892,0.107261 0.1312,-0.135721 0.424633,-0.413694 0.424633,-0.413694 0,0 0.812062,0.81943 1.009469,1.001178 0.288396,0.265518 0.643956,-0.09785 0.355275,-0.387923 z"
+         id="path2234"
+         fill="#ffffff"
+         style="fill:#ffffff;fill-opacity:0.173387;stroke-width:0.212463" />
     </g>
   </g>
 </svg>
