@@ -12,6 +12,7 @@ var largeFont = Font("GuiKitSans", 18, true);
 var subtleHighlight = NineSliceImage("SubtleHighlight.png", 5, 5);
 var focusHighlight = NineSliceImage("FocusHighlight.png", 5, 5);
 var focusHighlightPressed = NineSliceImage("FocusHighlight_pressed.png", 5, 5);
+var focusHighlightTransparent = NineSliceImage("FocusHighlight.png", 5, 5).WithAlpha(0.35);
 
 // The beat indicator in the main status panel
 class BeatIndicator
@@ -401,3 +402,16 @@ scope TabBar
 
 }
 
+
+class ToolbarTextButton : Button
+{
+    Background:
+    {
+        Pressed: focusHighlightPressed,
+        Focused: focusHighlight,
+        LocalFocus && !Selected && !ContainerFocused: focusHighlightTransparent,
+        else: NineSliceImage("RoundedRect.png", 5, 5).Recolor(#38393c),
+    },
+    TextColor:#FFFFFF,
+    Font: boldFont,
+}
