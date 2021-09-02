@@ -1142,6 +1142,130 @@
          in="shadowInnerInner1"
          id="feColorMatrix44-5" />
     </filter>
+    <linearGradient
+       x1="0.5"
+       y1="0"
+       x2="0.5"
+       y2="1"
+       id="linearGradient-5-4">
+      <stop
+         stop-color="#FFFFFF"
+         offset="0%"
+         id="stop24-6" />
+      <stop
+         stop-color="#B1B0B0"
+         offset="100%"
+         id="stop26-21" />
+    </linearGradient>
+    <linearGradient
+       x1="-243.64671"
+       y1="-520.30219"
+       x2="-243.64671"
+       y2="-433.9017"
+       id="linearGradient-3-4"
+       gradientTransform="matrix(0.4597968,0,0,0.1522506,129.39192,219.43084)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient-5-4">
+      <stop
+         stop-color="#0877D1"
+         offset="0%"
+         id="stop14-0" />
+      <stop
+         stop-color="#0443A0"
+         offset="100%"
+         id="stop16-7" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient-5-7"
+       id="linearGradient1411"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.4597968,0,0,0.1522506,171.18541,197.64375)"
+       x1="-311.80066"
+       y1="-494.60507"
+       x2="-311.88242"
+       y2="-408.43582" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient-5-4"
+       id="linearGradient1316"
+       x1="43.445368"
+       y1="0"
+       x2="43.445368"
+       y2="86.890736"
+       gradientTransform="matrix(1.7378147,0,0,0.57543534,838.99998,292.99997)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient-5-4"
+       id="linearGradient1685"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.7378147,0,0,0.57543534,838.99998,292.99997)"
+       x1="-449.64072"
+       y1="-495.69885"
+       x2="-449.64072"
+       y2="-410.22137" />
+    <linearGradient
+       x1="-434.47955"
+       y1="-163.60051"
+       x2="-434.47955"
+       y2="-78.968544"
+       id="linearGradient-4-4"
+       gradientTransform="matrix(0.4597968,0,0,0.1522506,219.60416,174.62481)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#6F6F6F"
+         offset="0%"
+         id="stop19-3" />
+      <stop
+         stop-color="#595959"
+         offset="100%"
+         id="stop21-9" />
+    </linearGradient>
+    <linearGradient
+       x1="32.050308"
+       y1="0"
+       x2="32.050308"
+       y2="53.665631"
+       id="linearGradient-1-3"
+       gradientTransform="matrix(0.70995158,0,0,0.09860439,185.73749,67.997925)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#6F6F6F"
+         offset="0%"
+         id="stop4-9" />
+      <stop
+         stop-color="#595959"
+         offset="100%"
+         id="stop6-0" />
+    </linearGradient>
+    <linearGradient
+       x1="32.050308"
+       y1="0"
+       x2="32.050308"
+       y2="53.66563"
+       id="linearGradient-1-3-0"
+       gradientTransform="matrix(2.6832816,0,0,0.372678,513.61272,-429.2236)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#6F6F6F"
+         offset="0%"
+         id="stop4-9-1" />
+      <stop
+         stop-color="#595959"
+         offset="100%"
+         id="stop6-0-2" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient-1-3-0"
+       id="linearGradient8015"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-2.6832816,0,0,0.372678,-377.38744,-429.22359)"
+       x1="32.050308"
+       y1="0"
+       x2="32.050308"
+       y2="53.66563" />
   </defs>
   <sodipodi:namedview
      inkscape:window-maximized="1"
@@ -1154,9 +1278,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
-     inkscape:cy="239.85096"
-     inkscape:cx="119.18545"
-     inkscape:zoom="12.161719"
+     inkscape:cy="605.56398"
+     inkscape:cx="215.17316"
+     inkscape:zoom="1.3640177"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -2960,6 +3084,450 @@
          id="path2234"
          fill="#ffffff"
          style="fill:#ffffff;fill-opacity:0.173387;stroke-width:0.212463" />
+    </g>
+    <rect
+       style="fill:#121212;fill-opacity:1;stroke:none;stroke-width:0.0987813"
+       id="rect17708-2-5"
+       width="83.872917"
+       height="71.4375"
+       x="5.2916665"
+       y="119.0625"
+       inkscape-export-transparent="1" />
+    <rect
+       id="Rect"
+       x="6.6145835"
+       y="120.38541"
+       width="39.952084"
+       height="13.229166"
+       rx="0.79374999"
+       style="fill:url(#linearGradient1411);fill-opacity:1;stroke-width:0.264583"
+       ry="0.79374999">
+      <title
+         id="title7535">WiringObject_selected</title>
+    </rect>
+    <g
+       id="g1773"
+       transform="translate(41.793501,-4.5891436)">
+      <title
+         id="title7551">WiringAddObject_selected</title>
+      <rect
+         id="rect80"
+         fill="url(#linearGradient-3)"
+         x="6.0960813"
+         y="139.52663"
+         width="39.952084"
+         height="13.229166"
+         rx="0.79374999"
+         style="fill:url(#linearGradient-3-4);fill-opacity:1;stroke-width:0.264583"
+         ry="0.79374999" />
+      <g
+         id="Group"
+         transform="matrix(0.26458333,0,0,0.26458333,21.971081,142.17246)"
+         fill="#ffffff">
+        <rect
+           id="Rectangle-6"
+           x="12"
+           y="0"
+           width="8"
+           height="31" />
+        <rect
+           id="Rectangle-Copy"
+           transform="rotate(90,16,15.5)"
+           x="12"
+           y="0"
+           width="8"
+           height="31" />
+      </g>
+    </g>
+    <g
+       id="g1779"
+       transform="translate(0.51850128,-21.787055)">
+      <title
+         id="title7549">WiringAddObject</title>
+      <rect
+         id="rect86"
+         fill="#383838"
+         x="6.0960813"
+         y="156.72455"
+         width="39.952084"
+         height="13.229166"
+         rx="0.79374999"
+         ry="0.79374999"
+         style="stroke-width:0.264583" />
+      <g
+         id="g92"
+         transform="matrix(0.26458333,0,0,0.26458333,21.971081,159.37038)"
+         fill="#121212">
+        <rect
+           id="rect88"
+           x="12"
+           y="0"
+           width="8"
+           height="31" />
+        <rect
+           id="rect90"
+           transform="rotate(90,16,15.5)"
+           x="12"
+           y="0"
+           width="8"
+           height="31" />
+      </g>
+    </g>
+    <g
+       id="ComponentRecolor"
+       transform="matrix(0.26458333,0,0,0.26458333,47.889582,120.3854)"
+       fill="url(#linearGradient-5)"
+       style="fill:url(#linearGradient1316)">
+      <title
+         id="title7537">WiringObject_for_recolor</title>
+      <rect
+         x="0"
+         y="0"
+         width="151"
+         height="50"
+         rx="3"
+         id="rect103-8"
+         style="fill:url(#linearGradient1685);fill-opacity:1"
+         ry="3" />
+    </g>
+    <g
+       id="g7529">
+      <title
+         id="title7545">WiringInputPort_selected</title>
+      <rect
+         id="rect5274"
+         x="6.6145821"
+         y="178.5938"
+         width="39.952084"
+         height="10.583333"
+         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
+         inkscape-export-transparent="1" />
+      <rect
+         id="Rect-Copy-2"
+         fill="#013f99"
+         x="7.9374976"
+         y="178.5938"
+         width="32.808334"
+         height="10.583333"
+         style="stroke-width:0.264583" />
+    </g>
+    <rect
+       id="rect99"
+       fill="url(#linearGradient-4)"
+       x="6.6145821"
+       y="149.48958"
+       width="39.952084"
+       height="13.229166"
+       rx="0.79374999"
+       style="fill:url(#linearGradient-4-4);fill-opacity:1;stroke-width:0.264583"
+       ry="0.79374999">
+      <title
+         id="title7539">WiringObject</title>
+    </rect>
+    <g
+       id="g7533">
+      <title
+         id="title7547">WiringOutputPort_selected</title>
+      <rect
+         id="rect5276"
+         x="47.889584"
+         y="178.5938"
+         width="39.952084"
+         height="10.583333"
+         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
+         inkscape-export-transparent="1" />
+      <rect
+         id="Rect-Copy-3"
+         fill="#013f99"
+         x="53.710419"
+         y="178.5938"
+         width="32.808334"
+         height="10.583333"
+         style="stroke-width:0.264583" />
+    </g>
+    <g
+       id="g7525">
+      <title
+         id="title7543">WiringOutputPorts</title>
+      <rect
+         id="rect5272"
+         x="47.889584"
+         y="164.04169"
+         width="39.952084"
+         height="13.229166"
+         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
+         inkscape-export-transparent="1" />
+      <path
+         id="rect5438"
+         style="fill:#2a2a2a;fill-opacity:1;stroke-width:0.264583"
+         d="m 53.710419,164.04169 v 12.43541 c 0,0.43974 0.354012,0.79375 0.79375,0.79375 h 31.220833 c 0.439737,0 0.79375,-0.35401 0.79375,-0.79375 v -12.43541 z"
+         sodipodi:nodetypes="ccssccc" />
+    </g>
+    <g
+       id="g7521">
+      <title
+         id="title7541">WiringInputPorts</title>
+      <rect
+         id="rect4676"
+         x="6.6145821"
+         y="164.04169"
+         width="39.952084"
+         height="13.229166"
+         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
+         inkscape-export-transparent="1" />
+      <path
+         id="path7517"
+         style="fill:#2a2a2a;fill-opacity:1;stroke-width:0.264583"
+         d="m 7.9374986,177.27085 v -12.43541 c 0,-0.43974 0.354012,-0.79375 0.79375,-0.79375 H 39.95208 c 0.439737,0 0.79375,0.35401 0.79375,0.79375 v 12.43541 z"
+         sodipodi:nodetypes="ccssccc" />
+    </g>
+    <g
+       id="g8037">
+      <title
+         id="title8061">WiringInputEnvPort</title>
+      <rect
+         id="rect7824"
+         x="47.889584"
+         y="156.63345"
+         width="19.314583"
+         height="5.2916665"
+         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
+         inkscape-export-transparent="1" />
+      <g
+         id="g7976"
+         transform="matrix(0.26458333,0,0,0.26458333,49.844132,181.56333)">
+        <g
+           id="Group-Copy-41-5"
+           transform="translate(-3.3872873,-91.223133)"
+           fill="#808080">
+          <ellipse
+             id="ellipse53-6-6"
+             cx="1.25"
+             cy="1.2962964"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse55-6-8"
+             cx="1.25"
+             cy="7"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse57-8-7"
+             cx="4.75"
+             cy="4.4074073"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse59-5-5"
+             cx="4.75"
+             cy="10.111111"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse61-4-6"
+             cx="1.25"
+             cy="12.703704"
+             rx="1.25"
+             ry="1.2962964" />
+        </g>
+        <rect
+           fill="url(#linearGradient-1)"
+           x="6.6127152"
+           y="-94.223137"
+           width="57"
+           height="20"
+           rx="3"
+           id="rect75-4"
+           style="fill:url(#linearGradient-1-3-0);stroke-width:1"
+           ry="3" />
+      </g>
+    </g>
+    <g
+       id="g8026">
+      <title
+         id="title8215">WiringInputEnvPort_selected</title>
+      <rect
+         id="rect5272-1"
+         x="47.889584"
+         y="150.28336"
+         width="19.314583"
+         height="5.2916665"
+         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
+         inkscape-export-transparent="1" />
+      <g
+         id="g7887"
+         transform="translate(-42.860533,8.2572632)">
+        <rect
+           fill="#013f99"
+           x="94.454277"
+           y="142.02609"
+           width="15.08125"
+           height="5.2916665"
+           rx="0.79374999"
+           id="rect33-7"
+           ry="0.79374999"
+           style="stroke-width:0.264583" />
+        <g
+           id="Group-Copy-4-9"
+           transform="matrix(0.26458333,0,0,0.26458333,91.808442,142.81984)"
+           fill="#808080">
+          <ellipse
+             id="Oval-53"
+             cx="1.25"
+             cy="1.2962964"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="Oval-Copy-34"
+             cx="1.25"
+             cy="7"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="Oval-Copy-4-6"
+             cx="4.75"
+             cy="4.4074073"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="Oval-Copy-3-2"
+             cx="4.75"
+             cy="10.111111"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="Oval-Copy-2-1"
+             cx="1.25"
+             cy="12.703704"
+             rx="1.25"
+             ry="1.2962964" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g8048">
+      <title
+         id="title8213">WiringOutputEnvPort_selected</title>
+      <rect
+         id="rect7822"
+         x="68.527039"
+         y="150.28336"
+         width="19.314583"
+         height="5.2916665"
+         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
+         inkscape-export-transparent="1" />
+      <g
+         id="g7903"
+         transform="matrix(-1,0,0,1,178.59173,8.2572632)">
+        <rect
+           fill="#013f99"
+           x="94.454277"
+           y="142.02609"
+           width="15.08125"
+           height="5.2916665"
+           rx="0.79374999"
+           id="rect7889"
+           ry="0.79374999"
+           style="stroke-width:0.264583" />
+        <g
+           id="g7901"
+           transform="matrix(0.26458333,0,0,0.26458333,91.808442,142.81984)"
+           fill="#808080">
+          <ellipse
+             id="ellipse7891"
+             cx="1.25"
+             cy="1.2962964"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse7893"
+             cx="1.25"
+             cy="7"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse7895"
+             cx="4.75"
+             cy="4.4074073"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse7897"
+             cx="4.75"
+             cy="10.111111"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse7899"
+             cx="1.25"
+             cy="12.703704"
+             rx="1.25"
+             ry="1.2962964" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g8059">
+      <title
+         id="title8131">WiringOutputEnvPort</title>
+      <rect
+         id="rect7826"
+         x="68.527039"
+         y="156.63345"
+         width="19.314583"
+         height="5.2916665"
+         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
+         inkscape-export-transparent="1" />
+      <g
+         id="g8013"
+         transform="matrix(-0.26458333,0,0,0.26458333,85.887069,181.56333)">
+        <g
+           id="g8009"
+           transform="translate(-3.3872873,-91.223133)"
+           fill="#808080">
+          <ellipse
+             id="ellipse7999"
+             cx="1.25"
+             cy="1.2962964"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse8001"
+             cx="1.25"
+             cy="7"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse8003"
+             cx="4.75"
+             cy="4.4074073"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse8005"
+             cx="4.75"
+             cy="10.111111"
+             rx="1.25"
+             ry="1.2962964" />
+          <ellipse
+             id="ellipse8007"
+             cx="1.25"
+             cy="12.703704"
+             rx="1.25"
+             ry="1.2962964" />
+        </g>
+        <rect
+           fill="url(#linearGradient-1)"
+           x="6.6127152"
+           y="-94.223137"
+           width="57"
+           height="20"
+           rx="3"
+           id="rect8011"
+           style="fill:url(#linearGradient8015);stroke-width:1"
+           ry="3" />
+      </g>
     </g>
   </g>
 </svg>
