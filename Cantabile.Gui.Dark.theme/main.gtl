@@ -27,7 +27,7 @@ class MidiActivityIndicator
 	Indicator:
     {
         // Checked state is used for MIDI activity (bright led)
-        Checked: Image("LedSmallGreen.png", Center),
+        Checked: Image("LedSmallOn.png", Center),
 
         // Indeterminate state is used for MIDI sense activity (dim led)
         Indeterminate: Image("LedSmallSense.png", Center),
@@ -414,4 +414,18 @@ class ToolbarTextButton : Button
     },
     TextColor:#FFFFFF,
     Font: boldFont,
+}
+
+scope HorizontalPicker
+{
+    class Button
+    {
+        Background:
+        {
+            Pressed: focusHighlightPressed,
+            Focused: focusHighlight,
+            Checked: NineSliceImage("RoundedRect.png", 5, 5).Recolor(#707070),
+            else: subtleHighlight,
+        },
+    }
 }
