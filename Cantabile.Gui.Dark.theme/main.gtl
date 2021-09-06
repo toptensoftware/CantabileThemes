@@ -429,3 +429,45 @@ scope TickerView
         },
     }
 }
+
+class MidiChannelBar
+{
+    Background: BorderFrame(#252525, #555555)
+}
+
+scope Timeline
+{
+    class Timeline
+    {
+        Background: BorderFrame(#202c3a, #555555, Top)
+    }
+
+    class Timescale
+    {
+        Background: null,
+        MinorTickFont: smallFont,
+        MinorTickColor: #808080,
+        MinorTickTextColor: Color.White,
+        MajorTickFont: smallFont,
+        MajorTickColor: #808080,
+        MajorTickTextColor: Color.White,
+        FocusedLabelBackground: #2a97ff,
+        LabelFont: smallFont,
+        LabelTickColor: #43464c,
+        LabelTextColor: Color.White,
+    }
+
+    class Indicator<name,topFixed,bottomFixed>
+    {
+        Background:
+        {
+            Selected: NineSliceImage("Timeline" + name + "_hot.png", 0, topFixed, 0, bottomFixed),
+            else: NineSliceImage("Timeline" + name + ".png", 0, topFixed, 0, bottomFixed),
+        }
+    }
+
+    class RangeLeftIndicator : Indicator<"RangeLeft", 0, 15> {}
+    class RangeRightIndicator : Indicator<"RangeRight", 0, 15> {}
+    class PlayPositionIndicator : Indicator<"PlayPos", 15, 0> {}
+    class CursorIndicator : Indicator<"Cursor", 0, 0>    {}
+}
