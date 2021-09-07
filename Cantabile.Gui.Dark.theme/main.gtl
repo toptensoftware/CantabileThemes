@@ -442,7 +442,7 @@ scope Timeline
         Background: BorderFrame(#202c3a, #555555, Top)
     }
 
-    class Timescale
+    class XAxis
     {
         Background: null,
         MinorTickFont: smallFont,
@@ -461,7 +461,7 @@ scope Timeline
     {
         Background:
         {
-            Selected: NineSliceImage("Timeline" + name + "_hot.png", 0, topFixed, 0, bottomFixed),
+            Focused: NineSliceImage("Timeline" + name + "_hot.png", 0, topFixed, 0, bottomFixed),
             else: NineSliceImage("Timeline" + name + ".png", 0, topFixed, 0, bottomFixed),
         }
     }
