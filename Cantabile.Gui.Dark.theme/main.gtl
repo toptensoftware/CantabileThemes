@@ -446,14 +446,14 @@ scope Timeline
     {
         Background: null,
         MinorTickFont: smallFont,
-        MinorTickColor: #808080,
+        MinorTickColor: #a0a0a0,
         MinorTickTextColor: Color.White,
         MajorTickFont: smallFont,
-        MajorTickColor: #808080,
+        MajorTickColor: #a0a0a0,
         MajorTickTextColor: Color.White,
         FocusedLabelBackground: #2a97ff,
         LabelFont: smallFont,
-        LabelTickColor: #43464c,
+        LabelTickColor: #a0a0a0,
         LabelTextColor: Color.White,
     }
 
