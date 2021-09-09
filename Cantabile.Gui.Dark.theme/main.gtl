@@ -471,3 +471,133 @@ scope Timeline
     class PlayPositionIndicator : Indicator<"PlayPos", 15, 0> {}
     class CursorIndicator : Indicator<"Cursor", 0, 0>    {}
 }
+
+scope WiringView
+{
+    class WiringView
+    {
+        // Main content area background color
+        Background: #121212,
+
+        // Construction guide line color
+        ConstructionLineColor: #3F949599,
+
+        // The instructional text when nothing in the diagram
+        BlankSlateTextColor: Color.White,
+        BlankSlateFont: defaultFont,
+
+        // The add button
+        AddButton: 
+        {
+            Pressed: NineSliceImage("WiringAddObject_selected.png", 3, 3),
+            else: NineSliceImage("WiringAddObject.png", 3, 3),
+        }
+    }
+
+    // Common settings for the input and output port areas
+    class PortArea
+    {
+        Background: #222326,
+        Overlay: 
+        {
+            Selected: Color.Blue.WithAlpha(0.25),
+        },
+        PortTextColor: Color.White,
+        PortFont: defaultFont,
+        TitleFont: smallFont,
+        TitleTextColor: #949599,
+    }
+
+    // The environment input port area at the left
+    class InputPortArea : PortArea
+    {
+        PortBackground:
+        {
+            Hover: NineSliceImage("WiringInputEnvPort_selected.png", 20, 3, 10, 3),
+            else: NineSliceImage("WiringInputEnvPort.png", 20, 3, 10, 3)
+        },
+        PortTextPadding: (18, 0, 10, 0),
+        PortTextAlignment: RightCenter,
+    }
+
+    // The environment output port area at the left
+    class OutputPortArea : PortArea
+    {
+        PortBackground:
+        {
+            Hover: NineSliceImage("WiringOutputEnvPort_selected.png", 10, 3, 20, 3),
+            else: NineSliceImage("WiringOutputEnvPort.png", 10, 3, 20, 3)
+        },
+        PortTextPadding: (10, 0, 18, 0),
+        PortTextAlignment: LeftCenter,
+    }
+
+    // Objects
+    class Object
+    {
+        Background:
+        {
+            Selected: NineSliceImage("WiringObject_selected.png", 3, 3),
+            Alternate: NineSliceImage("WiringObject_for_recolor.png", 3, 3),        // Used as recoloring base for colored objects
+            else: NineSliceImage("WiringObject.png", 3, 3),
+        },
+        TextColor: Color.White,
+        Font: defaultFont,
+    }
+
+    // Common settings for object ports
+    class ObjectPorts
+    {
+        Padding: (0, 3, 0, 3),
+        PortTextColor: Color.White,
+        PortFont: smallFont,
+        WireIntrude: 5,
+    }
+
+    // The input port area for objects (appears above the main component rectangle)
+    class ObjectInputPorts : ObjectPorts
+    {
+        Background: NineSliceImage("WiringInputPorts.png", 3, 3),
+        PortBackground:
+        {
+            Hover: NineSliceImage("WiringInputPort_selected.png", 3, 3),
+        },
+        PortTextPadding: (10, 0, 22, 0),
+        PortTextAlign: LeftCenter,
+    }
+
+    // The output port area for objects (appears below the main component rectangle)
+    class ObjectOutputPorts : ObjectPorts
+    {
+        Background: NineSliceImage("WiringOutputPorts.png", 3, 3),
+        PortBackground:
+        {
+            Hover: NineSliceImage("WiringOutputPort_selected.png", 3, 3),
+        },
+        PortTextPadding: (22, 0, 10, 0),
+        PortTextAlign: RightCenter,
+    }
+
+    // Wires connecting ports
+    class Wires
+    {
+        // Base colors for different wire types
+        TypeColors:
+        {
+            "MIDI": #800000,
+            "Audio": #008000,
+        },
+
+        // These colors will be blended with the base wire color
+        Colors:
+        {
+            Hover: #3fFFFFFF,   // White 25% alpha
+            Selected: #0480F1,
+            else: Color.Clear,
+        },
+
+        // The fill color for the circles at the end of selected wires
+        HandleFillColor: Color.Black
+    }
+
+}
