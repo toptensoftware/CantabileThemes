@@ -486,6 +486,9 @@ scope WiringView
         BlankSlateTextColor: Color.White,
         BlankSlateFont: defaultFont,
 
+        // The click/drag box selection
+        BoxSelectionHighlight: BorderFrame(#3f0097fb, #FF0097fb),
+
         // The add button
         AddButton: 
         {
@@ -500,7 +503,7 @@ scope WiringView
         Background: #222326,
         Overlay: 
         {
-            Selected: Color.Blue.WithAlpha(0.25),
+            Selected: BorderFrame(#3f0097fb, #FF0097fb),
         },
         PortTextColor: Color.White,
         PortFont: defaultFont,
