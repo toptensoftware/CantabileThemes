@@ -1,7 +1,7 @@
 // Cantabile GUI Theme
 
 // Import the default GuiKit Dark theme
-import("GuiKit.Dark");
+import "GuiKit.Dark";
 
 // Some common used fonts and images
 var tinyFont = Font("GuiKitSans", 10, false);
@@ -17,125 +17,125 @@ var focusHighlightTransparent = NineSliceImage("FocusHighlight.png", 5, 5).WithA
 // The beat indicator in the main status panel
 class BeatIndicator
 {
-	FirstBeatColor: #00FF00,
-	OtherBeatsColor: #dfe1e5,
+	FirstBeatColor = #00FF00;
+	OtherBeatsColor = #dfe1e5;
 }
 
 // MIDI Activity Indicator
 class MidiActivityIndicator
 {
-	Indicator:
+	Indicator = 
     {
         // Checked state is used for MIDI activity (bright led)
-        Checked: Image("LedSmallOn.png", Center),
+        Checked = Image("LedSmallOn.png", Center);
 
         // Indeterminate state is used for MIDI sense activity (dim led)
-        Indeterminate: Image("LedSmallSense.png", Center),
+        Indeterminate = Image("LedSmallSense.png", Center);
 
         // Any other state is displayed as "off".
-        else: Image("LedSmallOff.png", Center)
-    },
+        else = Image("LedSmallOff.png", Center);
+    };
 }
 
 // Key Range Indicator
 class KeyRangeIndicator
 {
-    Frame: NineSliceImage("KeyRangeIndicatorFrame.png", 5),
-    KeyRangeIndicator: NineSliceImage("KeyRangeIndicator.png", 3, 0),
-    TransposeIndicator: NineSliceImage("KeyRangeIndicatorTranspose.png", 3, 0),
-    OctaveIndicatorColor: #10000000,
+    Frame = NineSliceImage("KeyRangeIndicatorFrame.png", 5);
+    KeyRangeIndicator = NineSliceImage("KeyRangeIndicator.png", 3, 0);
+    TransposeIndicator = NineSliceImage("KeyRangeIndicatorTranspose.png", 3, 0);
+    OctaveIndicatorColor = #10000000;
 }
 
 // Level Meter
 class LevelMeter
 {
-    Frame:
+    Frame = 
     {
         // Checked state is use for when clipped indicator active
-        Checked: NineSliceImage("LevelMeterFrame_clipped.png", 3),
+        Checked = NineSliceImage("LevelMeterFrame_clipped.png", 3);
 
         // Normal state
-        else: NineSliceImage("LevelMeterFrame.png", 3),
-    },
+        else = NineSliceImage("LevelMeterFrame.png", 3);
+    };
 
     // Normal indicator level color
-    IndicatorColorCold: #404040,
+    IndicatorColorCold = #404040;
 
     // Indicator color when level is high.  Will fade to this color
     // according to the hot levels reported by the control curve
     // being used for level meters
-    IndicatorColorHot: #ff6600,
+    IndicatorColorHot = #ff6600;
 
     // Tick Colors
-    MajorTickColor: #808080,
-    MinorTickColor: #808080,
+    MajorTickColor = #808080;
+    MinorTickColor = #808080;
 }
 
 // Knob
 class Knob
 {
-    Knob: 
+    Knob = 
     {
-        Focused: TileSetImage("Knob_focused.png", 8, 8),
-        else: TileSetImage("Knob.png", 8, 8)
-    }
+        Focused = TileSetImage("Knob_focused.png", 8, 8);
+        else = TileSetImage("Knob.png", 8, 8);
+    };
 }
 
 // Combined level meter/slider
 class CombinedSliderMeter
 {
-    Handle:
+    Handle = 
     {
-        // NB: Use ContainsFocus as the focus is actually given 
+        // NB = Use ContainsFocus as the focus is actually given 
         //     to the hidden child slider control
-        ContainsFocus: Image("LevelMeterHandle_hot.png", Center),
-        else: Image("LevelMeterHandle.png", Center),
-    }
+        ContainsFocus = Image("LevelMeterHandle_hot.png", Center);
+        else = Image("LevelMeterHandle.png", Center);
+    };
 }
 
 // Base class for Cantabile buttons with no background highlight
 class CantabileButton : Button
 {
-    Background:
+    Background = 
     {
-        Pressed: focusHighlightPressed,
-        Focused: focusHighlight,
-    },
+        Pressed = focusHighlightPressed;
+        Focused = focusHighlight;
+    };
 }
 
 // Base class for buttons with a subtle background highlight
 class SubtleButton : Button
 {
-    Background:
+    Background = 
     {
-        Pressed: focusHighlightPressed,
-        Focused: focusHighlight,
-        else: subtleHighlight,
-    },
+        Pressed = focusHighlightPressed;
+        Focused = focusHighlight;
+        else = subtleHighlight;
+    };
 }
 
 // Number Pad Button
 class NumberPadButton : SubtleButton
 {
-    Font: largeFont,
+    Font = largeFont;
 }
 
 // Run Mode Button
 class RunModeButton : CantabileButton
 {
-    Image:
+    Image = 
     {
-        Error: Image("RunMode_error.png", Center),
-        Checked && Indeterminate: Image("RunMode_suspended.png", Center),
-        Checked: Image("RunMode_running.png", Center),
-        else: Image("RunMode_unloaded.png", Center),
-    }
+        Error = Image("RunMode_error.png", Center);
+        Checked && Indeterminate = Image("RunMode_suspended.png", Center);
+        Checked = Image("RunMode_running.png", Center);
+        else = Image("RunMode_unloaded.png", Center);
+    };
 }
 
 // Base class for all side panels
 class SidePanel
 {
-    Background: #202c3a,
+    Background = #202c3a;
 }
 
 // Tip Panel
@@ -146,141 +146,141 @@ class TipPanel : SidePanel
 // Tip Panel button
 class TipPanelButton : SubtleButton
 {
-    Padding: EdgeInsets(10, 3),
+    Padding = EdgeInsets(10, 3);
 }
 
 // Tip Panel Text
 class TipPanelText
 {
-    TextColor: #FFFFFF,
+    TextColor = #FFFFFF;
 }
 
 // Slide control
 class CantabileSlider : Slider
 {
-    Thumb:
+    Thumb =
     {
-        Focused: Image("SliderHandle_focused.png", Center),
-        else: Image("SliderHandle.png", Center),
-    },
-    TrackRange: NineSliceImage("SliderTrackRangeA.png", 5, 0),
-    TrackRangeAlt: NineSliceImage("SliderTrackRangeB.png", 5, 0),
-    Track: NineSliceImage("SliderTrack.png", 14, 0),
+        Focused = Image("SliderHandle_focused.png", Center);
+        else = Image("SliderHandle.png", Center);
+    };
+    TrackRange = NineSliceImage("SliderTrackRangeA.png", 5, 0);
+    TrackRangeAlt = NineSliceImage("SliderTrackRangeB.png", 5, 0);
+    Track = NineSliceImage("SliderTrack.png", 14, 0);
 }
 
 // SoloModeButton
 class SoloModeButton : CantabileButton
 {
-    Image:
+    Image =
     {
-        Indeterminate: Image("SoloButton_muted.png", Center),
-        Checked: Image("SoloButton_on.png", Center),
-        else: Image("SoloButton_off.png", Center),
-    }
+        Indeterminate = Image("SoloButton_muted.png", Center);
+        Checked = Image("SoloButton_on.png", Center);
+        else = Image("SoloButton_off.png", Center);
+    };
 }
 
 // Onscreen Keyboard
 class OnscreenKeyboard
 {
-    // NB: Key images use ScaleMatchMode.Lower which means to use the lower
+    // NB = Key images use ScaleMatchMode.Lower which means to use the lower
     //     resolution image if no exact match.  This keeps the lines between
     //     keys thinner for intermediate scaling factors.
 
     // White key in a normal state
-    WhiteKey: NineSliceImage("OskKey_white.png", 3) { ScaleMatchMode: Lower },
+    WhiteKey = NineSliceImage("OskKey_white.png", 3) { ScaleMatchMode = Lower; };
 
     // Middle-C key in a normal state (only used in compact mode)
-    MiddleCKey: NineSliceImage("OskKey_middlec.png", 3)  { ScaleMatchMode: Lower },
+    MiddleCKey = NineSliceImage("OskKey_middlec.png", 3)  { ScaleMatchMode = Lower; };
 
     // Black key in a normal state
-    BlackKey: NineSliceImage("OskKey_black.png", 3)  { ScaleMatchMode: Lower },
+    BlackKey = NineSliceImage("OskKey_black.png", 3)  { ScaleMatchMode = Lower; };
 
-    // Black or white key highlighted (ie: showing pressed note from another source)
-    HighlightedKey: NineSliceImage("OskKey_highlight.png", 3)  { ScaleMatchMode: Lower },
+    // Black or white key highlighted (ie = showing pressed note from another source)
+    HighlightedKey = NineSliceImage("OskKey_highlight.png", 3)  { ScaleMatchMode = Lower; };
 
     // Black or white key in pressed state
-    PressedKey: NineSliceImage("OskKey_pressed.png", 3)  { ScaleMatchMode: Lower },
+    PressedKey = NineSliceImage("OskKey_pressed.png", 3)  { ScaleMatchMode = Lower;};
 
     // Range indicators
-    RangeHandle:
+    RangeHandle = 
     {
-        Focused: Image("OskRangeHandle_focused.png", Center),
-        else: Image("OskRangeHandle.png", Center),
-    },
-    RangeBar: NineSliceImage("OskOctaveBar.png", 4, 1),
-    RangeFont: smallFont,
-    RangeTextColor: #FFFFFF, 
+        Focused = Image("OskRangeHandle_focused.png", Center);
+        else = Image("OskRangeHandle.png", Center);
+    };
+    RangeBar = NineSliceImage("OskOctaveBar.png", 4, 1);
+    RangeFont = smallFont;
+    RangeTextColor = #FFFFFF;
 
     // Octave indicators
-    OctaveBar:
+    OctaveBar = 
     {
-        Focused: NineSliceImage("OskOctaveBar_focused.png", 4, 1),
-        else: NineSliceImage("OskOctaveBar.png", 4, 1)
-    },
-    OctaveLabelFont: tinyFont,
-    OctaveLabelTextColor: #dfe1e5,
-    OctaveLabelDividerColor: #43464c,
+        Focused = NineSliceImage("OskOctaveBar_focused.png", 4, 1);
+        else = NineSliceImage("OskOctaveBar.png", 4, 1);
+    };
+    OctaveLabelFont = tinyFont;
+    OctaveLabelTextColor = #dfe1e5;
+    OctaveLabelDividerColor = #43464c;
 }
 
 // Expand/Collapse Button
 class ExpandButton : CantabileButton
 {
-    Image:
+    Image =
     {
-        Checked: Image("ExpandButton_expanded.png", Center),
-        else: Image("ExpandButton_collapsed.png", Center),
-    }
+        Checked = Image("ExpandButton_expanded.png", Center);
+        else = Image("ExpandButton_collapsed.png", Center);
+    };
 }
 
 // Gripper handle on the LHS of table rows
 class Gripper
 {
-    Background: Image("Gripper_lhs.png", Center),
+    Background = Image("Gripper_lhs.png", Center);
 }
 
 // A button in a table row
 class SlotButton
 {
-    Background:
+    Background = 
     {
-        Pressed: focusHighlightPressed,
-        Focused: focusHighlight,
-    },
-    TextColor:
+        Pressed = focusHighlightPressed;
+        Focused = focusHighlight;
+    };
+    TextColor = 
     {
-        Inactive: #808080,
-        else: #FFFFFF
-    },
-    Padding: EdgeInsets(3, 0),
+        Inactive = #808080;
+        else = #FFFFFF;
+    };
+    Padding = EdgeInsets(3, 0);
 }
 
 // The (>) "disclosure arrow" on the rhs of some slot buttons
 class DisclosureArrow
 {
-    Background:
+    Background = 
     {
-        ContainerFocused: Image("DisclosureButton_focused.png", Center),
-        Selected: Image("DisclosureButton_focused.png", Center),
-        else: Image("DisclosureButton.png", Center),
-    },
-    Padding: EdgeInsets(3,4,3,3),
+        ContainerFocused = Image("DisclosureButton_focused.png", Center);
+        Selected = Image("DisclosureButton_focused.png", Center);
+        else = Image("DisclosureButton.png", Center);
+    };
+    Padding = EdgeInsets(3,4,3,3);
 }
 
 // Common base style for all table rows
 class TableRow_common
 {
-    Background:
+    Background = 
     {
-        Selected && ContainerFocused: VerticalGradient(#058cF5, #015DE6),
-        Selected: VerticalGradient(#023258, #00255b),
-        CurrentItem: #0e1721,
-        else: #121212,
-    },
-    BorderColor: 
+        Selected && ContainerFocused = VerticalGradient(#058cF5, #015DE6);
+        Selected = VerticalGradient(#023258, #00255b);
+        CurrentItem = #0e1721;
+        else = #121212;
+    };
+    BorderColor = 
     {
-        Selected: #00000000,        // Don't draw horizontal grid lines when selected
-        else: #43464c,
-    }
+        Selected = #00000000;        // Don't draw horizontal grid lines when selected
+        else = #43464c;
+    };
 }
 
 class TableRow_TopLevelItem : TableRow_common
@@ -289,73 +289,73 @@ class TableRow_TopLevelItem : TableRow_common
 
 class TableRow_ChildItem : TableRow_common
 {
-    Background:
+    Background = 
     {
-        Selected && ContainerFocused: VerticalGradient(#058cF5, #015DE6),
-        Selected: VerticalGradient(#023258, #00255b),
-        CurrentItem: NineSliceImage("TableRowChild_focused.png", 32, 0, 0, 0),
-        else: NineSliceImage("TableRowChild.png", 32, 0, 0, 0),
-    },
-    BorderColor: #00000000,
+        Selected && ContainerFocused = VerticalGradient(#058cF5, #015DE6);
+        Selected = VerticalGradient(#023258, #00255b);
+        CurrentItem = NineSliceImage("TableRowChild_focused.png", 32, 0, 0, 0);
+        else = NineSliceImage("TableRowChild.png", 32, 0, 0, 0);
+    };
+    BorderColor = #00000000;
 }
 
 class TableRow_ChildFooter : TableRow_common
 {
-    Background:
+    Background = 
     {
-        Selected && ContainerFocused: VerticalGradient(#058cF5, #015DE6),
-        Selected: VerticalGradient(#023258, #00255b),
-        CurrentItem: NineSliceImage("TableRowChild_focused.png", 32, 0, 0, 0),
-        else: NineSliceImage("TableRowChild.png", 32, 0, 0, 0),
-    },
+        Selected && ContainerFocused = VerticalGradient(#058cF5, #015DE6);
+        Selected = VerticalGradient(#023258, #00255b);
+        CurrentItem = NineSliceImage("TableRowChild_focused.png", 32, 0, 0, 0);
+        else = NineSliceImage("TableRowChild.png", 32, 0, 0, 0);
+    };
 }
 
 scope PopupMenu
 {
     class PopupBackground
     {
-        fillColor: #121212,
+        fillColor = #121212;
     }
 
     class Title
     {
-        Background: #222326,
-        TextColor: #949599,
-        Padding: EdgeInsets(5, 5),
-        Font: boldFont,
+        Background = #222326;
+        TextColor = #949599;
+        Padding = EdgeInsets(5, 5);
+        Font = boldFont;
     }
 
     class Item
     {
-        Padding: EdgeInsets(10, 0, 0, 0),
-        Gravity: LeftCenter,
-        Background:
+        Padding = EdgeInsets(10, 0, 0, 0);
+        Gravity = LeftCenter;
+        Background = 
         {
-            CurrentItem: focusHighlightPressed,
-            Focused: focusHighlight,
-        },
-        TextColor: #dfe1e5,
+            CurrentItem = focusHighlightPressed;
+            Focused = focusHighlight;
+        };
+        TextColor = #dfe1e5;
     }
 
     class AccessoryContainer
     {
-        Background: #222326,
+        Background = #222326;
     }
 }
 
 class GroupButton<align,image>
 {
-    Background:
+    Background = 
     {
-        Pressed: NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#404143),
-        Selected: NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#002d62),
-        else: NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#313235),
-    },
-    Image:
+        Pressed = NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#404143);
+        Selected = NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#002d62);
+        else = NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#313235);
+    };
+    Image = 
     {
-        Pressed || Selected: Image(image + ".png", Center).Recolor(#FFFFFF),
-        else: Image(image + ".png", Center).Recolor(#979797),
-    }
+        Pressed || Selected = Image(image + ".png", Center).Recolor(#FFFFFF);
+        else = Image(image + ".png", Center).Recolor(#979797);
+    };
 }
 
 class TableViewButton : GroupButton<"Left","TableView"> {}
@@ -366,38 +366,37 @@ scope TabBar
 {
     class TabBar
     {
-        Background: #222326,
-        BorderColor: #43464c,
+        Background = #222326;
+        BorderColor = #43464c;
     }
 
     class Button
     {
-        Background:
+        Background =
         {
-            Pressed: NineSliceImage("RoundedRect.png", 5, 5).Recolor(#404143),
-            Selected: NineSliceImage("RoundedRect.png", 5, 5).Recolor(#002d62),
-          //  else: #FF0000.WithAlpha(0.3)
-        },
-        TextColor:
+            Pressed = NineSliceImage("RoundedRect.png", 5, 5).Recolor(#404143);
+            Selected = NineSliceImage("RoundedRect.png", 5, 5).Recolor(#002d62);
+        };
+        TextColor = 
         {
-            Alternate: #00000000,               // In small mode, hide text on eject button
-            Selected || Pressed: #dfe1e5,
-            else: #949599,
-        },
-        Padding: EdgeInsets(15, 3),
-        Font: boldFont,
+            Alternate = #00000000;               // In small mode, hide text on eject button
+            Selected || Pressed = #dfe1e5;
+            else = #949599;
+        };
+        Padding = EdgeInsets(15, 3);
+        Font = boldFont;
     }
 
     class EjectButton : Button
     {
-        Padding: EdgeInsets(10, 3, 30, 3),
-        Image:
+        Padding = EdgeInsets(10, 3, 30, 3);
+        Image = 
         {
-            Pressed && Alternate: Image("EjectButton.png", Center).Recolor(#dfe1e5),
-            Alternate: Image("EjectButton.png", Center).Recolor(#949599),   
-            Pressed: Image("EjectButton.png", RightCenter).Recolor(#dfe1e5),
-            else: Image("EjectButton.png", RightCenter).Recolor(#949599),   
-        },
+            Pressed && Alternate = Image("EjectButton.png", Center).Recolor(#dfe1e5);
+            Alternate = Image("EjectButton.png", Center).Recolor(#949599);
+            Pressed = Image("EjectButton.png", RightCenter).Recolor(#dfe1e5);
+            else = Image("EjectButton.png", RightCenter).Recolor(#949599);
+        };
     }
 
 }
@@ -405,65 +404,65 @@ scope TabBar
 
 class ToolbarTextButton : Button
 {
-    Background:
+    Background = 
     {
-        Pressed: focusHighlightPressed,
-        Focused: focusHighlight,
-        LocalFocus && !Selected && !ContainerFocused: focusHighlightTransparent,
-        else: NineSliceImage("RoundedRect.png", 5, 5).Recolor(#38393c),
-    },
-    TextColor:#FFFFFF,
-    Font: boldFont,
+        Pressed = focusHighlightPressed;
+        Focused = focusHighlight;
+        LocalFocus && !Selected && !ContainerFocused = focusHighlightTransparent;
+        else = NineSliceImage("RoundedRect.png", 5, 5).Recolor(#38393c);
+    };
+    TextColor = #FFFFFF;
+    Font = boldFont;
 }
 
 scope TickerView
 {
     class Button
     {
-        Background:
+        Background = 
         {
-            Pressed: focusHighlightPressed,
-            Focused: focusHighlight,
-            Checked: NineSliceImage("RoundedRect.png", 5, 5).Recolor(#707070),
-            else: subtleHighlight,
-        },
+            Pressed = focusHighlightPressed;
+            Focused = focusHighlight;
+            Checked = NineSliceImage("RoundedRect.png", 5, 5).Recolor(#707070);
+            else = subtleHighlight;
+        };
     }
 }
 
 class MidiChannelBar
 {
-    Background: BorderFrame(#252525, #555555)
+    Background = BorderFrame(#252525, #555555);
 }
 
 scope Timeline
 {
     class Timeline
     {
-        Background: BorderFrame(#202c3a, #555555, Top)
+        Background = BorderFrame(#202c3a, #555555, Top);
     }
 
     class XAxis
     {
-        Background: null,
-        MinorTickFont: smallFont,
-        MinorTickColor: #a0a0a0,
-        MinorTickTextColor: Color.White,
-        MajorTickFont: smallFont,
-        MajorTickColor: #a0a0a0,
-        MajorTickTextColor: Color.White,
-        FocusedLabelBackground: #2a97ff,
-        LabelFont: smallFont,
-        LabelTickColor: #a0a0a0,
-        LabelTextColor: Color.White,
+        Background = null;
+        MinorTickFont = smallFont;
+        MinorTickColor = #a0a0a0;
+        MinorTickTextColor = Color.White;
+        MajorTickFont = smallFont;
+        MajorTickColor = #a0a0a0;
+        MajorTickTextColor = Color.White;
+        FocusedLabelBackground = #2a97ff;
+        LabelFont = smallFont;
+        LabelTickColor = #a0a0a0;
+        LabelTextColor = Color.White;
     }
 
     class Indicator<name,topFixed,bottomFixed>
     {
-        Background:
+        Background = 
         {
-            Focused: NineSliceImage("Timeline" + name + "_hot.png", 0, topFixed, 0, bottomFixed),
-            else: NineSliceImage("Timeline" + name + ".png", 0, topFixed, 0, bottomFixed),
-        }
+            Focused = NineSliceImage("Timeline" + name + "_hot.png", 0, topFixed, 0, bottomFixed);
+            else = NineSliceImage("Timeline" + name + ".png", 0, topFixed, 0, bottomFixed);
+        };
     }
 
     class RangeLeftIndicator : Indicator<"RangeLeft", 0, 15> {}
@@ -477,130 +476,129 @@ scope WiringView
     class WiringView
     {
         // Main content area background color
-        Background: #121212,
+        Background = #121212;
 
         // Construction guide line color
-        ConstructionLineColor: #3F949599,
+        ConstructionLineColor = #3F949599;
 
         // The instructional text when nothing in the diagram
-        BlankSlateTextColor: Color.White,
-        BlankSlateFont: defaultFont,
+        BlankSlateTextColor = Color.White;
+        BlankSlateFont = defaultFont;
 
         // The click/drag box selection
-        BoxSelectionHighlight: BorderFrame(#3f0097fb, #FF0097fb),
+        BoxSelectionHighlight = BorderFrame(#3f0097fb, #FF0097fb);
 
         // The add button
-        AddButton: 
+        AddButton = 
         {
-            Pressed: NineSliceImage("WiringAddObject_selected.png", 3, 3),
-            else: NineSliceImage("WiringAddObject.png", 3, 3),
-        }
+            Pressed = NineSliceImage("WiringAddObject_selected.png", 3, 3);
+            else = NineSliceImage("WiringAddObject.png", 3, 3);
+        };
     }
 
     // Common settings for the input and output port areas
     class PortArea
     {
-        Background: #222326,
-        Overlay: 
+        Background = #222326;
+        Overlay = 
         {
-            Selected: BorderFrame(#3f0097fb, #FF0097fb),
-        },
-        PortTextColor: Color.White,
-        PortFont: defaultFont,
-        TitleFont: smallFont,
-        TitleTextColor: #949599,
+            Selected = BorderFrame(#3f0097fb, #FF0097fb);
+        };
+        PortTextColor = Color.White;
+        PortFont = defaultFont;
+        TitleFont = smallFont;
+        TitleTextColor = #949599;
     }
 
     // The environment input port area at the left
     class InputPortArea : PortArea
     {
-        PortBackground:
+        PortBackground = 
         {
-            Hover: NineSliceImage("WiringInputEnvPort_selected.png", 20, 3, 10, 3),
-            else: NineSliceImage("WiringInputEnvPort.png", 20, 3, 10, 3)
-        },
-        PortTextPadding: (18, 0, 10, 0),
-        PortTextAlignment: RightCenter,
+            Hover = NineSliceImage("WiringInputEnvPort_selected.png", 20, 3, 10, 3);
+            else = NineSliceImage("WiringInputEnvPort.png", 20, 3, 10, 3);
+        };
+        PortTextPadding = (18, 0, 10, 0);
+        PortTextAlignment = RightCenter;
     }
 
     // The environment output port area at the left
     class OutputPortArea : PortArea
     {
-        PortBackground:
+        PortBackground = 
         {
-            Hover: NineSliceImage("WiringOutputEnvPort_selected.png", 10, 3, 20, 3),
-            else: NineSliceImage("WiringOutputEnvPort.png", 10, 3, 20, 3)
-        },
-        PortTextPadding: (10, 0, 18, 0),
-        PortTextAlignment: LeftCenter,
+            Hover = NineSliceImage("WiringOutputEnvPort_selected.png", 10, 3, 20, 3);
+            else = NineSliceImage("WiringOutputEnvPort.png", 10, 3, 20, 3);
+        };
+        PortTextPadding = (10, 0, 18, 0);
+        PortTextAlignment = LeftCenter;
     }
 
     // Objects
     class Object
     {
-        Background:
+        Background = 
         {
-            Selected: NineSliceImage("WiringObject_selected.png", 3, 3),
-            Alternate: NineSliceImage("WiringObject_for_recolor.png", 3, 3),        // Used as recoloring base for colored objects
-            else: NineSliceImage("WiringObject.png", 3, 3),
-        },
-        TextColor: Color.White,
-        Font: defaultFont,
+            Selected = NineSliceImage("WiringObject_selected.png", 3, 3);
+            Alternate = NineSliceImage("WiringObject_for_recolor.png", 3, 3);        // Used as recoloring base for colored objects
+            else = NineSliceImage("WiringObject.png", 3, 3);
+        };
+        TextColor = Color.White;
+        Font = defaultFont;
     }
 
     // Common settings for object ports
     class ObjectPorts
     {
-        Padding: (0, 3, 0, 3),
-        PortTextColor: Color.White,
-        PortFont: smallFont,
-        WireIntrude: 5,
+        Padding = (0, 3, 0, 3);
+        PortTextColor = Color.White;
+        PortFont = smallFont;
+        WireIntrude = 5;
     }
 
     // The input port area for objects (appears above the main component rectangle)
     class ObjectInputPorts : ObjectPorts
     {
-        Background: NineSliceImage("WiringInputPorts.png", 3, 3),
-        PortBackground:
+        Background = NineSliceImage("WiringInputPorts.png", 3, 3);
+        PortBackground = 
         {
-            Hover: NineSliceImage("WiringInputPort_selected.png", 3, 3),
-        },
-        PortTextPadding: (10, 0, 22, 0),
-        PortTextAlign: LeftCenter,
+            Hover = NineSliceImage("WiringInputPort_selected.png", 3, 3);
+        };
+        PortTextPadding = (10, 0, 22, 0);
+        PortTextAlign = LeftCenter;
     }
 
     // The output port area for objects (appears below the main component rectangle)
     class ObjectOutputPorts : ObjectPorts
     {
-        Background: NineSliceImage("WiringOutputPorts.png", 3, 3),
-        PortBackground:
+        Background = NineSliceImage("WiringOutputPorts.png", 3, 3);
+        PortBackground = 
         {
-            Hover: NineSliceImage("WiringOutputPort_selected.png", 3, 3),
-        },
-        PortTextPadding: (22, 0, 10, 0),
-        PortTextAlign: RightCenter,
+            Hover = NineSliceImage("WiringOutputPort_selected.png", 3, 3);
+        };
+        PortTextPadding = (22, 0, 10, 0);
+        PortTextAlign = RightCenter;
     }
 
     // Wires connecting ports
     class Wires
     {
         // Base colors for different wire types
-        TypeColors:
+        TypeColors = 
         {
-            "MIDI": #800000,
-            "Audio": #008000,
-        },
+            "MIDI" = #800000;
+            "Audio" = #008000;
+        };
 
         // These colors will be blended with the base wire color
-        Colors:
+        Colors = 
         {
-            Hover: #3fFFFFFF,   // White 25% alpha
-            Selected: #0480F1,
-            else: Color.Clear,
-        },
+            Hover = #3fFFFFFF;   // White 25% alpha
+            Selected = #0480F1;
+            else = Color.Clear;
+        };
 
         // The fill color for the circles at the end of selected wires
-        HandleFillColor: Color.Black
+        HandleFillColor = Color.Black;
     }
-
 }
