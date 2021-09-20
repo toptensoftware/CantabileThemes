@@ -337,6 +337,12 @@ scope PopupMenu
         TextColor = #dfe1e5;
     }
 
+    class QuickControllerItem : Item {}
+    class QuickControllerItem_Shortcut { }
+    class QuickControllerItem_Title { }
+    class QuickControllerItem_Value { }
+
+
     class AccessoryContainer
     {
         Background = #222326;
@@ -602,3 +608,91 @@ scope WiringView
         HandleFillColor = Color.Black;
     }
 }
+
+
+
+/// TODO EVERYTHING BELOW HERE
+
+scope StatusPanel
+{
+    class StatusPanel
+    {
+        Background = Color.Orange;
+    }
+
+    class QuickControllerText {}
+    class QuickControllerPlaceholder {}
+    class Text 
+    {
+        TextColor: 
+        {
+            Error:      // for error and warning messages
+            else:       // normal status text
+        }
+    }
+    class TransportPosition {}
+    class LoadMeter {}
+    class TimeSigTempo {}
+    class UpdateAvailableButton {}
+    class BlogPostAvailableButton {}
+    class PromoAvailableButton {}
+}
+
+scope MidiMonitor
+{
+    class SidePanel {}
+}
+
+class ToolbarSeparator
+{
+    Background = Color.Red;
+}
+
+scope MainToolbar
+{
+    class MainToolbar {}
+    class RecordButton
+    {
+        // StateSelected will be set when auto record enabled
+        // StateChecked will be set when recording
+    }
+    class PlayButton {}
+    class StopButton {}
+    class MetronomeButton {}
+    class TapTempoButton 
+    {
+        // StateChecked && ~StateAlternate for down beat
+        // StateChecked && StateAlternate for other beats
+    }
+    class LiveModeButton {}
+    class PanicButton {}
+    class PowerButton {}
+}
+
+scope MetronomeToolbar
+{
+    class MetronomeToolbar {}
+
+    class IncTempoButton {}
+    class DecTempoButton {}
+    class EnableSoundsButton {}
+}
+
+scope MidiMonitor
+{
+    class ChannelHeader {}
+    class ControllerRow {}
+    class ControllerRow_Title {}
+    class ControllerRow_Value {}
+}
+
+scope SetListGrid
+{
+    class GridButton {}
+    class PinnedButton {}
+    class SongButton {}
+    class SongProgramNumberLabel {}
+    class SongOverridesLabel {}
+    class BreakLabel {}
+}
+
