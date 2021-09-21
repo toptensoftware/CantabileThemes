@@ -421,8 +421,12 @@ class ToolbarTextButton : Button
     Font = boldFont;
 }
 
-scope TickerView
+scope TickerBar
 {
+    class TickerView
+    {
+        Font = defaultFont;
+    }
     class Button
     {
         Background = 
@@ -624,11 +628,13 @@ scope StatusPanel
     class QuickControllerPlaceholder {}
     class Text 
     {
-        TextColor: 
+        /*
+        TextColor
         {
             Error:      // for error and warning messages
             else:       // normal status text
         }
+        */
     }
     class TransportPosition {}
     class LoadMeter {}
@@ -694,5 +700,10 @@ scope SetListGrid
     class SongProgramNumberLabel {}
     class SongOverridesLabel {}
     class BreakLabel {}
+}
+
+scope DelayLoadPopup
+{
+
 }
 
