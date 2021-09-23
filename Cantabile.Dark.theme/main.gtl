@@ -71,6 +71,24 @@ class LevelMeter
     MinorTickColor = #808080;
 }
 
+scope KeyboardPanel
+{
+    class Controls
+    {
+
+    }
+
+    class ChannelsButton
+    {
+
+    }
+
+    class CaptureButton
+    {
+
+    }
+}
+
 // Knob
 class Knob
 {
@@ -248,6 +266,7 @@ class SlotButton
     };
     TextColor = 
     {
+        Alternate = Color.Orange;       // (active transpose slot button)        
         Inactive = #808080;
         else = #FFFFFF;
     };
@@ -444,11 +463,16 @@ class MidiChannelBar
     Background = BorderFrame(#252525, #555555);
 }
 
-scope Timeline
+scope TimelineView
 {
     class Timeline
     {
         Background = BorderFrame(#202c3a, #555555, Top);
+    }
+
+    class content
+    {
+        Color = Color.Orange;
     }
 
     class XAxis
@@ -479,6 +503,19 @@ scope Timeline
     class RangeRightIndicator : Indicator<"RangeRight", 0, 15> {}
     class PlayPositionIndicator : Indicator<"PlayPos", 15, 0> {}
     class CursorIndicator : Indicator<"Cursor", 0, 0>    {}
+}
+
+scope TimelinePanel
+{
+    class Toolbar {}
+    class PlayButton {}
+    class PauseButton {}
+    class StopButton {}
+    class RewindButton {}
+    class FastForwardButton {}
+    class PreviousMarkerButton {}
+    class NextMarkerButton {}
+
 }
 
 scope WiringView
@@ -647,6 +684,11 @@ scope StatusPanel
 scope MidiMonitor
 {
     class SidePanel {}
+    class Toolbar {}
+    class PauseButton {}
+    class ProbePointDropDown {}
+    class Stats {}
+    class FileMenuButton {}
 }
 
 class ToolbarSeparator
@@ -694,7 +736,7 @@ scope MidiMonitor
 
 scope SetListGrid
 {
-    class GridButton {}
+    class SetListGridButton {}
     class PinnedButton {}
     class SongButton {}
     class SongProgramNumberLabel {}
@@ -707,3 +749,342 @@ scope DelayLoadPopup
 
 }
 
+scope ControllerBar
+{
+    // The bar itself
+    class ControllerBar {}
+
+    // Smal title text above each button
+    class TitleText {}
+
+    // Larger text on composite buttons (tempo, state, song)
+    class ButtonText 
+    {
+        // Alternate state will be set for active transpose, typically shown in highlighted color
+    }
+
+    // The button background, and for custom buttons the button text
+    class Button : ButtonText {}
+
+
+    class RecordButton : Button {}
+    class PlayButton : Button {}
+    class PauseButton : Button {}
+    class StopButton : Button {}
+    class TransposeButton : Button {}
+    class TempoButton 
+    {
+        // StateChecked && ~StateAlternate for down beat
+        // StateChecked && StateAlternate for other beats
+    }
+    class NextArrow {}
+    class PreviousArrow {}
+    class ContinueButton : Button {}
+
+
+}
+
+class CustomRackButton
+{
+    // Alternate when button is blank
+}
+
+scope SetListPanel
+{
+    class BreakItem
+    {
+    }
+
+    class BreakItemText
+    {
+    }
+
+    class SongItem
+    {
+    }
+
+    class SongItemButton
+    {
+    }
+
+    class SongItemText
+    {
+        // inactive set for the "New Song" item
+        // checked set for the current song
+
+    }
+}
+
+scope StatesPanel
+{
+    class StateItemButton
+    {
+
+    }
+
+    class StateItemText
+    {
+        // inactive set for the "New Song" item
+        // checked set for the current song
+
+    }
+
+    class StateItemResetIcon
+    {
+
+    }
+
+    class StateItemLinkedIcon
+    {
+
+    }
+
+    class StateItemLockedIcon
+    {
+
+    }
+}
+
+scope StateBehaviourPanel
+{
+    class BehaviourItem
+    {
+
+    }
+
+    class BehaviourItemExportIcon
+    {
+
+    }
+
+    class BehaviourItemEnabledIcon
+    {
+
+    }
+
+    class BehaviourItemText
+    {
+
+    }
+
+    class BehaviourItemNonLinkedIcon
+    {
+
+    }
+}
+
+scope RecorderPortsPanel
+{
+    class PortItem
+    {
+
+    }
+
+    class AutoRecordButton
+    {
+
+    }
+
+    class EnabledButton {}
+    class PortText {}
+}
+
+scope RecordingsPanel
+{
+    class RecordingItem {}
+    class RecordingItemPinIcon {}
+    class RecordingItemText {}
+    class RecordingItemInfoText {}
+}
+
+// The title bars on side panels
+class PanelTitle
+{
+
+}
+
+class PanelTitleText
+{
+
+}
+
+class PanelTitleMenuButton
+{
+
+}
+
+class SlotContainer
+{
+
+}
+
+scope Profiler
+{
+    class Toolbar 
+    {
+        // StateError set when checked, show in red
+    }
+    class PauseButton {}
+    class PreviousButton {}
+    class NextButton {}
+    class TimeStamp {}
+    class FileMenuButton {}
+
+    class Metric {}
+    class MetricName {}
+    class MetricValue {}
+
+
+    class Histogram
+    {
+
+    }
+}
+
+scope BindingsPanel
+{
+    class EnableButton 
+    {
+        // Checked
+        // Error
+    }
+    class BidiButton
+    {
+        // Error - bidi error
+        // Checked - either bidi mode
+        // Alternate - half bidi mode
+    }
+    class PlayButton {}
+}
+
+scope LoadMonitorPanel
+{
+    class Item
+    {
+    }
+    class ItemName
+    {
+    }
+    class ItemValue
+    {
+        
+    }
+}
+
+scope PortsMonitorPanel
+{
+    class Item
+    {
+
+    }
+    class ItemName
+    {
+
+    }
+}
+
+scope ShowNotesPanel
+{
+    class ShowNote
+    {
+        // State inactive set if showing hidden items
+
+
+    }
+
+    class ShowNoteText
+    {
+        // State inactive if showing hidden items
+    }
+}
+
+scope PluginEditor
+{
+    class Toolbar
+    {
+
+    }
+
+    class SwitchEditorsButton {}
+    class PreviousPresetButton {}
+    class NextPresetButton {}
+    class PresetDropDown {}
+    class LockedPresetButton {}
+    class NativePresetButton {}
+    class BypassButton {}
+    class FileMenuButton {}
+    class AButton {}
+    class BButton {}
+    class RandomizeButton {}
+    class ConstrainButton {}
+    class ParameterPanel {}
+    class ParameterNumber {}
+    class ParameterName {}
+    class ParameterValue {}
+    class ParameterCheckbox {}
+}
+
+scope PromoBar
+{
+    class PromoBar
+    {
+
+    }
+    class Icon {}
+    class Title {}
+    class SubTitle {}
+    class ActionButton {}
+    class CloseButton {}
+}
+
+
+scope RackPanel
+{
+    class SetListGridButton {}
+    class TableViewButton {}
+    class WiringViewButton {}
+    class ZoomButton {}
+}
+
+scope RackHostSlot
+{
+    class TypeIcon
+    {
+        // Normal = linked
+        // Alternate = embedded
+    }
+    class StateDropDown {}
+    class StateDropDownWhenSongReset {}
+}
+
+scope RouteSlot
+{
+    class TypeIcon
+    {
+        // Normal = audio route
+        // Alternate = midi route
+    }
+    class MidiFiltersButton
+    {
+    }
+    class EnabledButton
+    {
+        // Checked = enabled
+    }
+}
+
+scope PluginSlot
+{
+    class BypassButton {}
+    class MidiFiltersButton {}
+}
+
+scope MediaPlayerSlot
+{
+    class PlayButton {}
+    class PauseButton {}
+    class StopButton 
+    {
+        // State Alternate should show linked icon
+    }
+}
