@@ -470,7 +470,7 @@ scope TimelineView
         Background = BorderFrame(#202c3a, #555555, Top);
     }
 
-    class content
+    class Content
     {
         Color = Color.Orange;
     }
@@ -734,14 +734,40 @@ scope MidiMonitor
     class ControllerRow_Value {}
 }
 
-scope SetListGrid
+class SetListGrid
 {
-    class SetListGridButton {}
+    // The facename for everything
+    FaceName = "GuiKitSans";
+
+    // The grid button in the toolbar
+    class GridButton {}
     class PinnedButton {}
-    class SongButton {}
-    class SongProgramNumberLabel {}
-    class SongOverridesLabel {}
-    class BreakLabel {}
+
+    // A song item
+    class Item 
+    {
+        // The button itself
+        class Button 
+        {
+            // The program number
+            class ProgramNumber {}
+
+            // The overrides label
+            class Overrides {}
+        }
+
+        // Colored button
+        class Button<color> : Button
+        {
+
+        }
+    }
+
+    // A set list break item
+    class Title 
+    {
+
+    }
 }
 
 scope DelayLoadPopup
@@ -983,18 +1009,19 @@ scope PortsMonitorPanel
     }
 }
 
-scope ShowNotesPanel
+class ShowNotesPanel
 {
-    class ShowNote
+    class Note
     {
         // State inactive set if showing hidden items
 
+        FixedPitchFaceName = "GuiKitMono";
+        VariablePitchFaceName = "GuiKitSans";
 
-    }
-
-    class ShowNoteText
-    {
-        // State inactive if showing hidden items
+        class Text
+        {
+            // State inactive if showing hidden items
+        }
     }
 }
 
