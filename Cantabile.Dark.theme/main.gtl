@@ -1115,3 +1115,20 @@ scope MediaPlayerSlot
         // State Alternate should show linked icon
     }
 }
+
+class NotifyIcon
+{
+    IconBusy = Image("NotifyIcon_busy.png", Center);
+    IconStopped = Image("NotifyIcon_stopped.png", Center);
+    IconStoppedBusy = Image("NotifyIcon_stopped_busy.png", Center);
+    IconRunning = Image("NotifyIcon_running.png", Center);
+}
+
+class PluginSelector
+{
+    IconFolderOpen = Image("FolderOpen.png", Center);
+    IconFolderClosed = Image("FolderClosed.png", Center);
+    IconPlugin = Image("Plugin.png", Center);
+    IconPluginSynth = Image("PluginSynth.png", Center);
+    IconPluginEffect = Image("PluginEffect.png", Center);
+}
