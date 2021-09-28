@@ -14,6 +14,9 @@ var focusHighlight = NineSliceImage("FocusHighlight.png", 5, 5);
 var focusHighlightPressed = NineSliceImage("FocusHighlight_pressed.png", 5, 5);
 var focusHighlightTransparent = NineSliceImage("FocusHighlight.png", 5, 5).WithAlpha(0.35);
 
+var colorToolbarButton = #a6a8ac;
+var colorToolbarButtonPressed = #dfe1e5;
+
 // The beat indicator in the main status panel
 class BeatIndicator
 {
@@ -696,25 +699,225 @@ class ToolbarSeparator
     Background = Color.Red;
 }
 
-scope MainToolbar
+
+var svg_Play = "M 4,4 V 26 L 26,15 Z";
+var svg_Pause = "m 16,5 h 8 V 25 H 16 Z M 5,5 h 8 V 25 H 5 Z";
+var svg_Stop = "M 5,5 H 25 V 25 H 5 Z";
+var svg_Metronome = "M 364.88477 29.025391 L 358 53.658203 L 359.37695 55.025391 L 374.52148 55.025391 L 375.89844 53.658203 L 371.94922 39.53125 L 374.02734 36.230469 L 374.91992 36.763672 L 376.33398 35.248047 L 375.10938 34.513672 L 376.62109 32.113281 L 376.26172 31.894531 L 374.74805 34.298828 L 373.56055 33.587891 L 372.83984 35.519531 L 373.66797 36.015625 L 371.79688 38.984375 L 369.01367 29.025391 L 364.88477 29.025391 z M 365.16992 33.025391 L 368.58398 33.025391 L 370.55078 40.964844 L 366.86523 46.814453 L 361.75391 46.814453 L 365.16992 33.025391 z M 370.69141 41.529297 L 372 46.814453 L 367.36328 46.814453 L 370.69141 41.529297 z";
+var svg_Tempo = "M17.1931037,20.1391856 C16.5708574,19.8271084 15.3847002,18.6994228 12.6241501,20.0018117 C9.95420331,21.2614553 9.17754574,24.7921165 10.9653115,26.0463145 C13.5185812,27.8375462 18.9632794,25.4968153 19.022523,22.2547619 L18.9929012,4 L17.1634819,4 L17.1931037,20.1391856 Z";
+var svg_Power = "m 20.64,14.77977 c 0,4.730174 -3.865191,8.57037 -8.64,8.57037 -4.7748086,0 -8.64,-3.840196 -8.64,-8.57037 0,-3.5076 2.1443295,-6.6232563 5.363636,-7.933098 L 7.641116,4.1696243 C 3.3471495,5.9167136 0.48,10.082608 0.48,14.77977 c 0,6.331885 5.160748,11.459259 11.52,11.459259 6.359252,0 11.52,-5.127374 11.52,-11.459259 0,-4.658494 -2.820182,-8.7969336 -7.061654,-10.5691338 L 15.350938,6.8774218 C 18.530932,8.206108 20.64,11.301033 20.64,14.77977 Z m -7.053496,-12.909685 0.001,-1.67803557 -2.880003,-0.001414 -0.0075,12.07813073 2.880004,0.0014 z";
+var svg_Panic = "M 68.4768 75.1209 C 68.3276 75.1253 68.1791 75.192 68.0856 75.3503 C 68.0856 75.3503 66.1129 79.023 65.5467 80.0312 C 65.3145 80.3714 65.1692 80.9836 65.9033 80.9836 L 71.1241 80.9836 C 71.5181 80.9836 71.945 80.7408 71.5184 80.0312 L 68.9439 75.3503 C 68.8619 75.2127 68.6685 75.1153 68.4768 75.1209 Z M 68.515 76.2893 C 68.6961 76.2893 68.9439 76.3564 68.9439 77.1342 C 68.9439 77.912 68.752 79.1057 68.515 79.1057 C 68.278 79.1057 68.0856 77.912 68.0856 77.1342 C 68.0856 76.3564 68.3339 76.2893 68.515 76.2893 Z M 68.515 79.4813 C 68.752 79.4813 68.9439 79.6913 68.9439 79.9506 C 68.9439 80.2098 68.752 80.4203 68.515 80.4203 C 68.278 80.4203 68.0856 80.2098 68.0856 79.9506 C 68.0856 79.6913 68.278 79.4813 68.515 79.4813 Z";
+var svg_LiveMode1 = "M 0.65429687,0.15722656 4.0244141,19.482422 H 24.162353 Z";
+var svg_LiveMode2 = "M 24.003615,19.47168 H 4.075148 L 27.047805,0.15722656 Z";
+var svg_LiveMode3 = "M 24,19.5 A 10,3.5 0 0 1 14,23 10,3.5 0 0 1 4,19.5 10,3.5 0 0 1 14,16 10,3.5 0 0 1 24,19.5 Z";
+
+
+// Helper to create a record button image
+var makeRecordButton = (pressed, recording, autorecord) => Rasterize()
+{
+    Size = (30,30);
+    Gravity = Center;
+    Inner = [
+        Ellipse()
+        {
+            // The green auto-record ring
+            Bounds = (0, 0, 30, 30);
+            Radius = (13, 13);
+            Center = (15, 15);
+            StrokeWidth = autorecord ? 2 : 0;
+            StrokeColor = #00FF00;
+            InsetByStrokeWidth = false;
+        },
+        Ellipse()
+        {
+            // The main button fill
+            Bounds = (0, 0, 30, 30);
+            Radius = (autorecord ? 10 : 12, autorecord ? 10 : 12);
+            Center = (15, 15);
+            GradientStops = {
+                0.0 = recording ? Color.Red : (pressed ? colorToolbarButtonPressed : colorToolbarButton);
+                1.0 = recording ? Color.Blend(Color.Red, Color.Black.WithAlpha(0.3)) : (pressed ? colorToolbarButtonPressed : colorToolbarButton);
+            };
+            GradientOrientation = Vertical;
+            ShadowColor = recording ? Color.Red : Color.Clear;
+            ShadowSigma = recording ? (4,4) : (0,0);
+        },
+        Ellipse()
+        {
+            // Bevel highlight when recording
+            Bounds = (0, 0, 30, 30);
+            Radius = (autorecord ? 10 : 12, autorecord ? 10 : 12);
+            Center = (15, 15);
+            StrokeWidth = recording ? 1 : 0;
+            StrokeColor = Color.Blend(Color.Red, Color.White.WithAlpha(0.5));
+        },
+    ];
+};
+
+// Helper to make a checkable, glowing button image (eg: Play and Pause buttons)
+var makeGlowButton = (pressed, checked, svg, color, padding) => Rasterize()
+{
+    Size = (30,30);
+    Padding = padding;
+    Gravity = Center;
+    Inner = [
+        Path()
+        {
+            SvgData = svg;
+            GradientStops = {
+                0.0 = checked ? color : (pressed ? colorToolbarButtonPressed : colorToolbarButton);
+                1.0 = checked ? Color.Blend(color, Color.Black.WithAlpha(0.3)) : (pressed ? colorToolbarButtonPressed : colorToolbarButton);
+            };
+            GradientOrientation = Vertical;
+            ShadowColor = checked ? color : Color.Clear;
+            ShadowSigma = checked ? (2,2) : (0,0);
+            MaintainAspectRatio = true;
+        },
+        Path()
+        {
+            SvgData = svg;
+            StrokeWidth = checked ? 1 : 0;
+            StrokeColor = Color.Blend(color, Color.White.WithAlpha(0.5));
+            MaintainAspectRatio = true;
+        },
+    ];
+};
+
+// Template class for glow buttons
+class GlowButton<svg, color, padding>
+{
+    Image = Frame()
+    {
+        InnerSize = (30,30);
+        Gravity = Center;
+        Inner =
+        {
+            Checked = makeGlowButton(false, true, svg, color, padding);
+            Pressed = makeGlowButton(true, false, svg, color, padding);
+            else = makeGlowButton(false, false, svg, color, padding);
+        };
+    };
+}
+
+// Helper to make a standard toolbar button
+var makeToolbarButton = (pressed, svg, padding) => Rasterize()
+{
+    Size = (30,30);
+    Padding = padding;
+    Gravity = Center;
+    Inner = [
+        Path()
+        {
+            SvgData = svg;
+            FillColor = pressed ? colorToolbarButtonPressed : colorToolbarButton;
+            MaintainAspectRatio = true;
+        },
+    ];
+};
+
+// Template class for standard toolbar button
+class ToolbarButton<svg, padding>
+{
+    Image = Frame()
+    {
+        InnerSize = (30,30);
+        Gravity = Center;
+        Inner =
+        {
+            Pressed = makeToolbarButton(true, svg, padding);
+            else = makeToolbarButton(false, svg, padding);
+        };
+    };
+}
+
+// Helper to make a checkable, glowing button image (eg: Play and Pause buttons)
+var makeLiveModeButton = (color) => Rasterize()
+{
+    Size = (30,30);
+    Gravity = Center;
+    Inner = [
+        Path()
+        {
+            SvgData = svg_LiveMode1;
+            FillColor = color.WithAlpha(0.25);
+        },
+        Path()
+        {
+            SvgData = svg_LiveMode2;
+            FillColor = color.WithAlpha(0.25);
+        },
+        Path()
+        {
+            SvgData = svg_LiveMode3;
+            FillColor = color;
+        },
+    ];
+};
+
+
+
+class MainToolbar
 {
     class MainToolbar {}
     class RecordButton
     {
-        // StateSelected will be set when auto record enabled
-        // StateChecked will be set when recording
+        Image = Frame()
+        {
+            InnerSize = (30,30);
+            Gravity = Center;
+            Inner =
+            {
+                // Checked = recording
+                // Selected = auto record enabled
+                Checked && Selected = makeRecordButton(false, true, true);
+                Checked && !Selected = makeRecordButton(false, true, false);
+                !Pressed && !Checked && Selected = makeRecordButton(false, false, true);
+                !Pressed && !Checked && !Selected = makeRecordButton(false, false, false);
+                Pressed && !Checked && Selected = makeRecordButton(true, false, true);
+                Pressed && !Checked && !Selected = makeRecordButton(true, false, false);
+                else = makeRecordButton(false, false, false);
+            };
+        };
     }
-    class PlayButton {}
-    class StopButton {}
-    class MetronomeButton {}
-    class TapTempoButton 
+
+    class PlayButton : GlowButton<svg_Play, Color.Lime, 4> {}
+    class PauseButton : GlowButton<svg_Pause, Color.Orange, 4> {}
+    class StopButton : ToolbarButton<svg_Stop, 4> {}
+    class MetronomeButton : ToolbarButton<svg_Metronome, 1> {}
+    class TapTempoButton : ToolbarButton<svg_Tempo, 1> 
     {
         // StateChecked && ~StateAlternate for down beat
         // StateChecked && StateAlternate for other beats
+        Background = 
+        {
+            Checked && !Alternate = Rectangle()
+            {
+                FillColor = Color.LimeGreen;
+                CornerRadius = 3;
+            };
+            Checked && Alternate = Rectangle()
+            {
+                FillColor = #40ffffff;
+                CornerRadius = 3;
+            };
+        };
     }
-    class LiveModeButton {}
-    class PanicButton {}
-    class PowerButton {}
+    class LiveModeButton 
+    {
+        Image = Frame()
+        {
+            InnerSize = (30,30);
+            Gravity = Center;
+            Inner =
+            {
+                Checked = makeLiveModeButton(Color.Lime);
+                Pressed = makeLiveModeButton(colorToolbarButtonPressed);
+                else = makeLiveModeButton(colorToolbarButton);
+            };
+        };
+    }
+    class PanicButton : ToolbarButton<svg_Panic, 2> {}
+    class PowerButton : GlowButton<svg_Power, Color.LimeGreen, 2> {}
 }
 
 scope MetronomeToolbar
