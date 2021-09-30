@@ -461,11 +461,12 @@ class ToolbarTextButton : Button
     {
         Pressed = focusHighlightPressed;
         Focused = focusHighlight;
-        LocalFocus && !Selected && !ContainerFocused = focusHighlightTransparent;
-        else = NineSliceImage("RoundedRect.png", 5, 5).Recolor(#38393c);
+        //LocalFocus && !Selected && !ContainerFocused = focusHighlightTransparent;
+        else = NineSliceImage("RoundedRect.png", 5, 5).Recolor(#424245);
     };
     TextColor = #FFFFFF;
     Font = boldFont;
+    Gravity = LeftCenter;
 }
 
 scope TickerBar
@@ -691,6 +692,9 @@ var svg_LiveMode2 = "M 24.003615,19.47168 H 4.075148 L 27.047805,0.15722656 Z";
 var svg_LiveMode3 = "M 24,19.5 A 10,3.5 0 0 1 14,23 10,3.5 0 0 1 4,19.5 10,3.5 0 0 1 14,16 10,3.5 0 0 1 24,19.5 Z";
 var svg_UpdateAvailable = "M17.56468,13.89939 L14.22453,14.27959 L15.15337,15.2541 L15.13497,15.2707 C12.53723,17.83976 8.40115,17.87787 5.75826,15.3556 L5.11267,14.73915 L3.88402,16.03666 L4.53145,16.64942 C7.85748,19.82367 13.11646,19.77734 16.3857,16.54418 L17.06623,17.25845 L17.56468,13.89933 L17.56468,13.89939 Z M10.72404,6.91168 C12.3991,6.93628 13.29294,8.47063 13.24387,9.51961 L13.62276,9.51561 C15.6137,9.52771 15.70248,12.58334 13.57496,12.5905 L7.7021,12.5915 C5.10716,12.6213 4.99608,8.87133 7.58071,8.85586 L8.13066,8.85186 C8.36998,8.07455 9.04899,6.88566 10.72405,6.91021 L10.72404,6.91168 Z M8.61652,1.65153 L7.76308,1.90807 C3.36414,3.22338 0.78684,7.82444 1.95459,12.27889 L1,12.51698 L3.65594,14.62104 L4.98759,11.52585 L3.68537,11.84885 L3.67837,11.82495 C2.75047,8.28542 4.77749,4.6661 8.27292,3.62095 L9.12635,3.36624 L8.61687,1.65162 L8.61652,1.65153 Z M12.94804,1 L9.81022,2.27167 L11.82976,4.96635 L12.19577,3.67069 L12.21967,3.67869 C15.74304,4.62466 17.87052,8.18362 17.0423,11.74795 L16.83998,12.61911 L18.57811,13.0233 L18.77676,12.154 C19.81906,7.66833 17.11544,3.14164 12.68133,1.95114 L12.94803,1.00062 L12.94804,1 Z";
 var svg_BlogAvailable = "M4.20194973,7.45378537 C5.03397066,7.93430223 5.54633363,8.82229299 5.54594559,9.78310262 C5.54633363,10.7439122 5.03397066,11.631903 4.20194973,12.1124199 C3.3699288,12.5929367 2.34472472,12.5929367 1.51270379,12.1124199 C0.68068286,11.631903 0.168319884,10.7439122 0.168707921,9.78310262 C0.168319884,8.82229299 0.68068286,7.93430223 1.51270379,7.45378537 C2.34472472,6.97326851 3.3699288,6.97326851 4.20194973,7.45378537 Z M2.04455463,0.0933977209 C7.6190027,0.0933977209 12.1645545,4.82766398 12.1645545,10.6433979 L12.1645545,10.6433979 L10.7986325,10.6433979 C10.7986324,5.80156241 7.10455457,1.57031245 2.04455463,1.57031248 L2.04455463,1.57031248 Z M2.04502867,3.40191995 C6.00894144,3.40191995 9.24026104,6.62778757 9.24026104,10.5917013 L9.24026104,10.5917013 L7.68674475,10.5917013 C7.68674475,7.46811389 5.16861512,4.95543522 2.04502867,4.95543522 L2.04502867,4.95543522 Z";
+var svg_MetronomeSoundsOn = "M 9,0 V 16.000001 L 3.729089,10.623048 H 0 V 5.3828129 h 3.729089 z m 2.527069,2.0287719 c 5.888576,1.788424 5.725551,10.8748441 -0.07108,11.9598481 v 0 l -0.245313,-1.310573 c 4.38823,-0.821381 4.51667,-7.9801351 -0.07108,-9.3734841 v 0 z m -0.666666,2.666666 c 3.269494,0.992981 3.179335,6.0181081 -0.07108,6.6265151 v 0 L 10.544012,10.01138 c 1.842015,-0.3447851 1.897587,-3.4422451 -0.07108,-4.0401501 v 0 z";
+var svg_MetronomeSoundsOff1 = "M 3.7290881,5.3827875 9.0000006,-2.616952e-5 V 15.999977 L 3.7290881,10.623023 H -1.26892e-6 V 5.3827875 Z";
+var svg_MetronomeSoundsOff2 = "M 11.859 11.7588 C 11.6563 11.9615 11.3265 11.9605 11.1224 11.7564 C 10.9169 11.5509 10.9173 11.2226 11.12 11.0199 L 13.7089 8.43099 L 11.12 5.84212 C 10.9173 5.63947 10.9184 5.30964 11.1224 5.10557 C 11.3279 4.90009 11.6562 4.90042 11.859 5.10313 L 14.4478 7.69201 L 17.0367 5.10313 C 17.2394 4.90049 17.5692 4.90151 17.7733 5.10557 C 17.9787 5.31106 17.9784 5.6394 17.7757 5.84211 L 15.1868 8.43099 L 17.7757 11.0199 C 17.9783 11.2225 17.9773 11.5523 17.7732 11.7564 C 17.5677 11.9619 17.2394 11.9616 17.0367 11.7589 L 14.4478 9.16997 Z";
 
 
 class NotificationButton
@@ -802,7 +806,7 @@ scope MidiMonitor
 
 class ToolbarSeparator
 {
-    Background = Color.Red;
+    Background = colorBorder;
 }
 
 
@@ -1032,13 +1036,88 @@ class MainToolbar
     class PowerButton : GlowButton<svg_Power, Color.LimeGreen, Color.Orange, 2> {}
 }
 
-scope MetronomeToolbar
+var makeIncDecButton = (color, corners, svg) => Rasterize()
 {
-    class MetronomeToolbar {}
+    Size = (24,24);
+    Inner = Rectangle()
+    {
+        FillColor = color;
+        CornerRadius = 3;
+        CornerMask = corners;
+    };
+};
 
-    class IncTempoButton {}
-    class DecTempoButton {}
-    class EnableSoundsButton {}
+class IncDecButton<corners, svg>
+{
+    Background = {
+        Pressed = makeIncDecButton(#3cffffff, corners, svg);
+        else = makeIncDecButton(#1affffff, corners, svg);
+    };
+    Image = Frame()
+    {
+        InnerSize = (13,13);
+        Inner = Rasterize()
+        {
+            Size = (13,13);
+            Inner = Path()
+            {
+                Bounds = (0,0,13,13);
+                SvgData = svg;
+                FillColor = Color.White;
+            };
+        };
+    };
+}
+
+var makeMetronomeSoundsImage = (color1, color2, checked) => Rasterize()
+{
+    Size = (18,16);
+    Inner = [
+        Path()
+        {
+            SvgData = svg_MetronomeSoundsOn;
+            Bounds = (0,0,18,16);
+            FillColor = checked ? color1 : Color.Clear;
+        },
+        Path()
+        {
+            SvgData = svg_MetronomeSoundsOff1;
+            Bounds = (0,0,18,16);
+            FillColor = checked ? Color.Clear : color1;
+        },
+        Path()
+        {
+            SvgData = svg_MetronomeSoundsOff2;
+            Bounds = (0,0,18,16);
+            FillColor = checked ? Color.Clear : color2;
+        },
+    ];
+};
+
+class MetronomeToolbar
+{
+    Background = BorderFrame(null, colorPanelBorder, Bottom);
+    class TextButton : ToolbarTextButton
+    {
+        Font = defaultFont;
+        Gravity = Center;
+    }
+    class IncTempoButton : IncDecButton<CornerMask.TopRight|CornerMask.BottomRight, "M 5.75003 0 L 5.75003 5.75003 L 0 5.75003 L 0 7.25019 L 5.75003 7.25019 L 5.75003 13.0002 L 7.25019 13.0002 L 7.25019 7.25019 L 13.0002 7.25019 L 13.0002 5.75003 L 7.25019 5.75003 L 7.25019 0 L 5.75003 0 Z"> {}
+    class DecTempoButton : IncDecButton<CornerMask.TopLeft|CornerMask.BottomLeft, "m 0,5.75 h 13 v 1.5 H 0 Z"> {}
+    class EnableSoundsButton : CantabileButton
+    {
+        Image = Frame()
+        {
+            InnerSize = (18,16);
+            Gravity = Center;
+            Inner = {
+                Checked && (Focused || Pressed) = makeMetronomeSoundsImage(Color.White, Color.White, true);
+                Checked = makeMetronomeSoundsImage(colorToolbarButton, Color.Tomato, true);
+                Focused || Pressed = makeMetronomeSoundsImage(Color.White, Color.White, false);
+                else = makeMetronomeSoundsImage(colorToolbarButton, Color.Tomato, false);
+            };
+        };
+    }
 }
 
 scope MidiMonitor
