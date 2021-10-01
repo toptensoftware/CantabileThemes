@@ -181,7 +181,7 @@ class RunModeButton : CantabileButton
 // Base class for all side panels
 class SidePanel
 {
-    Background = #202c3a;
+    Background = BorderFrame(null, colorPanelBorder, Right);
 }
 
 // Tip Panel
@@ -396,13 +396,12 @@ scope PopupMenu
     }
 }
 
-class GroupButton<align,image>
+class GroupButton<image>
 {
     Background = 
     {
-        Pressed = NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#404143);
-        Selected = NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#002d62);
-        else = NineSliceImage("Group" + align + ".png", 5, 5).Recolor(#313235);
+        Pressed = Frame() { Padding = (0, 0, 0, 1); Inner = #404143; };
+        Selected = Frame() { Padding = (0, 0, 0, 1); Inner = #002d62; };
     };
     Image = 
     {
@@ -411,24 +410,20 @@ class GroupButton<align,image>
     };
 }
 
-class TableViewButton : GroupButton<"Left","TableView"> {}
-class DiagramViewButton : GroupButton<"Right","DiagramView"> {}
+class TableViewButton : GroupButton<"TableView"> {}
+class DiagramViewButton : GroupButton<"DiagramView"> {}
 
 
-scope TabBar
+class TabBar
 {
-    class TabBar
-    {
-        Background = #222326;
-        BorderColor = #43464c;
-    }
+    Background = BorderFrame(null, colorPanelBorder, Bottom);
 
-    class Button
+    class Tab
     {
         Background =
         {
-            Pressed = NineSliceImage("RoundedRect.png", 5, 5).Recolor(#404143);
-            Selected = NineSliceImage("RoundedRect.png", 5, 5).Recolor(#002d62);
+            Pressed = Frame() { Padding = (0, 0, 0, 1); Inner = #404143; };
+            Selected = Frame() { Padding = (0, 0, 0, 1); Inner = #002d62; };
         };
         TextColor = 
         {
@@ -436,11 +431,11 @@ scope TabBar
             Selected || Pressed = #dfe1e5;
             else = #949599;
         };
-        Padding = EdgeInsets(15, 3);
+        Padding = EdgeInsets(15, 7);
         Font = boldFont;
     }
 
-    class EjectButton : Button
+    class EjectButton : TabBar.Tab
     {
         Padding = EdgeInsets(10, 3, 30, 3);
         Image = 
@@ -695,7 +690,7 @@ var svg_BlogAvailable = "M4.20194973,7.45378537 C5.03397066,7.93430223 5.5463336
 var svg_MetronomeSoundsOn = "M 9,0 V 16.000001 L 3.729089,10.623048 H 0 V 5.3828129 h 3.729089 z m 2.527069,2.0287719 c 5.888576,1.788424 5.725551,10.8748441 -0.07108,11.9598481 v 0 l -0.245313,-1.310573 c 4.38823,-0.821381 4.51667,-7.9801351 -0.07108,-9.3734841 v 0 z m -0.666666,2.666666 c 3.269494,0.992981 3.179335,6.0181081 -0.07108,6.6265151 v 0 L 10.544012,10.01138 c 1.842015,-0.3447851 1.897587,-3.4422451 -0.07108,-4.0401501 v 0 z";
 var svg_MetronomeSoundsOff1 = "M 3.7290881,5.3827875 9.0000006,-2.616952e-5 V 15.999977 L 3.7290881,10.623023 H -1.26892e-6 V 5.3827875 Z";
 var svg_MetronomeSoundsOff2 = "M 11.859 11.7588 C 11.6563 11.9615 11.3265 11.9605 11.1224 11.7564 C 10.9169 11.5509 10.9173 11.2226 11.12 11.0199 L 13.7089 8.43099 L 11.12 5.84212 C 10.9173 5.63947 10.9184 5.30964 11.1224 5.10557 C 11.3279 4.90009 11.6562 4.90042 11.859 5.10313 L 14.4478 7.69201 L 17.0367 5.10313 C 17.2394 4.90049 17.5692 4.90151 17.7733 5.10557 C 17.9787 5.31106 17.9784 5.6394 17.7757 5.84211 L 15.1868 8.43099 L 17.7757 11.0199 C 17.9783 11.2225 17.9773 11.5523 17.7732 11.7564 C 17.5677 11.9619 17.2394 11.9616 17.0367 11.7589 L 14.4478 9.16997 Z";
-
+var svg_Hamburger = "m 0,16 h 22 v 4 H 0 Z M 0,9 h 22 v 4 H 0 Z M 0,2 H 22 V 6 H 0 Z";
 
 class NotificationButton
 {
@@ -1293,6 +1288,146 @@ scope StateBehaviourPanel
     }
 }
 
+class SidePanelContent
+{
+    Background = #202C3A;
+}
+
+class SidePanelItem
+{
+    Background = {
+        Selected && ContainerFocused = VerticalGradient(#058cF5, #015DE6);
+        Selected = VerticalGradient(#023258, #00255b);
+        CurrentItem = #0e1721;
+    };
+
+}
+
+
+var svg_PinIcon = "m 2.0992185,12.099264 1.2674847,-1.763439 1.0344,-1.1932161 c 0,0 -1.0727304,-1.1604609 -1.7146542,-1.8023685 C 2.2200994,6.8738966 3.7241385,5.7081121 4.9984832,6.1869214 5.3818146,6.330949 5.7999756,6.0781623 6.0623546,5.8823699 7.9223974,4.4943652 7.3013688,4.9567836 8.8056202,3.7619655 9.3772088,3.3079627 8.7373917,2.9668505 8.9513659,2.6139548 9.0506736,2.4504411 9.510345,1.8001094 9.9959492,2.262165 l 0.8121738,0.8357293 1.128098,1.1045682 C 12.398284,4.6880666 11.747967,5.1478026 11.584362,5.2470199 11.231428,5.4611515 10.890354,4.8212618 10.436364,5.3928404 9.2415355,6.8970842 9.7039564,6.2760709 8.315945,8.1361061 8.1201879,8.3984842 7.8673841,8.8166489 8.0112355,9.1999851 8.4900164,10.474335 7.324266,11.978357 6.8579165,11.512013 6.2159955,10.870105 5.0555318,9.7973546 5.0555318,9.7973546 L 3.8623089,10.831781 Z";
+var svg_Check = "m 5.6663104,8.7191647 c 0,0 4.9336276,-5.3715434 5.2020016,-5.6627203 0.42591,-0.4465684 1.266173,0.1224778 0.883621,0.6665371 0,0 -4.6950248,6.6437125 -4.9835323,7.0498825 -0.5590645,0.783477 -1.433741,0.59621 -1.8540381,0.09523 0,0 -2.024489,-2.6947755 -2.4894798,-3.3248317 C 2.1458174,7.1329896 2.6885477,6.4666358 3.239409,6.8327478 3.6182519,7.1359897 5.6663104,8.7191647 5.6663104,8.7191647 Z";
+
+var makeSidePanelIcon = (borderColor, fillColor, pinColor, round, svg) => Rasterize()
+{
+    Size = (14,14);
+    Inner = [
+        BorderFrame(round ? Color.Clear : fillColor, round ? Color.Clear : borderColor),
+        Ellipse()
+        {
+            Bounds = (0, 0, 14, 14);
+            Center = (7,7);
+            Radius = (7,7);
+            StrokeColor = round ? borderColor : Color.Clear;
+            StrokeWidth = 1;
+            FillColor = round ? fillColor : Color.Clear;
+        },
+        Path()
+        {
+            Bounds = (0, 0, 14, 14);
+            SvgData = svg;
+            FillColor = pinColor;
+        }
+    ];
+};
+
+class SidePanelIcon<round, svg>
+{
+    Image = Frame()
+    {
+        InnerSize = (14,14);
+        Inner = {
+            Checked && Selected && ContainerFocused = makeSidePanelIcon(Color.White, Color.White, colorFocus, round, svg);
+            Checked = makeSidePanelIcon(colorFocus, colorFocus, Color.White, round, svg);
+            Selected && ContainerFocused = makeSidePanelIcon(Color.White, Color.Clear, Color.Clear, round, svg);
+            else = makeSidePanelIcon(#979797, Color.Clear, Color.Clear, round, svg);
+        };
+    };
+}
+
+
+class RecordingsPanel : SidePanelContent
+{
+    class Item : SidePanelItem
+    {
+        class Text
+        {
+            TextColor = Color.White;
+        }
+        class InfoText
+        {
+            TextColor = Color.Silver;
+            Font = smallFont;
+        }
+        class PinIcon : SidePanelIcon<false, svg_PinIcon> {}
+    }
+}
+
+
+
+class RecorderPortsPanel : SidePanelContent
+{
+    class Item : SidePanelItem
+    {
+        class Text
+        {
+            TextColor = Color.White;
+        }
+        class AutoRecordButton
+        {
+            Image = Frame()
+            {
+                InnerSize = (14,14);
+                Inner = {
+                    Checked = makeRoundLed(14, 2, Color.Lime, true);
+                    else = makeRoundLed(14, 2, #9e9e9e, false);
+                };
+            };
+        }
+        class EnableButton : SidePanelIcon<false, svg_Check> {}
+    }
+}
+
+class SetListPanel : SidePanelContent
+{
+    class Item : SidePanelItem
+    {
+        class Text
+        {
+            TextColor = Color.White;
+        }
+        class Button : SidePanelIcon<true, svg_Check> {}
+    }
+    class BreakItem : SidePanelItem
+    {
+        class Text
+        {
+            TextColor = Color.White;
+            Font = boldFont;
+        }
+    }
+}
+
+class SetListPanel : SidePanelContent
+{
+}
+
+class StatesPanel : SidePanelContent
+{
+}
+
+class StateBehaviourPanel : SidePanelContent
+{
+
+}
+
+class PortsMonitorPanel : SidePanelContent
+{
+}
+
+class LoadMonitorPanel : SidePanelContent
+{
+}
+
 scope RecorderPortsPanel
 {
     class PortItem
@@ -1317,21 +1452,45 @@ scope RecordingsPanel
     class RecordingItemInfoText {}
 }
 
+
+var makeHamburger = (size, color) => Rasterize()
+{
+    Size = (size,size);
+    Inner = Path()
+    {
+        SvgData = svg_Hamburger;
+        Bounds = (0, 0, 22, 22);
+        FillColor = color;
+    };
+};
+
 // The title bars on side panels
 class PanelTitle
 {
+    Background = {
+        Alternate = BorderFrame(colorForm, colorPanelBorder, Top|Bottom);
+        else = BorderFrame(colorForm, colorPanelBorder, Bottom);
+    };
 
+    class TitleText
+    {
+        TextColor = Color.White;
+    }
+
+    class MenuButton
+    {
+        Background = {
+            Pressed = colorFocus;
+        };
+        Image = Frame()
+        {
+            InnerSize = (12,12);
+            Gravity = Center;
+            Inner = makeHamburger(12, Color.White);
+        };
+    }
 }
 
-class PanelTitleText
-{
-
-}
-
-class PanelTitleMenuButton
-{
-
-}
 
 class SlotContainer
 {
