@@ -49,6 +49,32 @@ var makeRoundLed = (size, padding, color, glow) => Rasterize()
     ];
 };
 
+var makeSquareLed = (size, padding, color, glow) => Rasterize()
+{
+    Size = (size, size);
+    Padding = padding;
+    Inner = [
+        Rectangle()
+        {
+            CornerRadius = 2;
+            GradientStops = {
+                0.0 = Color.White;
+                1.0 = color;
+            };
+            GradientKind = Radial;
+            RadialGradientCenter = (0.6, 0.4);
+            ShadowColor = color;
+            ShadowSigma = glow ? (2,2) : (0,0);
+        },
+        Rectangle()
+        {
+            CornerRadius = 2;
+            StrokeColor = glow ? Color.Blend(#615f62, color.WithAlpha(0.5)) : #615f62;
+            StrokeWidth = 0.75;
+        }
+    ];
+};
+
 // MIDI Activity Indicator
 class MidiActivityIndicator
 {
@@ -494,16 +520,26 @@ class MidiChannelBar
     Background = BorderFrame(#252525, #555555);
 }
 
-scope TimelineView
+class Indicator<name,topFixed,bottomFixed>
 {
-    class Timeline
+    Background = 
     {
-        Background = BorderFrame(#202c3a, #555555, Top);
-    }
+        Focused = NineSliceImage("Timeline" + name + "_hot.png", 0, topFixed, 0, bottomFixed);
+        else = NineSliceImage("Timeline" + name + ".png", 0, topFixed, 0, bottomFixed);
+    };
+}
+
+
+class TimelineView
+{
+    Background = #202C3A;
 
     class Content
     {
-        Color = Color.Orange;
+        Color = {
+            Focused = colorFocus;
+            else = #808080;
+        };
     }
 
     class XAxis
@@ -521,33 +557,12 @@ scope TimelineView
         LabelTextColor = Color.White;
     }
 
-    class Indicator<name,topFixed,bottomFixed>
-    {
-        Background = 
-        {
-            Focused = NineSliceImage("Timeline" + name + "_hot.png", 0, topFixed, 0, bottomFixed);
-            else = NineSliceImage("Timeline" + name + ".png", 0, topFixed, 0, bottomFixed);
-        };
-    }
-
     class RangeLeftIndicator : Indicator<"RangeLeft", 0, 15> {}
     class RangeRightIndicator : Indicator<"RangeRight", 0, 15> {}
     class PlayPositionIndicator : Indicator<"PlayPos", 15, 0> {}
     class CursorIndicator : Indicator<"Cursor", 0, 0>    {}
 }
 
-scope TimelinePanel
-{
-    class Toolbar {}
-    class PlayButton {}
-    class PauseButton {}
-    class StopButton {}
-    class RewindButton {}
-    class FastForwardButton {}
-    class PreviousMarkerButton {}
-    class NextMarkerButton {}
-
-}
 
 scope WiringView
 {
@@ -862,9 +877,9 @@ var makeRecordButton = (pressed, recording, autorecord) => Rasterize()
 };
 
 // Helper to make a checkable, glowing button image (eg: Play and Pause buttons)
-var makeGlowButton = (pressed, checked, svg, color) => Rasterize()
+var makeGlowButton = (size, pressed, checked, svg, color) => Rasterize()
 {
-    Size = (30,30);
+    Size = (size, size);
     Gravity = Center;
     Inner = [
         Path()
@@ -890,42 +905,43 @@ var makeGlowButton = (pressed, checked, svg, color) => Rasterize()
 };
 
 // Template class for glow buttons
-class GlowButton<svg, color>
+class GlowButton<size, svg, color>
 {
     Image = Frame()
     {
-        InnerSize = (30,30);
+        InnerSize = (size, size);
         Gravity = Center;
         Inner =
         {
-            Checked = makeGlowButton(false, true, svg, color);
-            Pressed = makeGlowButton(true, false, svg, color);
-            else = makeGlowButton(false, false, svg, color);
+            Checked = makeGlowButton(size, false, true, svg, color);
+            Pressed = makeGlowButton(size, true, false, svg, color);
+            else = makeGlowButton(size, false, false, svg, color);
         };
     };
 }
 
+
 // Template class for glow buttons with alternate color
-class GlowButton<svg, color, colorAlt>
+class GlowButton<size, svg, color, colorAlt>
 {
     Image = Frame()
     {
-        InnerSize = (30,30);
+        InnerSize = (size, size);
         Gravity = Center;
         Inner =
         {
-            Alternate = makeGlowButton(false, true, svg, colorAlt);
-            Checked = makeGlowButton(false, true, svg, color);
-            Pressed = makeGlowButton(true, false, svg, color);
-            else = makeGlowButton(false, false, svg, color);
+            Alternate = makeGlowButton(size, false, true, svg, colorAlt);
+            Checked = makeGlowButton(size, false, true, svg, color);
+            Pressed = makeGlowButton(size, true, false, svg, color);
+            else = makeGlowButton(size, false, false, svg, color);
         };
     };
 }
 
 // Helper to make a standard toolbar button
-var makeToolbarButton = (pressed, svg) => Rasterize()
+var makeToolbarButton = (size, pressed, svg) => Rasterize()
 {
-    Size = (30,30);
+    Size = (size, size);
     Gravity = Center;
     Inner = [
         Path()
@@ -939,16 +955,16 @@ var makeToolbarButton = (pressed, svg) => Rasterize()
 };
 
 // Template class for standard toolbar button
-class ToolbarButton<svg>
+class ToolbarButton<size, svg>
 {
     Image = Frame()
     {
-        InnerSize = (30,30);
+        InnerSize = (size, size);
         Gravity = Center;
         Inner =
         {
-            Pressed = makeToolbarButton(true, svg);
-            else = makeToolbarButton(false, svg);
+            Pressed = makeToolbarButton(size, true, svg);
+            else = makeToolbarButton(size, false, svg);
         };
     };
 }
@@ -1007,11 +1023,11 @@ class MainToolbar
         };
     }
 
-    class PlayButton : GlowButton<svg_Play, Color.Lime> {}
-    class PauseButton : GlowButton<svg_Pause, Color.Orange> {}
-    class StopButton : ToolbarButton<svg_Stop> {}
-    class MetronomeButton : ToolbarButton<svg_Metronome> {}
-    class TapTempoButton : ToolbarButton<svg_Tempo> 
+    class PlayButton : GlowButton<30, svg_Play, Color.Lime> {}
+    class PauseButton : GlowButton<30, svg_Pause, Color.Orange> {}
+    class StopButton : ToolbarButton<30, svg_Stop> {}
+    class MetronomeButton : ToolbarButton<30, svg_Metronome> {}
+    class TapTempoButton : ToolbarButton<30, svg_Tempo> 
     {
         // StateChecked && ~StateAlternate for down beat
         // StateChecked && StateAlternate for other beats
@@ -1043,8 +1059,8 @@ class MainToolbar
             };
         };
     }
-    class PanicButton : ToolbarButton<svg_Panic> {}
-    class PowerButton : GlowButton<svg_Power, Color.LimeGreen, Color.Orange> { }
+    class PanicButton : ToolbarButton<30, svg_Panic> {}
+    class PowerButton : GlowButton<30, svg_Power, Color.LimeGreen, Color.Orange> { }
 }
 
 var makeIncDecButton = (color, corners, svg) => Rasterize()
@@ -1436,8 +1452,8 @@ var makeHamburger = (size, color) => Rasterize()
 class PanelTitle
 {
     Background = {
-        Alternate = BorderFrame(colorForm, colorPanelBorder, Top|Bottom);
-        else = BorderFrame(colorForm, colorPanelBorder, Bottom);
+        Alternate = BorderFrame(colorForm, colorPanelBorder, Top);
+        else = colorForm;
     };
 
     class TitleText
@@ -1699,10 +1715,10 @@ class ControllerBar
                 else = makeRecordButton(false, false, false);
             };
         }
-        class PlayButton : GlowButton<svg_Play, Color.Lime>, ControllerBarButton {}
-        class PauseButton : GlowButton<svg_Pause, Color.Orange>, ControllerBarButton {}
-        class StopButton : ToolbarButton<svg_Stop>, ControllerBarButton {}
-        class TempoButton : ToolbarButton<svg_Tempo>, ControllerBarButton 
+        class PlayButton : GlowButton<30, svg_Play, Color.Lime>, ControllerBarButton {}
+        class PauseButton : GlowButton<30, svg_Pause, Color.Orange>, ControllerBarButton {}
+        class StopButton : ToolbarButton<30, svg_Stop>, ControllerBarButton {}
+        class TempoButton : ToolbarButton<30, svg_Tempo>, ControllerBarButton 
         {
             Background = 
             {
@@ -1714,12 +1730,69 @@ class ControllerBar
         }
         class ButtonGroup : ControllerBarButton 
         {
-            class Next : ToolbarButton<svg_Next>, ControllerBarGroupButton  { }
-            class Previous : ToolbarButton<svg_Prev>, ControllerBarGroupButton  { }
+            class Next : ToolbarButton<30, svg_Next>, ControllerBarGroupButton  { }
+            class Previous : ToolbarButton<30, svg_Prev>, ControllerBarGroupButton  { }
             class Button : ControllerBarGroupButton {}
         }
-        class ContinueButton : ToolbarButton<svg_Continue>, ControllerBarButton  {}
+        class ContinueButton : ToolbarButton<30, svg_Continue>, ControllerBarButton  {}
 
     }
 }
 
+
+var svg_FastForward = "M 2.5001 7.39127 L 2.5001 22.6084 L 14.4565 15.6342 L 14.4565 22.6084 L 27.5001 15.0001 L 14.4565 7.39127 L 14.4565 14.366 L 2.5001 7.39127 Z";
+var svg_Rewind = "M 27.5001,7.39127 V 22.6084 L 15.5437,15.6342 v 6.9742 L 2.5001,15.0001 15.5437,7.39127 V 14.366 Z";
+var svg_PreviousMarker = "M 17.884615,15 27.5,9.2307693 V 20.769231 Z M 8.2692308,15 17.884615,9.2307693 V 20.769231 Z M 2.5,3.4615386 H 6.3461537 V 26.538462 H 2.5 Z";
+var svg_NextMarker = "M 12.115385,15 2.5,9.2307693 V 20.769231 Z m 9.615384,0 -9.615384,-5.7692307 V 20.769231 Z M 27.5,3.4615386 H 23.653846 V 26.538462 H 27.5 Z";
+
+class TimelinePanel
+{
+    Background = BorderFrame(colorForm, colorPanelBorder, Top);
+
+    class PlayButton : CantabileButton, GlowButton<18, svg_Play, Color.Lime> {  }
+    class PauseButton : CantabileButton, GlowButton<18, svg_Pause, Color.Orange>  {  }
+    class StopButton : CantabileButton, ToolbarButton<18, svg_Stop> {  }
+    class RewindButton : CantabileButton, ToolbarButton<18, svg_Rewind> {  }
+    class FastForwardButton : CantabileButton, ToolbarButton<18, svg_FastForward> {  }
+    class PreviousMarkerButton : CantabileButton, ToolbarButton<18, svg_PreviousMarker> {  }
+    class NextMarkerButton : CantabileButton, ToolbarButton<18, svg_NextMarker> {  }
+
+    class MenuButton
+    {
+        Background = {
+            Pressed = colorFocus;
+        };
+        Image = Frame()
+        {
+            InnerSize = (12,12);
+            Gravity = Center;
+            Inner = makeHamburger(12, Color.White);
+        };
+    }
+}
+
+class KeyboardPanel
+{
+    Background = BorderFrame(#202C3A, colorPanelBorder, Top);
+
+    class Controls
+    {
+        Background = Rectangle()
+        {
+            FillColor = Color.Black.WithAlpha(0.5);
+            TopLeftCornerRadius = 10;
+        };
+
+        class ChannelButton
+        {
+            TextColor = Color.White;
+        }
+        class CaptureButton
+        {
+            Image = {
+                Checked = makeSquareLed(16, 4, #03c403, true);
+                else = makeSquareLed(16, 4, #9e9e9e, false);
+            };
+       }
+    }
+}
