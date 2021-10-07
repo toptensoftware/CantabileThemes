@@ -49,7 +49,19 @@ var svg_FastForward = "M 2.5001 7.39127 L 2.5001 22.6084 L 14.4565 15.6342 L 14.
 var svg_Rewind = "M 27.5001,7.39127 V 22.6084 L 15.5437,15.6342 v 6.9742 L 2.5001,15.0001 15.5437,7.39127 V 14.366 Z";
 var svg_PreviousMarker = "M 17.884615,15 27.5,9.2307693 V 20.769231 Z M 8.2692308,15 17.884615,9.2307693 V 20.769231 Z M 2.5,3.4615386 H 6.3461537 V 26.538462 H 2.5 Z";
 var svg_NextMarker = "M 12.115385,15 2.5,9.2307693 V 20.769231 Z m 9.615384,0 -9.615384,-5.7692307 V 20.769231 Z M 27.5,3.4615386 H 23.653846 V 26.538462 H 27.5 Z";
-
+var svg_Enabled = "m 11.229195,19.426983 c 0,0 11.227679,-12.6944296 11.838434,-13.3825591 0.969259,-1.055371 2.881486,0.2894218 2.010893,1.5752069 0,0 -10.684679,15.7009102 -11.341247,16.6607992 -1.272289,1.851569 -3.262829,1.409011 -4.2193233,0.225068 0,0 -4.6072203,-6.368496 -5.6654148,-7.857492 -0.6351098,-0.969593 0.5999908,-2.544367 1.8536516,-1.679147 0.8621761,0.716618 5.5230065,4.458124 5.5230065,4.458124 z";
+var svg_Disabled = "M 5.8714167,4.267809 A 1.6052977,1.6059266 0 0 0 4.736578,4.7391841 1.6052977,1.6059266 0 0 0 4.738348,7.0093083 l 7.991212,7.9903597 -7.9907696,7.990359 a 1.6052977,1.6059266 0 0 0 -0.00133,2.271453 1.6052977,1.6059266 0 0 0 2.2705624,0 l 7.9920972,-7.991246 7.991655,7.991246 a 1.6052977,1.6059266 0 0 0 2.271004,0 1.6052977,1.6059266 0 0 0 -0.0018,-2.271453 l -7.990732,-7.989916 7.991654,-7.9908027 a 1.6052977,1.6059266 0 0 0 0.0013,-2.2701242 1.6052977,1.6059266 0 0 0 -2.270562,-0.00177 L 15.000122,12.729543 7.0071404,4.7374135 A 1.6052977,1.6059266 0 0 0 5.8714167,4.267809 Z";
+var svg_BypassOff = "m 15,21.730769 c 1.593129,0 2.884615,1.291487 2.884615,2.884616 C 17.884615,26.208513 16.593129,27.5 15,27.5 c -1.593129,0 -2.884615,-1.291487 -2.884615,-2.884615 0,-1.593129 1.291486,-2.884616 2.884615,-2.884616 z m 1.346177,-19.2307688 -2.3e-5,11.5384618 h 6.346154 L 15,21.730769 7.3076924,14.038462 h 6.1538456 l 2.4e-5,-11.5384618 z";
+var svg_BypassOn = "m 15.659,1.29519 v 3.4744 c 0,-0.01373 0.0869,0.06878 0.1595,0.06878 4.2271,0 7.6701,3.34723 7.6701,7.49693 0,4.1497 -3.443,7.497 -7.6701,7.497 0.0027,0 -0.1595,0.154 -0.1595,0.0687 v 0 1.1005 h 6.259 l -7.7033,7.7033 -7.7033,-7.7033 h 6.2589 V 19.901 c 0,-1.4582 1.3268,-2.8 2.789,-2.9446 l 0.2592,-0.0129 c 2.6496,0 4.7813,-2.0724 4.7813,-4.6082 0,-2.53577 -2.1317,-4.6082 -4.7813,-4.6082 -1.6355,0 -3.0482,-1.34151 -3.0482,-2.95751 v 0 -3.4744 z m -1.4443,8.15139 c 1.5954,0 2.8887,1.29332 2.8887,2.88872 0,1.5954 -1.2933,2.8887 -2.8887,2.8887 -1.5954,0 -2.8888,-1.2933 -2.8888,-2.8887 0,-1.5954 1.2934,-2.88872 2.8888,-2.88872 z";
+var svg_EmbeddedRack = "M 28.75,6.40625 V 2.96875 H 24.453125 V 4.6875 h 2.578125 v 1.7187499 z m -27.5000001,0 V 2.96875 H 5.546875 V 4.6875 H 2.9687499 V 6.40625 Z M 28.75,23.59375 v 3.4375 H 24.453125 V 25.3125 h 2.578125 v -1.71875 z m -27.5000001,0 v 3.4375 H 5.546875 V 25.3125 H 2.9687499 V 23.59375 Z M 28.75,8.1250001 V 21.875 H 1.2499999 V 8.1250001 Z M 23.59375,16.71875 H 6.4062499 v 3.4375 H 23.59375 Z M 4.2578125,17.148437 c -0.7119305,0 -1.2890626,0.577133 -1.2890626,1.289063 0,0.71193 0.5771321,1.289062 1.2890626,1.289062 0.7119303,0 1.2890625,-0.577132 1.2890625,-1.289062 0,-0.71193 -0.5771322,-1.289063 -1.2890625,-1.289063 z m 21.4843755,0 c -0.71193,0 -1.289063,0.577133 -1.289063,1.289063 0,0.71193 0.577133,1.289062 1.289063,1.289062 0.71193,0 1.289062,-0.577132 1.289062,-1.289062 0,-0.71193 -0.577132,-1.289063 -1.289062,-1.289063 z M 23.59375,9.84375 H 6.4062499 v 3.4375 H 23.59375 Z M 4.2578125,10.273438 c -0.7119305,0 -1.2890626,0.577132 -1.2890626,1.289062 0,0.71193 0.5771321,1.289063 1.2890626,1.289063 0.7119303,0 1.2890625,-0.577133 1.2890625,-1.289063 0,-0.71193 -0.5771322,-1.289062 -1.2890625,-1.289062 z m 21.4843755,0 c -0.71193,0 -1.289063,0.577132 -1.289063,1.289062 0,0.71193 0.577133,1.289063 1.289063,1.289063 0.71193,0 1.289062,-0.577133 1.289062,-1.289063 0,-0.71193 -0.577132,-1.289062 -1.289062,-1.289062 z";
+var svg_LinkedRack = "m 27.5,8.75 v 12.5 H 2.5 V 8.75 Z m -4.6875,7.8125 H 7.1875 v 3.125 h 15.625 z M 5.234375,16.953125 c -0.6472094,0 -1.171875,0.524666 -1.171875,1.171875 0,0.647209 0.5246656,1.171875 1.171875,1.171875 0.6472094,0 1.171875,-0.524666 1.171875,-1.171875 0,-0.647209 -0.5246656,-1.171875 -1.171875,-1.171875 z m 19.53125,0 c -0.647209,0 -1.171875,0.524666 -1.171875,1.171875 0,0.647209 0.524666,1.171875 1.171875,1.171875 0.647209,0 1.171875,-0.524666 1.171875,-1.171875 0,-0.647209 -0.524666,-1.171875 -1.171875,-1.171875 z M 22.8125,10.3125 H 7.1875 v 3.125 h 15.625 z M 5.234375,10.703125 c -0.6472094,0 -1.171875,0.524666 -1.171875,1.171875 0,0.647209 0.5246656,1.171875 1.171875,1.171875 0.6472094,0 1.171875,-0.524666 1.171875,-1.171875 0,-0.647209 -0.5246656,-1.171875 -1.171875,-1.171875 z m 19.53125,0 c -0.647209,0 -1.171875,0.524666 -1.171875,1.171875 0,0.647209 0.524666,1.171875 1.171875,1.171875 0.647209,0 1.171875,-0.524666 1.171875,-1.171875 0,-0.647209 -0.524666,-1.171875 -1.171875,-1.171875 z";
+var svg_Error = "m 24.087336,18.341025 c 3.214655,0 5.820646,2.605991 5.820646,5.820646 0,3.214654 -2.605991,5.820645 -5.820646,5.820645 -3.214654,0 -5.820645,-2.605991 -5.820645,-5.820645 0,-3.214655 2.605991,-5.820646 5.820645,-5.820646 z m 4.157604,4.989125 h -8.315208 v 1.663042 h 8.315208 z";
+var svg_MidiFilter = "M 16.757226,25.999984 H 13.533882 V 15.98935 L 4.8558523,6.0640494 V 3.9999965 H 25.144126 v 2.0640529 l -8.3869,9.9253006 z";
+var svg_BidiOff = "M 18.309366,17.732362 2.5,17.73235 V 12.462562 H 18.309366 V 7.8515 L 27.5,15.097462 18.309366,22.1485 Z";
+var svg_BidiHalf = "M 11.028787,24.781998 5.4e-5,16.08686 H 30 v 3.161865 H 11.028787 Z M 18.971213,5.218002 29.999946,13.913141 H 0 v -3.161867 h 18.971213 z";
+var svg_BidiHalfForward = "m 18.971213,5.218002 11.028733,8.695139 H 0 v -3.161867 h 18.971213 z";
+var svg_BidiHalfReverse = "M 11.028787,24.781998 5.4e-5,16.08686 H 30 v 3.161865 H 11.028787 Z";
+var svg_BidiFull = "M 8.3792826,12.686557 H 21.620662 V 8.4825485 L 30,15.088829 21.620662,21.517451 v -4.02635 H 8.3792826 v 4.02635 L -2.5e-7,15.088829 8.3792826,8.4825485 Z";
 
 // The beat indicator in the main status panel
 class BeatIndicator
@@ -354,6 +366,11 @@ class DisclosureArrow
     Padding = EdgeInsets(3,4,3,3);
 }
 
+class TableView
+{
+    Background =  #121212;
+}
+
 // Common base style for all table rows
 class TableRow_common
 {
@@ -373,6 +390,11 @@ class TableRow_common
 
 class TableRow_TopLevelItem : TableRow_common
 {
+}
+
+class TableRow_TopLevelFooter : TableRow_common
+{
+    BorderColor = #00000000;
 }
 
 class TableRow_ChildItem : TableRow_common
@@ -1592,11 +1614,6 @@ context RouteSlot
     }
 }
 
-context PluginSlot
-{
-    class BypassButton {}
-    class MidiFiltersButton {}
-}
 
 context MediaPlayerSlot
 {
@@ -1746,4 +1763,100 @@ class KeyboardPanel
             };
        }
     }
+}
+
+var makeSlotButtonImage = (svg, color) => Rasterize()
+{
+    Size = (16,16);
+    Gravity = Center;
+    Inner = [
+        Path()
+        {
+            Bounds = (0, 0, 30, 30);
+            SvgData = svg;
+            FillColor = color;
+        },
+    ];
+};
+
+var makeSlotButtonImage2 = (svg, color, svg2, color2) => Rasterize()
+{
+    Size = (16,16);
+    Gravity = Center;
+    Inner = [
+        Path()
+        {
+            Bounds = (0, 0, 30, 30);
+            SvgData = svg;
+            FillColor = color;
+        },
+        Path()
+        {
+            Bounds = (0, 0, 30, 30);
+            SvgData = svg2;
+            FillColor = color2;
+        }
+    ];
+};
+
+class SlotButton<svgNormal, colorNormal, svgChecked, colorChecked> : SlotButton
+{
+    Image = Frame()
+    {
+        InnerSize = (16, 16);
+        Gravity = Center;
+        Inner =
+        {
+            Checked && Pressed = makeSlotButtonImage(svgChecked, Color.White);
+            Checked = makeSlotButtonImage(svgChecked, colorChecked);
+            Pressed = makeSlotButtonImage(svgNormal, Color.White);
+            else = makeSlotButtonImage(svgNormal, colorNormal);
+        };
+    };
+}
+
+class SlotEnableButton : SlotButton
+{
+    Image = Frame()
+    {
+        InnerSize = (16, 16);
+        Gravity = Center;
+        Inner =
+        {
+            Checked && Pressed && Error = makeSlotButtonImage2(svg_Enabled, Color.White, svg_Error, Color.White);
+            Checked && Error = makeSlotButtonImage2(svg_Enabled, #808080, svg_Error, Color.Red);
+            Checked && Pressed = makeSlotButtonImage(svg_Enabled, Color.White);
+            Checked = makeSlotButtonImage(svg_Enabled, Color.White);
+            Pressed = makeSlotButtonImage(svg_Disabled, Color.White);
+            else = makeSlotButtonImage(svg_Disabled, Color.Tomato);
+        };
+    };
+}
+
+class SlotBypassButton : SlotButton<svg_BypassOff, Color.White, svg_BypassOn, Color.Tomato> {}
+class SlotPlayButton : CantabileButton, GlowButton<18, svg_Play, Color.Lime> {  }
+class SlotPauseButton : CantabileButton, GlowButton<18, svg_Pause, Color.Orange>  {  }
+class SlotStopButton : CantabileButton, ToolbarButton<18, svg_Stop> {  }
+class SlotRackTypeIcon : SlotButton<svg_LinkedRack, Color.White, svg_EmbeddedRack, Color.White> {}
+class SlotMidiFiltersButton : CantabileButton, GlowButton<18, svg_MidiFilter, Color.Lime> {  }
+
+class SlotBidiButton : CantabileButton
+{
+    Image = Frame()
+    {
+        InnerSize = (16, 16);
+        Gravity = Center;
+        Inner =
+        {
+            Checked && Alternate && Error && (Focused || Pressed || Selected) && ContainerFocused = makeSlotButtonImage2(svg_BidiHalf, Color.White, svg_Error, Color.White);
+            Checked && Alternate && Error = makeSlotButtonImage2(svg_BidiHalf, #808080, svg_Error, Color.Red);
+            Checked && Error && (Focused || Pressed || Selected) && ContainerFocused = makeSlotButtonImage2(svg_BidiFull, Color.White, svg_Error, Color.White);
+            Checked && Error = makeSlotButtonImage2(svg_BidiFull, #808080, svg_Error, Color.Red);
+            Checked && Alternate && (Focused || Pressed || Selected) && ContainerFocused = makeSlotButtonImage2(svg_BidiHalfForward, Color.White, svg_BidiHalfReverse, Color.White);
+            Checked && Alternate = makeSlotButtonImage2(svg_BidiHalfForward, Color.Tomato, svg_BidiHalfReverse, Color.White);
+            Checked && (Focused || Pressed || Selected) && ContainerFocused = makeSlotButtonImage(svg_BidiFull, Color.White);
+            Checked = makeSlotButtonImage(svg_BidiFull, Color.Tomato);
+            else = makeSlotButtonImage(svg_BidiOff, Color.White);
+        };
+    };
 }
