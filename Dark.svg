@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    sodipodi:docname="Dark.svg"
    id="svg8"
    version="1.1"
@@ -494,19 +494,6 @@
          in="shadowBlurOuter1"
          id="feColorMatrix17" />
     </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter47589"
-       x="-0.17236921"
-       y="-0.17236921"
-       width="1.3447384"
-       height="1.3447384">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.9336665"
-         id="feGaussianBlur47587" />
-    </filter>
     <radialGradient
        gradientTransform="matrix(0.26970516,0,0,0.26970512,-10.412694,-1.2427181)"
        gradientUnits="userSpaceOnUse"
@@ -701,19 +688,6 @@
          type="matrix"
          in="shadowInnerInner1"
          id="feColorMatrix87-6" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter25943"
-       x="-0.26494809"
-       y="-0.2648539"
-       width="1.5298962"
-       height="1.5297078">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.97228526"
-         id="feGaussianBlur25945" />
     </filter>
     <linearGradient
        x1="0.5"
@@ -1002,36 +976,6 @@
          id="stop16-7" />
     </linearGradient>
     <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient-5-7"
-       id="linearGradient1411"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.4597968,0,0,0.1522506,171.18541,197.64375)"
-       x1="-311.80066"
-       y1="-494.60507"
-       x2="-311.88242"
-       y2="-408.43582" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient-5-4"
-       id="linearGradient1316"
-       x1="43.445368"
-       y1="0"
-       x2="43.445368"
-       y2="86.890736"
-       gradientTransform="matrix(1.7378147,0,0,0.57543534,838.99998,292.99997)"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient-5-4"
-       id="linearGradient1685"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7378147,0,0,0.57543534,838.99998,292.99997)"
-       x1="-449.64072"
-       y1="-495.69885"
-       x2="-449.64072"
-       y2="-410.22137" />
-    <linearGradient
        x1="-434.47955"
        y1="-163.60051"
        x2="-434.47955"
@@ -1082,16 +1026,6 @@
          offset="100%"
          id="stop6-0-2" />
     </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient-1-3-0"
-       id="linearGradient8015"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-2.6832816,0,0,0.372678,-377.38744,-429.22359)"
-       x1="32.050308"
-       y1="0"
-       x2="32.050308"
-       y2="53.66563" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3776"
@@ -1269,11 +1203,11 @@
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g7521"
      inkscape:document-units="px"
-     inkscape:cy="70.082485"
-     inkscape:cx="147.38838"
-     inkscape:zoom="3.2533093"
+     inkscape:cy="140.8428"
+     inkscape:cx="198.00585"
+     inkscape:zoom="2.3004371"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -1297,1510 +1231,36 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
-    <path
-       id="rect18293"
-       style="stroke-width:0.999999"
-       d="m 103,190 c -1.662,0 -3,1.338 -3,3 v 12 c 0,1.662 1.338,3 3,3 5,0 15,0 15,0 v -18 c 0,0 -10,0 -15,0 z"
-       transform="scale(0.26458333)"
-       sodipodi:nodetypes="csscccc">
-      <title
-         id="title18291">GroupLeft</title>
-    </path>
-    <rect
-       style="font-variation-settings:normal;opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#999c9c;stroke-width:0.264589;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
-       id="rect23252"
-       width="3.4395776"
-       height="7.1436381"
-       x="5.4240408"
-       y="26.590656"
-       ry="0.39687499"
-       rx="0.39687499"
-       clip-path="url(#clipPath46241)"
-       transform="translate(0,-0.52916666)">
-      <title
-         id="title45343">OskKey_white</title>
-    </rect>
-    <rect
-       style="font-variation-settings:normal;opacity:1;fill:#121212;fill-opacity:1;stroke:#999c9c;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
-       id="rect23358"
-       width="3.4395833"
-       height="7.1437507"
-       x="10.186459"
-       y="26.590626"
-       ry="0.39687499"
-       rx="0.39687502"
-       clip-path="url(#clipPath46249)"
-       transform="translate(4.7625002,-0.52916666)">
-      <title
-         id="title45345">OskKey_black</title>
-    </rect>
-    <rect
-       style="font-variation-settings:normal;opacity:1;fill:#01aef7;fill-opacity:1;stroke:#999c9c;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
-       id="rect23362"
-       width="3.4395838"
-       height="7.1437507"
-       x="14.948959"
-       y="26.590626"
-       ry="0.39687499"
-       rx="0.39687502"
-       clip-path="url(#clipPath46257)"
-       transform="translate(4.7625002,-0.52916666)">
-      <title
-         id="title45347">OskKey_highlight</title>
-    </rect>
-    <rect
-       style="font-variation-settings:normal;opacity:1;fill:#037aee;fill-opacity:1;stroke:#999c9c;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
-       id="rect23366"
-       width="3.4395838"
-       height="7.1437507"
-       x="19.711458"
-       y="26.590626"
-       ry="0.39687499"
-       rx="0.39687502"
-       clip-path="url(#clipPath46367)"
-       transform="translate(4.7625002,-0.52916666)">
-      <title
-         id="title46373">OskKey_pressed</title>
-    </rect>
-    <g
-       id="OskOctaveBarActive"
-       transform="matrix(0.07150901,0,0,0.26458333,31.220836,28.574999)"
-       fill="url(#linearGradient-5)"
-       style="fill:#037aee;fill-opacity:1">
-      <title
-         id="title44957">OskOctaveBar_focused</title>
-      <rect
-         x="0"
-         y="0"
-         width="37"
-         height="3"
-         rx="5.5499997"
-         id="rect95-0"
-         style="fill:#037aee;fill-opacity:1"
-         ry="1.5" />
-    </g>
-    <g
-       id="OskOctaveBarInactive"
-       transform="matrix(0.07150901,0,0,0.26458333,31.220836,26.987503)"
-       fill="#949599">
-      <title
-         id="title44959">OskOctaveBar</title>
-      <rect
-         x="0"
-         y="0"
-         width="37"
-         height="3"
-         rx="5.5499997"
-         id="rect98"
-         ry="1.5" />
-    </g>
-    <g
-       id="RoundHandle"
-       transform="matrix(0.26458333,0,0,0.26458333,29.897924,30.1625)"
-       fill="#ffffff"
-       stroke="#949599"
-       stroke-width="1.5">
-      <title
-         id="title44955">OskRangeHandle</title>
-      <circle
-         cx="4.5"
-         cy="4.5"
-         r="3.75"
-         id="circle126" />
-    </g>
-    <g
-       id="RoundHandleFocused"
-       transform="matrix(0.26458333,0,0,0.26458333,32.543751,30.1625)"
-       fill="#ffffff"
-       stroke="#0373ed"
-       stroke-width="1.5">
-      <title
-         id="title44953">OskRangeHandle_focused</title>
-      <circle
-         cx="4.5"
-         cy="4.5"
-         r="3.75"
-         id="circle129" />
-    </g>
     <g
        id="g48214"
        transform="translate(-4.3961909,0.82662973)">
       <title
          id="title55287">SliderHandle</title>
-      <rect
-         y="34.89212"
-         x="9.6878576"
-         height="5.0270834"
-         width="5.0270834"
-         id="rect1359-9"
-         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.373346"
-         inkscape-export-transparent="1" />
-      <circle
-         style="font-variation-settings:normal;mix-blend-mode:normal;vector-effect:none;fill:#333333;fill-opacity:0.995968;fill-rule:evenodd;stroke:none;stroke-width:0.986621;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;filter:url(#filter47589);stop-color:#000000"
-         id="circle47468"
-         cx="-23.650196"
-         cy="-0.21239154"
-         r="6.5"
-         transform="matrix(0.28712508,0,0,0.28712508,18.991964,37.466645)" />
-      <circle
-         style="fill:#dfe1e5;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path47175"
-         cx="12.201399"
-         cy="37.405663"
-         r="1.7197917" />
-    </g>
-    <g
-       id="g63103">
-      <title
-         id="title63105">SliderHandle_focused</title>
-      <rect
-         y="35.71875"
-         x="10.583333"
-         height="5.0270834"
-         width="5.0270834"
-         id="rect50636"
-         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.373346"
-         inkscape-export-transparent="1" />
-      <circle
-         style="font-variation-settings:normal;mix-blend-mode:normal;vector-effect:none;fill:#333333;fill-opacity:0.995968;fill-rule:evenodd;stroke:none;stroke-width:0.986621;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;filter:url(#filter47589);stop-color:#000000"
-         id="circle50638"
-         cx="-23.650196"
-         cy="-0.21239154"
-         r="6.5"
-         transform="matrix(0.28712508,0,0,0.28712508,19.88744,38.293275)" />
-      <circle
-         style="fill:#0372ed;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="circle50640"
-         cx="13.096874"
-         cy="38.232292"
-         r="1.7197917" />
-    </g>
-    <g
-       id="g63109">
-      <title
-         id="title69409">SliderTrack</title>
-      <rect
-         y="35.71875"
-         x="15.875"
-         height="5.0270834"
-         width="10.054167"
-         id="rect50636-9"
-         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.373345"
-         inkscape-export-transparent="1" />
-      <rect
-         id="Rectangle-10"
-         x="17.859375"
-         y="37.835415"
-         width="6.0854168"
-         height="0.79374999"
-         rx="0.39687502"
-         ry="0.39687499"
-         style="fill:#949599;fill-opacity:1;stroke-width:0.264583" />
-    </g>
-    <g
-       id="g63115"
-       transform="translate(10.318749)">
-      <title
-         id="title69411">SliderTrackRangeA</title>
-      <rect
-         y="35.71875"
-         x="15.875"
-         height="5.0270834"
-         width="6.6145835"
-         id="rect63111"
-         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.373345"
-         inkscape-export-transparent="1" />
-      <rect
-         id="rect63113"
-         x="15.875"
-         y="37.835415"
-         width="6.6145835"
-         height="0.79374999"
-         rx="0.39687502"
-         ry="0.39687499"
-         style="fill:#7ed321;fill-opacity:1;stroke-width:0.264583" />
-    </g>
-    <g
-       id="g65930"
-       transform="translate(17.197907)">
-      <title
-         id="title69413">SliderTrackRangeB</title>
-      <rect
-         y="35.71875"
-         x="15.875"
-         height="5.0270834"
-         width="6.6145835"
-         id="rect65926"
-         style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.373345"
-         inkscape-export-transparent="1" />
-      <rect
-         id="rect65928"
-         x="15.875"
-         y="37.835415"
-         width="6.6145835"
-         height="0.79374999"
-         rx="0.39687502"
-         ry="0.39687499"
-         style="fill:#59a0ef;fill-opacity:1;stroke-width:0.264583" />
-    </g>
-    <g
-       id="g2170"
-       transform="translate(5.8208327)">
-      <title
-         id="title18019">RunMode_suspended</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373346"
-         id="rect2166"
-         width="5.0270834"
-         height="5.0270834"
-         x="28.83959"
-         y="5.2916665"
-         inkscape-export-transparent="1" />
-      <rect
-         style="font-variation-settings:normal;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ff6600;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
-         id="rect2168"
-         width="2.6458333"
-         height="2.6458337"
-         x="30.030214"
-         y="6.4822912"
-         rx="0.66145831"
-         ry="0.66145831" />
-      <rect
-         id="Rectangle-5"
-         fill="#ff6600"
-         x="30.555557"
-         y="7.5773296"
-         width="1.5951486"
-         height="0.45575669"
-         rx="0.23705485"
-         ry="0.2187019"
-         style="stroke-width:0.264583" />
-    </g>
-    <g
-       id="g2178"
-       transform="translate(11.641664)">
-      <title
-         id="title18021">RunMode_error</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373346"
-         id="rect2174"
-         width="5.0270834"
-         height="5.0270834"
-         x="28.83959"
-         y="5.2916665"
-         inkscape-export-transparent="1" />
-      <rect
-         style="font-variation-settings:normal;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#d0021b;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
-         id="rect2176"
-         width="2.6458333"
-         height="2.6458337"
-         x="30.030214"
-         y="6.4822912"
-         rx="0.66145831"
-         ry="0.66145831" />
-      <path
-         d="m 30.868347,8.4283643 c -0.03795,0.037947 -0.09971,0.037755 -0.137922,-4.498e-4 -0.03848,-0.038479 -0.03842,-0.099962 -5.29e-4,-0.1379223 L 31.214678,7.8052081 30.729896,7.3204242 c -0.03795,-0.037947 -0.03776,-0.09971 5.29e-4,-0.1379225 0.03848,-0.038479 0.09996,-0.038417 0.137922,-4.498e-4 l 0.484785,0.4847839 0.484783,-0.4847839 c 0.03795,-0.037947 0.09971,-0.037755 0.137922,4.498e-4 0.03848,0.038479 0.03842,0.099963 5.29e-4,0.1379225 l -0.484783,0.4847839 0.484783,0.4847841 c 0.03795,0.037947 0.03776,0.09971 -5.29e-4,0.1379223 -0.03848,0.038479 -0.09996,0.038417 -0.137922,4.498e-4 L 31.353132,7.9435802 Z"
-         id="Cross-2"
-         fill="#d0021b"
-         style="stroke-width:0.264583" />
-    </g>
-    <g
-       id="g25980"
-       transform="translate(-0.0884288,-1.4276543)">
-      <title
-         id="title1172">SoloButton_off</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373347"
-         id="rect1480-3-6"
-         width="4.7624998"
-         height="4.7625003"
-         x="5.3800955"
-         y="45.083904"
-         inkscape-export-transparent="1" />
-      <g
-         id="SymbolButton_Solo"
-         transform="matrix(0.26458333,0,0,0.26458333,5.3800954,45.083904)"
-         fill="#bbbbbb"
-         style="stroke-width:0.999999">
-        <path
-           d="m 6.3695198,12.049724 c 0.2004186,0.09577 0.4759899,0.174953 0.8267224,0.237569 0.3507324,0.06261 0.7376457,0.09392 1.1607515,0.09392 0.4008371,0 0.7710491,-0.02763 1.1106472,-0.08287 0.3395981,-0.05525 0.6374381,-0.138121 0.8935281,-0.248619 0.25609,-0.110498 0.456506,-0.25046 0.601253,-0.41989 0.144746,-0.16943 0.217119,-0.372006 0.217119,-0.607735 0,-0.302027 -0.153096,-0.552485 -0.45929,-0.751381 C 10.414056,10.071822 10.032709,9.8950284 9.5762004,9.7403315 9.1196915,9.5856346 8.6242198,9.4346232 8.0897704,9.2872928 7.5553209,9.1399624 7.0598492,8.9668518 6.6033403,8.7679558 6.1468314,8.5690598 5.7654852,8.3296515 5.4592902,8.0497238 5.1530952,7.769796 5,7.4162084 5,6.9889503 5,6.3627961 5.3590778,5.8747715 6.0772443,5.5248619 6.7954107,5.1749522 7.7668693,5 8.9916493,5 c 0.768271,0 1.4307557,0.033149 1.9874737,0.099448 0.556718,0.066299 1.029922,0.1546956 1.419624,0.2651934 v 1.900552 H 11.329854 V 6.0718232 L 11.06263,5.7955801 C 10.851078,5.736648 10.544887,5.6924495 10.14405,5.6629834 9.743213,5.6335173 9.3479491,5.6187845 8.9582464,5.6187845 c -0.6680619,0 -1.1913691,0.1012881 -1.5699374,0.3038674 -0.3785684,0.2025793 -0.5678497,0.4880277 -0.5678497,0.8563536 0,0.3020273 0.1530952,0.5543268 0.4592902,0.7569061 0.306195,0.2025793 0.6875412,0.3848979 1.1440501,0.5469613 0.4565089,0.1620635 0.9519806,0.3185996 1.4864301,0.4696133 0.5344493,0.1510136 1.0299213,0.3241242 1.4864303,0.519337 0.456509,0.1952128 0.837855,0.4290963 1.14405,0.7016575 C 12.846905,10.046042 13,10.384897 13,10.790055 13,11.504608 12.582468,12.051564 11.74739,12.430939 10.912313,12.810315 9.771058,13 8.3235908,13 7.533051,13 6.8482979,12.944752 6.2693111,12.834254 5.6903242,12.723756 5.2672247,12.605894 5,12.480663 v -2.01105 h 1.0688935 v 1.314917 z"
-           id="S"
-           style="stroke-width:0.999999" />
-      </g>
-    </g>
-    <g
-       id="g25988"
-       transform="translate(-0.35301269,-1.4276543)">
-      <title
-         id="title1174">SoloButton_on</title>
-      <path
-         id="rect25969"
-         style="fill:#333333;stroke-width:0.373347"
-         d="m 10.936346,45.083904 h 4.7625 v 4.762501 h -4.7625 z"
-         inkscape-export-transparent="1" />
-      <path
-         d="m 12.621609,48.272055 c 0.05303,0.02534 0.125939,0.04629 0.218737,0.06286 0.0928,0.01656 0.195168,0.02485 0.307115,0.02485 0.106055,0 0.204007,-0.0073 0.293859,-0.02193 0.08985,-0.01462 0.168655,-0.03654 0.236413,-0.06578 0.06776,-0.02924 0.120783,-0.06627 0.159081,-0.111096 0.0383,-0.04483 0.05745,-0.09843 0.05745,-0.160796 0,-0.07991 -0.04051,-0.146179 -0.12152,-0.198803 -0.08101,-0.05262 -0.181912,-0.0994 -0.302697,-0.140332 -0.120785,-0.04093 -0.251878,-0.08088 -0.393285,-0.119866 -0.141406,-0.03898 -0.2725,-0.08478 -0.393284,-0.137408 -0.120785,-0.05262 -0.221683,-0.115968 -0.302697,-0.190032 -0.08101,-0.07406 -0.12152,-0.167618 -0.12152,-0.280663 0,-0.16567 0.09501,-0.294793 0.285022,-0.387374 0.190014,-0.09258 0.447046,-0.138869 0.771103,-0.138869 0.203271,0 0.378554,0.0088 0.525852,0.02631 0.147297,0.01754 0.2725,0.04093 0.375609,0.07017 v 0.502854 h -0.282812 v -0.315746 l -0.0707,-0.07309 c -0.05597,-0.01559 -0.136986,-0.02729 -0.24304,-0.03508 -0.106055,-0.0078 -0.210635,-0.01169 -0.313744,-0.01169 -0.176758,0 -0.315217,0.0268 -0.41538,0.0804 -0.100162,0.0536 -0.150243,0.129124 -0.150243,0.226577 0,0.07991 0.04051,0.146665 0.12152,0.200265 0.08101,0.0536 0.181912,0.101837 0.302697,0.144716 0.120785,0.04288 0.251878,0.0843 0.393285,0.124252 0.141406,0.03996 0.2725,0.08576 0.393284,0.137408 0.120785,0.05165 0.221683,0.113532 0.302697,0.185647 0.08101,0.07211 0.12152,0.161771 0.12152,0.268969 0,0.189058 -0.110473,0.333774 -0.331419,0.43415 -0.220948,0.100377 -0.522906,0.150564 -0.905881,0.150564 -0.209164,0 -0.390338,-0.01462 -0.543528,-0.04385 -0.15319,-0.02924 -0.265135,-0.06042 -0.335838,-0.09355 v -0.53209 h 0.28281 v 0.347905 z"
-         id="path18669"
-         style="fill:#03c403;fill-opacity:1;stroke-width:0.212463" />
-      <path
-         id="path25939"
-         style="mix-blend-mode:normal;fill:#03c403;fill-opacity:1;stroke-width:0.80301;filter:url(#filter25943)"
-         d="M 8.5371094,4.6054688 C 7.188268,4.6850422 5.5247715,4.8997776 4.7832031,6.1855469 4.2772563,7.1549738 4.8385886,8.3316902 5.7753906,8.7871094 7.2950246,9.7391993 9.1648498,9.721999 10.638672,10.71875 c 0.4766,0.613638 -0.489119,1.085989 -0.998295,1.13175 -1.022145,0.178528 -2.1741464,0.237571 -3.1254095,-0.209753 -0.1757977,-0.445419 0.1246327,-1.262988 -0.1442644,-1.574341 -0.5910156,0 -1.1820312,0 -1.7730469,0 0,0.895183 10e-8,1.790365 0,2.685547 1.9747172,0.803406 4.2126396,0.794196 6.2785678,0.389462 1.209117,-0.227902 2.656587,-1.073122 2.514216,-2.488966 C 13.284821,9.3122513 11.788048,8.7709412 10.707304,8.382227 9.5565758,7.9507972 8.2058517,7.8230767 7.2714844,6.9726562 7.0448884,6.2209274 8.1016438,6.0596679 8.6370288,6.0330948 9.3561625,6.0453136 10.190438,5.952679 10.927734,6.234375 c 0.154137,0.423728 -0.331617,1.4873469 0.3,1.4335938 0.485745,-0.071938 1.25674,0.1413753 1.573047,-0.1 0,-0.8377605 0,-1.6755209 0,-2.5132813 C 11.418932,4.6498694 9.968509,4.5795632 8.5371094,4.6054688 Z"
-         transform="matrix(0.26458333,0,0,0.26458333,10.93727,45.082333)" />
-    </g>
-    <rect
-       id="GroupShadow"
-       x="5.291666"
-       y="50.270832"
-       width="4.7625003"
-       height="4.7624998"
-       rx="0.79374999"
-       ry="0.79374999"
-       style="fill:#ffffff;fill-opacity:0.1;stroke:none;stroke-width:1">
-      <title
-         id="title2945">SubtleHighlight</title>
-    </rect>
-    <rect
-       x="21.166666"
-       y="50.270832"
-       width="4.7624998"
-       height="4.7624998"
-       rx="0.79374999"
-       id="rect38"
-       ry="0.79374999"
-       style="fill:#000000;stroke-width:0.264583">
-      <title
-         id="title2963">RoundedRect</title>
-    </rect>
-    <rect
-       style="fill:none;fill-opacity:0.1;stroke:#ff0000;stroke-width:0.079375;stroke-miterlimit:4;stroke-dasharray:0.079375, 0.079375;stroke-dashoffset:0;stop-color:#000000"
-       id="rect3795"
-       width="5.3658862"
-       height="5.0938883"
-       x="4.9899726"
-       y="50.105137"
-       rx="0.18204907"
-       ry="0.25147346" />
-    <g
-       id="g1079"
-       transform="translate(4.9386542,-1.4276543)">
-      <title
-         id="title1176">SoloButton_muted</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373347"
-         id="rect1067"
-         width="4.7624998"
-         height="4.7625003"
-         x="10.936346"
-         y="45.083904"
-         inkscape-export-transparent="1" />
-      <g
-         id="SymbolButton_Solo_Muted"
-         transform="matrix(0.26858636,0,0,0.26858636,10.916331,45.063889)"
-         fill="#ff6600"
-         style="stroke-width:0.985096">
-        <path
-           d="M 6.0087743,12.708801 C 5.7792987,12.938277 5.4058035,12.937118 5.174724,12.706039 4.9420335,12.473348 4.9424077,12.101542 5.1719615,11.871989 L 8.1035687,8.9403814 5.1719615,6.0087743 C 4.942486,5.7792987 4.9436445,5.4058035 5.174724,5.174724 5.4074145,4.9420335 5.7792205,4.9424077 6.0087743,5.1719615 L 8.9403814,8.1035687 11.871989,5.1719615 c 0.229475,-0.2294755 0.60297,-0.228317 0.83405,0.00276 0.23269,0.2326905 0.232316,0.6044965 0.0028,0.8340503 L 9.7771942,8.9403814 12.708801,11.871989 c 0.229476,0.229475 0.228317,0.60297 -0.0028,0.83405 -0.232691,0.23269 -0.604497,0.232316 -0.83405,0.0028 L 8.9403814,9.7771942 Z"
-           id="path334"
-           style="stroke-width:0.985096" />
-      </g>
-    </g>
-    <rect
-       style="font-variation-settings:normal;opacity:1;fill:#cdcdcd;fill-opacity:1;stroke:#999c9c;stroke-width:0.264589;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
-       id="rect1429"
-       width="3.4395776"
-       height="7.1436381"
-       x="5.4240408"
-       y="26.590656"
-       ry="0.39687499"
-       rx="0.39687499"
-       clip-path="url(#clipPath46241)"
-       transform="translate(4.7625002,-0.52916666)">
-      <title
-         id="title1427">OskKey_middlec</title>
-    </rect>
-    <g
-       id="g1361"
-       transform="translate(2.6494438,-5.0379204)">
-      <title
-         id="title1383">ExpandButton_expanded</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373347"
-         id="rect1067-3"
-         width="4.2333336"
-         height="4.2333336"
-         x="7.9338899"
-         y="98.964996"
-         inkscape-export-transparent="1" />
-      <g
-         id="SymbolButton_Tree_Hot"
-         transform="matrix(0.26458333,0,0,0.26458333,7.93389,98.964996)"
-         fill="#cccccc">
-        <polygon
-           id="path4247"
-           transform="rotate(90,8,7.750001)"
-           points="5.2499992,13.750001 5.2499992,1.750001 11.249999,7.750001 " />
-      </g>
     </g>
     <g
        id="g1366"
        transform="translate(-11.66797,-4.5221581)">
       <title
          id="title1381">ExpandButton_collapsed</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373347"
-         id="rect1239"
-         width="4.2333336"
-         height="4.2333336"
-         x="16.959637"
-         y="98.449242"
-         inkscape-export-transparent="1" />
-      <g
-         id="SymbolButton_Tree"
-         transform="matrix(0.26458333,0,0,0.26458333,16.959637,98.449242)"
-         fill="#cccccc">
-        <polygon
-           id="path4203"
-           points="5,2 10.999999,8.0000004 5,14 " />
-      </g>
-    </g>
-    <g
-       id="g9244">
-      <title
-         id="title9255">Gripper_lhs</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373347"
-         id="rect1067-3-8"
-         width="4.2333336"
-         height="4.2333336"
-         x="15.345833"
-         y="93.927086"
-         inkscape-export-transparent="1" />
-      <g
-         id="Group-Copy"
-         transform="matrix(0.18898809,0,0,0.18898809,16.895535,94.720836)"
-         fill="#808080"
-         style="fill:#cccccc;fill-opacity:1;stroke-width:1.4">
-        <ellipse
-           id="ellipse53"
-           cx="1.25"
-           cy="1.2962964"
-           rx="1.25"
-           ry="1.2962964"
-           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
-        <ellipse
-           id="ellipse55"
-           cx="1.25"
-           cy="7"
-           rx="1.25"
-           ry="1.2962964"
-           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
-        <ellipse
-           id="ellipse57"
-           cx="4.75"
-           cy="4.4074073"
-           rx="1.25"
-           ry="1.2962964"
-           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
-        <ellipse
-           id="ellipse59"
-           cx="4.75"
-           cy="10.111111"
-           rx="1.25"
-           ry="1.2962964"
-           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
-        <ellipse
-           id="ellipse61"
-           cx="1.25"
-           cy="12.703704"
-           rx="1.25"
-           ry="1.2962964"
-           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
-      </g>
-    </g>
-    <g
-       id="g249"
-       transform="matrix(0.26458333,0,0,0.26458333,29.434552,93.790306)">
-      <title
-         id="title24985">DisclosureButton_focused</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373347"
-         id="rect10429"
-         width="16"
-         height="16"
-         x="0.75133646"
-         y="0.51695049"
-         inkscape-export-transparent="1" />
-      <path
-         d="m 8.751336,1.5169505 c 3.865993,0 7.000001,3.1340068 7.000001,7.0000001 0,3.8659924 -3.134008,6.9999994 -7.000001,6.9999994 -3.8659933,0 -7,-3.134007 -7,-6.9999994 0,-3.8659933 3.1340067,-7.0000001 7,-7.0000001 z M 7.3979185,3.8348687 6.0603769,5.1724104 9.3673549,8.4923945 6.0603769,11.799372 7.3979185,13.136913 11.380171,9.154662 12.048942,8.4858913 Z"
-         id="use247"
-         style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.264583" />
-    </g>
-    <g
-       id="g9253">
-      <title
-         id="title9257">Gripper_rhs</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373347"
-         id="rect1273"
-         width="4.2333336"
-         height="4.2333336"
-         x="20.108339"
-         y="93.927086"
-         inkscape-export-transparent="1" />
-      <g
-         id="Group-Copy-2"
-         transform="matrix(-0.18898809,0,0,-0.18898809,22.79197,97.366669)"
-         fill="#808080"
-         style="fill:#cccccc;fill-opacity:1;stroke-width:1.4">
-        <ellipse
-           id="ellipse64"
-           cx="1.25"
-           cy="1.2962964"
-           rx="1.25"
-           ry="1.2962964"
-           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
-        <ellipse
-           id="ellipse66"
-           cx="1.25"
-           cy="7"
-           rx="1.25"
-           ry="1.2962964"
-           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
-        <ellipse
-           id="ellipse68"
-           cx="4.75"
-           cy="4.4074073"
-           rx="1.25"
-           ry="1.2962964"
-           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
-        <ellipse
-           id="ellipse70"
-           cx="4.75"
-           cy="10.111111"
-           rx="1.25"
-           ry="1.2962964"
-           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
-        <ellipse
-           id="ellipse72"
-           cx="1.25"
-           cy="12.703704"
-           rx="1.25"
-           ry="1.2962964"
-           style="fill:#cccccc;fill-opacity:1;stroke-width:1.4" />
-      </g>
-    </g>
-    <g
-       id="g11376"
-       transform="matrix(0.26458333,0,0,0.26458333,24.672049,93.790306)">
-      <title
-         id="title24983">DisclosureButton</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.373347"
-         id="rect11372"
-         width="16"
-         height="16"
-         x="0.75133646"
-         y="0.51695049"
-         inkscape-export-transparent="1" />
-      <path
-         style="fill:#616364;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583"
-         d="m 8.751336,1.5169505 c 3.865993,0 7.000001,3.1340068 7.000001,7.0000001 0,3.8659924 -3.134008,6.9999994 -7.000001,6.9999994 -3.8659933,0 -7,-3.134007 -7,-6.9999994 0,-3.8659933 3.1340067,-7.0000001 7,-7.0000001 z"
-         id="path11374" />
-      <path
-         style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.264583"
-         d="M 7.3979185,3.8348687 6.0603769,5.1724104 9.3673549,8.4923945 6.0603769,11.799372 7.3979185,13.136913 11.380171,9.154662 12.048942,8.4858913 Z"
-         id="path11380" />
-    </g>
-    <g
-       id="g26094"
-       transform="matrix(0.26458333,0,0,0.26458333,5.092873,100.14031)">
-      <title
-         id="title26210">TableRowChild</title>
-      <rect
-         style="fill:#121212;fill-opacity:1;stroke:none;stroke-width:0.373347"
-         id="rect25601"
-         width="40"
-         height="12"
-         x="0.75133651"
-         y="1.5169396" />
-      <rect
-         style="fill:#43464c;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:0.3, 0.3;stop-color:#000000"
-         id="rect25709"
-         width="1"
-         height="12"
-         x="26.751347"
-         y="1.5169396" />
-      <rect
-         style="fill:#1e1e21;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:0.3, 0.3;stop-color:#000000"
-         id="rect25991"
-         width="13"
-         height="12"
-         x="27.751347"
-         y="1.5169396" />
-    </g>
-    <g
-       id="g26102"
-       transform="matrix(0.26458333,0,0,0.26458333,16.205375,100.14031)">
-      <title
-         id="title26212">TableRowChild_focused</title>
-      <rect
-         style="fill:#121212;fill-opacity:1;stroke:none;stroke-width:0.373347"
-         id="rect26096"
-         width="40"
-         height="12"
-         x="0.75133651"
-         y="1.5169396" />
-      <rect
-         style="fill:#43464c;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:0.3, 0.3;stop-color:#000000"
-         id="rect26098"
-         width="1"
-         height="12"
-         x="26.751339"
-         y="1.5169396" />
-      <rect
-         style="fill:#0e1721;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:0.3, 0.3;stop-color:#000000"
-         id="rect26100"
-         width="13"
-         height="12"
-         x="27.751339"
-         y="1.5169396" />
-    </g>
-    <g
-       id="g11029">
-      <title
-         id="title11031">EjectButton</title>
-      <rect
-         style="fill:#ececec;fill-opacity:1;stroke:none;stroke-width:0.0987812"
-         id="rect6275"
-         width="8.4666672"
-         height="4.2333331"
-         x="34.395847"
-         y="93.927086"
-         inkscape-export-transparent="1" />
-      <path
-         d="m 39.952097,96.837499 v 0.529166 h -2.645833 v -0.529166 z m -1.322916,-2.116667 1.322916,1.5875 h -2.645833 c 0,0 0.317816,-0.401725 0.677056,-0.835719 l 0.08351,-0.100558 c 0.181988,-0.218386 0.369018,-0.437734 0.526538,-0.611863 z"
-         id="path459"
-         style="fill:#000000;fill-opacity:1;stroke-width:0.264583" />
-    </g>
-    <g
-       id="g17304"
-       transform="matrix(0.66666668,0,0,1.0000001,22.577785,-5.1837037e-6)"
-       style="stroke-width:1.22474">
-      <title
-         id="title17298">TableView</title>
-      <rect
-         style="fill:#ececec;fill-opacity:1;stroke:none;stroke-width:0.120982"
-         id="rect17300"
-         width="6.3499999"
-         height="4.2333331"
-         x="34.395847"
-         y="93.927086"
-         inkscape-export-transparent="1" />
-      <g
-         id="g17664"
-         transform="matrix(1.5,0,0,0.99999989,-59.528174,-5.7720255)">
-        <rect
-           id="Rectangle"
-           x="63.01289"
-           y="100.36058"
-           width="1.5875"
-           height="0.52916664"
-           rx="0.26458332"
-           ry="0.26458332"
-           style="fill:#000000;stroke-width:0.264583" />
-        <rect
-           id="rect509"
-           x="64.864975"
-           y="100.36058"
-           width="1.5875"
-           height="0.52916664"
-           rx="0.26458332"
-           ry="0.26458332"
-           style="fill:#000000;stroke-width:0.264583" />
-        <rect
-           id="rect511"
-           x="63.01289"
-           y="101.15434"
-           width="1.5875"
-           height="0.52916664"
-           rx="0.26458332"
-           ry="0.26458332"
-           style="fill:#000000;stroke-width:0.264583" />
-        <rect
-           id="rect513"
-           x="64.864975"
-           y="101.15434"
-           width="1.5875"
-           height="0.52916664"
-           rx="0.26458332"
-           ry="0.26458332"
-           style="fill:#000000;stroke-width:0.264583" />
-        <rect
-           id="rect515"
-           x="63.01289"
-           y="101.94808"
-           width="1.5875"
-           height="0.52916664"
-           rx="0.26458332"
-           ry="0.26458332"
-           style="fill:#000000;stroke-width:0.264583" />
-        <rect
-           id="rect517"
-           x="64.864975"
-           y="101.94808"
-           width="1.5875"
-           height="0.52916664"
-           rx="0.26458332"
-           ry="0.26458332"
-           style="fill:#000000;stroke-width:0.264583" />
-        <rect
-           id="rect519"
-           x="63.01289"
-           y="102.74183"
-           width="1.5875"
-           height="0.52916664"
-           rx="0.26458332"
-           ry="0.26458332"
-           style="fill:#000000;stroke-width:0.264583" />
-        <rect
-           id="rect521"
-           x="64.864975"
-           y="102.74183"
-           width="1.5875"
-           height="0.52916664"
-           rx="0.26458332"
-           ry="0.26458332"
-           style="fill:#000000;stroke-width:0.264583" />
-      </g>
-    </g>
-    <g
-       id="g17728"
-       transform="matrix(0.66666668,0,0,1.0000001,27.869455,-5.1837037e-6)"
-       style="stroke-width:1.22474">
-      <title
-         id="title17706">DiagramView</title>
-      <rect
-         style="fill:#ececec;fill-opacity:1;stroke:none;stroke-width:0.120982"
-         id="rect17708"
-         width="6.3499999"
-         height="4.2333331"
-         x="34.395847"
-         y="93.927086"
-         inkscape-export-transparent="1" />
-      <g
-         id="RoutingViewWiring"
-         transform="matrix(0.39687499,0,0,0.26458331,34.59458,93.926865)">
-        <path
-           id="Triangle"
-           d="m 247.6582,396.81641 v 2.00195 c -1.18661,0.0253 -1.96784,0.27942 -2.48828,0.72266 -0.54914,0.46767 -0.73368,1.08433 -0.86914,1.58007 -0.13546,0.49575 -0.23974,0.87291 -0.47461,1.11524 -0.19964,0.20598 -0.53499,0.38913 -1.25195,0.43945 -0.28485,-1.06712 -1.26247,-1.85937 -2.41602,-1.85937 -1.37479,0 -2.5,1.12521 -2.5,2.5 0,1.37478 1.12521,2.5 2.5,2.5 1.19728,0 2.20498,-0.85399 2.44532,-1.98243 0.69311,0.0545 1.02027,0.23778 1.21875,0.44922 0.23699,0.25248 0.34322,0.64895 0.47851,1.16016 0.13529,0.51121 0.31526,1.14114 0.86328,1.62305 0.51939,0.45672 1.30527,0.71968 2.49414,0.74609 v 2.00391 l 4,-2.5 -4,-2.5 v 1.99609 c -1.03188,-0.0251 -1.5471,-0.24383 -1.83398,-0.49609 -0.30487,-0.2681 -0.42729,-0.63817 -0.55664,-1.12696 -0.12935,-0.48879 -0.24979,-1.09232 -0.7168,-1.58984 -0.1195,-0.12731 -0.25795,-0.24152 -0.41797,-0.33984 0.15762,-0.0944 0.29334,-0.20363 0.41211,-0.32618 0.46914,-0.48403 0.59153,-1.07608 0.7207,-1.54882 0.12918,-0.47275 0.24898,-0.82334 0.55274,-1.08204 0.28583,-0.24342 0.80568,-0.45973 1.83984,-0.48437 v 1.99805 l 4,-2.5 z m -7.5,5 c 0.83435,0 1.5,0.66565 1.5,1.5 0,0.83434 -0.66565,1.5 -1.5,1.5 -0.83435,0 -1.5,-0.66566 -1.5,-1.5 0,-0.83435 0.66565,-1.5 1.5,-1.5 z"
-           transform="translate(-237.15895,-395.31557)" />
-      </g>
-    </g>
-    <rect
-       style="fill:#000000;fill-opacity:1;stroke-width:0.079375;stroke-dasharray:0.079375, 0.079375;stop-color:#000000"
-       id="rect18557"
-       width="4.7624998"
-       height="4.7624998"
-       x="31.750006"
-       y="50.270832">
-      <title
-         id="title18665">GroupCenter</title>
-    </rect>
-    <path
-       id="path18663"
-       style="stroke-width:0.264583"
-       d="m 41.010423,50.270833 c 0.439738,0 0.79375,0.354012 0.79375,0.79375 v 3.175 c 0,0.439737 -0.354012,0.79375 -0.79375,0.79375 -1.322916,0 -3.96875,0 -3.96875,0 v -4.7625 c 0,0 2.645834,0 3.96875,0 z"
-       sodipodi:nodetypes="csscccc">
-      <title
-         id="title18661">GroupRight</title>
-    </path>
-    <g
-       id="g1670">
-      <title
-         id="title1720">TimelineRangeLeft_hot</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
-         id="rect17708-2"
-         width="5.5562501"
-         height="7.9375"
-         x="5.2916665"
-         y="105.83334"
-         inkscape-export-transparent="1" />
-      <g
-         id="RangeLeft_Hot"
-         transform="matrix(0.26458333,0,0,0.26458333,4.2333334,105.83334)"
-         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
-        <polygon
-           id="Rectangle-1-Copy-6"
-           fill="#0480f1"
-           points="21,27 12,27 12,18 9,18 9,30 21,30 "
-           transform="translate(4)" />
-        <rect
-           id="Rectangle-1-Copy-5"
-           fill="#dfe1e5"
-           x="14"
-           y="0"
-           width="1"
-           height="17" />
-      </g>
-    </g>
-    <g
-       id="g1676">
-      <title
-         id="title1722">TimelineRangeLeft</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
-         id="rect1642"
-         width="5.5562501"
-         height="7.9375"
-         x="11.641667"
-         y="105.83334"
-         inkscape-export-transparent="1" />
-      <g
-         id="RangeLeft"
-         transform="matrix(0.26458333,0,0,0.26458333,11.641667,105.83334)"
-         fill="#dfe1e5"
-         style="fill-rule:evenodd;stroke:none;stroke-width:1">
-        <polygon
-           id="Rectangle-1-Copy-10"
-           points="12,18 9,18 9,30 21,30 21,27 12,27 " />
-        <rect
-           id="Rectangle-1-Copy-9"
-           x="10"
-           y="0"
-           width="1"
-           height="17" />
-      </g>
-    </g>
-    <g
-       id="g1682">
-      <title
-         id="title1724">TimelineRangeRight_hot</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
-         id="rect1644"
-         width="5.5562501"
-         height="7.9375"
-         x="17.991673"
-         y="105.83334"
-         inkscape-export-transparent="1" />
-      <g
-         id="RangeRight_Hot"
-         transform="matrix(0.26458333,0,0,0.26458333,17.991667,105.83334)"
-         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
-        <polygon
-           id="Rectangle-1-Copy-14"
-           fill="#0480f1"
-           transform="matrix(-1,0,0,1,12,0)"
-           points="0,30 12,30 12,27 3,27 3,18 0,18 " />
-        <rect
-           id="Rectangle-1-Copy-13"
-           fill="#dfe1e5"
-           x="10"
-           y="0"
-           width="1"
-           height="17" />
-      </g>
-    </g>
-    <g
-       id="g1694">
-      <title
-         id="title1726">TimelineRangeRight</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
-         id="rect1646"
-         width="5.5562501"
-         height="7.9375"
-         x="24.341679"
-         y="105.83334"
-         inkscape-export-transparent="1" />
-      <g
-         id="RangeRight"
-         transform="matrix(0.26458333,0,0,0.26458333,24.341667,105.83334)"
-         fill="#dfe1e5"
-         style="fill-rule:evenodd;stroke:none;stroke-width:1">
-        <polygon
-           id="Rectangle-1-Copy-12"
-           transform="matrix(-1,0,0,1,12,0)"
-           points="3,18 0,18 0,30 12,30 12,27 3,27 " />
-        <rect
-           id="Rectangle-1-Copy-11"
-           x="10"
-           y="0"
-           width="1"
-           height="17" />
-      </g>
     </g>
     <g
        id="g1701">
       <title
          id="title1728">TimelinePlayPos</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
-         id="rect1648"
-         width="5.5562501"
-         height="7.9375"
-         x="30.691685"
-         y="105.83334"
-         inkscape-export-transparent="1" />
       <g
          id="PlayPos"
          transform="matrix(0.26458333,0,0,0.26458333,30.691685,105.83334)"
          fill="#ff6600"
-         style="fill-rule:evenodd;stroke:none;stroke-width:1">
-        <polygon
-           id="Rectangle-1-Copy-15"
-           transform="rotate(180,10.5,8)"
-           points="4,10 4,13 17,13 17,10 12,3 9,3 " />
-        <rect
-           id="Rectangle-1-Copy-16"
-           x="10"
-           y="14"
-           width="1"
-           height="16" />
-        <rect
-           id="Rectangle-1-Copy-19"
-           x="10"
-           y="0"
-           width="1"
-           height="2" />
-      </g>
-    </g>
-    <g
-       id="g1708">
-      <title
-         id="title1730">TimelinePlayPos_hot</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
-         id="rect1650"
-         width="5.5562501"
-         height="7.9375"
-         x="37.041691"
-         y="105.83334"
-         inkscape-export-transparent="1" />
-      <g
-         id="PlayPos_Hot"
-         transform="matrix(0.26458333,0,0,0.26458333,37.041691,105.83334)"
-         style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1">
-        <polygon
-           id="Rectangle-1-Copy-18"
-           fill="#0480f1"
-           transform="rotate(180,10.5,8)"
-           points="4,10 4,13 17,13 17,10 12,3 9,3 " />
-        <rect
-           id="Rectangle-1-Copy-17"
-           fill="#ff6600"
-           x="10"
-           y="14"
-           width="1"
-           height="16" />
-        <rect
-           id="Rectangle-1-Copy-20"
-           fill="#ff6600"
-           x="10"
-           y="0"
-           width="1"
-           height="2" />
-      </g>
-    </g>
-    <g
-       id="g1713">
-      <title
-         id="title1732">TimelineCursor</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
-         id="rect1652"
-         width="5.5562501"
-         height="7.9375"
-         x="43.391697"
-         y="105.83334"
-         inkscape-export-transparent="1" />
-      <g
-         id="Cursor"
-         transform="matrix(0.26458333,0,0,0.26458333,43.391697,105.83334)"
-         fill="#ff6600"
-         opacity="0.6"
-         style="fill-rule:evenodd;stroke:none;stroke-width:1">
-        <rect
-           id="rect24"
-           x="10"
-           y="0"
-           width="1"
-           height="30" />
-      </g>
-    </g>
-    <g
-       id="g1718">
-      <title
-         id="title1734">TimelineCursor_hot</title>
-      <rect
-         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.0987814"
-         id="rect1654"
-         width="5.5562501"
-         height="7.9375"
-         x="49.741703"
-         y="105.83334"
-         inkscape-export-transparent="1" />
-      <g
-         id="Cursor_Hot"
-         transform="matrix(0.26458333,0,0,0.26458333,49.741703,105.83334)"
-         fill="#0480f1"
-         style="fill-rule:evenodd;stroke:none;stroke-width:1">
-        <rect
-           id="rect27"
-           x="10"
-           y="0"
-           width="1"
-           height="30" />
-      </g>
-    </g>
-    <rect
-       style="fill:#121212;fill-opacity:1;stroke:none;stroke-width:0.0987813"
-       id="rect17708-2-5"
-       width="83.872917"
-       height="71.4375"
-       x="5.2916665"
-       y="119.0625"
-       inkscape-export-transparent="1" />
-    <rect
-       id="Rect"
-       x="6.6145835"
-       y="120.38541"
-       width="39.952084"
-       height="13.229166"
-       rx="0.79374999"
-       style="fill:url(#linearGradient1411);fill-opacity:1;stroke-width:0.264583"
-       ry="0.79374999">
-      <title
-         id="title7535">WiringObject_selected</title>
-    </rect>
-    <g
-       id="g1773"
-       transform="translate(41.793501,-4.5891436)">
-      <title
-         id="title7551">WiringAddObject_selected</title>
-      <rect
-         id="rect80"
-         fill="url(#linearGradient-3)"
-         x="6.0960813"
-         y="139.52663"
-         width="39.952084"
-         height="13.229166"
-         rx="0.79374999"
-         style="fill:url(#linearGradient-3-4);fill-opacity:1;stroke-width:0.264583"
-         ry="0.79374999" />
-      <g
-         id="Group"
-         transform="matrix(0.26458333,0,0,0.26458333,21.971081,142.17246)"
-         fill="#ffffff">
-        <rect
-           id="Rectangle-6"
-           x="12"
-           y="0"
-           width="8"
-           height="31" />
-        <rect
-           id="Rectangle-Copy"
-           transform="rotate(90,16,15.5)"
-           x="12"
-           y="0"
-           width="8"
-           height="31" />
-      </g>
-    </g>
-    <g
-       id="g1779"
-       transform="translate(0.51850128,-21.787055)">
-      <title
-         id="title7549">WiringAddObject</title>
-      <rect
-         id="rect86"
-         fill="#383838"
-         x="6.0960813"
-         y="156.72455"
-         width="39.952084"
-         height="13.229166"
-         rx="0.79374999"
-         ry="0.79374999"
-         style="stroke-width:0.264583" />
-      <g
-         id="g92"
-         transform="matrix(0.26458333,0,0,0.26458333,21.971081,159.37038)"
-         fill="#121212">
-        <rect
-           id="rect88"
-           x="12"
-           y="0"
-           width="8"
-           height="31" />
-        <rect
-           id="rect90"
-           transform="rotate(90,16,15.5)"
-           x="12"
-           y="0"
-           width="8"
-           height="31" />
-      </g>
-    </g>
-    <g
-       id="ComponentRecolor"
-       transform="matrix(0.26458333,0,0,0.26458333,47.889582,120.3854)"
-       fill="url(#linearGradient-5)"
-       style="fill:url(#linearGradient1316)">
-      <title
-         id="title7537">WiringObject_for_recolor</title>
-      <rect
-         x="0"
-         y="0"
-         width="151"
-         height="50"
-         rx="3"
-         id="rect103-8"
-         style="fill:url(#linearGradient1685);fill-opacity:1"
-         ry="3" />
-    </g>
-    <g
-       id="g7529">
-      <title
-         id="title7545">WiringInputPort_selected</title>
-      <rect
-         id="rect5274"
-         x="6.6145821"
-         y="178.5938"
-         width="39.952084"
-         height="10.583333"
-         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
-         inkscape-export-transparent="1" />
-      <rect
-         id="Rect-Copy-2"
-         fill="#013f99"
-         x="7.9374976"
-         y="178.5938"
-         width="32.808334"
-         height="10.583333"
-         style="stroke-width:0.264583" />
-    </g>
-    <rect
-       id="rect99"
-       fill="url(#linearGradient-4)"
-       x="6.6145821"
-       y="149.48958"
-       width="39.952084"
-       height="13.229166"
-       rx="0.79374999"
-       style="fill:url(#linearGradient-4-4);fill-opacity:1;stroke-width:0.264583"
-       ry="0.79374999">
-      <title
-         id="title7539">WiringObject</title>
-    </rect>
-    <g
-       id="g7533">
-      <title
-         id="title7547">WiringOutputPort_selected</title>
-      <rect
-         id="rect5276"
-         x="47.889584"
-         y="178.5938"
-         width="39.952084"
-         height="10.583333"
-         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
-         inkscape-export-transparent="1" />
-      <rect
-         id="Rect-Copy-3"
-         fill="#013f99"
-         x="53.710419"
-         y="178.5938"
-         width="32.808334"
-         height="10.583333"
-         style="stroke-width:0.264583" />
-    </g>
-    <g
-       id="g7525">
-      <title
-         id="title7543">WiringOutputPorts</title>
-      <rect
-         id="rect5272"
-         x="47.889584"
-         y="164.04169"
-         width="39.952084"
-         height="13.229166"
-         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
-         inkscape-export-transparent="1" />
-      <path
-         id="rect5438"
-         style="fill:#2a2a2a;fill-opacity:1;stroke-width:0.264583"
-         d="m 53.710419,164.04169 v 12.43541 c 0,0.43974 0.354012,0.79375 0.79375,0.79375 h 31.220833 c 0.439737,0 0.79375,-0.35401 0.79375,-0.79375 v -12.43541 z"
-         sodipodi:nodetypes="ccssccc" />
+         style="fill-rule:evenodd;stroke:none;stroke-width:1" />
     </g>
     <g
        id="g7521">
       <title
          id="title7541">WiringInputPorts</title>
-      <rect
-         id="rect4676"
-         x="6.6145821"
-         y="164.04169"
-         width="39.952084"
-         height="13.229166"
-         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
-         inkscape-export-transparent="1" />
-      <path
-         id="path7517"
-         style="fill:#2a2a2a;fill-opacity:1;stroke-width:0.264583"
-         d="m 7.9374986,177.27085 v -12.43541 c 0,-0.43974 0.354012,-0.79375 0.79375,-0.79375 H 39.95208 c 0.439737,0 0.79375,0.35401 0.79375,0.79375 v 12.43541 z"
-         sodipodi:nodetypes="ccssccc" />
     </g>
     <g
-       id="g8037">
-      <title
-         id="title8061">WiringInputEnvPort</title>
-      <rect
-         id="rect7824"
-         x="47.889584"
-         y="156.63345"
-         width="19.314583"
-         height="5.2916665"
-         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
-         inkscape-export-transparent="1" />
-      <g
-         id="g7976"
-         transform="matrix(0.26458333,0,0,0.26458333,49.844132,181.56333)">
-        <g
-           id="Group-Copy-41-5"
-           transform="translate(-3.3872873,-91.223133)"
-           fill="#808080">
-          <ellipse
-             id="ellipse53-6-6"
-             cx="1.25"
-             cy="1.2962964"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse55-6-8"
-             cx="1.25"
-             cy="7"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse57-8-7"
-             cx="4.75"
-             cy="4.4074073"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse59-5-5"
-             cx="4.75"
-             cy="10.111111"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse61-4-6"
-             cx="1.25"
-             cy="12.703704"
-             rx="1.25"
-             ry="1.2962964" />
-        </g>
-        <rect
-           fill="url(#linearGradient-1)"
-           x="6.6127152"
-           y="-94.223137"
-           width="57"
-           height="20"
-           rx="3"
-           id="rect75-4"
-           style="fill:url(#linearGradient-1-3-0);stroke-width:1"
-           ry="3" />
-      </g>
-    </g>
-    <g
-       id="g8026">
-      <title
-         id="title8215">WiringInputEnvPort_selected</title>
-      <rect
-         id="rect5272-1"
-         x="47.889584"
-         y="150.28336"
-         width="19.314583"
-         height="5.2916665"
-         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
-         inkscape-export-transparent="1" />
-      <g
-         id="g7887"
-         transform="translate(-42.860533,8.2572632)">
-        <rect
-           fill="#013f99"
-           x="94.454277"
-           y="142.02609"
-           width="15.08125"
-           height="5.2916665"
-           rx="0.79374999"
-           id="rect33-7"
-           ry="0.79374999"
-           style="stroke-width:0.264583" />
-        <g
-           id="Group-Copy-4-9"
-           transform="matrix(0.26458333,0,0,0.26458333,91.808442,142.81984)"
-           fill="#808080">
-          <ellipse
-             id="Oval-53"
-             cx="1.25"
-             cy="1.2962964"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="Oval-Copy-34"
-             cx="1.25"
-             cy="7"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="Oval-Copy-4-6"
-             cx="4.75"
-             cy="4.4074073"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="Oval-Copy-3-2"
-             cx="4.75"
-             cy="10.111111"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="Oval-Copy-2-1"
-             cx="1.25"
-             cy="12.703704"
-             rx="1.25"
-             ry="1.2962964" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="g8048">
-      <title
-         id="title8213">WiringOutputEnvPort_selected</title>
-      <rect
-         id="rect7822"
-         x="68.527039"
-         y="150.28336"
-         width="19.314583"
-         height="5.2916665"
-         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
-         inkscape-export-transparent="1" />
-      <g
-         id="g7903"
-         transform="matrix(-1,0,0,1,178.59173,8.2572632)">
-        <rect
-           fill="#013f99"
-           x="94.454277"
-           y="142.02609"
-           width="15.08125"
-           height="5.2916665"
-           rx="0.79374999"
-           id="rect7889"
-           ry="0.79374999"
-           style="stroke-width:0.264583" />
-        <g
-           id="g7901"
-           transform="matrix(0.26458333,0,0,0.26458333,91.808442,142.81984)"
-           fill="#808080">
-          <ellipse
-             id="ellipse7891"
-             cx="1.25"
-             cy="1.2962964"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse7893"
-             cx="1.25"
-             cy="7"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse7895"
-             cx="4.75"
-             cy="4.4074073"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse7897"
-             cx="4.75"
-             cy="10.111111"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse7899"
-             cx="1.25"
-             cy="12.703704"
-             rx="1.25"
-             ry="1.2962964" />
-        </g>
-      </g>
-    </g>
-    <g
-       id="g8059">
-      <title
-         id="title8131">WiringOutputEnvPort</title>
-      <rect
-         id="rect7826"
-         x="68.527039"
-         y="156.63345"
-         width="19.314583"
-         height="5.2916665"
-         style="fill:#ffff00;fill-opacity:0.195219;stroke-width:0.264583"
-         inkscape-export-transparent="1" />
-      <g
-         id="g8013"
-         transform="matrix(-0.26458333,0,0,0.26458333,85.887069,181.56333)">
-        <g
-           id="g8009"
-           transform="translate(-3.3872873,-91.223133)"
-           fill="#808080">
-          <ellipse
-             id="ellipse7999"
-             cx="1.25"
-             cy="1.2962964"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse8001"
-             cx="1.25"
-             cy="7"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse8003"
-             cx="4.75"
-             cy="4.4074073"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse8005"
-             cx="4.75"
-             cy="10.111111"
-             rx="1.25"
-             ry="1.2962964" />
-          <ellipse
-             id="ellipse8007"
-             cx="1.25"
-             cy="12.703704"
-             rx="1.25"
-             ry="1.2962964" />
-        </g>
-        <rect
-           fill="url(#linearGradient-1)"
-           x="6.6127152"
-           y="-94.223137"
-           width="57"
-           height="20"
-           rx="3"
-           id="rect8011"
-           style="fill:url(#linearGradient8015);stroke-width:1"
-           ry="3" />
-      </g>
-    </g>
-    <g
-       id="g1712">
+       id="g1712"
+       transform="translate(0,-187.85416)">
       <path
          id="path1169-8"
          style="fill:#ececec;fill-opacity:1;stroke-width:0.373349"
@@ -2841,7 +1301,8 @@
       </g>
     </g>
     <g
-       id="g1721">
+       id="g1721"
+       transform="translate(0,-187.85416)">
       <path
          id="path1689"
          style="fill:#ececec;fill-opacity:1;stroke-width:0.373349"
@@ -2874,7 +1335,8 @@
       </g>
     </g>
     <g
-       id="g1743">
+       id="g1743"
+       transform="translate(0,-187.85416)">
       <path
          id="path1693"
          style="fill:#ececec;fill-opacity:1;stroke-width:0.373349"
@@ -2913,7 +1375,8 @@
       </g>
     </g>
     <g
-       id="g1733">
+       id="g1733"
+       transform="translate(0,-187.85416)">
       <path
          id="path1691"
          style="fill:#ececec;fill-opacity:1;stroke-width:0.373349"
@@ -2962,14 +1425,14 @@
     <path
        id="path16126"
        style="fill:#ececec;fill-opacity:1;stroke-width:0.373349"
-       d="m 43.391679,193.14583 h 4.233333 v 4.23333 h -4.233333 z"
+       d="m 43.391679,5.2916667 h 4.233333 v 4.23333 h -4.233333 z"
        inkscape-export-transparent="1">
       <title
          id="title16124">FolderClosed</title>
     </path>
     <g
        id="g3810"
-       transform="matrix(0.00778804,0,0,0.00778804,48.092798,187.285)"
+       transform="matrix(0.00778804,0,0,0.00778804,48.092798,-0.56916332)"
        style="stroke:#000000;stroke-width:4.38252;stroke-miterlimit:4;stroke-dasharray:none">
       <path
          sodipodi:nodetypes="sssccssccsssss"
@@ -2998,7 +1461,7 @@
     <path
        id="path14927"
        style="fill:#ececec;fill-opacity:1;stroke-width:0.373349"
-       d="m 38.629176,193.14583 h 4.233333 v 4.23333 h -4.233333 z"
+       d="m 38.629176,5.2916667 h 4.233333 v 4.23333 h -4.233333 z"
        inkscape-export-transparent="1">
       <title
          id="title14925">FolderOpen</title>
@@ -3006,7 +1469,7 @@
     <g
        inkscape:label="Layer 1"
        id="layer1-3"
-       transform="matrix(0.26458333,0,0,0.26458333,38.629155,-81.052045)">
+       transform="matrix(0.26458333,0,0,0.26458333,38.629155,-268.90621)">
       <path
          style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient3001);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.129;stroke-miterlimit:4;stroke-dasharray:none;marker:none;enable-background:accumulate"
          d="m 2.4497864,1038.525 c -0.1430012,0 -0.3798504,0.2274 -0.4157712,0.4305 -0.050107,0.2833 -0.058457,0.6186 -0.2120734,0.7011 -0.3251531,0.1744 -0.4206368,0.2748 -0.4085696,0.5531 l 0.3318108,7.4393 c 0.016485,0.3803 0.1550875,0.3661 0.5445499,0.3661 H 13.701365 c 0.389463,0 0.683538,0.014 0.702764,-0.3661 l 0.369778,-7.3091 c 0.01923,-0.3802 -0.26087,-0.6879 -0.650332,-0.6871 l -6.8211202,0.014 c -0.4044227,9e-4 -0.2824762,-0.4643 -0.3684103,-0.7117 -0.067665,-0.1948 -0.2718502,-0.4305 -0.4148514,-0.4305 z"
@@ -3111,14 +1574,14 @@
     <path
        id="path1169-8-2"
        style="fill:#ececec;fill-opacity:1;stroke-width:0.373349"
-       d="M 24.341667,193.14583 H 28.575 v 4.23333 h -4.233333 z"
+       d="M 24.341667,5.2916667 H 28.575 v 4.23333 h -4.233333 z"
        inkscape-export-transparent="1">
       <title
          id="title1695-8">PluginSynth</title>
     </path>
     <g
        id="g4294"
-       transform="matrix(0.70297116,0,0,0.70297116,19.270679,45.95561)">
+       transform="matrix(0.70297116,0,0,0.70297116,19.270679,-141.89855)">
       <g
          id="g4279">
         <g
@@ -3215,14 +1678,14 @@
     <path
        id="path14923"
        style="fill:#ececec;fill-opacity:1;stroke-width:0.373349"
-       d="m 33.866673,193.14583 h 4.233333 v 4.23333 h -4.233333 z"
+       d="m 33.866673,5.2916667 h 4.233333 v 4.23333 h -4.233333 z"
        inkscape-export-transparent="1">
       <title
          id="title14921">Plugin</title>
     </path>
     <g
        id="g4420"
-       transform="matrix(0.70297116,0,0,0.70297116,28.795685,45.95561)">
+       transform="matrix(0.70297116,0,0,0.70297116,28.795685,-141.89855)">
       <g
          transform="matrix(0.40855291,0,0,0.41082954,6.9651681,-216.75709)"
          id="g4416"
@@ -3282,14 +1745,14 @@
     <path
        id="path14919"
        style="fill:#ececec;fill-opacity:1;stroke-width:0.373349"
-       d="m 29.10417,193.14583 h 4.233333 v 4.23333 H 29.10417 Z"
+       d="m 29.10417,5.2916667 h 4.233333 v 4.23333 H 29.10417 Z"
        inkscape-export-transparent="1">
       <title
          id="title14917">PluginEffect</title>
     </path>
     <g
        id="g16833"
-       transform="matrix(0.70297116,0,0,0.70297116,23.957851,41.728518)">
+       transform="matrix(0.70297116,0,0,0.70297116,23.957851,-146.12565)">
       <g
          id="g4310"
          transform="translate(0.10716111,6.0131796)">

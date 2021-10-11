@@ -27,6 +27,14 @@ var colorBusy = Color.Orange;
 var colorLiveMode = Color.Lime;
 var colorStatusPanelTop = Color.Black;
 var colorStatusPanelBottom = #002c5f;
+var colorKeyWhite = Color.White;
+var colorKeyBlack = Color.Black;
+var colorKeyMiddleC = Color.Blend(colorKeyBlack, colorKeyWhite.WithAlpha(0.75));
+
+var colorTableBackground = #121212;
+var colorTableChildRow = #1e1e21;
+
+var colorWiringBackground = #121212;
 
 var colorFocusGradient = #015ee6;
 var colorFocusPressed = #0877d1;
@@ -79,9 +87,13 @@ var svg_BidiFull = "(30) M 8.3792826,12.686557 H 21.620662 V 8.4825485 L 30,15.0
 var svg_CombinedSliderHandle = "(12) m 2.2455271,6.3673507 3.7544792,-4.367356 v 0 L 9.754482,6.3673507 C 9.91292,6.5516189 10,6.7865976 10,7.0295946 v 1.954536 C 10,9.5451823 9.545177,10.000005 8.9841267,10.000005 H 3.0158745 C 2.4548224,10.000005 2,9.5451823 2,8.9841306 V 7.0295946 C 2,6.7865817 2.087111,6.5516277 2.2455271,6.3673507 Z";
 var svg_RunModeSuspended = "(16) M 4.08106 6.88036 L 11.919 6.88036 L 11.919 9.11978 L 4.08106 9.11978 Z";
 var svg_RunModeError = "(16) M 5.0967147,4.5866912 C 4.9612905,4.5868059 4.8314564,4.6407231 4.7357857,4.7366069 4.5367559,4.9361941 4.5370182,5.2593368 4.736343,5.4586125 L 7.277895,7.9998857 4.7364906,10.541159 c -0.095835,0.09574 -0.1497355,0.225636 -0.149801,0.361126 -8.2e-5,0.135473 0.053655,0.265438 0.1493748,0.361289 0.095753,0.09587 0.2256359,0.149637 0.3610601,0.149637 0.1354406,0 0.2653239,-0.05377 0.3610765,-0.149637 L 8.0000316,8.7220224 10.541715,11.263574 c 0.09575,0.09587 0.225668,0.149801 0.361142,0.149801 0.135457,0 0.265373,-0.05393 0.361126,-0.149801 0.09579,-0.09587 0.149391,-0.225849 0.149391,-0.361322 -1.64e-4,-0.13549 -0.0541,-0.26539 -0.149949,-0.361093 L 8.7220208,8.0000168 11.263704,5.4586125 C 11.463045,5.2592876 11.463209,4.9361449 11.26413,4.7366069 11.168443,4.6407231 11.038609,4.5867731 10.903168,4.5866748 10.767744,4.58656 10.637812,4.6402969 10.541993,4.7360332 L 8.0000316,7.2778802 5.4579223,4.7360332 C 5.3620877,4.6402969 5.2321389,4.5865764 5.0967147,4.5866912 Z";
-var svg_SoloMode = "(16) m 6.3695198,12.049724 c 0.2004186,0.09577 0.4759899,0.174953 0.8267224,0.237569 0.3507324,0.06261 0.7376457,0.09392 1.1607515,0.09392 0.4008371,0 0.7710491,-0.02763 1.1106472,-0.08287 0.3395981,-0.05525 0.6374381,-0.138121 0.8935281,-0.248619 0.25609,-0.110498 0.456506,-0.25046 0.601253,-0.41989 0.144746,-0.16943 0.217119,-0.372006 0.217119,-0.607735 0,-0.302027 -0.153096,-0.552485 -0.45929,-0.751381 C 10.414056,10.071822 10.032709,9.8950284 9.5762004,9.7403315 9.1196915,9.5856346 8.6242198,9.4346232 8.0897704,9.2872928 7.5553209,9.1399624 7.0598492,8.9668518 6.6033403,8.7679558 6.1468314,8.5690598 5.7654852,8.3296515 5.4592902,8.0497238 5.1530952,7.769796 5,7.4162084 5,6.9889503 5,6.3627961 5.3590778,5.8747715 6.0772443,5.5248619 6.7954107,5.1749522 7.7668693,5 8.9916493,5 c 0.768271,0 1.4307557,0.033149 1.9874737,0.099448 0.556718,0.066299 1.029922,0.1546956 1.419624,0.2651934 v 1.900552 H 11.329854 V 6.0718232 L 11.06263,5.7955801 C 10.851078,5.736648 10.544887,5.6924495 10.14405,5.6629834 9.743213,5.6335173 9.3479491,5.6187845 8.9582464,5.6187845 c -0.6680619,0 -1.1913691,0.1012881 -1.5699374,0.3038674 -0.3785684,0.2025793 -0.5678497,0.4880277 -0.5678497,0.8563536 0,0.3020273 0.1530952,0.5543268 0.4592902,0.7569061 0.306195,0.2025793 0.6875412,0.3848979 1.1440501,0.5469613 0.4565089,0.1620635 0.9519806,0.3185996 1.4864301,0.4696133 0.5344493,0.1510136 1.0299213,0.3241242 1.4864303,0.519337 0.456509,0.1952128 0.837855,0.4290963 1.14405,0.7016575 C 12.846905,10.046042 13,10.384897 13,10.790055 13,11.504608 12.582468,12.051564 11.74739,12.430939 10.912313,12.810315 9.771058,13 8.3235908,13 7.533051,13 6.8482979,12.944752 6.2693111,12.834254 5.6903242,12.723756 5.2672247,12.605894 5,12.480663 v -2.01105 h 1.0688935 v 1.314917 z";
+var svg_SoloMode = "(16) m 5.0407106,11.43094 c 0.2254709,0.107741 0.5354874,0.196821 0.9300623,0.267265 0.3945738,0.07044 0.8298511,0.10566 1.3058447,0.10566 0.4509417,0 0.8674301,-0.03108 1.2494791,-0.09323 0.3820477,-0.06216 0.7171173,-0.155387 1.0052183,-0.279696 0.288101,-0.124316 0.513571,-0.281768 0.67641,-0.472377 0.16284,-0.190608 0.244259,-0.418508 0.244259,-0.683703 0,-0.33978 -0.172233,-0.621545 -0.516702,-0.8453033 C 9.590813,9.2057985 9.1617981,9.0069061 8.6482253,8.8328717 8.1346526,8.6588387 7.577248,8.4889503 6.9759923,8.323204 6.3747367,8.1574565 5.8173308,7.9627074 5.3037581,7.7389492 4.7901853,7.5151912 4.361171,7.2458564 4.0167023,6.9309388 3.6722324,6.6160201 3.5,6.218234 3.5,5.7375678 3.5,5.0331444 3.9039624,4.4841172 4.7119001,4.0904693 5.5198376,3.6968202 6.6127284,3.499999 7.9906055,3.499999 c 0.8643043,0 1.6096005,0.037289 2.2359075,0.1118813 0.626308,0.074592 1.158664,0.174033 1.597079,0.2983426 V 6.0483443 H 10.621086 V 4.705803 L 10.320459,4.395029 C 10.082463,4.3287263 9.737998,4.2790025 9.2870564,4.2458577 8.8361145,4.2127127 8.3914434,4.1961339 7.9530277,4.1961339 c -0.7515696,0 -1.3402904,0.1139477 -1.7661802,0.3418518 -0.4258886,0.2279016 -0.638831,0.549031 -0.638831,0.9633973 0,0.3397807 0.1722324,0.6236179 0.5167024,0.8515196 0.3444686,0.2279015 0.7734829,0.4330098 1.2870557,0.615331 0.5135727,0.1823212 1.0709786,0.3584243 1.6722343,0.5283152 0.6012551,0.1698896 1.1586611,0.3646399 1.6722351,0.5842534 0.513572,0.2196147 0.942587,0.4827336 1.287055,0.7893654 C 12.327769,9.1767985 12.5,9.5580099 12.5,10.013814 c 0,0.803872 -0.469723,1.419198 -1.409186,1.845995 -0.939462,0.426798 -2.2233732,0.640192 -3.8517742,0.640192 -0.8893575,0 -1.6597046,-0.06216 -2.3110641,-0.186463 C 4.2766151,12.189222 3.8006278,12.056632 3.5,11.915748 V 9.653316 h 1.202505 v 1.479279 z";
+var svg_SoloModeMute = "(16) M 5.7680324,10.869041 C 5.5933208,11.043812 5.3089633,11.04287 5.1330259,10.866984 4.9558715,10.689812 4.9561543,10.406783 5.1309259,10.232012 L 7.3629028,8.0000006 5.1309259,5.7680324 C 4.9562143,5.5933208 4.9570972,5.3089633 5.1330259,5.1330259 5.310189,4.9558715 5.5932608,4.9561543 5.7680324,5.1309259 L 8.0000006,7.3629028 10.232012,5.1309259 c 0.174686,-0.1747116 0.459,-0.1738287 0.634972,0.0021 0.177171,0.1771631 0.176828,0.4602349 0.0021,0.6350065 L 8.6371071,8.0000006 10.869041,10.232012 c 0.174771,0.174686 0.173829,0.459 -0.0021,0.634972 -0.177172,0.177171 -0.460286,0.176828 -0.635058,0.0021 L 8.0000006,8.6371071 Z";
 var svg_Increment = "(13) M 5.75003 0 L 5.75003 5.75003 L 0 5.75003 L 0 7.25019 L 5.75003 7.25019 L 5.75003 13.0002 L 7.25019 13.0002 L 7.25019 7.25019 L 13.0002 7.25019 L 13.0002 5.75003 L 7.25019 5.75003 L 7.25019 0 L 5.75003 0 Z";
 var svg_Decrement = "(13) m 0,5.75 h 13 v 1.5 H 0 Z";
+var svg_gripper_lhs = "(6,14) M 2.5,12.703704 A 1.25,1.2962964 0 0 1 1.25,14 1.25,1.2962964 0 0 1 0,12.703704 1.25,1.2962964 0 0 1 1.25,11.407408 1.25,1.2962964 0 0 1 2.5,12.703704 Z M 6,10.111111 A 1.25,1.2962964 0 0 1 4.75,11.407407 1.25,1.2962964 0 0 1 3.5,10.111111 1.25,1.2962964 0 0 1 4.75,8.8148143 1.25,1.2962964 0 0 1 6,10.111111 Z M 6,4.4074073 A 1.25,1.2962964 0 0 1 4.75,5.7037036 1.25,1.2962964 0 0 1 3.5,4.4074073 1.25,1.2962964 0 0 1 4.75,3.1111109 1.25,1.2962964 0 0 1 6,4.4074073 Z M 2.5,7 A 1.25,1.2962964 0 0 1 1.25,8.2962964 1.25,1.2962964 0 0 1 0,7 1.25,1.2962964 0 0 1 1.25,5.7037036 1.25,1.2962964 0 0 1 2.5,7 Z m 0,-5.7037036 A 1.25,1.2962964 0 0 1 1.25,2.5925927 1.25,1.2962964 0 0 1 0,1.2962964 1.25,1.2962964 0 0 1 1.25,0 1.25,1.2962964 0 0 1 2.5,1.2962964 Z";
+var svg_gripper_rhs = "(6,14) M 3.5,12.703704 A -1.25,1.2962964 0 0 0 4.75,14 -1.25,1.2962964 0 0 0 6,12.703704 -1.25,1.2962964 0 0 0 4.75,11.407408 -1.25,1.2962964 0 0 0 3.5,12.703704 Z M 0,10.111111 A -1.25,1.2962964 0 0 0 1.25,11.407407 -1.25,1.2962964 0 0 0 2.5,10.111111 -1.25,1.2962964 0 0 0 1.25,8.8148143 -1.25,1.2962964 0 0 0 0,10.111111 Z M 0,4.4074073 A -1.25,1.2962964 0 0 0 1.25,5.7037036 -1.25,1.2962964 0 0 0 2.5,4.4074073 -1.25,1.2962964 0 0 0 1.25,3.1111109 -1.25,1.2962964 0 0 0 0,4.4074073 Z M 3.5,7 A -1.25,1.2962964 0 0 0 4.75,8.2962964 -1.25,1.2962964 0 0 0 6,7 -1.25,1.2962964 0 0 0 4.75,5.7037036 -1.25,1.2962964 0 0 0 3.5,7 Z m 0,-5.7037036 A -1.25,1.2962964 0 0 0 4.75,2.5925927 -1.25,1.2962964 0 0 0 6,1.2962964 -1.25,1.2962964 0 0 0 4.75,0 -1.25,1.2962964 0 0 0 3.5,1.2962964 Z";
+var svg_arrow = "(16) M 6.3432312,3.3488998 5.0056673,4.6864641 8.312701,8.0065032 5.0056673,11.313536 6.3432312,12.6511 10.32555,8.6687821 10.994333,8.0000001 Z";
 
 
 // Rounded off focused rectangle
@@ -165,6 +177,124 @@ var makeSquareLed = (size, padding, color, glow) => Rasterize()
         }
     ];
 };
+
+var gripper_lhs = Rasterize()
+{
+    Size = (6,14);
+    Inner = Path()
+    {
+        SvgData = svg_gripper_lhs;
+        FillColor = colorBrightBorder;
+    };
+};
+
+var gripper_rhs = Rasterize()
+{
+    Size = (6,14);
+    Inner = Path()
+    {
+        SvgData = svg_gripper_rhs;
+        FillColor = colorBrightBorder;
+    };
+};
+
+
+
+
+// Helper to rasterize an image
+var makeImage = (size, svg, color) => Rasterize()
+{
+    Size = (size, size);
+    Inner = Path()
+    {
+        SvgData = svg;
+        FillColor = color;
+    };
+};
+
+// Helper to rasterize a 2-color image
+var makeImage2 = (size, svg, color, svg2, color2) => Rasterize()
+{
+    Size = (size, size);
+    Inner = [
+        Path()
+        {
+            SvgData = svg;
+            FillColor = color;
+        },
+        Path()
+        {
+            SvgData = svg2;
+            FillColor = color2;
+        },
+    ];
+};
+
+
+// Template class for glow buttons
+class GlowButton<size, svg, color>
+{
+    Image = Frame()
+    {
+        InnerSize = (size, size);
+        Gravity = Center;
+        Inner =
+        {
+            Checked = makeGlowImage(size, svg, color);
+            Pressed = makeImage(size, svg, colorToolbarButtonPressed);
+            else = makeImage(size, svg, colorToolbarButton);
+        };
+    };
+}
+
+
+// Template class for glow buttons with alternate color
+class GlowButton<size, svg, color, colorAlt>
+{
+    Image = Frame()
+    {
+        InnerSize = (size, size);
+        Gravity = Center;
+        Inner =
+        {
+            Alternate = makeGlowImage(size, svg, colorAlt);
+            Checked = makeGlowImage(size, svg, color);
+            Pressed = makeImage(size, svg, colorToolbarButtonPressed);
+            else = makeImage(size, svg, colorToolbarButton);
+        };
+    };
+}
+
+// Helper to make a standard toolbar button
+var makeToolbarButton = (size, pressed, svg) => Rasterize()
+{
+    Size = (size, size);
+    Gravity = Center;
+    Inner = [
+        Path()
+        {
+            SvgData = svg;
+            FillColor = pressed ? colorToolbarButtonPressed : colorToolbarButton;
+            MaintainAspectRatio = true;
+        },
+    ];
+};
+
+// Template class for standard toolbar button
+class ToolbarButton<size, svg>
+{
+    Image = Frame()
+    {
+        InnerSize = (size, size);
+        Gravity = Center;
+        Inner =
+        {
+            Pressed = makeToolbarButton(size, true, svg);
+            else = makeToolbarButton(size, false, svg);
+        };
+    };
+}
+
 
 
 // The beat indicator in the main status panel
@@ -364,26 +494,63 @@ class TipPanel : SidePanelContent
 // Slider control
 class CantabileSlider : Slider
 {
-    Thumb =
+    Thumb = Frame()
     {
-        Focused = Image("SliderHandle_focused.png", Center);
-        else = Image("SliderHandle.png", Center);
+        Size = (19, 19);
+        Inner =
+        {
+            Focused = makeThumb(colorFocus);
+            else = makeThumb(Color.Blend(colorForm, colorText.WithAlpha(0.85)));
+        };
     };
-    TrackRange = NineSliceImage("SliderTrackRangeA.png", 5, 0);
-    TrackRangeAlt = NineSliceImage("SliderTrackRangeB.png", 5, 0);
-    Track = NineSliceImage("SliderTrack.png", 14, 0);
+
+    Track = Frame()
+    {
+        Size = (10, 4);
+        Padding = (5, 0);
+        Inner = Rectangle()
+        {
+            CornerRadius = 2;
+            FillColor = colorBrightBorder;
+        };
+    };
+    TrackRange = Color.Blend(colorBaseForeground, colorLedOn.WithAlpha(0.75));
+    TrackRangeAlt = Color.Blend(colorBaseForeground, colorFocus.WithAlpha(0.75));
+    TickColor = Color.Blend(colorForm, colorText.WithAlpha(0.5));
+    TickTextColor = colorText;
+
+    const makeThumb = (color) => Rasterize()
+    {
+        Size = (19,19);
+        Inner = Ellipse()
+        {
+            Bounds = (0, 0, 1, 1);
+            Center = (0.5, 0.5);
+            Radius = (0.33, 0.33);
+            FillColor = color;
+            ShadowColor = Color.Black;
+            ShadowSigma = (1.5,1.5);
+        };
+    };
+
 }
 
 // SoloModeButton
 class SoloModeButton : TransparentButton
 {
-    Image =
+    Image = Frame()
     {
-        Indeterminate = Image("SoloButton_muted.png", Center);
-        Checked = Image("SoloButton_on.png", Center);
-        else = Image("SoloButton_off.png", Center);
+        InnerSize = (18, 18);
+        Gravity = Center;
+        Inner = 
+        {
+            Indeterminate = makeImage(18, svg_SoloModeMute, colorWarning);
+            Checked = makeGlowImage(18, svg_SoloMode, colorLedOn);
+            else = makeImage(18, svg_SoloMode, colorToolbarButton);
+        };
     };
 }
+
 
 // Onscreen Keyboard
 class OnscreenKeyboard
@@ -393,39 +560,57 @@ class OnscreenKeyboard
     //     keys thinner for intermediate scaling factors.
 
     // White key in a normal state
-    WhiteKey = NineSliceImage("OskKey_white.png", 3) { ScaleMatchMode = Lower; };
+    WhiteKey = makeKey(colorKeyWhite);
 
     // Middle-C key in a normal state (only used in compact mode)
-    MiddleCKey = NineSliceImage("OskKey_middlec.png", 3)  { ScaleMatchMode = Lower; };
+    MiddleCKey = makeKey(colorKeyMiddleC);
 
     // Black key in a normal state
-    BlackKey = NineSliceImage("OskKey_black.png", 3)  { ScaleMatchMode = Lower; };
+    BlackKey = makeKey(colorKeyBlack);
 
     // Black or white key highlighted (ie = showing pressed note from another source)
-    HighlightedKey = NineSliceImage("OskKey_highlight.png", 3)  { ScaleMatchMode = Lower; };
+    HighlightedKey = makeKey(Color.Blend(Color.White, colorFocus.WithAlpha(0.7)));
 
     // Black or white key in pressed state
-    PressedKey = NineSliceImage("OskKey_pressed.png", 3)  { ScaleMatchMode = Lower;};
+    PressedKey = makeKey(colorFocus);
 
     // Range indicators
     RangeHandle = 
     {
-        Focused = Image("OskRangeHandle_focused.png", Center);
-        else = Image("OskRangeHandle.png", Center);
+        Focused = makeRangeHandle(colorFocus);
+        else = makeRangeHandle(colorBrightBorder);
     };
-    RangeBar = NineSliceImage("OskOctaveBar.png", 4, 1);
     RangeFont = fontSmall;
     RangeTextColor = #FFFFFF;
 
     // Octave indicators
     OctaveBar = 
     {
-        Focused = NineSliceImage("OskOctaveBar_focused.png", 4, 1);
-        else = NineSliceImage("OskOctaveBar.png", 4, 1);
+        Focused = colorFocus;
+        else = colorBrightBorder;
     };
     OctaveLabelFont = fontTiny;
-    OctaveLabelTextColor = #dfe1e5;
-    OctaveLabelDividerColor = #43464c;
+    OctaveLabelTextColor = colorDimText;
+    OctaveLabelDividerColor = colorDimText.WithAlpha(0.3);
+
+    const makeKey = (color) => Path()
+    {
+        SvgData = "M 0,0 V 15.596453 C 0,15.820019 0.17998194,16 0.40354689,16 H 15.596453 c 0.223565,0 0.403546,-0.179981 0.403546,-0.403547 V 0";
+        FillColor = color;
+        StrokeColor = #808080;
+        StrokeWidth = 1;
+    };
+
+    const makeRangeHandle = (color) => Rasterize()
+    {
+        Size = (9, 9);
+        Inner = Ellipse()
+        {
+            FillColor = Color.White;
+            StrokeColor = color;
+            StrokeWidth = 1.5;
+        };
+    };
 }
 
 // Expand/Collapse Button
@@ -433,15 +618,32 @@ class ExpandButton : TransparentButton
 {
     Image =
     {
-        Checked = Image("ExpandButton_expanded.png", Center);
-        else = Image("ExpandButton_collapsed.png", Center);
+        (Focused || Selected || Pressed) && Checked = make(colorFocusText, 90);
+        (Focused || Selected || Pressed) = make(colorFocusText, 0);
+        Checked = make(colorToolbarButton, 90);
+        else = make(colorToolbarButton, 0);
+    };
+
+    const make = (color, rotation) => Rasterize()
+    {
+        Size = (16, 16);
+        Inner = Path()
+        {
+            SvgData = "(16) m 6,4 4,4 -4,4 z";
+            FillColor = color;
+            Rotate = Degrees(rotation);
+        };
     };
 }
 
 // Gripper handle on the LHS of table rows
 class Gripper
 {
-    Background = Image("Gripper_lhs.png", Center);
+    Background = Frame()
+    {
+        InnerSize = (6,14);
+        Inner = gripper_lhs;
+    };
 }
 
 // A button in a table row
@@ -464,18 +666,41 @@ class SlotButton
 // The (>) "disclosure arrow" on the rhs of some slot buttons
 class DisclosureArrow
 {
-    Background = 
+    Background = Frame()
     {
-        ContainerFocused = Image("DisclosureButton_focused.png", Center);
-        Selected = Image("DisclosureButton_focused.png", Center);
-        else = Image("DisclosureButton.png", Center);
+        InnerSize = (16, 16);
+        Inner = 
+        {
+            Selected || ContainerFocused = make(colorFocusText, colorFocus);
+            else = make(colorBorder, colorText);
+        };
     };
     Padding = EdgeInsets(3,4,3,3);
+
+    const make = (colorButton, colorArrow) => Rasterize()
+    {
+        Size = (16,16);
+        Inner = [
+            Ellipse()
+            {
+                Bounds = (0, 0, 16, 16);
+                Center = (8, 8);
+                Radius = (7, 7);
+                FillColor = colorButton;
+            },
+            Path()
+            {
+                SvgData = svg_arrow;
+                FillColor = colorArrow;
+            }
+        ];
+    };
+
 }
 
 class TableView
 {
-    Background =  #121212;
+    Background =  colorTableBackground;
 }
 
 // Common base style for all table rows
@@ -483,15 +708,10 @@ class TableRow_common
 {
     Background = 
     {
-        Selected && ContainerFocused = VerticalGradient(#058cF5, #015DE6);
-        Selected = VerticalGradient(#023258, #00255b);
-        CurrentItem = #0e1721;
-        else = #121212;
-    };
-    BorderColor = 
-    {
-        Selected = #00000000;        // Don't draw horizontal grid lines when selected
-        else = #43464c;
+        Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
+        Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
+        CurrentItem = BorderFrame(colorFocus.WithAlpha(0.2), colorPanelBorder, Bottom);
+        else = BorderFrame(null, colorPanelBorder, Bottom);
     };
 }
 
@@ -501,30 +721,51 @@ class TableRow_TopLevelItem : TableRow_common
 
 class TableRow_TopLevelFooter : TableRow_common
 {
-    BorderColor = #00000000;
+    Background = 
+    {
+        Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
+        Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
+        CurrentItem = colorFocus.WithAlpha(0.2);
+    };
 }
 
 class TableRow_ChildItem : TableRow_common
 {
     Background = 
     {
-        Selected && ContainerFocused = VerticalGradient(#058cF5, #015DE6);
-        Selected = VerticalGradient(#023258, #00255b);
-        CurrentItem = NineSliceImage("TableRowChild_focused.png", 32, 0, 0, 0);
-        else = NineSliceImage("TableRowChild.png", 32, 0, 0, 0);
+        Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
+        Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
+        CurrentItem = make(Color.Blend(colorTableChildRow, colorFocus.WithAlpha(0.2)));
+        else = make(colorTableChildRow);
     };
-    BorderColor = #00000000;
+
+    const make  = (colorRow) => Frame()
+    {
+        Padding = (32, 0, 0, 0);
+        Inner = BorderFrame(colorRow, colorPanelBorder, Left);
+    };
+
 }
 
 class TableRow_ChildFooter : TableRow_common
 {
     Background = 
     {
-        Selected && ContainerFocused = VerticalGradient(#058cF5, #015DE6);
-        Selected = VerticalGradient(#023258, #00255b);
-        CurrentItem = NineSliceImage("TableRowChild_focused.png", 32, 0, 0, 0);
-        else = NineSliceImage("TableRowChild.png", 32, 0, 0, 0);
+        Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
+        Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
+        CurrentItem = make(Color.Blend(colorTableChildRow, colorFocus.WithAlpha(0.2)));
+        else = make(colorTableChildRow);
     };
+
+
+    const make  = (colorRow) => [
+        Frame()
+        {
+            Padding = (32, 0, 0, 0);
+            Inner = BorderFrame(colorRow, colorPanelBorder, Left);
+        },
+        BorderFrame(Color.Clear, colorPanelBorder, Bottom),
+    ];
 }
 
 context PopupMenu
@@ -566,37 +807,76 @@ context PopupMenu
     }
 }
 
-class GroupButton<image>
+var svg_TableView = "(16) m 9.5000033,11.500004 h 4.0000027 c 0.554,0 1,0.446 1,1 0,0.554001 -0.446,1.000001 -1,1.000001 H 9.5000033 c -0.5540002,0 -1.0000004,-0.446 -1.0000004,-1.000001 0,-0.554 0.4460002,-1 1.0000004,-1 z m -7.0000105,0 h 4.0000024 c 0.5540003,0 1.0000005,0.446 1.0000005,1 0,0.554001 -0.4460002,1.000001 -1.0000005,1.000001 H 2.4999928 c -0.5540002,0 -1.0000004,-0.446 -1.0000004,-1.000001 0,-0.554 0.4460002,-1 1.0000004,-1 z M 9.5000033,8.5000134 h 4.0000027 c 0.554,0 1,0.4460002 1,1.0000004 0,0.5540002 -0.446,1.0000002 -1,1.0000002 H 9.5000033 c -0.5540002,0 -1.0000004,-0.446 -1.0000004,-1.0000002 0,-0.5540002 0.4460002,-1.0000004 1.0000004,-1.0000004 z m -7.0000105,0 h 4.0000024 c 0.5540003,0 1.0000005,0.4460002 1.0000005,1.0000004 0,0.5540002 -0.4460002,1.0000002 -1.0000005,1.0000002 H 2.4999928 c -0.5540002,0 -1.0000004,-0.446 -1.0000004,-1.0000002 0,-0.5540002 0.4460002,-1.0000004 1.0000004,-1.0000004 z M 9.5000033,5.5000525 h 4.0000027 c 0.554,0 1,0.4460002 1,1.0000004 0,0.5540003 -0.446,1.0000005 -1,1.0000005 H 9.5000033 c -0.5540002,0 -1.0000004,-0.4460002 -1.0000004,-1.0000005 0,-0.5540002 0.4460002,-1.0000004 1.0000004,-1.0000004 z m -7.0000105,0 h 4.0000024 c 0.5540003,0 1.0000005,0.4460002 1.0000005,1.0000004 0,0.5540003 -0.4460002,1.0000005 -1.0000005,1.0000005 H 2.4999928 c -0.5540002,0 -1.0000004,-0.4460002 -1.0000004,-1.0000005 0,-0.5540002 0.4460002,-1.0000004 1.0000004,-1.0000004 z m 7.0000105,-3.000048 h 4.0000027 c 0.554,0 1,0.4460002 1,1.0000005 0,0.5540003 -0.446,1.0000005 -1,1.0000005 H 9.5000033 c -0.5540002,0 -1.0000004,-0.4460002 -1.0000004,-1.0000005 0,-0.5540003 0.4460002,-1.0000005 1.0000004,-1.0000005 z m -7.0000105,0 h 4.0000024 c 0.5540003,0 1.0000005,0.4460002 1.0000005,1.0000005 0,0.5540003 -0.4460002,1.0000005 -1.0000005,1.0000005 H 2.4999928 c -0.5540002,0 -1.0000004,-0.4460002 -1.0000004,-1.0000005 0,-0.5540003 0.4460002,-1.0000005 1.0000004,-1.0000005 z";
+var svg_WiringView = "(16) M 11,1.5 V 3.50195 C 9.81339,3.52725 9.03216,3.78137 8.51172,4.22461 7.96258,4.69228 7.77804,5.30894 7.64258,5.80468 7.50712,6.30043 7.40284,6.67759 7.16797,6.91992 6.96833,7.1259 6.63298,7.30905 5.91602,7.35937 5.63117,6.29225 4.65355,5.5 3.5,5.5 2.12521,5.5 1,6.62521 1,8 c 0,1.37478 1.12521,2.5 2.5,2.5 1.19728,0 2.20498,-0.85399 2.44532,-1.98243 0.69311,0.0545 1.02027,0.23778 1.21875,0.44922 0.23699,0.25248 0.34322,0.64895 0.47851,1.16016 C 7.77787,10.63816 7.95784,11.26809 8.50586,11.75 9.02525,12.20672 9.81113,12.46968 11,12.49609 V 14.5 L 15,12 11,9.5 v 1.99609 C 9.96812,11.47099 9.4529,11.25226 9.16602,11 8.86115,10.7319 8.73873,10.36183 8.60938,9.87304 8.48003,9.38425 8.35959,8.78072 7.89258,8.2832 7.77308,8.15589 7.63463,8.04168 7.47461,7.94336 7.63223,7.84896 7.76795,7.73973 7.88672,7.61718 8.35586,7.13315 8.47825,6.5411 8.60742,6.06836 8.7366,5.59561 8.8564,5.24502 9.16016,4.98632 9.44599,4.7429 9.96584,4.52659 11,4.50195 V 6.5 L 15,4 Z m -7.5,5 C 4.33435,6.5 5,7.16565 5,8 5,8.83434 4.33435,9.5 3.5,9.5 2.66565,9.5 2,8.83434 2,8 2,7.16565 2.66565,6.5 3.5,6.5 Z";
+var svg_ZoomRack = "(16) M 14,2.4999995 V 13.5 H 1.9999999 V 2.4999995 Z m -1,2 H 2.9999998 V 12.499998 H 13 Z";
+var svg_UnzoomRack = "(16) m 1.999875,2.50005 v 4.9997 1.0005 4.9997 h 12.00025 v -4.9997 -1.0005 -4.9997 z m 1.00045,1.9999 h 9.9999 v 2.9998 h -9.9999 z m 0,5.0002 h 9.9999 v 2.9998 h -9.9999 z";
+var svg_Eject = "(16) M 13,9.9416683 V 11.941666 H 2.9999999 V 9.9416683 Z M 8.0000021,1.9416666 13,7.9416676 H 2.9999999 c 0,0 1.2011944,-1.518331 2.5589521,-3.158624 l 0.3156283,-0.380061 c 0.6878288,-0.825396 1.3947138,-1.654428 1.9900648,-2.312554 z";
+
+class TabBarButton 
 {
-    Background = 
+    Background =
     {
-        Pressed = Frame() { Padding = (0, 0, 0, 1); Inner = #404143; };
+        Pressed = Frame() { Padding = (0, 0, 0, 1); Inner = colorFocusPressed; };
+        Hover = Frame() { Padding = (0, 0, 0, 1); Inner = colorBaseForeground.WithAlpha(0.1); };
         Selected = Frame() { Padding = (0, 0, 0, 1); Inner = #002d62; };
-    };
-    Image = 
-    {
-        Pressed || Selected = Image(image + ".png", Center).Recolor(#FFFFFF);
-        else = Image(image + ".png", Center).Recolor(#979797);
     };
 }
 
-class TableViewButton : GroupButton<"TableView"> {}
-class DiagramViewButton : GroupButton<"DiagramView"> {}
+class TableViewButton : TabBarButton
+{
+    Image = Frame()
+    {
+        InnerSize = (16,16);
+        Inner = {
+            Hover || Selected = makeImage(16, svg_TableView, colorFocusText);
+            else = makeImage(16, svg_TableView, colorToolbarButton);
+        };
+    };
+}
+
+class WiringViewButton : TabBarButton
+{
+    Image = Frame()
+    {
+        InnerSize = (16,16);
+        Inner = {
+            Hover || Selected = makeImage(16, svg_WiringView, colorText);
+            else = makeImage(16, svg_WiringView, colorToolbarButton);
+        };
+    };
+}
+
+class MaximizeRackButton : TabBarButton
+{
+    Background =
+    {
+        Pressed = Frame() { Padding = (0, 0, 0, 1); Inner = colorFocusPressed; };
+        Hover = Frame() { Padding = (0, 0, 0, 1); Inner = colorBaseForeground.WithAlpha(0.1); };
+    };
+
+    Image = Frame()
+    {
+        InnerSize = (16,16);
+        Inner = {
+            Hover && Checked = makeImage(16, svg_UnzoomRack, colorText);
+            Checked = makeImage(16, svg_UnzoomRack, colorToolbarButton);
+            Hover = makeImage(16, svg_ZoomRack, colorFocusText);
+            else = makeImage(16, svg_ZoomRack, colorToolbarButton);
+        };
+    };
+}
 
 
 class TabBar
 {
     Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
 
-    class Tab
+    class Tab : TabBarButton
     {
-        Background =
-        {
-            Pressed = Frame() { Padding = (0, 0, 0, 1); Inner = #404143; };
-            Selected = Frame() { Padding = (0, 0, 0, 1); Inner = #002d62; };
-        };
         TextColor = 
         {
+            Hover = colorFocusText;
             Alternate = #00000000;               // In small mode, hide text on eject button
             Selected || Pressed = #dfe1e5;
             else = #949599;
@@ -610,13 +890,31 @@ class TabBar
         Padding = EdgeInsets(10, 3, 30, 3);
         Image = 
         {
-            Pressed && Alternate = Image("EjectButton.png", Center).Recolor(#dfe1e5);
-            Alternate = Image("EjectButton.png", Center).Recolor(#949599);
-            Pressed = Image("EjectButton.png", RightCenter).Recolor(#dfe1e5);
-            else = Image("EjectButton.png", RightCenter).Recolor(#949599);
+            Alternate && Hover = make(colorFocusText, Gravity.Center);
+            Alternate && Pressed = make(#dfe1e5, Gravity.Center);
+            Alternate = make(#949599, Gravity.Center);
+            Hover = make(colorFocusText, Gravity.RightCenter);
+            Pressed = make(#dfe1e5, Gravity.RightCenter);
+            else = make(#949599, Gravity.RightCenter);
+        };
+
+
+        const make = (color, align) => Frame()
+        {
+            InnerSize = (16,16);
+            InnerGravity = align;
+            Padding = (10, 0);
+            Inner = Rasterize()
+            {
+                Size = (16,16);
+                Inner = Path()
+                {
+                    SvgData = svg_Eject;
+                    FillColor = color;
+                };
+            };
         };
     }
-
 }
 
 
@@ -626,8 +924,7 @@ class ToolbarTextButton : Button
     {
         Pressed = focusHighlightPressed;
         Focused = focusHighlight;
-        //LocalFocus && !Selected && !ContainerFocused = focusHighlightTransparent;
-        else = NineSliceImage("RoundedRect.png", 5, 5).Recolor(#424245);
+        else = subtleHighlight;
     };
     TextColor = #FFFFFF;
     Font = fontBold;
@@ -644,12 +941,12 @@ class TickerView
         {
             Pressed = focusHighlightPressed;
             Focused = focusHighlight;
-            Checked = NineSliceImage("RoundedRect.png", 5, 5).Recolor(#404040);
+            Checked = subtleHighlight;
         };
         TextColor = 
         {
-            Pressed || Focused || Checked = Color.White;
-            else = #808080;
+            Pressed || Focused || Checked = colorText;
+            else = colorDisabledText;
         };
     }
 }
@@ -663,16 +960,6 @@ class MidiChannelBar
 {
     Background = BorderFrame(#252525, #555555);
 }
-
-class Indicator<name,topFixed,bottomFixed>
-{
-    Background = 
-    {
-        Focused = NineSliceImage("Timeline" + name + "_hot.png", 0, topFixed, 0, bottomFixed);
-        else = NineSliceImage("Timeline" + name + ".png", 0, topFixed, 0, bottomFixed);
-    };
-}
-
 
 class TimelineView
 {
@@ -701,59 +988,183 @@ class TimelineView
         LabelTextColor = Color.White;
     }
 
-    class RangeLeftIndicator : Indicator<"RangeLeft", 0, 15> {}
-    class RangeRightIndicator : Indicator<"RangeRight", 0, 15> {}
-    class PlayPositionIndicator : Indicator<"PlayPos", 15, 0> {}
-    class CursorIndicator : Indicator<"Cursor", 0, 0>    {}
+    class RangeLeftIndicator
+    {
+        Background = [
+            Frame()
+            {
+                Padding = (0, 0, 0, 15);
+                Inner = BorderFrame(null, colorText, CenterVertical);
+            },
+            Frame()
+            {
+                IntrudeAmount = 15;
+                IntrudeEdge = Bottom;
+                Inner = Frame()
+                {
+                    Padding = (9, 2, 0, 0);
+                    Inner = {
+                        Focused = BorderFrame(null, colorFocus, Bottom | Left, 3);
+                        else = BorderFrame(null, colorText, Bottom | Left, 3);
+                    };
+                };
+            },
+        ];
+    }
+    class RangeRightIndicator
+    {
+        Background = [
+            Frame()
+            {
+                Padding = (0, 0, 0, 15);
+                Inner = BorderFrame(null, colorText, CenterVertical);
+            },
+            Frame()
+            {
+                IntrudeAmount = 15;
+                IntrudeEdge = Bottom;
+                Inner = Frame()
+                {
+                    Padding = (0, 2, 9, 0);
+                    Inner = {
+                        Focused = BorderFrame(null, colorFocus, Bottom | Right, 3);
+                        else = BorderFrame(null, colorText, Bottom | Right, 3);
+                    };
+                };
+            },
+        ];
+    }
+    class PlayPositionIndicator 
+    {
+        Background = [
+            Frame()
+            {
+                Padding = (0, 15, 0, 0);
+                Inner = BorderFrame(null, colorWarning, CenterVertical);
+            },
+            Frame()
+            {
+                IntrudeAmount = 2;
+                IntrudeEdge = Top;
+                Inner = BorderFrame(null, colorWarning, CenterVertical);
+            },
+            {
+                Focused = make(colorFocus);
+                else = make(colorWarning);
+            },
+        ];
+
+        const make = (color) => Frame()
+        {
+            InnerSize = (21,14);
+            InnerGravity = Top;
+            Inner = Rasterize()
+            {
+                Size = (21, 14);
+                Inner = Path()
+                {
+                    SvgData = "(21, 14) M 12,13 17,6 V 3 H 4 v 3 l 5,7 z";
+                    FillColor = color;
+                };
+            };
+        };
+    }
+    class CursorIndicator
+    {
+        Background = BorderFrame(null, colorWarning.WithAlpha(0.5), CenterVertical);
+    }
 }
 
+var colorWiringAddButton = #383838;
+var colorComponentTop = #6f6f6f;
+var colorComponentBottom = #595959;
+var colorWiringPortArea = #222326;
+var colorWiringSelectedPort = #013f99;
+var colorWiringPort = #595959;
 
 class WiringView
 {
     // Main content area background color
-    Background = #121212;
+    Background = colorWiringBackground;
 
     // Construction guide line color
-    ConstructionLineColor = #3F949599;
+    ConstructionLineColor = colorPanelBorder;
 
     // The instructional text when nothing in the diagram
-    BlankSlateTextColor = Color.White;
+    BlankSlateTextColor = colorText;
     BlankSlateFont = fontNormal;
 
     // The click/drag box selection
-    BoxSelectionHighlight = BorderFrame(#3f0097fb, #FF0097fb);
+    BoxSelectionHighlight = BorderFrame(colorFocus.WithAlpha(0.25), colorFocus);
 
     // The add button
     AddButton = 
     {
-        Pressed = NineSliceImage("WiringAddObject_selected.png", 3, 3);
-        else = NineSliceImage("WiringAddObject.png", 3, 3);
+        Pressed = makeAddButton(colorFocus, colorFocusGradient, colorText);
+        else = makeAddButton(colorWiringAddButton, colorWiringAddButton, colorWiringBackground);
     };
+
+    const makeAddButton = (colorButtonTop, colorButtonBottom, colorPlus) => [
+        Rectangle()
+        {
+            GradientStops = {
+                0.0 = colorButtonTop;
+                1.0 = colorButtonBottom;
+            };
+            GradientKind = Vertical;
+            CornerRadius = 3;
+        },
+        Frame()
+        {
+            InnerSize = (31,31);
+            Inner = Path()
+            {
+                SvgData = "(16) M 5.93555 0 L 5.93555 5.93555 L 0 5.93555 L 0 10.0645 L 5.93555 10.0645 L 5.93555 16 L 10.0645 16 L 10.0645 10.0645 L 16 10.0645 L 16 5.93555 L 10.0645 5.93555 L 10.0645 0 L 5.93555 0 Z";
+                FillColor = colorPlus;
+            };
+        }
+    ];
 
     // Common settings for the input and output port areas
     class PortArea
     {
-        Background = #222326;
+        Background = colorWiringPortArea;
         Overlay = 
         {
-            Selected = BorderFrame(#3f0097fb, #FF0097fb);
+            Selected = BorderFrame(colorFocus.WithAlpha(0.25), colorFocus);
         };
         PortTextColor = Color.White;
         PortFont = fontNormal;
         TitleFont = fontSmall;
-        TitleTextColor = #949599;
+        TitleTextColor = colorDimText;
     }
+
 
     // The environment input port area at the left
     class InputPortArea : PortArea
     {
         PortBackground = 
         {
-            Hover = NineSliceImage("WiringInputEnvPort_selected.png", 20, 3, 10, 3);
-            else = NineSliceImage("WiringInputEnvPort.png", 20, 3, 10, 3);
+            Hover = makePort(colorWiringSelectedPort);
+            else = makePort(colorWiringPort);
         };
         PortTextPadding = (18, 0, 10, 0);
         PortTextAlignment = RightCenter;
+
+        const makePort = (color) => [
+            Frame()
+            {
+                Padding = (16, 0, 0, 0);
+                Inner = Rectangle() { FillColor = color; CornerRadius = 3; };
+            },
+            Frame()
+            {
+                IntrudeAmount = 15;
+                IntrudeEdge = Left;
+                InnerSize = (6,14);
+                Inner = gripper_lhs;
+            },
+        ];
     }
 
     // The environment output port area at the left
@@ -761,11 +1172,26 @@ class WiringView
     {
         PortBackground = 
         {
-            Hover = NineSliceImage("WiringOutputEnvPort_selected.png", 10, 3, 20, 3);
-            else = NineSliceImage("WiringOutputEnvPort.png", 10, 3, 20, 3);
+            Hover = makePort(colorWiringSelectedPort);
+            else = makePort(colorWiringPort);
         };
         PortTextPadding = (10, 0, 18, 0);
         PortTextAlignment = LeftCenter;
+
+        const makePort = (color) => [
+            Frame()
+            {
+                Padding = (0, 0, 16, 0);
+                Inner = Rectangle() { FillColor = color; CornerRadius = 3; };
+            },
+            Frame()
+            {
+                IntrudeAmount = 15;
+                IntrudeEdge = Right;
+                InnerSize = (6,14);
+                Inner = gripper_rhs;
+            },
+        ];
     }
 
     // Objects
@@ -773,19 +1199,43 @@ class WiringView
     {
         Background = 
         {
-            Selected = NineSliceImage("WiringObject_selected.png", 3, 3);
-            Alternate = NineSliceImage("WiringObject_for_recolor.png", 3, 3);        // Used as recoloring base for colored objects
-            else = NineSliceImage("WiringObject.png", 3, 3);
+            Selected = focusHighlight;
+            else = Rectangle()
+            {
+                CornerRadius = 3;
+                GradientStops = {
+                    0.0 = colorComponentTop;
+                    1.0 = colorComponentBottom;
+                };
+                GradientKind = Vertical;
+            };
         };
         TextColor = Color.White;
         Font = fontNormal;
+    }
+
+    class Object<color> : Object
+    {
+        Background = 
+        {
+            Selected = focusHighlight;
+            else = Rectangle()
+            {
+                CornerRadius = 3;
+                GradientStops = {
+                    0.0 = color;
+                    1.0 = color.WithAlpha(0.8);
+                };
+                GradientKind = Vertical;
+            };
+        };
     }
 
     // Common settings for object ports
     class ObjectPorts
     {
         Padding = (0, 3, 0, 3);
-        PortTextColor = Color.White;
+        PortTextColor = colorText;
         PortFont = fontSmall;
         WireIntrude = 5;
     }
@@ -793,10 +1243,17 @@ class WiringView
     // The input port area for objects (appears above the main component rectangle)
     class ObjectInputPorts : ObjectPorts
     {
-        Background = NineSliceImage("WiringInputPorts.png", 3, 3);
-        PortBackground = 
+        Background = Frame()
+        {   
+            Padding = (5, 0, 22, 0);
+            Inner = colorWiringPortArea;
+        };
+        PortBackground = Frame()
         {
-            Hover = NineSliceImage("WiringInputPort_selected.png", 3, 3);
+            Padding = (5, 0, 22, 0);
+            Inner = {
+                Hover = colorWiringSelectedPort;
+            };
         };
         PortTextPadding = (10, 0, 22, 0);
         PortTextAlign = LeftCenter;
@@ -805,10 +1262,17 @@ class WiringView
     // The output port area for objects (appears below the main component rectangle)
     class ObjectOutputPorts : ObjectPorts
     {
-        Background = NineSliceImage("WiringOutputPorts.png", 3, 3);
-        PortBackground = 
+        Background = Frame()
         {
-            Hover = NineSliceImage("WiringOutputPort_selected.png", 3, 3);
+            Padding = (22, 0, 5, 0);
+            Inner = colorWiringPortArea;
+        };
+        PortBackground = Frame()
+        {
+            Padding = (22, 0, 5, 0);
+            Inner = {
+                Hover = colorWiringSelectedPort;
+            };
         };
         PortTextPadding = (22, 0, 10, 0);
         PortTextAlign = RightCenter;
@@ -827,8 +1291,9 @@ class WiringView
         // These colors will be blended with the base wire color
         Colors = 
         {
-            Hover = #3fFFFFFF;   // White 25% alpha
-            Selected = #0480F1;
+            Hover = colorBaseForeground.WithAlpha(0.25);
+            Selected = colorFocus;
+            Disabled = colorBaseBackground.WithAlpha(0.5);
             else = Color.Clear;
         };
 
@@ -1020,99 +1485,6 @@ var makeGlowImage = (size, svg, color) => Rasterize()
     ];
 };
 
-// Helper to rasterize an image
-var makeImage = (size, svg, color) => Rasterize()
-{
-    Size = (size, size);
-    Inner = Path()
-    {
-        SvgData = svg;
-        FillColor = color;
-    };
-};
-
-// Helper to rasterize a 2-color image
-var makeImage2 = (size, svg, color, svg2, color2) => Rasterize()
-{
-    Size = (size, size);
-    Inner = [
-        Path()
-        {
-            SvgData = svg;
-            FillColor = color;
-        },
-        Path()
-        {
-            SvgData = svg2;
-            FillColor = color2;
-        },
-    ];
-};
-
-
-// Template class for glow buttons
-class GlowButton<size, svg, color>
-{
-    Image = Frame()
-    {
-        InnerSize = (size, size);
-        Gravity = Center;
-        Inner =
-        {
-            Checked = makeGlowImage(size, svg, color);
-            Pressed = makeImage(size, svg, colorToolbarButtonPressed);
-            else = makeImage(size, svg, colorToolbarButton);
-        };
-    };
-}
-
-
-// Template class for glow buttons with alternate color
-class GlowButton<size, svg, color, colorAlt>
-{
-    Image = Frame()
-    {
-        InnerSize = (size, size);
-        Gravity = Center;
-        Inner =
-        {
-            Alternate = makeGlowImage(size, svg, colorAlt);
-            Checked = makeGlowImage(size, svg, color);
-            Pressed = makeImage(size, svg, colorToolbarButtonPressed);
-            else = makeImage(size, svg, colorToolbarButton);
-        };
-    };
-}
-
-// Helper to make a standard toolbar button
-var makeToolbarButton = (size, pressed, svg) => Rasterize()
-{
-    Size = (size, size);
-    Gravity = Center;
-    Inner = [
-        Path()
-        {
-            SvgData = svg;
-            FillColor = pressed ? colorToolbarButtonPressed : colorToolbarButton;
-            MaintainAspectRatio = true;
-        },
-    ];
-};
-
-// Template class for standard toolbar button
-class ToolbarButton<size, svg>
-{
-    Image = Frame()
-    {
-        InnerSize = (size, size);
-        Gravity = Center;
-        Inner =
-        {
-            Pressed = makeToolbarButton(size, true, svg);
-            else = makeToolbarButton(size, false, svg);
-        };
-    };
-}
 
 // Helper to make the live mode button
 // (This is a special case because it's composed of three elements with different alphas)
@@ -1521,6 +1893,16 @@ class NotifyIcon
     IconRunning = Image("NotifyIcon_running.png", Center);
 }
 
+// The plugin selector dialog
+class PluginSelector
+{
+    IconFolderOpen = Image("FolderOpen.png", Center);
+    IconFolderClosed = Image("FolderClosed.png", Center);
+    IconPlugin = Image("Plugin.png", Center);
+    IconPluginSynth = Image("PluginSynth.png", Center);
+    IconPluginEffect = Image("PluginEffect.png", Center);
+}
+
 
 
 // The controller bar
@@ -1721,15 +2103,22 @@ class Splitter
     Background = colorPanelBorder;
 }
 
-
-
-context MidiMonitor
+class ShowNotesPanel
 {
-    class ChannelHeader {}
-    class ControllerRow {}
-    class ControllerRow_Title {}
-    class ControllerRow_Value {}
+    class Note
+    {
+        // State inactive set if showing hidden items
+
+        FixedPitchFaceName = "GuiKitMono";
+        VariablePitchFaceName = "GuiKitSans";
+
+        class Text
+        {
+            // State inactive if showing hidden items
+        }
+    }
 }
+
 
 class SetListGrid
 {
@@ -1767,6 +2156,8 @@ class SetListGrid
     }
 }
 
+
+
 context DelayLoadPopup
 {
 
@@ -1799,22 +2190,6 @@ context Profiler
     class Histogram
     {
 
-    }
-}
-
-class ShowNotesPanel
-{
-    class Note
-    {
-        // State inactive set if showing hidden items
-
-        FixedPitchFaceName = "GuiKitMono";
-        VariablePitchFaceName = "GuiKitSans";
-
-        class Text
-        {
-            // State inactive if showing hidden items
-        }
     }
 }
 
@@ -1854,22 +2229,14 @@ class PromoBar
 }
 
 
-context RackPanel
-{
-    class SetListGridButton {}
-    class TableViewButton {}
-    class WiringViewButton {}
-    class ZoomButton {}
-}
 
 
-// The plugin selector dialog
-class PluginSelector
+
+context MidiMonitor
 {
-    IconFolderOpen = Image("FolderOpen.png", Center);
-    IconFolderClosed = Image("FolderClosed.png", Center);
-    IconPlugin = Image("Plugin.png", Center);
-    IconPluginSynth = Image("PluginSynth.png", Center);
-    IconPluginEffect = Image("PluginEffect.png", Center);
+    class ChannelHeader {}
+    class ControllerRow {}
+    class ControllerRow_Title {}
+    class ControllerRow_Value {}
 }
 
