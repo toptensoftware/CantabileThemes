@@ -31,10 +31,7 @@ var colorKeyWhite = Color.White;
 var colorKeyBlack = Color.Black;
 var colorKeyMiddleC = Color.Blend(colorKeyBlack, colorKeyWhite.WithAlpha(0.75));
 
-var colorTableBackground = #121212;
-var colorTableChildRow = #1e1e21;
-
-var colorWiringBackground = #121212;
+var colorContentBackground = #121212;
 
 var colorFocusGradient = #015ee6;
 var colorFocusPressed = #0877d1;
@@ -94,7 +91,9 @@ var svg_Decrement = "(13) m 0,5.75 h 13 v 1.5 H 0 Z";
 var svg_gripper_lhs = "(6,14) M 2.5,12.703704 A 1.25,1.2962964 0 0 1 1.25,14 1.25,1.2962964 0 0 1 0,12.703704 1.25,1.2962964 0 0 1 1.25,11.407408 1.25,1.2962964 0 0 1 2.5,12.703704 Z M 6,10.111111 A 1.25,1.2962964 0 0 1 4.75,11.407407 1.25,1.2962964 0 0 1 3.5,10.111111 1.25,1.2962964 0 0 1 4.75,8.8148143 1.25,1.2962964 0 0 1 6,10.111111 Z M 6,4.4074073 A 1.25,1.2962964 0 0 1 4.75,5.7037036 1.25,1.2962964 0 0 1 3.5,4.4074073 1.25,1.2962964 0 0 1 4.75,3.1111109 1.25,1.2962964 0 0 1 6,4.4074073 Z M 2.5,7 A 1.25,1.2962964 0 0 1 1.25,8.2962964 1.25,1.2962964 0 0 1 0,7 1.25,1.2962964 0 0 1 1.25,5.7037036 1.25,1.2962964 0 0 1 2.5,7 Z m 0,-5.7037036 A 1.25,1.2962964 0 0 1 1.25,2.5925927 1.25,1.2962964 0 0 1 0,1.2962964 1.25,1.2962964 0 0 1 1.25,0 1.25,1.2962964 0 0 1 2.5,1.2962964 Z";
 var svg_gripper_rhs = "(6,14) M 3.5,12.703704 A -1.25,1.2962964 0 0 0 4.75,14 -1.25,1.2962964 0 0 0 6,12.703704 -1.25,1.2962964 0 0 0 4.75,11.407408 -1.25,1.2962964 0 0 0 3.5,12.703704 Z M 0,10.111111 A -1.25,1.2962964 0 0 0 1.25,11.407407 -1.25,1.2962964 0 0 0 2.5,10.111111 -1.25,1.2962964 0 0 0 1.25,8.8148143 -1.25,1.2962964 0 0 0 0,10.111111 Z M 0,4.4074073 A -1.25,1.2962964 0 0 0 1.25,5.7037036 -1.25,1.2962964 0 0 0 2.5,4.4074073 -1.25,1.2962964 0 0 0 1.25,3.1111109 -1.25,1.2962964 0 0 0 0,4.4074073 Z M 3.5,7 A -1.25,1.2962964 0 0 0 4.75,8.2962964 -1.25,1.2962964 0 0 0 6,7 -1.25,1.2962964 0 0 0 4.75,5.7037036 -1.25,1.2962964 0 0 0 3.5,7 Z m 0,-5.7037036 A -1.25,1.2962964 0 0 0 4.75,2.5925927 -1.25,1.2962964 0 0 0 6,1.2962964 -1.25,1.2962964 0 0 0 4.75,0 -1.25,1.2962964 0 0 0 3.5,1.2962964 Z";
 var svg_arrow = "(16) M 6.3432312,3.3488998 5.0056673,4.6864641 8.312701,8.0065032 5.0056673,11.313536 6.3432312,12.6511 10.32555,8.6687821 10.994333,8.0000001 Z";
-
+var svg_SetListGrid = "(16) m 8.5,8.5 h 6 v 5 h -6 z m -7,0 h 6 v 5 h -6 z m 7,-6 h 6 v 5 h -6 z m -7,0 h 6 v 5 h -6 z";
+var svg_SetListGridUnpinned = "(16) M 3.4496759,11.945711 4.710734,10.491075 c 0,0 -1.3077768,-1.4147063 -2.0903195,-2.1972492 C 2.0518997,7.7253113 3.8854362,6.3041161 5.4389823,6.8878271 5.9063029,7.0634126 6.4160837,6.7552428 6.7359447,6.5165544 9.0034933,4.824453 8.2464224,5.3881825 10.08023,3.9315929 10.777033,3.3781233 9.9969482,2.962277 10.257996,2.532066 10.378951,2.3327299 10.93941,1.5399162 11.531404,2.103201 l 0.990119,1.0188283 1.375276,1.346567 C 14.460084,5.0605904 13.66727,5.6210494 13.467934,5.7420044 13.037723,6.0030518 12.621877,5.2229674 12.068408,5.9197707 10.611817,7.7535777 11.175547,6.9965068 9.4834456,9.2640553 9.2447573,9.5839164 8.9365874,10.093697 9.1121729,10.561018 9.6958842,12.114564 8.2746888,13.9481 7.7061742,13.379586 6.9236314,12.597043 5.5089254,11.289266 5.5089254,11.289266 L 4.0542889,12.550324 1.9045001,14.0955 Z";
+var svg_SetListGridPinned = "(16) M 4.4039276,12.841148 C 3.5999495,12.841149 3.8915104,10.539772 5.4027362,9.8540142 5.8573266,9.6477321 5.9998829,9.0693703 6.0572791,8.6744275 6.46417,5.8746122 6.3274608,6.8085324 6.5941862,4.4819372 6.6955355,3.597886 5.849909,3.8554339 5.7302958,3.3666545 5.6748736,3.1401809 5.5105786,2.1832999 6.3274608,2.163 L 7.7479605,2.1833 9.6725392,2.163 C 10.489421,2.1833 10.325126,3.1401809 10.269704,3.3666545 10.150091,3.8554339 9.3044645,3.597886 9.4058138,4.4819372 c 0.2667254,2.3265952 0.1300163,1.392675 0.5369072,4.1924903 0.057396,0.3949428 0.199952,0.9733046 0.654543,1.1795867 1.511226,0.6857578 1.802786,2.9871348 0.998808,2.9871338 -1.106651,10e-7 -3.0316815,0.07561 -3.0316815,0.07561 L 8.4275138,13.837 H 7.5724863 L 7.4356095,12.916757 c 0,0 -1.9250309,-0.07561 -3.0316819,-0.07561 z";
 
 // Rounded off focused rectangle
 var focusHighlight = Rectangle()
@@ -700,7 +699,7 @@ class DisclosureArrow
 
 class TableView
 {
-    Background =  colorTableBackground;
+    Background =  colorContentBackground;
 }
 
 // Common base style for all table rows
@@ -735,8 +734,8 @@ class TableRow_ChildItem : TableRow_common
     {
         Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
         Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
-        CurrentItem = make(Color.Blend(colorTableChildRow, colorFocus.WithAlpha(0.2)));
-        else = make(colorTableChildRow);
+        CurrentItem = make(Color.Blend(colorContentBackground, colorFocus.WithAlpha(0.2)));
+        else = make(colorContentBackground);
     };
 
     const make  = (colorRow) => Frame()
@@ -753,8 +752,8 @@ class TableRow_ChildFooter : TableRow_common
     {
         Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
         Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
-        CurrentItem = make(Color.Blend(colorTableChildRow, colorFocus.WithAlpha(0.2)));
-        else = make(colorTableChildRow);
+        CurrentItem = make(Color.Blend(colorContentBackground, colorFocus.WithAlpha(0.2)));
+        else = make(colorContentBackground);
     };
 
 
@@ -823,6 +822,34 @@ class TabBarButton
     };
 }
 
+class SetListGridButton : TabBarButton
+{
+    Image = Frame()
+    {
+        InnerSize = (16,16);
+        Inner = {
+            (Hover || Selected) && Checked = makeGlowImage(16, svg_SetListGrid, colorLedOn);
+            Checked = makeGlowImage(16, svg_SetListGrid, colorLedOn);
+            Hover || Selected = makeImage(16, svg_SetListGrid, colorFocusText);
+            else = makeImage(16, svg_SetListGrid, colorToolbarButton);
+        };
+    };
+}
+
+class SetListPinnedButton : TabBarButton
+{
+    Image = Frame()
+    {
+        InnerSize = (16,16);
+        Inner = {
+            (Hover || Selected) && Checked = makeGlowImage(16, svg_SetListGridPinned, colorLedOn);
+            (Hover || Selected) = makeImage(16, svg_SetListGridUnpinned, colorFocusText);
+            Checked = makeGlowImage(16, svg_SetListGridPinned, colorLedOn);
+            else = makeImage(16, svg_SetListGridUnpinned, colorToolbarButton);
+        };
+    };
+}
+
 class TableViewButton : TabBarButton
 {
     Image = Frame()
@@ -849,12 +876,6 @@ class WiringViewButton : TabBarButton
 
 class MaximizeRackButton : TabBarButton
 {
-    Background =
-    {
-        Pressed = Frame() { Padding = (0, 0, 0, 1); Inner = colorFocusPressed; };
-        Hover = Frame() { Padding = (0, 0, 0, 1); Inner = colorBaseForeground.WithAlpha(0.1); };
-    };
-
     Image = Frame()
     {
         InnerSize = (16,16);
@@ -1085,7 +1106,7 @@ var colorWiringPort = #595959;
 class WiringView
 {
     // Main content area background color
-    Background = colorWiringBackground;
+    Background = colorContentBackground;
 
     // Construction guide line color
     ConstructionLineColor = colorPanelBorder;
@@ -1101,7 +1122,7 @@ class WiringView
     AddButton = 
     {
         Pressed = makeAddButton(colorFocus, colorFocusGradient, colorText);
-        else = makeAddButton(colorWiringAddButton, colorWiringAddButton, colorWiringBackground);
+        else = makeAddButton(colorWiringAddButton, colorWiringAddButton, colorContentBackground);
     };
 
     const makeAddButton = (colorButtonTop, colorButtonBottom, colorPlus) => [
@@ -2105,17 +2126,17 @@ class Splitter
 
 class ShowNotesPanel
 {
+    Background = colorContentBackground;
+
     class Note
     {
-        // State inactive set if showing hidden items
-
-        FixedPitchFaceName = "GuiKitMono";
+        Overlay  = {
+            Selected || Focused || CurrentItem = BorderFrame(colorFocus.WithAlpha(0.1), colorFocus);
+            Inactive = colorBaseBackground.WithAlpha(0.6);
+        };
+        TextColor = colorText;
+        FixedPitchFaceName = "Courier New";
         VariablePitchFaceName = "GuiKitSans";
-
-        class Text
-        {
-            // State inactive if showing hidden items
-        }
     }
 }
 
@@ -2125,34 +2146,62 @@ class SetListGrid
     // The facename for everything
     FaceName = "GuiKitSans";
 
-    // The grid button in the toolbar
-    class GridButton {}
-    class PinnedButton {}
+    Background = colorContentBackground;
 
     // A song item
-    class Item 
+    class Item : ::Button
     {
-        // The button itself
-        class Button 
-        {
-            // The program number
-            class ProgramNumber {}
+        Background  = {
+            Pressed = focusHighlightPressed;
+            Focused || Selected = focusHighlight;
+            else = subtleHighlight;
+        };
+        TextColor = {
+            Pressed || Selected || Focused = colorFocusText;
+            else = colorToolbarButton;
+        };
 
-            // The overrides label
-            class Overrides {}
+        Padding = 0;
+
+        // The program number
+        class ProgramNumber 
+        {
+            TextColor = colorToolbarButton;
+            Background = colorBaseBackground.WithAlpha(0.3);
+            Padding = 3;
         }
 
-        // Colored button
-        class Button<color> : Button
+        // The overrides label
+        class Overrides 
         {
-
+            TextColor = colorToolbarButton;
+            Gravity = BottomRight;
+            Padding = 3;
         }
+    }
+
+    // Colored button
+    class Item<color> : Item
+    {
+        Background  = {
+            Pressed = focusHighlightPressed;
+            Focused || Selected = focusHighlight;
+            else = Rectangle()
+            {
+                CornerRadius = 3;
+                FillColor = color;
+            };
+        };
     }
 
     // A set list break item
     class Title 
     {
-
+        TextColor = Color.White;
+        Gravity = Center;
+        Background = {
+            Selected = focusHighlight;
+        };
     }
 }
 
