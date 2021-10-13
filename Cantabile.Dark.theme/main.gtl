@@ -1416,16 +1416,6 @@ class StatusPanel
     }
 }
 
-context MidiMonitor
-{
-    class SidePanel {}
-    class Toolbar {}
-    class PauseButton {}
-    class ProbePointDropDown {}
-    class Stats {}
-    class FileMenuButton {}
-}
-
 class ToolbarSeparator
 {
     Background = colorBorder;
@@ -1598,7 +1588,7 @@ class MainToolbar
 // The metronome toolbar
 class MetronomeToolbar
 {
-    Background = BorderFrame(null, colorPanelBorder, Bottom);
+    Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
     class TextButton : ToolbarTextButton
     {
         Font = fontNormal;
@@ -2199,7 +2189,32 @@ class SetListGrid
     }
 }
 
+class QuickControllerItem
+{
+    Background =
+    {
+        CurrentItem = focusHighlight;
+    };
 
+    class ShortcutKey
+    {
+        TextColor = colorDimText;
+        Font = fontSmall;
+        Gravity = LeftCenter;
+    }
+
+    class Text
+    {
+        TextColor = colorText;
+    }
+
+    class Value
+    {
+        TextColor = colorText;
+        Font = fontSmall;
+        Gravity = RightCenter;
+    }
+}
 
 context DelayLoadPopup
 {
@@ -2275,37 +2290,51 @@ class PromoBar
 
 
 
-context MidiMonitor
+class MidiMonitor
 {
-    class ChannelHeader {}
-    class ControllerRow {}
-    class ControllerRow_Title {}
-    class ControllerRow_Value {}
+    class Toolbar
+    {
+        Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
+
+        class PauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause>  {  }
+        class ProbePointDropDown : ToolbarTextButton {}
+        class Stats
+        {
+            TextColor = colorText;
+            Padding = (10, 0);
+        }
+        class MenuButton : HamburgerButton {}
+    }
+
+    class SidePanel : SidePanelContent
+    {
+        class ControllerRow : SidePanelItem 
+        {
+            class Text
+            {
+                TextColor = Color.White;
+                Padding = (15, 0, 0, 0);
+            }
+            class Value
+            {
+                TextColor = Color.White;
+                Gravity = Center;
+                Background = Rectangle()
+                {
+                    FillColor = colorBaseBackground;
+                    StrokeWidth = 1;
+                    StrokeColor = colorPanelBorder;
+                    CornerRadius = 1.5;
+                };
+            }
+        }
+        class ChannelHeader 
+        {
+            TextColor = colorText;
+            Font = fontBold;
+            Padding = (3, 0);
+            Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
+        }
+    }
 }
 
-class QuickControllerItem
-{
-    Background =
-    {
-        CurrentItem = focusHighlight;
-    };
-
-    class ShortcutKey
-    {
-        TextColor = colorDimText;
-        Font = fontSmall;
-        Gravity = LeftCenter;
-    }
-
-    class Text
-    {
-        TextColor = colorText;
-    }
-
-    class Value
-    {
-        TextColor = colorText;
-        Font = fontSmall;
-        Gravity = RightCenter;
-    }
-}
