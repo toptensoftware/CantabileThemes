@@ -55,6 +55,7 @@ var svg_MetronomeSoundsOff1 = "(18,16) M 3.7290881,5.3827875 9.0000006,-2.616952
 var svg_MetronomeSoundsOff2 = "(18,16) M 11.859 11.7588 C 11.6563 11.9615 11.3265 11.9605 11.1224 11.7564 C 10.9169 11.5509 10.9173 11.2226 11.12 11.0199 L 13.7089 8.43099 L 11.12 5.84212 C 10.9173 5.63947 10.9184 5.30964 11.1224 5.10557 C 11.3279 4.90009 11.6562 4.90042 11.859 5.10313 L 14.4478 7.69201 L 17.0367 5.10313 C 17.2394 4.90049 17.5692 4.90151 17.7733 5.10557 C 17.9787 5.31106 17.9784 5.6394 17.7757 5.84211 L 15.1868 8.43099 L 17.7757 11.0199 C 17.9783 11.2225 17.9773 11.5523 17.7732 11.7564 C 17.5677 11.9619 17.2394 11.9616 17.0367 11.7589 L 14.4478 9.16997 Z";
 var svg_Hamburger = "(22) m 0,16 h 22 v 4 H 0 Z M 0,9 h 22 v 4 H 0 Z M 0,2 H 22 V 6 H 0 Z";
 var svg_Lock = "(16) M 5.74746 7.37984 C 5.74746 6.9536 5.74746 6.52565 5.74746 5.56417 C 5.74746 5.09453 5.96741 4.57376 6.3514 4.17429 C 6.77109 3.73769 7.33905 3.4869 7.99197 3.4869 C 8.68193 3.4869 9.24962 3.73809 9.65944 4.17682 C 10.0272 4.57055 10.2365 5.09079 10.2365 5.56417 C 10.2365 6.49467 10.2365 6.639 10.2365 7.37984 Z M 11.8365 7.37984 C 11.8365 6.639 11.8365 6.49467 11.8365 5.56417 C 11.8365 4.68137 11.4707 3.77191 10.8287 3.08462 C 10.119 2.32482 9.12922 1.88689 7.99197 1.88689 C 5.82875 1.88689 4.14746 3.63592 4.14746 5.56417 C 4.14746 6.52565 4.14746 6.9536 4.14746 7.37984 L 3.8667 7.37984 C 3.38743 7.37984 3.00002 7.76778 3.00002 8.24632 L 3.00002 13.2467 C 3.00002 13.7245 3.38805 14.1132 3.8667 14.1132 L 12.1334 14.1132 C 12.6126 14.1132 13.0001 13.7253 13.0001 13.2467 L 13.0001 8.24632 C 13.0001 7.76849 12.612 7.37984 12.1334 7.37984 Z";
+var svg_Unlock = "(16) m 7.991933,0.710576 c 1.137241,0 2.126968,0.4379283 2.836699,1.1977259 0.642001,0.6872896 1.007801,1.5967436 1.007801,2.4795381 v 0 4.168251 h 0.29689 C 12.611975,8.556091 13,8.944744 13,9.422572 v 0 5.000371 c 0,0.478544 -0.387412,0.866481 -0.866677,0.866481 v 0 H 3.8666773 C 3.3880247,15.289424 3,14.900771 3,14.422943 v 0 -5.000371 C 3,8.944028 3.3874122,8.556091 3.8666773,8.556091 v 0 h 0.280755 v 0 L 4.147,8.551576 h 1.6 l 4.323e-4,0.0045 h 4.4890007 v 0 -4.1682509 c 0,-0.4733748 -0.209249,-0.9936121 -0.577039,-1.3873468 C 9.249576,2.5617659 8.681882,2.310576 7.991933,2.310576 c -0.65292,0 -1.220874,0.2507951 -1.640566,0.6873951 -0.3839902,0.3994591 -0.6039346,0.9202336 -0.6039346,1.389869 v 0 L 5.747,6.591576 h -1.6 L 4.1474324,4.38784 c 1e-7,-1.8679847 1.5778513,-3.5677751 3.6431476,-3.6721878 z";
 var svg_Reset = "(16) M 8.233061,2.067029 5.502995,4.797612 8.233061,7.527678 V 5.480258 5.305591 c 1.898839,0.120208 3.401859,1.698033 3.401859,3.627169 0,2.00743 -1.62742,3.63492 -3.63492,3.63492 -2.00745,0 -3.63492,-1.62749 -3.63492,-3.63492 0,-0.20399 -0.07571,-0.584639 -0.646989,-0.610299 -0.38086,-0.01711 -0.620423,0.186209 -0.718303,0.610299 0,2.76143 2.238792,5.000211 5.000212,5.000211 2.7614,0 5.000212,-2.238781 5.000212,-5.000211 0,-2.683314 -2.113942,-4.872794 -4.767151,-4.994527 z";
 var svg_Linked = "(16) M 9.8084556,7.122902 C 9.6251588,7.2818723 9.186838,7.7183416 8.8217514,8.1045029 8.3439583,6.8878232 7.1297524,6.9616101 6.5838542,7.5394011 6.32293,7.8155692 4.9995706,9.1263871 4.6238497,9.5003644 4.2229156,9.8994378 4.2106931,10.810194 4.7036037,11.270271 c 0.4929107,0.460076 1.2910038,0.595083 1.8802505,0 l 0.5616163,-0.562072 c 0.044655,-0.04491 0.081422,-0.08204 0.1045917,-0.105679 0.3036963,0.167093 1.151273,0.290976 1.6962249,0.1997 l -0.00642,0.0063 -0.049611,0.0488 c -0.097283,0.0958 -0.3149702,0.310641 -0.6034329,0.59826 L 8.0579821,11.684222 C 7.8575143,11.884918 7.6342466,12.109522 7.4002957,12.346737 6.6592563,13.098113 4.9902586,13.363108 3.78988,12.257253 2.5895014,11.151399 2.9669612,9.3342938 3.5484454,8.7022904 4.6129737,7.5452761 5.4705601,6.7673632 5.7851528,6.461827 6.7794977,5.4961072 8.95159,5.512516 9.8084556,7.122902 Z M 12.21012,3.7427467 c 1.200379,1.1058542 0.822919,2.9229595 0.241435,3.5549629 C 11.387026,8.4547239 10.52944,9.2326368 10.214847,9.538173 9.2205023,10.503893 7.04841,10.487484 6.1915444,8.877098 6.3748412,8.7181277 6.813162,8.2816584 7.1782486,7.8954971 7.6560417,9.1121768 8.8702476,9.0383899 9.4161458,8.4605989 9.67707,8.1844308 11.000429,6.8736129 11.37615,6.4996356 11.777084,6.1005622 11.789307,5.1898059 11.2964,4.7297293 c -0.49291,-0.4600766 -1.291004,-0.5950833 -1.8802502,0 L 8.8545295,5.2918015 C 8.8098745,5.3367164 8.773107,5.3738368 8.7499378,5.3974804 8.4462415,5.2303867 7.5986648,5.1065044 7.053713,5.1977805 l 0.00642,-0.0063 0.049611,-0.048802 C 7.2070258,5.04688 7.4247133,4.8320343 7.713176,4.5444148 L 7.9420179,4.3157782 C 8.1424857,4.1150819 8.3657534,3.8904776 8.5997043,3.6532632 9.3407437,2.9018869 11.009741,2.6368924 12.21012,3.7427467 Z";
 var svg_Unlinked = "(16) M 5.34913,7.15163 6.23476,8.03628 C 6.13036,8.14093 6.01626,8.25492 5.89939,8.37146 L 5.59623,8.67337 C 5.29576,8.97229 5.01654,9.24927 4.87754,9.38762 4.50673,9.75671 4.49543,10.599 4.9513,11.0245 c 0.45587,0.4255 1.194,0.5504 1.73896,0 0,0 0.77089,-0.6855 1.33795,-1.19415 L 8.86164,10.6656 C 8.41893,11.0748 7.85497,11.6048 7.44536,12.0201 6.76,12.715 5.21642,12.9601 4.10624,11.9373 2.99606,10.9146 3.34516,9.23403 3.88295,8.64952 4.45742,8.02514 4.96672,7.52013 5.34913,7.15163 Z M 10.588,8.92521 9.70241,8.04056 C 9.80681,7.93592 9.92091,7.82192 10.0378,7.70538 l 0.3031,-0.30191 c 0.3005,-0.29891 0.5797,-0.5759 0.7187,-0.71425 0.3708,-0.36908 0.3821,-1.2114 -0.0737,-1.63691 -0.4559,-0.4255 -1.19402,-0.55036 -1.73899,0 0,0 -0.77089,0.68557 -1.33794,1.19418 L 7.07553,5.41121 C 7.51824,5.00203 8.0822,4.47206 8.49182,4.05674 9.17717,3.36182 10.7208,3.11674 11.8309,4.1395 12.9411,5.16225 12.592,6.84282 12.0542,7.42733 11.4798,8.05171 10.9704,8.55672 10.588,8.92521 Z M 6.20628,2.94941 C 6.14152,2.94912 6.07932,2.97472 6.03353,3.02052 5.98773,3.06631 5.96213,3.12851 5.96242,3.19327 v 1.96171 c 1.9e-4,0.06445 0.026,0.12618 0.07175,0.17158 C 6.07991,5.37197 6.14183,5.39732 6.20628,5.39703 6.3398,5.39663 6.44794,5.2885 6.44833,5.15498 V 3.19327 C 6.44862,3.12882 6.42327,3.0669 6.37786,3.02116 6.33246,2.97541 6.27073,2.9496 6.20628,2.94941 Z M 3.24204,5.91365 c -0.13352,4e-4 -0.24165,0.10853 -0.24205,0.24205 4e-4,0.13352 0.10853,0.24166 0.24205,0.24205 H 5.20556 C 5.33907,6.39736 5.44721,6.28922 5.44761,6.1557 5.44721,6.02218 5.33907,5.91405 5.20556,5.91365 Z M 4.19038,3.89775 C 4.12585,3.89807 4.0641,3.92407 4.01878,3.97 c -0.09473,0.0948 -0.09473,0.24842 0,0.34321 L 5.40606,5.7005 c 0.0948,0.09472 0.24842,0.09472 0.34321,0 0.09473,-0.0948 0.09473,-0.24841 0,-0.34321 L 4.36199,3.97 C 4.31666,3.92407 4.25491,3.89807 4.19038,3.89775 Z M 9.79371,10.603 c -0.13351,4e-4 -0.24165,0.1085 -0.24205,0.242 v 1.9617 c -2.9e-4,0.0645 0.02506,0.1264 0.07047,0.1721 0.0454,0.0458 0.10713,0.0716 0.17158,0.0718 0.06477,3e-4 0.12696,-0.0253 0.17276,-0.0711 0.04583,-0.0458 0.07143,-0.108 0.07113,-0.1728 V 10.845 C 10.0374,10.7806 10.0116,10.7188 9.96583,10.6734 9.92008,10.628 9.85816,10.6027 9.79371,10.603 Z M 10.7944,9.60224 c -0.1335,4e-4 -0.2416,0.10854 -0.242,0.24205 4e-4,0.13352 0.1085,0.24161 0.242,0.24201 H 12.758 C 12.8915,10.0859 12.9996,9.97781 13,9.84429 12.9996,9.71077 12.8915,9.60264 12.758,9.60224 Z M 10.4223,10.229 c -0.0642,-10e-5 -0.126,0.0252 -0.1716,0.0705 -0.0947,0.0948 -0.0947,0.2484 0,0.3432 L 11.638,12.03 c 0.0948,0.0947 0.2484,0.0947 0.3432,0 0.0947,-0.0948 0.0947,-0.2484 0,-0.3432 L 10.5939,10.2995 C 10.5483,10.2542 10.4866,10.2289 10.4223,10.229 Z";
@@ -101,6 +102,13 @@ var svg_WiringView = "(16) M 11,1.5 V 3.50195 C 9.81339,3.52725 9.03216,3.78137 
 var svg_ZoomRack = "(16) M 14,2.4999995 V 13.5 H 1.9999999 V 2.4999995 Z m -1,2 H 2.9999998 V 12.499998 H 13 Z";
 var svg_UnzoomRack = "(16) m 1.999875,2.50005 v 4.9997 1.0005 4.9997 h 12.00025 v -4.9997 -1.0005 -4.9997 z m 1.00045,1.9999 h 9.9999 v 2.9998 h -9.9999 z m 0,5.0002 h 9.9999 v 2.9998 h -9.9999 z";
 var svg_Eject = "(16) M 13,9.9416683 V 11.941666 H 2.9999999 V 9.9416683 Z M 8.0000021,1.9416666 13,7.9416676 H 2.9999999 c 0,0 1.2011944,-1.518331 2.5589521,-3.158624 l 0.3156283,-0.380061 c 0.6878288,-0.825396 1.3947138,-1.654428 1.9900648,-2.312554 z";
+var svg_NativePreset = "(16) M 15.454546,10.016288 12.5,15.016287 9.5454545,10.016288 Z M 0.55117001,11.27725 C 1.5123013,6.3843217 1.9083538,4.3680978 2.5304011,1.2013787 2.5548891,1.0767147 2.6355192,0.98371265 2.6966945,0.98371265 c 5.111935,0 7.9691745,0 8.5717195,0 0.911072,0 1.519561,1.61350715 1.183269,3.32550505 -0.336292,1.7119971 -1.600194,3.435067 -2.5112665,3.435067 -0.911073,0 -2.710927,0 -4.224605,0 -0.35304,0 0.01206,-1.858665 0.365102,-1.858665 0.32001,0 0.993066,0 1.513679,0 0.520613,0 0.91788,-0.810718 1.068286,-1.576402 0.150405,-0.765684 0.06208,-1.527749 -0.458529,-1.527749 -0.325735,0 -1.001935,0 -2.028599,0 -0.136116,0 -0.251902,0.226412 -0.266565,0.306822 -0.05143,0.282012 -0.576788,2.936309 -1.5836929,8.0622633 -0.030599,0.155776 -0.070572,0.333159 -0.227909,0.333159 -1.1063614,0 -2.2596286,0 -3.45980149,0 -0.056101,0 -0.1103291,-0.08572 -0.0866121,-0.206463 z";
+var svg_ParamEditor = "(18) M 7.5 14 C 7.5 14.3978 7.65804 14.7794 7.93934 15.0607 C 8.22064 15.342 8.60218 15.5 9 15.5 C 9.39782 15.5 9.77936 15.342 10.0607 15.0607 C 10.342 14.7794 10.5 14.3978 10.5 14 C 10.5 13.6022 10.342 13.2206 10.0607 12.9393 C 9.77936 12.658 9.39782 12.5 9 12.5 C 8.60218 12.5 8.22064 12.658 7.93934 12.9393 C 7.65804 13.2206 7.5 13.6022 7.5 14 Z M 0.5 14.5 L 17.5 14.5 L 17.5 13.5 L 0.5 13.5 Z M 1.5 9 C 1.5 9.39782 1.65804 9.77936 1.93934 10.0607 C 2.22064 10.342 2.60218 10.5 3 10.5 C 3.39782 10.5 3.77936 10.342 4.06066 10.0607 C 4.34196 9.77936 4.5 9.39782 4.5 9 C 4.5 8.60218 4.34196 8.22064 4.06066 7.93934 C 3.77936 7.65804 3.39782 7.5 3 7.5 C 2.60218 7.5 2.22064 7.65804 1.93934 7.93934 C 1.65804 8.22064 1.5 8.60218 1.5 9 Z M 0.5 8.5 L 0.5 9.5 L 17.5 9.5 L 17.5 8.5 Z M 11.5 4 C 11.5 4.39782 11.658 4.77936 11.9393 5.06066 C 12.2206 5.34196 12.6022 5.5 13 5.5 C 13.3978 5.5 13.7794 5.34196 14.0607 5.06066 C 14.342 4.77936 14.5 4.39782 14.5 4 C 14.5 3.60218 14.342 3.22064 14.0607 2.93934 C 13.7794 2.65804 13.3978 2.5 13 2.5 C 12.6022 2.5 12.2206 2.65804 11.9393 2.93934 C 11.658 3.22064 11.5 3.60218 11.5 4 Z M 0.5 3.5 L 0.5 4.5 L 17.5 4.5 L 17.5 3.5 Z";
+var svg_GuiEditor = "(18) m 17.596509,12.833274 c 0.563148,0.781625 0.493098,1.878293 -0.210151,2.581542 -0.781048,0.781047 -2.047378,0.781047 -2.828427,0 -0.781048,-0.781049 -0.781048,-2.047379 0,-2.828427 0.738915,-0.738915 1.912165,-0.778776 2.697941,-0.119584 l -1.408762,1.408762 0.353553,0.353553 z M 14.799365,7.3762378 c 0.781626,-0.5631485 1.878293,-0.4930981 2.581542,0.210151 0.781048,0.781048 0.781048,2.047378 0,2.8284272 -0.781049,0.781047 -2.047379,0.781047 -2.828427,0 C 13.813565,9.6759008 13.773704,8.5026508 14.432896,7.7168748 l 1.408762,1.408762 0.353553,-0.353553 z m 0.993503,-5.3690794 -2.75e-4,1.9923143 h 0.5 l 6.32e-4,-1.9739217 c 0.950588,0.1547498 1.676194,0.9795986 1.676194,1.9739218 0,1.1045695 -0.895431,2 -2,2 -1.104569,0 -2,-0.8954305 -2,-2 0,-1.0450768 0.801571,-1.9029366 1.823449,-1.9923144 z m -13.7651144,6.5729444 0.00135,0.999999 3.0286525,-0.0054 0.7665154,-2.034753 1.7626931,5.8145642 1.46341,-3.9802332 H 11.06777 L 11.05575,8.3743528 8.3725196,8.4186328 7.7004392,10.3557 5.920669,4.440976 4.4189627,8.5801028 Z M 1.5275051,1.9993984 c -0.82235063,0 -1.49965008,0.6778163 -1.49965008,1.5001667 V 14.49941 c 0,0.822351 0.67729945,1.500167 1.49965008,1.500167 H 11.527928 c 0.822351,0 1.49965,-0.677816 1.49965,-1.500167 V 3.4995651 c 0,-0.8223504 -0.677299,-1.5001667 -1.49965,-1.5001667 z m 0,0.9999391 H 11.527928 c 0.285648,0 0.499711,0.2145795 0.499711,0.5002276 V 14.49941 c 0,0.285647 -0.214063,0.500228 -0.499711,0.500228 H 1.5275051 c -0.2856483,0 -0.4997111,-0.214581 -0.4997111,-0.500228 V 3.4995651 c 0,-0.2856481 0.2140628,-0.5002278 0.4997111,-0.5002276 z";
+var svg_AButton = "(38,16) m 38,8 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 z m -5,0 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 z m -5,0 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 z M 19,1 h 4 V 15 H 19 Z M 14.00594,1 C 15.107229,1 16,1.8970601 16,3.0058587 V 12.994141 C 16,14.101946 15.105486,15 14.00594,15 H 1.9940603 C 0.8927712,15 0,14.10294 0,12.994141 V 3.0058587 C 0,1.8980535 0.8945138,1 1.9940603,1 Z M 7.948731,2.8076172 c -0.277997,0 -0.511556,0.053548 -0.700684,0.1606445 C 7.058918,3.0753586 6.906251,3.2154939 6.790039,3.3886719 6.673828,3.5618498 6.564454,3.7794583 6.461914,4.0415039 6.359375,4.3035495 6.271648,4.5279939 6.198731,4.7148438 v 0 L 3.6352539,11.222656 c -0.1048182,0.259767 -0.1800128,0.462565 -0.2255859,0.608399 -0.045573,0.145834 -0.068359,0.287108 -0.068359,0.423828 0,0.23698 0.097981,0.448892 0.2939453,0.635742 0.1959645,0.18685 0.4215482,0.280273 0.6767578,0.280273 0.3007828,0 0.517252,-0.08773 0.6494141,-0.263183 C 5.093588,12.732258 5.253092,12.393883 5.439941,11.892578 v 0 l 0.478516,-1.285156 h 4.074219 l 0.478515,1.257812 c 0.0638,0.154949 0.140137,0.333821 0.229004,0.536621 0.08887,0.202801 0.172038,0.35319 0.249512,0.451172 0.07747,0.09798 0.173176,0.175456 0.287109,0.232422 0.113933,0.05697 0.250651,0.08545 0.410157,0.08545 0.273438,0 0.506997,-0.09684 0.700683,-0.290527 0.193686,-0.193686 0.290528,-0.406737 0.290528,-0.63916 0,-0.223308 -0.102538,-0.581052 -0.307618,-1.073242 v 0 L 9.712402,4.7011719 C 9.589355,4.3776026 9.487956,4.1189788 9.408203,3.925293 9.32845,3.7316071 9.230469,3.5504566 9.114258,3.3818359 8.998046,3.2132153 8.845379,3.0753586 8.65625,2.9682617 8.467121,2.8611648 8.231284,2.8076172 7.948731,2.8076172 Z M 7.935061,4.9472656 9.445803,9.083008 H 6.45166 Z";
+var svg_BButton = "(38,16) M 0 8 C 0 8.53043 0.210714 9.03914 0.585786 9.41421 C 0.960859 9.78929 1.46957 10 2 10 C 2.53043 10 3.03914 9.78929 3.41421 9.41421 C 3.78929 9.03914 4 8.53043 4 8 C 4 7.46957 3.78929 6.96086 3.41421 6.58579 C 3.03914 6.21071 2.53043 6 2 6 C 1.46957 6 0.960859 6.21071 0.585786 6.58579 C 0.210714 6.96086 0 7.46957 0 8 Z M 5 8 C 5 8.53043 5.21071 9.03914 5.58579 9.41421 C 5.96086 9.78929 6.46957 10 7 10 C 7.53043 10 8.03914 9.78929 8.41421 9.41421 C 8.78929 9.03914 9 8.53043 9 8 C 9 7.46957 8.78929 6.96086 8.41421 6.58579 C 8.03914 6.21071 7.53043 6 7 6 C 6.46957 6 5.96086 6.21071 5.58579 6.58579 C 5.21071 6.96086 5 7.46957 5 8 Z M 10 8 C 10 8.53043 10.2107 9.03914 10.5858 9.41421 C 10.9609 9.78929 11.4696 10 12 10 C 12.5304 10 13.0391 9.78929 13.4142 9.41421 C 13.7893 9.03914 14 8.53043 14 8 C 14 7.46957 13.7893 6.96086 13.4142 6.58579 C 13.0391 6.21071 12.5304 6 12 6 C 11.4696 6 10.9609 6.21071 10.5858 6.58579 C 10.2107 6.96086 10 7.46957 10 8 Z M 19 1 L 15 1 L 15 15 L 19 15 Z M 36.0059 1 C 37.1072 1 38 1.89706 38 3.00586 L 38 12.9941 C 38 14.1019 37.1055 15 36.0059 15 L 23.9941 15 C 22.8928 15 22 14.1029 22 12.9941 L 22 3.00586 C 22 1.89805 22.8945 1 23.9941 1 Z M 30.5576 2.97852 L 27.3105 2.97852 C 26.8776 2.97852 26.5643 3.07536 26.3706 3.26904 C 26.1769 3.46273 26.0801 3.7806 26.0801 4.22266 L 26.0801 4.22266 L 26.0801 11.7559 C 26.0801 12.1888 26.1746 12.5044 26.3638 12.7026 C 26.5529 12.9009 26.8685 13 27.3105 13 L 27.3105 13 L 30.373 13 C 30.9017 13 31.3643 12.9738 31.7607 12.9214 C 32.1572 12.869 32.5081 12.779 32.8135 12.6514 C 33.3011 12.4372 33.6885 12.1056 33.9756 11.6567 C 34.2627 11.2078 34.4062 10.7031 34.4062 10.1426 C 34.4062 8.93034 33.7477 8.11459 32.4307 7.69532 C 33.4333 7.23047 33.9346 6.49675 33.9346 5.49414 C 33.9346 5.20248 33.8867 4.92562 33.791 4.66358 C 33.6953 4.40153 33.5563 4.16228 33.374 3.9458 C 33.1917 3.72933 32.9821 3.55046 32.7451 3.40918 C 32.4671 3.24056 32.1527 3.12663 31.8018 3.06738 C 31.4508 3.00814 31.0361 2.97852 30.5576 2.97852 Z M 30.2227 8.5498 C 30.929 8.5498 31.46 8.66374 31.8154 8.8916 C 32.1709 9.11947 32.3486 9.48633 32.3486 9.99219 C 32.3486 10.9811 31.6628 11.4756 30.291 11.4756 L 30.291 11.4756 L 28.1104 11.4756 L 28.1104 8.5498 Z M 29.7578 4.50293 C 30.4961 4.50293 31.0452 4.5861 31.4053 4.75244 C 31.7653 4.91878 31.9453 5.25488 31.9453 5.76074 C 31.9453 5.99772 31.8884 6.21191 31.7744 6.40332 C 31.6286 6.6722 31.4178 6.85449 31.1421 6.95019 C 30.8664 7.04589 30.4756 7.09375 29.9697 7.09375 L 29.9697 7.09375 L 28.1104 7.09375 L 28.1104 4.50293 Z";
+var svg_Randomize = "(16) M 12.994141,1 C 14.101947,1 15,1.8970601 15,3.0058587 V 12.994141 C 15,14.101947 14.10294,15 12.994141,15 H 3.0058587 C 1.8980535,15 1,14.10294 1,12.994141 V 3.0058587 C 1,1.8980535 1.8970601,1 3.0058587,1 Z m -1.30993,8.8421053 c -1.017367,0 -1.8421057,0.8247387 -1.8421057,1.8421057 0,1.017366 0.8247387,1.842105 1.8421057,1.842105 1.017366,0 1.842105,-0.824739 1.842105,-1.842105 0,-1.017367 -0.824739,-1.8421057 -1.842105,-1.8421057 z m -7.3684215,0 c -1.0173667,0 -1.8421053,0.8247387 -1.8421053,1.8421057 0,1.017366 0.8247386,1.842105 1.8421053,1.842105 1.0173666,0 1.8421052,-0.824739 1.8421052,-1.842105 0,-1.017367 -0.8247386,-1.8421057 -1.8421052,-1.8421057 z M 8,6.1578947 C 6.9826334,6.1578947 6.1578947,6.9826334 6.1578947,8 6.1578947,9.0173666 6.9826334,9.8421053 8,9.8421053 9.0173666,9.8421053 9.8421053,9.0173666 9.8421053,8 9.8421053,6.9826334 9.0173666,6.1578947 8,6.1578947 Z M 4.3157895,2.4736842 c -1.0173667,0 -1.8421053,0.8247386 -1.8421053,1.8421053 0,1.0173666 0.8247386,1.8421052 1.8421053,1.8421052 1.0173666,0 1.8421052,-0.8247386 1.8421052,-1.8421052 0,-1.0173667 -0.8247386,-1.8421053 -1.8421052,-1.8421053 z m 7.3684215,0 c -1.017367,0 -1.8421057,0.8247386 -1.8421057,1.8421053 0,1.0173666 0.8247387,1.8421052 1.8421057,1.8421052 1.017366,0 1.842105,-0.8247386 1.842105,-1.8421052 0,-1.0173667 -0.824739,-1.8421053 -1.842105,-1.8421053 z";
+var svg_Constrain = "(16) m 12.5,8 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 z m -5,0 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 z m 6,-7 h 2 v 14 h -2 z m -13,0 h 2 v 14 h -2 z";
 
 // Rounded off focused rectangle
 var focusHighlight = Rectangle()
@@ -218,6 +226,17 @@ var makeImage = (size, svg, color) => Rasterize()
     };
 };
 
+// Helper to rasterize an image
+var makeImageWH = (width, height, svg, color) => Rasterize()
+{
+    Size = (width, height);
+    Inner = Path()
+    {
+        SvgData = svg;
+        FillColor = color;
+    };
+};
+
 // Helper to rasterize a 2-color image
 var makeImage2 = (size, svg, color, svg2, color2) => Rasterize()
 {
@@ -287,7 +306,7 @@ var makeToolbarButton = (size, pressed, svg) => Rasterize()
 };
 
 // Template class for standard toolbar button
-class ToolbarButton<size, svg>
+class ButtonImage<size, svg>
 {
     Image = Frame()
     {
@@ -301,6 +320,46 @@ class ToolbarButton<size, svg>
     };
 }
 
+
+// A button with image with different colors for checked vs unchecked
+class ButtonImage<size, svgNormal, colorNormal, svgChecked, colorChecked>
+{
+    Image = Frame()
+    {
+        InnerSize = (size, size);
+        Gravity = Center;
+        Inner =
+        {
+            Checked && (Pressed || Focused || Selected) = makeImage(size, svgChecked, colorFocusText);
+            Checked = makeImage(size, svgChecked, colorChecked);
+            (Pressed || Focused || Selected) = makeImage(size, svgNormal, colorFocusText);
+            else = makeImage(size, svgNormal, colorNormal);
+        };
+    };
+}
+
+// A button with image with different colors for checked vs unchecked
+class ButtonImageWH<width, height, svgNormal, colorNormal, svgChecked, colorChecked>
+{
+    Image = Frame()
+    {
+        InnerSize = (width, height);
+        Gravity = Center;
+        Inner =
+        {
+            Checked && (Pressed || Focused || Selected) = makeImageWH(width, height, svgChecked, colorFocusText);
+            Checked = makeImageWH(width, height, svgChecked, colorChecked);
+            (Pressed || Focused || Selected) = makeImageWH(width, height, svgNormal, colorFocusText);
+            else = makeImageWH(width, height, svgNormal, colorNormal);
+        };
+    };
+}
+
+// A button image with default colors for normal and checked states
+class ButtonImage<size, svgNormal, svgChecked> : ButtonImage<size, svgNormal, colorToolbarButton, svgChecked, colorToolbarButton>
+{
+    
+}
 
 
 // The beat indicator in the main status panel
@@ -1546,9 +1605,9 @@ class MainToolbar
 
     class PlayButton : GlowButton<30, svg_Play, colorPlay> {}
     class PauseButton : GlowButton<30, svg_Pause, colorPause> {}
-    class StopButton : ToolbarButton<30, svg_Stop> {}
-    class MetronomeButton : ToolbarButton<30, svg_Metronome> {}
-    class TapTempoButton : ToolbarButton<30, svg_Tempo> 
+    class StopButton : ButtonImage<30, svg_Stop> {}
+    class MetronomeButton : ButtonImage<30, svg_Metronome> {}
+    class TapTempoButton : ButtonImage<30, svg_Tempo> 
     {
         // StateChecked && ~StateAlternate for down beat
         // StateChecked && StateAlternate for other beats
@@ -1583,7 +1642,7 @@ class MainToolbar
             };
         };
     }
-    class PanicButton : ToolbarButton<30, svg_Panic> {}
+    class PanicButton : ButtonImage<30, svg_Panic> {}
     class PowerButton : GlowButton<30, svg_Power, colorLedOn, colorBusy> { }
 }
 
@@ -1669,6 +1728,36 @@ class MetronomeToolbar
     };
 }
 
+// Makes a checkmark, radio, export icon for items in the side panels (states, recordings, set list)
+const makeSidePanelCheck = (borderColor, fillColor, checkColor, round, svg) => Rasterize()
+{
+    Size = (14,14);
+    Inner = [
+        Rectangle()
+        {
+            Bounds = (0, 0, 14, 14);
+            Position = (0, 0, 14, 14);
+            CornerRadius = 1.5;
+            StrokeColor = round ? Color.Clear : borderColor;
+            StrokeWidth = 1;
+            FillColor = round ? Color.Clear : fillColor;
+        },
+        Ellipse()
+        {
+            Bounds = (0, 0, 14, 14);
+            Center = (7,7);
+            Radius = (7,7);
+            StrokeColor = round ? borderColor : Color.Clear;
+            StrokeWidth = 1;
+            FillColor = round ? fillColor : Color.Clear;
+        },
+        Path()
+        {
+            SvgData = svg;
+            FillColor = checkColor;
+        }
+    ];
+};
 
 
 // Base class for checkmarks shown in recordings, set lsit and states side-panel
@@ -1685,36 +1774,6 @@ class SidePanelCheck<round, svg>
         };
     };
 
-    // Makes a checkmark, radio, export icon for items in the side panels (states, recordings, set list)
-    const makeSidePanelCheck = (borderColor, fillColor, checkColor, round, svg) => Rasterize()
-    {
-        Size = (14,14);
-        Inner = [
-            Rectangle()
-            {
-                Bounds = (0, 0, 14, 14);
-                Position = (0, 0, 14, 14);
-                CornerRadius = 1.5;
-                StrokeColor = round ? Color.Clear : borderColor;
-                StrokeWidth = 1;
-                FillColor = round ? Color.Clear : fillColor;
-            },
-            Ellipse()
-            {
-                Bounds = (0, 0, 14, 14);
-                Center = (7,7);
-                Radius = (7,7);
-                StrokeColor = round ? borderColor : Color.Clear;
-                StrokeWidth = 1;
-                FillColor = round ? fillColor : Color.Clear;
-            },
-            Path()
-            {
-                SvgData = svg;
-                FillColor = checkColor;
-            }
-        ];
-    };
 
 
 }
@@ -1947,8 +2006,8 @@ class ControllerBar
         }
         class PlayButton : GlowButton<30, svg_Play, colorPlay>, ControllerBarButton {}
         class PauseButton : GlowButton<30, svg_Pause, colorPause>, ControllerBarButton {}
-        class StopButton : ToolbarButton<30, svg_Stop>, ControllerBarButton {}
-        class TempoButton : ToolbarButton<30, svg_Tempo>, ControllerBarButton 
+        class StopButton : ButtonImage<30, svg_Stop>, ControllerBarButton {}
+        class TempoButton : ButtonImage<30, svg_Tempo>, ControllerBarButton 
         {
             Background = 
             {
@@ -1960,11 +2019,11 @@ class ControllerBar
         }
         class ButtonGroup : ControllerBarButton 
         {
-            class Next : ToolbarButton<30, svg_Next>, ControllerBarGroupButton  { }
-            class Previous : ToolbarButton<30, svg_Prev>, ControllerBarGroupButton  { }
+            class Next : ButtonImage<30, svg_Next>, ControllerBarGroupButton  { }
+            class Previous : ButtonImage<30, svg_Prev>, ControllerBarGroupButton  { }
             class Button : ControllerBarGroupButton {}
         }
-        class ContinueButton : ToolbarButton<30, svg_Continue>, ControllerBarButton  {}
+        class ContinueButton : ButtonImage<30, svg_Continue>, ControllerBarButton  {}
     }
 
     // A controller bar button
@@ -1998,11 +2057,11 @@ class TimelinePanel
     Background = colorForm;
     class PlayButton : TransparentButton, GlowButton<18, svg_Play, colorPlay> {  }
     class PauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause>  {  }
-    class StopButton : TransparentButton, ToolbarButton<18, svg_Stop> {  }
-    class RewindButton : TransparentButton, ToolbarButton<18, svg_Rewind> {  }
-    class FastForwardButton : TransparentButton, ToolbarButton<18, svg_FastForward> {  }
-    class PreviousMarkerButton : TransparentButton, ToolbarButton<18, svg_PreviousMarker> {  }
-    class NextMarkerButton : TransparentButton, ToolbarButton<18, svg_NextMarker> {  }
+    class StopButton : TransparentButton, ButtonImage<18, svg_Stop> {  }
+    class RewindButton : TransparentButton, ButtonImage<18, svg_Rewind> {  }
+    class FastForwardButton : TransparentButton, ButtonImage<18, svg_FastForward> {  }
+    class PreviousMarkerButton : TransparentButton, ButtonImage<18, svg_PreviousMarker> {  }
+    class NextMarkerButton : TransparentButton, ButtonImage<18, svg_NextMarker> {  }
     class MenuButton : HamburgerButton { }
 }
 
@@ -2036,23 +2095,6 @@ class KeyboardPanel
     }
 }
 
-// A normal slot button with image with different colors for checked vs unchecked
-class SlotButton<svgNormal, colorNormal, svgChecked, colorChecked> : SlotButton
-{
-    Image = Frame()
-    {
-        InnerSize = (16, 16);
-        Gravity = Center;
-        Inner =
-        {
-            Checked && (Pressed || Focused || Selected) = makeImage(16, svgChecked, colorFocusText);
-            Checked = makeImage(16, svgChecked, colorChecked);
-            (Pressed || Focused || Selected) = makeImage(16, svgNormal, colorFocusText);
-            else = makeImage(16, svgNormal, colorNormal);
-        };
-    };
-}
-
 // Slot enable button - supports tick mark check, cross mark unchecked, and error mode
 class SlotEnableButton : SlotButton
 {
@@ -2073,11 +2115,11 @@ class SlotEnableButton : SlotButton
 }
 
 // Other icons/buttons shown in slots
-class SlotBypassButton : SlotButton<svg_BypassOff, colorToolbarButton, svg_BypassOn, colorWarning> {}
+class SlotBypassButton : SlotButton, ButtonImage<16, svg_BypassOff, colorToolbarButton, svg_BypassOn, colorWarning> {}
 class SlotPlayButton : TransparentButton, GlowButton<18, svg_Play, colorPlay> {  }
 class SlotPauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause>  {  }
-class SlotStopButton : TransparentButton, ToolbarButton<18, svg_Stop> {  }
-class SlotRackTypeIcon : SlotButton<svg_LinkedRack, colorToolbarButton, svg_EmbeddedRack, colorToolbarButton> {}
+class SlotStopButton : TransparentButton, ButtonImage<18, svg_Stop> {  }
+class SlotRackTypeIcon : SlotButton, ButtonImage<16, svg_LinkedRack, colorToolbarButton, svg_EmbeddedRack, colorToolbarButton> {}
 class SlotMidiFiltersButton : TransparentButton, GlowButton<18, svg_MidiFilter, colorMidiFilters> {  }
 
 
@@ -2230,32 +2272,6 @@ class CustomRackButton
 }
 
 
-context PluginEditor
-{
-    class Toolbar
-    {
-
-    }
-
-    class SwitchEditorsButton {}
-    class PreviousPresetButton {}
-    class NextPresetButton {}
-    class PresetDropDown {}
-    class LockedPresetButton {}
-    class NativePresetButton {}
-    class BypassButton {}
-    class FileMenuButton {}
-    class AButton {}
-    class BButton {}
-    class RandomizeButton {}
-    class ConstrainButton {}
-    class ParameterPanel {}
-    class ParameterNumber {}
-    class ParameterName {}
-    class ParameterValue {}
-    class ParameterCheckbox {}
-}
-
 class PromoBar
 {
     class Icon {}
@@ -2326,8 +2342,8 @@ class Profiler
             else = BorderFrame(colorForm, colorPanelBorder, Bottom);
         };
         class PauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause>  {  }
-        class PreviousButton : TransparentButton, ToolbarButton<18, svg_PrevPreset>  {  }
-        class NextButton : TransparentButton, ToolbarButton<18, svg_NextPreset>  {  }
+        class PreviousButton : TransparentButton, ButtonImage<18, svg_PrevPreset>  {  }
+        class NextButton : TransparentButton, ButtonImage<18, svg_NextPreset>  {  }
         class TimeStamp
         {
             TextColor = colorText;
@@ -2369,6 +2385,78 @@ class Profiler
         LabelTextColor = colorText;
         LabelTickColor = colorPanelBorder;
         LabelFont = fontSmall;
+    }
+}
+
+
+class PluginEditor
+{
+    class Toolbar
+    {
+        Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
+
+        class SwitchToGuiButton : TransparentButton, ButtonImage<18, svg_GuiEditor> {}
+        class SwitchToParamsButton : TransparentButton, ButtonImage<18, svg_ParamEditor> {}
+        class PreviousPresetButton : TransparentButton, ButtonImage<16, svg_PrevPreset> {}
+        class NextPresetButton : TransparentButton, ButtonImage<16, svg_NextPreset> {}
+        class PresetDropDown
+        {
+            Background = 
+            {
+                Pressed = focusHighlightPressed;
+                Focused = focusHighlight;
+                else = subtleHighlight;
+            };
+            TextColor = colorText;
+            Gravity = LeftCenter;
+            Padding = (5, 0);
+        }
+        class LockedPresetButton : TransparentButton, ButtonImage<16, svg_Unlock, colorToolbarButton, svg_Lock, colorWarning> {}
+        class NativePresetButton : TransparentButton, ButtonImage<16, svg_NativePreset> {}
+        class BypassButton : TransparentButton, ButtonImage<16, svg_BypassOff, colorToolbarButton, svg_BypassOn, colorWarning> {}
+        class MenuButton : HamburgerButton {}
+    }
+
+    class MorphBar
+    {
+        Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
+        class AButton : TransparentButton, ButtonImageWH<38, 16, svg_AButton, colorToolbarButton, svg_AButton, colorWarning> {}
+        class BButton : TransparentButton, ButtonImageWH<38, 16, svg_BButton, colorToolbarButton, svg_BButton, colorWarning> {}
+        class RandomizeButton : TransparentButton
+        {
+            Padding = (20, 0, 2, 0);
+            Image = Frame()
+            {
+                InnerSize = (16, 16);
+                InnerGravity = LeftCenter;
+                Padding = (2, 0, 0, 0);
+                Inner =
+                {
+                    Pressed = makeImage(16, svg_Randomize, colorFocusText);
+                    else = makeImage(16, svg_Randomize, colorToolbarButton);
+                };
+            };
+        }
+        class ConstrainButton : TransparentButton, ButtonImage<16, svg_Constrain, colorToolbarButton, svg_Constrain, colorWarning> {}
+    }
+
+
+    class ParameterRow
+    {
+        class Number { TextColor = colorText; Gravity = RightCenter;}
+        class Name  { TextColor = colorText; }
+        class Value  { TextColor = colorText; }
+        class EnableMorphCheck 
+        {
+            Image = Frame()
+            {
+                InnerSize = (14,14);
+                Inner = {
+                    Checked = makeSidePanelCheck(colorFocus, colorFocus, colorFocusText, false, svg_Check);
+                    else = makeSidePanelCheck(colorDisabledText, Color.Clear, Color.Clear, false, svg_Check);
+                };
+            };            
+        }
     }
 }
 
