@@ -2272,19 +2272,6 @@ class CustomRackButton
 }
 
 
-class PromoBar
-{
-    class Icon {}
-    class Title {}
-    class SubTitle {}
-    class ActionButton {}
-    class CloseButton {}
-}
-
-
-
-
-
 class MidiMonitor
 {
     class Toolbar
@@ -2460,3 +2447,17 @@ class PluginEditor
     }
 }
 
+
+class PromoBar
+{
+    Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
+    class ActionButton : SubtleButton {}
+    class CloseButton : TransparentButton 
+    {
+        Image = Frame()
+        {
+            InnerSize = (10, 10);
+            Inner = makeImage(10, svg_Disabled, colorText);
+        };
+    }
+}
