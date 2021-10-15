@@ -2037,6 +2037,7 @@ class ControllerBar
             Pressed = colorText;
             else = colorToolbarButton;
         };
+        Gravity = Center;
         Font = fontLarge;
     }
 
