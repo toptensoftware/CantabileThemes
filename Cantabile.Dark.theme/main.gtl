@@ -120,6 +120,11 @@ class TextViewSmall : TextView
     Font = fontSmall;
 }
 
+class TextAreaFixedPitch : TextArea
+{
+    Font = Font("Courier New", 12);
+}
+
 // Rounded off focused rectangle
 var focusHighlight = Rectangle()
 {
@@ -736,6 +741,21 @@ class SlotButton
         else = colorText;
     };
     Padding = EdgeInsets(3, 0);
+}
+
+// Used by Rack slot state selector to show reset on load
+class SlotButtonWithResetIcon : SlotButton
+{
+    Image = Frame()
+    {
+        InnerSize = (16, 16);
+        InnerGravity = RightCenter;
+        Inner = {
+            Pressed || Focused = makeImage(16, svg_Reset, colorFocusText);
+            else = makeImage(16, svg_Reset, colorWarning);
+        };
+    };
+    Padding = EdgeInsets(3, 0, 20, 0);
 }
 
 // The (>) "disclosure arrow" on the rhs of some slot buttons
@@ -2271,17 +2291,6 @@ class QuickControllerItem
     }
 }
 
-context DelayLoadPopup
-{
-
-}
-
-
-class CustomRackButton
-{
-    // Alternate when button is blank
-}
-
 
 class MidiMonitor
 {
@@ -2472,3 +2481,26 @@ class PromoBar
         };
     }
 }
+
+// Used by delay load popup and learn transpose popup
+class InfoPopup
+{
+    class Text : TextView
+    {
+        Font = Font("GuiKitSans", 32, true);
+        Gravity = Center;
+   }
+}
+
+class CustomRackButton : Button
+{
+    // Alternate when button is blank
+    Background = 
+    {
+        Pressed = focusHighlightPressed;
+        Focused = focusHighlight;
+        Alternate =  subtleHighlight;
+    };
+}
+
+
