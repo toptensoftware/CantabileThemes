@@ -1,0 +1,43 @@
+// Start with the Cantabile Dark theme
+import "Dark";
+
+import "GuiKit.Light";
+
+// Colors
+colorDimText = colorText.WithAlpha(0.7);
+colorLedOn = #03c403;
+colorLedDim = #029202;
+colorLedOff = #9e9e9e;
+colorWarning = Color.Tomato;
+colorError = Color.Red;
+colorToolbarButton = #6F6F6F;
+colorToolbarButtonPressed = #1B1B1B;
+colorPanelBorder = Color.Blend(colorForm, colorBorder.WithAlpha(0.5));
+colorSidePanelBackground = #E0E0E0;
+colorPlay = Color.Lime;
+colorPause = Color.Orange;
+colorMidiFilters = Color.Lime;
+colorRecord = Color.Red;
+colorBusy = Color.Orange;
+colorLiveMode = #00E000;
+colorStatusPanelTop = #E9F2F6;
+colorStatusPanelBottom = #DDEAF0;
+colorKeyWhite = Color.White;
+colorKeyBlack = Color.Black;
+colorKeyMiddleC = Color.Blend(colorKeyBlack, colorKeyWhite.WithAlpha(0.75));
+colorSliderHandle = Color.Blend(colorForm, colorText.WithAlpha(0.5));
+colorSliderTrack = colorPanelBorder;
+colorAutoRecord = #00E000;
+colorContentBackground = #FFFFFF;
+colorFocusGradient = #015ee6;
+colorFocusPressed = #0877d1;
+colorFocusPressedGradient = #0443a0;
+//colorWiringAddButton = #383838;
+colorComponentTop = Color.Blend(#808080, colorBaseBackground.WithAlpha(0.1));
+colorComponentBottom = Color.Blend(Color.Black, colorComponentTop.WithAlpha(0.7)); //#595959;
+colorWiringPortArea = Color.Blend(colorForm, colorContentBackground.WithAlpha(0.1));//#222326;
+colorWiringSelectedPort = Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8));//  #013f99;
+colorWiringPort = Color.Blend(#808080, colorBaseBackground.WithAlpha(0.1));
+colorSelectedTab = colorFocus.WithAlpha(0.5);
+
+
