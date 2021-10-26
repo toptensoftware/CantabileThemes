@@ -2516,3 +2516,11 @@ class CustomRackButton : Button
 }
 
 
+class UpdateAvailableIcon
+{
+    Image = Path()
+    {
+        SvgData = svg_UpdateAvailable;
+        FillColor = colorWarning;
+    };
+}
