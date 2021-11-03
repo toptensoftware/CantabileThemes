@@ -390,62 +390,6 @@
          offset="100%"
          id="stop26-4" />
     </linearGradient>
-    <clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipPath46241">
-      <rect
-         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:none;stroke-width:0.309507;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
-         id="rect46245"
-         width="3.7041667"
-         height="6.8791666"
-         x="5.2916665"
-         y="26.987499">
-        <title
-           id="title46243">OskKey_white</title>
-      </rect>
-    </clipPath>
-    <clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipPath46249">
-      <rect
-         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:none;stroke-width:0.309507;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
-         id="rect46253"
-         width="3.7041667"
-         height="6.8791666"
-         x="10.054166"
-         y="26.987499">
-        <title
-           id="title46251">OskKey_white</title>
-      </rect>
-    </clipPath>
-    <clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipPath46257">
-      <rect
-         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:none;stroke-width:0.309507;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
-         id="rect46261"
-         width="3.7041667"
-         height="6.8791666"
-         x="14.816669"
-         y="26.987499">
-        <title
-           id="title46259">OskKey_white</title>
-      </rect>
-    </clipPath>
-    <clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipPath46367">
-      <rect
-         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:none;stroke-width:0.309507;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal;stop-color:#000000;stop-opacity:1"
-         id="rect46371"
-         width="3.7041667"
-         height="6.8791666"
-         x="19.579174"
-         y="26.987499">
-        <title
-           id="title46369">OskKey_white</title>
-      </rect>
-    </clipPath>
     <filter
        x="-1.3955179"
        y="-1.3955179"
@@ -1203,11 +1147,11 @@
      units="px"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="g7521"
+     inkscape:current-layer="layer1"
      inkscape:document-units="px"
-     inkscape:cy="140.8428"
-     inkscape:cx="198.00585"
-     inkscape:zoom="2.3004371"
+     inkscape:cy="-13.217311"
+     inkscape:cx="179.50952"
+     inkscape:zoom="3.2533093"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -1231,33 +1175,6 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
-    <g
-       id="g48214"
-       transform="translate(-4.3961909,0.82662973)">
-      <title
-         id="title55287">SliderHandle</title>
-    </g>
-    <g
-       id="g1366"
-       transform="translate(-11.66797,-4.5221581)">
-      <title
-         id="title1381">ExpandButton_collapsed</title>
-    </g>
-    <g
-       id="g1701">
-      <title
-         id="title1728">TimelinePlayPos</title>
-      <g
-         id="PlayPos"
-         transform="matrix(0.26458333,0,0,0.26458333,30.691685,105.83334)"
-         fill="#ff6600"
-         style="fill-rule:evenodd;stroke:none;stroke-width:1" />
-    </g>
-    <g
-       id="g7521">
-      <title
-         id="title7541">WiringInputPorts</title>
-    </g>
     <g
        id="g1712"
        transform="translate(0,-187.85416)">

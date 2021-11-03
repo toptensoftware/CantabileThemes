@@ -1,35 +1,41 @@
 all: assets knobs zip
 
-assets: Cantabile.Dark.theme/LedSmallOff.png
+assets: Dark.cantabileTheme/Plugin.png
 
-knobs: Cantabile.Dark.theme/Knob.png Cantabile.Dark.theme/Knob_focused.png
+knobs: Dark.cantabileTheme/Knob.png Dark.cantabileTheme/Knob_focused.png
 
-zip: build/Cantabile.Dark.theme
+zip: build/Dark.cantabileTheme build/Light.cantabileTheme
 
 clean:
 	@rm -rf build temp
-	@rm -f Cantabile.Dark.theme/*.png
+	@rm -f Dark.cantabileTheme/*.png
 
-Cantabile.Dark.theme/LedSmallOff.png: Dark.svg
+Dark.cantabileTheme/Plugin.png: Dark.svg
 	@echo "Exporting assets..."
-	@inkscape-export Dark.svg --scale:1 --scale:2 --scale:4 --quiet --out:Cantabile.Dark.theme
+	@inkscape-export Dark.svg --scale:1 --scale:2 --scale:4 --quiet --out:Dark.cantabileTheme
 
-build/Cantabile.Dark.theme: Cantabile.Dark.theme/main.gtl Cantabile.Dark.theme/LedSmallOff.png
-	@echo "Zipping theme..."
+build/Dark.cantabileTheme: Dark.cantabileTheme/*
+	@echo "Zipping Dark theme..."
 	@mkdir -p ./build
-	@zip -0 -j ./build/Cantabile.Dark.theme Cantabile.Dark.theme/* > /dev/null
+	@zip -0 -j ./build/Dark.cantabileTheme Dark.cantabileTheme/* > /dev/null
 
-Cantabile.Dark.theme/Knob.png: Knob.svg
+build/Light.cantabileTheme: Light.cantabileTheme/*
+	@echo "Zipping Light theme..."
+	@mkdir -p ./build
+	@zip -0 -j ./build/Light.cantabileTheme Light.cantabileTheme/* > /dev/null
+
+Dark.cantabileTheme/Knob.png: Knob.svg
 	@echo "Exporting Knob (normal)..."
 	@inkscape-export Knob.svg --scale:1 --scale:2 --scale:4 --out:temp --quiet
-	@magick montage `ls temp/Knob_??.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Dark.theme/Knob.png
-	@magick montage `ls temp/Knob_??@2x.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Dark.theme/Knob@2x.png
-	@magick montage `ls temp/Knob_??@4x.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Dark.theme/Knob@4x.png
+	@magick montage `ls temp/Knob_??.png` -tile 8x8 -background transparent -geometry +0+0 Dark.cantabileTheme/Knob.png
+	@magick montage `ls temp/Knob_??@2x.png` -tile 8x8 -background transparent -geometry +0+0 Dark.cantabileTheme/Knob@2x.png
+	@magick montage `ls temp/Knob_??@4x.png` -tile 8x8 -background transparent -geometry +0+0 Dark.cantabileTheme/Knob@4x.png
+	@rm -rf temp
 
-Cantabile.Dark.theme/Knob_focused.png: Knob.svg
+Dark.cantabileTheme/Knob_focused.png: Knob_focused.svg
 	@echo "Exporting Knob (focused)..."
 	@inkscape-export Knob_focused.svg --scale:1 --scale:2 --scale:4 --out:temp --quiet
-	@magick montage `ls temp/Knob_??.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Dark.theme/Knob_focused.png
-	@magick montage `ls temp/Knob_??@2x.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Dark.theme/Knob_focused@2x.png
-	@magick montage `ls temp/Knob_??@4x.png` -tile 8x8 -background transparent -geometry +0+0 Cantabile.Dark.theme/Knob_focused@4x.png
-	
+	@magick montage `ls temp/Knob_??.png` -tile 8x8 -background transparent -geometry +0+0 Dark.cantabileTheme/Knob_focused.png
+	@magick montage `ls temp/Knob_??@2x.png` -tile 8x8 -background transparent -geometry +0+0 Dark.cantabileTheme/Knob_focused@2x.png
+	@magick montage `ls temp/Knob_??@4x.png` -tile 8x8 -background transparent -geometry +0+0 Dark.cantabileTheme/Knob_focused@4x.png
+	@rm -rf temp
