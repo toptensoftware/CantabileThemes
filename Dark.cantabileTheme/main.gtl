@@ -1676,7 +1676,23 @@ class MainToolbar
         };
     }
     class PanicButton : ButtonImage<30, svg_Panic, colorToolbarButton, colorToolbarButtonPressed> {}
-    class PowerButton : GlowButton<30, svg_Power, colorLedOn, colorBusy, colorToolbarButtonPressed> { }
+    class PowerButton
+    {
+        Image = Frame()
+        {
+            InnerSize = (30, 30);
+            Gravity = Center;
+            Inner =
+            {
+                Alternate = makeImage(30, svg_Power, colorBusy);            // Busy
+                (Checked && Indeterminate) = makeGlowImage(30, svg_Power, #00b0b0);      // Null Audio Driver
+                Checked = makeGlowImage(30, svg_Power, colorLedOn);         // On
+                Error = makeImage(30, svg_Power, Color.Red);            // Error (flashing)
+                (Focused || Pressed) = makeImage(30, svg_Power, colorToolbarButtonPressed);
+                else = makeImage(30, svg_Power, colorToolbarButton);
+            };
+        };
+    }
 }
 
 // The metronome toolbar
