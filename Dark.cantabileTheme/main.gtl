@@ -1474,6 +1474,7 @@ class StatusPanel
     class QuickControllerPlaceholder 
     {
         TextColor = colorText;
+        Gravity = Center;
     }
     class Text 
     {
