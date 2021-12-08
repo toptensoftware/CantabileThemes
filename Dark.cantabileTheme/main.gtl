@@ -838,8 +838,8 @@ class TableRow_ChildItem : TableRow_common
     {
         Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
         Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
-        CurrentItem = make(Color.Blend(colorContentBackground, colorFocus.WithAlpha(0.2)));
-        else = make(colorContentBackground);
+        CurrentItem = make(colorFocus.WithAlpha(0.2));
+        else = make(Color.Clear);
     };
 
     const make  = (colorRow) => Frame()
