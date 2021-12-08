@@ -2531,6 +2531,7 @@ class CustomRackButton : Button
         Focused = focusHighlight;
         Alternate =  subtleHighlight;
     };
+    Padding = 0;
 }
 
 
