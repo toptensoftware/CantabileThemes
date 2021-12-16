@@ -2082,11 +2082,11 @@ class ControllerBar
     class ControllerBarButton
     {
         Background = {
-            Pressed = focusHighlightPressed;
+            Checked || Pressed = focusHighlightPressed;
             else = colorText.WithAlpha(0.05);
         };
         TextColor = {
-            Pressed = colorText;
+            Checked || Pressed = colorText;
             else = colorToolbarButton;
         };
         Gravity = Center;
