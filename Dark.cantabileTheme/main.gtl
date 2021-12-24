@@ -840,12 +840,12 @@ class TableRow_ChildItem : TableRow_common
         Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
         Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
         CurrentItem = make(colorFocus.WithAlpha(0.2));
-        else = make(Color.Clear);
+        else = make(colorBaseForeground.WithAlpha(0.05));
     };
 
     const make  = (colorRow) => Frame()
     {
-        Padding = (32, 0, 0, 0);
+        Padding = (26, 0, 0, 0);
         Inner = BorderFrame(colorRow, colorPanelBorder, Left);
     };
 
@@ -858,14 +858,14 @@ class TableRow_ChildFooter : TableRow_common
         Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
         Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
         CurrentItem = make(Color.Blend(colorContentBackground, colorFocus.WithAlpha(0.2)));
-        else = make(colorContentBackground);
+        else = make(colorBaseForeground.WithAlpha(0.05));
     };
 
 
     const make  = (colorRow) => [
         Frame()
         {
-            Padding = (32, 0, 0, 0);
+            Padding = (26, 0, 0, 0);
             Inner = BorderFrame(colorRow, colorPanelBorder, Left);
         },
         BorderFrame(Color.Clear, colorPanelBorder, Bottom),
@@ -1995,6 +1995,7 @@ class PanelTitle
     class TitleText
     {
         TextColor = colorText;
+        Padding = (3, 0, 0, 0);
     }
 
     class MenuButton : HamburgerButton
