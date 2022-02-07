@@ -291,6 +291,7 @@ class GlowButton<size, svg, color, colorPressed>
         Gravity = Center;
         Inner =
         {
+            Inactive = makeImage(size, svg, colorDisabledText);
             Checked = makeGlowImage(size, svg, color);
             Selected = makeImage(size, svg, colorFocusText);
             (Focused || Pressed) = makeImage(size, svg, colorPressed);
@@ -309,6 +310,7 @@ class GlowButton<size, svg, color, colorAlt, colorPressed>
         Gravity = Center;
         Inner =
         {
+            Inactive = makeImage(size, svg, colorDisabledText);
             Alternate = makeGlowImage(size, svg, colorAlt);
             Checked = makeGlowImage(size, svg, color);
             (Focused || Pressed) = makeImage(size, svg, colorPressed);
