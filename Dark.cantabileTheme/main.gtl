@@ -2623,3 +2623,9 @@ class CrashReporterIcon
         FillColor = colorWarning;
     };
 }
+
+
+class BindingsForm
+{
+    Background = BorderFrame(colorContentBackground, colorPanelBorder, Top);
+}
