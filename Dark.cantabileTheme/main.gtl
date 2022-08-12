@@ -2499,6 +2499,7 @@ class Profiler
 
 class PluginEditor
 {
+    Background = colorContentBackground;
     class Toolbar
     {
         Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
