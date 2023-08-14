@@ -1,0 +1,19 @@
+// Import the default GuiKit Dark theme
+import "Dark";
+
+class ControllerBar
+{
+    class ButtonFrame
+    {
+        class Title
+        {
+            Font = Font("Kurinto Sans Core", 11, false);
+        }
+    }
+
+    class ControllerBarButton
+    {
+        Font = Font("Kurinto Sans Core", 18, false);
+    }
+}
+
