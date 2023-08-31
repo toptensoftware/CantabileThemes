@@ -2366,7 +2366,10 @@ class SetListGrid
     // A set list break item
     class Title 
     {
-        TextColor = Color.White;
+        TextColor = {
+            Selected= colorFocusText;
+            else = colorText;
+        };
         Gravity = Center;
         Background = {
             Selected = focusHighlight;
