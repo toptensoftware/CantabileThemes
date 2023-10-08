@@ -142,7 +142,7 @@ class TextViewTiny : TextView
 
 class TextAreaFixedPitch : TextArea
 {
-    Font = Font("Courier New", 16);
+    Font = Font("Courier New", 14);
 }
 
 // Rounded off focused rectangle
