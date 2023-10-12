@@ -1339,7 +1339,33 @@ class WiringView
     {
         Background = 
         {
-            Selected = focusHighlight;
+//            Selected = focusHighlight;
+            Disabled = Rectangle()
+            {
+                CornerRadius = 3;
+                GradientStops = {
+                    0.0 = colorComponentTop;
+                    1.0 = colorComponentBottom;
+                };
+                GradientKind = Vertical;
+
+                CrossHatchSize = 5;
+                CrossHatchColor = #80000000;
+                CrossHatchAngle = -45;
+            };
+            Alternate = Rectangle()
+            {
+                CornerRadius = 3;
+                GradientStops = {
+                    0.0 = colorComponentTop;
+                    1.0 = colorComponentBottom;
+                };
+                GradientKind = Vertical;
+
+                CrossHatchSize = 5;
+                CrossHatchColor = #20000000;
+                CrossHatchAngle = -45;
+            };
             else = Rectangle()
             {
                 CornerRadius = 3;
@@ -1350,7 +1376,22 @@ class WiringView
                 GradientKind = Vertical;
             };
         };
-        TextColor = Color.White;
+        Overlay = 
+        {
+            Selected = Rectangle()
+            {
+                FillColor = colorFocus.WithAlpha(0);
+                StrokeWidth = 3;
+                StrokeColor = colorFocus;
+                CornerRadius = 3;
+            };
+        };
+        TextColor = 
+        {
+            Selected = Color.White;
+            Disabled = Color.White; 
+            else = Color.White;
+        };
         Font = fontNormal;
     }
 
@@ -1358,7 +1399,31 @@ class WiringView
     {
         Background = 
         {
-            Selected = focusHighlight;
+//            Selected = focusHighlight;
+            Disabled = Rectangle()
+            {
+                CornerRadius = 3;
+                GradientStops = {
+                    0.0 = color;
+                    1.0 = color.WithAlpha(0.8);
+                };
+                GradientKind = Vertical;
+                CrossHatchSize = 5;
+                CrossHatchColor = #80000000;
+                CrossHatchAngle = -45;
+            };
+            Alternate = Rectangle()
+            {
+                CornerRadius = 3;
+                GradientStops = {
+                    0.0 = color;
+                    1.0 = color.WithAlpha(0.8);
+                };
+                GradientKind = Vertical;
+                CrossHatchSize = 5;
+                CrossHatchColor = #20000000;
+                CrossHatchAngle = -45;
+            };
             else = Rectangle()
             {
                 CornerRadius = 3;
@@ -1375,7 +1440,11 @@ class WiringView
     class ObjectPorts
     {
         Padding = (0, 3, 0, 3);
-        PortTextColor = colorText;
+        PortTextColor = {
+            Hover = colorText;
+            Disabled = colorDisabledText;
+            else = colorText;
+        };
         PortFont = fontSmall;
         WireIntrude = 5;
     }
