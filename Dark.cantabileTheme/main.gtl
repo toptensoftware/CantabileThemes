@@ -42,6 +42,8 @@ var colorWiringPortArea = Color.Blend(colorForm, colorContentBackground.WithAlph
 var colorWiringSelectedPort = Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8));//  #013f99;
 var colorWiringPort = Color.Blend(#808080, colorBaseBackground.WithAlpha(0.1));
 var colorSelectedTab = #002d62;
+var colorAudioPort = Color.Orange;
+var colorMidiPort = #00D000;
 
 // SVG Paths
 var svg_Play = "(30) M 4,4 V 26 L 26,15 Z";
@@ -1288,7 +1290,7 @@ class WiringView
             Hover = makePort(colorWiringSelectedPort);
             else = makePort(colorWiringPort);
         };
-        PortTextPadding = (18, 0, 10, 0);
+        PortTextPadding = (18, 0, 18, 0);
         PortTextAlignment = RightCenter;
 
         const makePort = (color) => [
@@ -1304,6 +1306,16 @@ class WiringView
                 InnerSize = (6,14);
                 Inner = make_gripper_lhs(colorDimText);
             },
+            Frame()
+            {
+                IntrudeAmount = 18;
+                IntrudeEdge = Right;
+                InnerSize = (8,8);
+                Inner = {
+                    Alternate2 = Rectangle() { FillColor = colorMidiPort; CornerRadius = 2; };          // MIDI
+                    else = Rectangle() { FillColor = colorAudioPort; CornerRadius = 2; };               // Audio
+                };
+            }
         ];
     }
 
@@ -1315,7 +1327,7 @@ class WiringView
             Hover = makePort(colorWiringSelectedPort);
             else = makePort(colorWiringPort);
         };
-        PortTextPadding = (10, 0, 18, 0);
+        PortTextPadding = (18, 0, 18, 0);
         PortTextAlignment = LeftCenter;
 
         const makePort = (color) => [
@@ -1331,6 +1343,16 @@ class WiringView
                 InnerSize = (6,14);
                 Inner = make_gripper_rhs(colorDimText);
             },
+            Frame()
+            {
+                IntrudeAmount = 18;
+                IntrudeEdge = Left;
+                InnerSize = (8,8);
+                Inner = {
+                    Alternate2 = Rectangle() { FillColor = colorMidiPort; CornerRadius = 2; };          // MIDI
+                    else = Rectangle() { FillColor = colorAudioPort; CornerRadius = 2; };               // Audio
+                };
+            }
         ];
     }
 
@@ -1457,14 +1479,26 @@ class WiringView
             Padding = (5, 0, 22, 0);
             Inner = colorWiringPortArea;
         };
-        PortBackground = Frame()
-        {
-            Padding = (5, 0, 22, 0);
-            Inner = {
-                Hover = colorWiringSelectedPort;
-            };
-        };
-        PortTextPadding = (10, 0, 22, 0);
+        PortBackground = [
+            Frame()
+            {
+                Padding = (5, 0, 22, 0);
+                Inner = {
+                    Hover = colorWiringSelectedPort;
+                };
+            },
+            Frame()
+            {
+                IntrudeAmount = 28;
+                IntrudeEdge = Left;
+                InnerSize = (8,8);
+                Inner = {
+                    Alternate2 = Rectangle() { FillColor = colorMidiPort; CornerRadius = 2; };          // MIDI
+                    else = Rectangle() { FillColor = colorAudioPort; CornerRadius = 2; };               // Audio
+                };
+            }
+        ];
+        PortTextPadding = (22, 0, 22, 0);
         PortTextAlign = LeftCenter;
     }
 
@@ -1476,14 +1510,26 @@ class WiringView
             Padding = (22, 0, 5, 0);
             Inner = colorWiringPortArea;
         };
-        PortBackground = Frame()
-        {
-            Padding = (22, 0, 5, 0);
-            Inner = {
-                Hover = colorWiringSelectedPort;
-            };
-        };
-        PortTextPadding = (22, 0, 10, 0);
+        PortBackground = [
+            Frame()
+            {
+                Padding = (22, 0, 5, 0);
+                Inner = {
+                    Hover = colorWiringSelectedPort;
+                };
+            },
+            Frame()
+            {
+                IntrudeAmount = 26;
+                IntrudeEdge = Right;
+                InnerSize = (8,8);
+                Inner = {
+                    Alternate2 = Rectangle() { FillColor = colorMidiPort; CornerRadius = 2; };          // MIDI
+                    else = Rectangle() { FillColor = colorAudioPort; CornerRadius = 2; };               // Audio
+                };
+            }
+        ];
+        PortTextPadding = (22, 0, 22, 0);
         PortTextAlign = RightCenter;
     }
 
@@ -1493,8 +1539,8 @@ class WiringView
         // Base colors for different wire types
         TypeColors = 
         {
-            "MIDI" = #800000;
-            "Audio" = #008000;
+            "MIDI" = #00A000;
+            "Audio" = #C06000;
         };
 
         // These colors will be blended with the base wire color
