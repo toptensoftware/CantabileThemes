@@ -130,6 +130,12 @@ var svg_SendBalanceNone = "(16) m 4.1854973,6.486063 h 7.8935877 c 0.838721,0 1.
 var svg_SendBalanceA = "(16) M 14.00594,1 C 15.107229,1 16,1.8970601 16,3.0058587 V 12.994141 C 16,14.101946 15.105486,15 14.00594,15 H 1.9940603 C 0.8927712,15 0,14.10294 0,12.994141 V 3.0058587 C 0,1.8980535 0.8945138,1 1.9940603,1 Z M 7.948731,2.8076172 c -0.277997,0 -0.511556,0.053548 -0.700684,0.1606445 C 7.058918,3.0753586 6.906251,3.2154939 6.790039,3.3886719 6.673828,3.5618498 6.564454,3.7794583 6.461914,4.0415039 6.359375,4.3035495 6.271648,4.5279939 6.198731,4.7148438 v 0 L 3.6352539,11.222656 c -0.1048182,0.259767 -0.1800128,0.462565 -0.2255859,0.608399 -0.045573,0.145834 -0.068359,0.287108 -0.068359,0.423828 0,0.23698 0.097981,0.448892 0.2939453,0.635742 0.1959645,0.18685 0.4215482,0.280273 0.6767578,0.280273 0.3007828,0 0.517252,-0.08773 0.6494141,-0.263183 C 5.093588,12.732258 5.253092,12.393883 5.439941,11.892578 v 0 l 0.478516,-1.285156 h 4.074219 l 0.478515,1.257812 c 0.0638,0.154949 0.140137,0.333821 0.229004,0.536621 0.08887,0.202801 0.172038,0.35319 0.249512,0.451172 0.07747,0.09798 0.173176,0.175456 0.287109,0.232422 0.113933,0.05697 0.250651,0.08545 0.410157,0.08545 0.273438,0 0.506997,-0.09684 0.700683,-0.290527 0.193686,-0.193686 0.290528,-0.406737 0.290528,-0.63916 0,-0.223308 -0.102538,-0.581052 -0.307618,-1.073242 v 0 L 9.712402,4.7011719 C 9.589355,4.3776026 9.487956,4.1189788 9.408203,3.925293 9.32845,3.7316071 9.230469,3.5504566 9.114258,3.3818359 8.998046,3.2132153 8.845379,3.0753586 8.65625,2.9682617 8.467121,2.8611648 8.231284,2.8076172 7.948731,2.8076172 Z M 7.935061,4.9472656 9.445803,9.083008 H 6.45166 Z";
 var svg_SendBalanceB = "(16) m 14.138191,1 c 1.1013,0 1.9941,0.89706 1.9941,2.00586 v 9.98824 c 0,1.1078 -0.8945,2.0059 -1.9941,2.0059 H 2.1263915 c -1.1013,0 -1.9941,-0.8971 -1.9941,-2.0059 V 3.00586 C 0.1322915,1.89805 1.0267915,1 2.1263915,1 Z M 8.6898915,2.97852 h -3.2471 c -0.4329,0 -0.7462,0.09684 -0.9399,0.29052 -0.1937,0.19369 -0.2905,0.51156 -0.2905,0.95362 v 0 7.53324 c 0,0.4329 0.0945,0.7485 0.2837,0.9467 0.1891,0.1983 0.5047,0.2974 0.9467,0.2974 v 0 h 3.0625 c 0.5287,0 0.9913,-0.0262 1.3877,-0.0786 0.3964995,-0.0524 0.7473995,-0.1424 1.0527995,-0.27 0.4876,-0.2142 0.875,-0.5458 1.1621,-0.9947 0.2871,-0.4489 0.4306,-0.9536 0.4306,-1.5141 0,-1.21226 -0.6585,-2.02801 -1.9755,-2.44728 1.0026,-0.46485 1.5039,-1.19857 1.5039,-2.20118 0,-0.29166 -0.0479,-0.56852 -0.1436,-0.83056 -0.0957,-0.26205 -0.2347,-0.5013 -0.417,-0.71778 -0.1823,-0.21647 -0.3919,-0.39534 -0.6289,-0.53662 -0.278,-0.16862 -0.5924,-0.28255 -0.9432995,-0.3418 -0.351,-0.05924 -0.7657,-0.08886 -1.2442,-0.08886 z m -0.3349,5.57128 c 0.7063,0 1.2373,0.11394 1.5927,0.3418 0.3554995,0.22787 0.5331995,0.59473 0.5331995,1.10059 0,0.98891 -0.6857995,1.48341 -2.0575995,1.48341 v 0 h -2.1806 V 8.5498 Z m -0.4649,-4.04687 c 0.7383,0 1.2874,0.08317 1.6475,0.24951 0.36,0.16634 0.5399995,0.50244 0.5399995,1.0083 0,0.23698 -0.0569,0.45117 -0.1708995,0.64258 -0.1458,0.26888 -0.3566,0.45117 -0.6323,0.54687 -0.2757,0.0957 -0.6665,0.14356 -1.1724,0.14356 v 0 h -1.8593 V 4.50293 Z";
 
+var svg_LoopModeBase = "(30) m 0.85819998,8.695045 v 1.830584 H 26.491807 V 8.695045 Z";
+var svg_LoopModeThrough = "(30) M 23.380859 5.8339844 L 23.380859 8.6953125 L 0.85742188 8.6953125 L 0.85742188 10.525391 L 23.380859 10.525391 L 23.380859 13.386719 L 26.650391 11.498047 L 29.919922 9.6113281 L 26.650391 7.7226562 L 23.380859 5.8339844 z";
+var svg_LoopModeRingArrow = "(30) m 8.7847314,8.695045 c -2.1751754,0 -3.9540936,1.781077 -3.9540936,3.956224 v 3.713483 c 0,2.175142 1.7789182,3.954094 3.9540936,3.954094 H 10.283752 V 18.489785 H 8.7847314 c -1.1932761,0 -2.1271621,-0.931497 -2.1271621,-2.125033 v -3.713483 c 0,-1.193549 0.933886,-2.125033 2.1271621,-2.125033 h 0.6984075 5.7462461 3.334238 c 1.193689,0 2.12929,0.931484 2.12929,2.125033 v 3.713483 c 0,1.193536 -0.987106,1.778789 -2.12929,2.125033 h -1.296506 v -2.863897 l -3.270591,1.888682 -3.268462,1.886551 3.268462,1.888682 3.270591,1.888681 v -2.859638 h 1.296506 c 2.175175,0 3.954094,-1.778952 3.954094,-3.954094 v -3.713483 c 0,-2.175147 -1.778919,-3.956224 -3.954094,-3.956224 H 15.229385 9.4831389 Z";
+var svg_LoopModeRingCross = "(30) m 8.7851562,8.6953125 c -2.1751749,0 -3.9550781,1.7799035 -3.9550781,3.9550785 v 3.714843 c 0,2.175134 1.7799032,3.955078 3.9550781,3.955078 H 10.615234 V 18.488281 H 8.7851562 c -1.1932764,0 -2.1289062,-0.929523 -2.1289062,-2.123047 v -3.714843 c 0,-1.193565 0.9356297,-2.125 2.1289062,-2.125 H 9.4824219 15.228516 18.5625 c 1.193688,0 2.128906,0.931435 2.128906,2.125 v 3.714843 c 0,1.193524 -0.986723,1.776807 -2.128906,2.123047 h -1.826172 v 1.832031 H 18.5625 c 2.175175,0 3.955078,-1.779944 3.955078,-3.955078 v -3.714843 c 0,-2.175175 -1.779903,-3.9550785 -3.955078,-3.9550785 H 15.228516 9.4824219 Z m 7.1445318,7.2988285 -2.259766,2.28125 -2.267578,-2.269532 -1.294922,1.294922 2.27539,2.273438 -2.265624,2.287109 1.300781,1.289063 2.257812,-2.28125 2.271485,2.271484 1.292968,-1.294922 -2.27539,-2.275391 2.265625,-2.287109 z";
+
+
 class TextViewLarge : TextView
 {
     Font = fontLarge;
@@ -1795,6 +1801,28 @@ var makeLiveModeButton = (color) => Rasterize()
     ];
 };
 
+class baseLoopModeButton<size>
+{
+    Image = Frame()
+    {
+        InnerSize = (size, size);
+        Gravity = Center;
+        Inner =
+        {
+            Alternate2 && Pressed = makeImage2(30, svg_LoopModeRingCross, colorDisabledText, svg_LoopModeThrough, colorToolbarButtonPressed);
+            Alternate2 = makeImage2(30, svg_LoopModeRingCross, colorDisabledText, svg_LoopModeThrough, colorLedOn);
+
+            Alternate && Pressed = makeImage2(30, svg_LoopModeBase, colorDisabledText, svg_LoopModeRingArrow, colorToolbarButtonPressed);
+            Alternate = makeImage2(30, svg_LoopModeBase, colorDisabledText, svg_LoopModeRingArrow, colorLedOn);
+
+            Checked && Pressed = makeImage2(30, svg_LoopModeThrough, colorToolbarButtonPressed, svg_LoopModeRingArrow, colorToolbarButtonPressed);
+            Checked = makeImage2(30, svg_LoopModeThrough, colorToolbarButton, svg_LoopModeRingArrow, colorToolbarButton);
+
+            else = makeImage2(30, svg_LoopModeRingCross, colorDisabledText, svg_LoopModeThrough, colorToolbarButton);
+        };
+    };
+}
+
 // The main toolbar
 class MainToolbar
 {
@@ -1824,6 +1852,7 @@ class MainToolbar
     class PlayButton : GlowButton<30, svg_Play, colorPlay, colorToolbarButtonPressed> {}
     class PauseButton : GlowButton<30, svg_Pause, colorPause, colorToolbarButtonPressed> {}
     class StopButton : ButtonImage<30, svg_Stop, colorToolbarButton, colorToolbarButtonPressed> {}
+    class LoopModeButton : baseLoopModeButton<30> {}
     class MetronomeButton : ButtonImage<30, svg_Metronome, colorToolbarButton, colorToolbarButtonPressed> {}
     class TapTempoButton : ButtonImage<30, svg_Tempo, colorToolbarButton, colorToolbarButtonPressed> 
     {
@@ -2337,6 +2366,7 @@ class TimelinePanel
     class PlayButton : TransparentButton, GlowButton<18, svg_Play, colorPlay, colorFocusText> {  }
     class PauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause, colorFocusText>  {  }
     class StopButton : TransparentButton, ButtonImage<18, svg_Stop, colorToolbarButton, colorFocusText> {  }
+    class LoopModeButton : TransparentButton, baseLoopModeButton<28> { }
     class RewindButton : TransparentButton, ButtonImage<18, svg_Rewind, colorToolbarButton, colorFocusText> {  }
     class FastForwardButton : TransparentButton, ButtonImage<18, svg_FastForward, colorToolbarButton, colorFocusText> {  }
     class PreviousMarkerButton : TransparentButton, ButtonImage<18, svg_PreviousMarker, colorToolbarButton, colorFocusText> {  }
