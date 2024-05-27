@@ -1819,8 +1819,8 @@ class baseLoopModeButton<size>
             Alternate && Pressed = makeImage2(30, svg_LoopModeBase, colorDisabledText, svg_LoopModeRingArrow, colorToolbarButtonPressed);
             Alternate = makeImage2(30, svg_LoopModeBase, colorDisabledText, svg_LoopModeRingArrow, colorLedOn);
 
-            Checked && Pressed = makeImage2(30, svg_LoopModeThrough, colorToolbarButtonPressed, svg_LoopModeRingArrow, colorToolbarButtonPressed);
-            Checked = makeImage2(30, svg_LoopModeThrough, colorToolbarButton, svg_LoopModeRingArrow, colorToolbarButton);
+            Alternate4 && Pressed = makeImage2(30, svg_LoopModeThrough, colorToolbarButtonPressed, svg_LoopModeRingArrow, colorToolbarButtonPressed);
+            Alternate4 = makeImage2(30, svg_LoopModeThrough, colorToolbarButton, svg_LoopModeRingArrow, colorToolbarButton);
 
             else = makeImage2(30, svg_LoopModeRingCross, colorDisabledText, svg_LoopModeThrough, colorToolbarButton);
         };
@@ -2318,6 +2318,7 @@ class ControllerBar
         class PlayButton : GlowButton<30, svg_Play, colorPlay, colorFocusText>, ControllerBarButton {}
         class PauseButton : GlowButton<30, svg_Pause, colorPause, colorFocusText>, ControllerBarButton {}
         class StopButton : ButtonImage<30, svg_Stop, colorToolbarButton, colorFocusText>, ControllerBarButton {}
+        class LoopModeButton : baseLoopModeButton<40>, ControllerBarButton {}
         class TempoButton : ButtonImage<30, svg_Tempo, colorToolbarButton, colorFocusText>, ControllerBarButton 
         {
             Background = 
