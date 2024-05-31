@@ -9,7 +9,7 @@ var fontSmall = Font("GuiKitSans", 11, false);
 var fontLarge = Font("GuiKitSans", 18, true);
 
 // Colors
-var colorDimText => colorText.WithAlpha(0.7);
+var colorDimText => Color.Blend(colorForm, colorText.WithAlpha(0.7));
 var colorLedOn = #03c403;
 var colorLedDim = #029202;
 var colorLedOff = #9e9e9e;
@@ -160,29 +160,25 @@ class TextAreaFixedPitch : TextArea
 // Rounded off focused rectangle
 var focusHighlight => Rectangle()
 {
-    CornerRadius = 3;
-    GradientStops = {
-        0.0 = colorFocus;
-        1.0 = colorFocusGradient;
-    };
-    GradientKind = Vertical;
+    CornerRadius = 0;
+    FillColor = colorFocus.WithAlpha(0.25);
+    StrokeWidth = 1;
+    StrokeColor = colorFocus;
 };
 
 // Rounded off pressed rectangle
 var focusHighlightPressed => Rectangle()
 {
-    CornerRadius = 3;
-    GradientStops = {
-        0.0 = colorFocusPressed;
-        1.0 = colorFocusPressedGradient;
-    };
-    GradientKind = Vertical;
+    CornerRadius = 0;
+    FillColor = colorFocus.WithAlpha(0.1);
+    StrokeWidth = 1;
+    StrokeColor = colorFocus;
 };
 
 // Rounded off subtle highlight rectangle
 var subtleHighlight => Rectangle()
 {
-    CornerRadius = 3;
+//    CornerRadius = 3;
     FillColor = colorText.WithAlpha(0.1);
 };
 
@@ -563,6 +559,14 @@ class SubtleButton : Button
 class SidePanelContent
 {
     Background = colorSidePanelBackground;
+    Selection = {
+        Focused || ContainsFocus = Rectangle()
+        {
+            StrokeWidth = 1;
+            StrokeColor = colorFocus;
+            CornerRadius = 0;
+        };
+    };
 }
 
 
@@ -762,10 +766,7 @@ class Gripper
     Background = Frame()
     {
         InnerSize = (6,14);
-        Inner = {
-            (Selected || Focused) = make_gripper_lhs(colorFocusText);
-            else = make_gripper_lhs(colorDimText);
-        };
+        Inner = make_gripper_lhs(colorDimText);
     };
 }
 
@@ -854,6 +855,14 @@ class CloseCross
 class TableView
 {
     Background =  colorContentBackground;
+    Selection = {
+        Focused || ContainsFocus = Rectangle()
+        {
+            StrokeWidth = 1;
+            StrokeColor = colorFocus;
+            CornerRadius = 0;
+        };
+    };
 }
 
 // Common base style for all table rows
@@ -861,8 +870,11 @@ class TableRow_common
 {
     Background = 
     {
-        Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
-        Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
+        /*
+        Selected && ContainerFocused = colorFocus.WithAlpha(0.25);
+        Selected = colorFocus.WithAlpha(0.25);
+        */
+        Selected = colorFocus.WithAlpha(0.25);
         CurrentItem = BorderFrame(colorFocus.WithAlpha(0.2), colorPanelBorder, Bottom);
         else = BorderFrame(null, colorPanelBorder, Bottom);
     };
@@ -876,8 +888,7 @@ class TableRow_TopLevelFooter : TableRow_common
 {
     Background = 
     {
-        Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
-        Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
+        Selected = colorFocus.WithAlpha(0.25);
         CurrentItem = colorFocus.WithAlpha(0.2);
     };
 }
@@ -886,8 +897,7 @@ class TableRow_ChildItem : TableRow_common
 {
     Background = 
     {
-        Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
-        Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
+        Selected = colorFocus.WithAlpha(0.25);
         CurrentItem = make(colorFocus.WithAlpha(0.2));
         else = make(colorBaseForeground.WithAlpha(0.05));
     };
@@ -904,8 +914,7 @@ class TableRow_ChildFooter : TableRow_common
 {
     Background = 
     {
-        Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
-        Selected = VerticalGradient(Color.Blend(colorBaseBackground, colorFocus.WithAlpha(0.8)), Color.Blend(colorBaseBackground, colorFocusGradient.WithAlpha(0.8)), );
+        Selected = colorFocus.WithAlpha(0.25);
         CurrentItem = make(Color.Blend(colorContentBackground, colorFocus.WithAlpha(0.2)));
         else = make(colorBaseForeground.WithAlpha(0.05));
     };
@@ -1100,19 +1109,29 @@ class TickerView
 {
     Font = fontBold;
 
+    class ItemBaseColor<color>
+    {
+        Background = color;
+    }
+
     class Item
     {
         Background = 
         {
             Pressed = focusHighlightPressed;
             Focused = focusHighlight;
-            Checked = subtleHighlight;
+            Checked = Rectangle()
+            {
+                CornerRadius = 0;
+                StrokeWidth = 1;
+                StrokeColor = Color.Blend(colorForm, colorText.WithAlpha(0.5));
+            };
         };
         TextColor = 
         {
             Pressed || Focused = colorFocusText;
             Checked = colorText;
-            else = colorDisabledText;
+            else = colorDimText;
         };
         Gravity = Center;
     }
@@ -2076,9 +2095,9 @@ class SidePanelCheck<round, svg>
     {
         InnerSize = (14,14);
         Inner = {
-            Checked && Selected && ContainerFocused = makeSidePanelCheck(colorFocusText, colorFocusText, colorFocus, round, svg);
+            //Checked && Selected && ContainerFocused = makeSidePanelCheck(colorFocusText, colorFocusText, colorFocus, round, svg);
             Checked = makeSidePanelCheck(colorFocus, colorFocus, colorFocusText, round, svg);
-            Selected && ContainerFocused = makeSidePanelCheck(colorFocusText, Color.Clear, Color.Clear, round, svg);
+            //Selected && ContainerFocused = makeSidePanelCheck(colorFocusText, Color.Clear, Color.Clear, round, svg);
             else = makeSidePanelCheck(colorDisabledText, Color.Clear, Color.Clear, round, svg);
         };
     };
@@ -2106,7 +2125,7 @@ class SidePanelSymbol<color, svg>
 class SidePanelItem
 {
     Background = {
-        Selected && ContainerFocused = VerticalGradient(colorFocus, colorFocusGradient);
+        Selected && ContainerFocused = colorFocus.WithAlpha(0.25);
     };
 
     class Text
@@ -2545,7 +2564,6 @@ class SetListGrid
             Focused || Selected = focusHighlight;
             else = Rectangle()
             {
-                CornerRadius = 3;
                 FillColor = color;
             };
         };
