@@ -4,6 +4,7 @@ import "Dark";
 import "GuiKit.Light";
 
 // Colors
+colorNewFocusText = Color.Black;
 colorDimText = colorText.WithAlpha(0.7);
 colorLedOn = #03c403;
 colorLedDim = #029202;
@@ -30,7 +31,6 @@ colorContentBackground = #FFFFFF;
 colorFocusGradient = #015ee6;
 colorFocusPressed = #0877d1;
 colorFocusPressedGradient = #0443a0;
-//colorWiringAddButton = #383838;
 colorComponentTop = Color.Blend(#808080, colorBaseBackground.WithAlpha(0.1));
 colorComponentBottom = Color.Blend(Color.Black, colorComponentTop.WithAlpha(0.7)); //#595959;
 colorWiringPortArea = Color.Blend(colorForm, colorContentBackground.WithAlpha(0.1));//#222326;

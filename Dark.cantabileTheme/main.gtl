@@ -9,6 +9,7 @@ var fontSmall = Font("GuiKitSans", 11, false);
 var fontLarge = Font("GuiKitSans", 18, true);
 
 // Colors
+var colorNewFocusText = colorFocusText;
 var colorDimText => Color.Blend(colorForm, colorText.WithAlpha(0.7));
 var colorLedOn = #03c403;
 var colorLedDim = #029202;
@@ -333,7 +334,7 @@ class GlowButton<size, svg, color, colorPressed>
         {
             (Inactive || Disabled) = makeImage(size, svg, colorDisabledText);
             Checked = makeGlowImage(size, svg, color);
-            Selected = makeImage(size, svg, colorFocusText);
+            Selected = makeImage(size, svg, colorNewFocusText);
             (Focused || Pressed) = makeImage(size, svg, colorPressed);
             else = makeImage(size, svg, colorToolbarButton);
         };
@@ -743,8 +744,8 @@ class ExpandButton : TransparentButton
 {
     Image =
     {
-        (Focused || Selected || Pressed) && Checked = make(colorFocusText, true);
-        (Focused || Selected || Pressed) = make(colorFocusText, false);
+        (Focused || Selected || Pressed) && Checked = make(colorNewFocusText, true);
+        (Focused || Selected || Pressed) = make(colorNewFocusText, false);
         Checked = make(colorToolbarButton, true);
         else = make(colorToolbarButton, false);
     };
@@ -780,7 +781,7 @@ class SlotButton
     };
     TextColor = 
     {
-        (Pressed || Focused || Selected) = colorFocusText;
+        (Pressed || Focused || Selected) = colorNewFocusText;
         Alternate = colorWarning;       // (active transpose slot button)        
         Inactive = colorDisabledText;
         else = colorText;
@@ -796,7 +797,7 @@ class SlotButtonWithResetIcon : SlotButton
         InnerSize = (16, 16);
         InnerGravity = RightCenter;
         Inner = {
-            Pressed || Focused = makeImage(16, svg_Reset, colorFocusText);
+            Pressed || Focused = makeImage(16, svg_Reset, colorNewFocusText);
             else = makeImage(16, svg_Reset, colorWarning);
         };
     };
@@ -811,7 +812,7 @@ class DisclosureArrow
         InnerSize = (16, 16);
         Inner = 
         {
-            Selected || ContainerFocused = make(colorFocusText, colorFocus);
+            Selected || ContainerFocused = make(colorNewFocusText, colorFocus);
             else = make(colorBorder, colorText);
         };
     };
@@ -846,7 +847,7 @@ class CloseCross
         Inner = Path()
         {
             SvgData = svg_CloseCross;
-            FillColor = colorFocusText;
+            FillColor = colorNewFocusText;
         };
     };
     Padding = EdgeInsets(3,4,3,3);
@@ -955,7 +956,7 @@ context PopupMenu
         };
         TextColor = 
         {
-            (CurrentItem || Focused) = colorFocusText;
+            (CurrentItem || Focused) = colorNewFocusText;
             else = colorText;
         };
     }
@@ -1028,7 +1029,7 @@ class MaximizeRackButton : TabBarButton
         Inner = {
             Hover && Checked = makeImage(16, svg_UnzoomRack, colorText);
             Checked = makeImage(16, svg_UnzoomRack, colorToolbarButton);
-            Hover = makeImage(16, svg_ZoomRack, colorFocusText);
+            Hover = makeImage(16, svg_ZoomRack, colorNewFocusText);
             else = makeImage(16, svg_ZoomRack, colorToolbarButton);
         };
     };
@@ -1060,10 +1061,10 @@ class TabBar
         Padding = EdgeInsets(10, 3, 30, 3);
         Image = 
         {
-            Alternate && Hover = make(colorFocusText, Gravity.Center);
+            Alternate && Hover = make(colorNewFocusText, Gravity.Center);
             Alternate && Pressed = make(#dfe1e5, Gravity.Center);
             Alternate = make(#949599, Gravity.Center);
-            Hover = make(colorFocusText, Gravity.RightCenter);
+            Hover = make(colorNewFocusText, Gravity.RightCenter);
             Pressed = make(#dfe1e5, Gravity.RightCenter);
             else = make(#949599, Gravity.RightCenter);
         };
@@ -1098,7 +1099,7 @@ class ToolbarTextButton : Button
     };
     TextColor = 
     {
-        (Pressed || Focused) = colorFocusText;
+        (Pressed || Focused) = colorNewFocusText;
         else = colorText;
     };
     Font = fontBold;
@@ -1129,7 +1130,7 @@ class TickerView
         };
         TextColor = 
         {
-            Pressed || Focused = colorFocusText;
+            Pressed || Focused = colorNewFocusText;
             Checked = colorText;
             else = colorDimText;
         };
@@ -1172,7 +1173,7 @@ class TimelineView
         LabelFont = fontSmall;
         LabelTickColor = #a0a0a0;
         LabelTextColor = {
-            Selected = colorFocusText;
+            Selected = colorNewFocusText;
             else = colorText;
         };
     }
@@ -1283,7 +1284,7 @@ class WiringView
     // The add button
     AddButton = 
     {
-        Pressed = makeAddButton(colorFocus, colorFocusGradient, colorFocusText);
+        Pressed = makeAddButton(colorFocus, colorFocusGradient, colorNewFocusText);
         else = makeAddButton(colorWiringAddButton, colorWiringAddButton, colorContentBackground);
     };
 
@@ -1992,9 +1993,9 @@ class MetronomeToolbar
             InnerSize = (18,16);
             Gravity = Center;
             Inner = {
-                Checked && (Focused || Pressed) = makeMetronomeSoundsImage(colorFocusText, colorFocusText, true);
+                Checked && (Focused || Pressed) = makeMetronomeSoundsImage(colorNewFocusText, colorNewFocusText, true);
                 Checked = makeMetronomeSoundsImage(colorToolbarButton, colorWarning, true);
-                Focused || Pressed = makeMetronomeSoundsImage(colorFocusText, colorFocusText, false);
+                Focused || Pressed = makeMetronomeSoundsImage(colorNewFocusText, colorNewFocusText, false);
                 else = makeMetronomeSoundsImage(colorToolbarButton, colorWarning, false);
             };
         };
@@ -2095,9 +2096,9 @@ class SidePanelCheck<round, svg>
     {
         InnerSize = (14,14);
         Inner = {
-            //Checked && Selected && ContainerFocused = makeSidePanelCheck(colorFocusText, colorFocusText, colorFocus, round, svg);
-            Checked = makeSidePanelCheck(colorFocus, colorFocus, colorFocusText, round, svg);
-            //Selected && ContainerFocused = makeSidePanelCheck(colorFocusText, Color.Clear, Color.Clear, round, svg);
+            //Checked && Selected && ContainerFocused = makeSidePanelCheck(colorNewFocusText, colorNewFocusText, colorFocus, round, svg);
+            Checked = makeSidePanelCheck(colorFocus, colorFocus, colorNewFocusText, round, svg);
+            //Selected && ContainerFocused = makeSidePanelCheck(colorNewFocusText, Color.Clear, Color.Clear, round, svg);
             else = makeSidePanelCheck(colorDisabledText, Color.Clear, Color.Clear, round, svg);
         };
     };
@@ -2115,7 +2116,7 @@ class SidePanelSymbol<color, svg>
         InnerSize = (16, 16);
         Gravity = Center;
         Inner = {
-            Selected && ContainerFocused = makeImage(16, svg, colorFocusText);
+            Selected && ContainerFocused = makeImage(16, svg, colorNewFocusText);
             else = makeImage(16, svg, color);
         };
     };
@@ -2131,7 +2132,7 @@ class SidePanelItem
     class Text
     {
         TextColor = {
-            Selected && ContainerFocused = colorFocusText;
+            Selected && ContainerFocused = colorNewFocusText;
             Inactive = colorDisabledText;
             else = colorText;
         };
@@ -2334,11 +2335,11 @@ class ControllerBar
                 else = makeRecordButton(false, false, false);
             };
         }
-        class PlayButton : GlowButton<30, svg_Play, colorPlay, colorFocusText>, ControllerBarButton {}
-        class PauseButton : GlowButton<30, svg_Pause, colorPause, colorFocusText>, ControllerBarButton {}
-        class StopButton : ButtonImage<30, svg_Stop, colorToolbarButton, colorFocusText>, ControllerBarButton {}
+        class PlayButton : GlowButton<30, svg_Play, colorPlay, colorNewFocusText>, ControllerBarButton {}
+        class PauseButton : GlowButton<30, svg_Pause, colorPause, colorNewFocusText>, ControllerBarButton {}
+        class StopButton : ButtonImage<30, svg_Stop, colorToolbarButton, colorNewFocusText>, ControllerBarButton {}
         class LoopModeButton : baseLoopModeButton<40>, ControllerBarButton {}
-        class TempoButton : ButtonImage<30, svg_Tempo, colorToolbarButton, colorFocusText>, ControllerBarButton 
+        class TempoButton : ButtonImage<30, svg_Tempo, colorToolbarButton, colorNewFocusText>, ControllerBarButton 
         {
             Background = 
             {
@@ -2350,11 +2351,11 @@ class ControllerBar
         }
         class ButtonGroup : ControllerBarButton 
         {
-            class Next : ButtonImage<30, svg_Next, colorToolbarButton, colorFocusText>, ControllerBarGroupButton  { }
-            class Previous : ButtonImage<30, svg_Prev, colorToolbarButton, colorFocusText>, ControllerBarGroupButton  { }
+            class Next : ButtonImage<30, svg_Next, colorToolbarButton, colorNewFocusText>, ControllerBarGroupButton  { }
+            class Previous : ButtonImage<30, svg_Prev, colorToolbarButton, colorNewFocusText>, ControllerBarGroupButton  { }
             class Button : ControllerBarGroupButton {}
         }
-        class ContinueButton : ButtonImage<30, svg_Continue, colorToolbarButton, colorFocusText>, ControllerBarButton  {}
+        class ContinueButton : ButtonImage<30, svg_Continue, colorToolbarButton, colorNewFocusText>, ControllerBarButton  {}
     }
 
     // A controller bar button
@@ -2387,14 +2388,14 @@ class ControllerBar
 class TimelinePanel
 {
     Background = colorForm;
-    class PlayButton : TransparentButton, GlowButton<18, svg_Play, colorPlay, colorFocusText> {  }
-    class PauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause, colorFocusText>  {  }
-    class StopButton : TransparentButton, ButtonImage<18, svg_Stop, colorToolbarButton, colorFocusText> {  }
+    class PlayButton : TransparentButton, GlowButton<18, svg_Play, colorPlay, colorNewFocusText> {  }
+    class PauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause, colorNewFocusText>  {  }
+    class StopButton : TransparentButton, ButtonImage<18, svg_Stop, colorToolbarButton, colorNewFocusText> {  }
     class LoopModeButton : TransparentButton, baseLoopModeButton<28> { }
-    class RewindButton : TransparentButton, ButtonImage<18, svg_Rewind, colorToolbarButton, colorFocusText> {  }
-    class FastForwardButton : TransparentButton, ButtonImage<18, svg_FastForward, colorToolbarButton, colorFocusText> {  }
-    class PreviousMarkerButton : TransparentButton, ButtonImage<18, svg_PreviousMarker, colorToolbarButton, colorFocusText> {  }
-    class NextMarkerButton : TransparentButton, ButtonImage<18, svg_NextMarker, colorToolbarButton, colorFocusText> {  }
+    class RewindButton : TransparentButton, ButtonImage<18, svg_Rewind, colorToolbarButton, colorNewFocusText> {  }
+    class FastForwardButton : TransparentButton, ButtonImage<18, svg_FastForward, colorToolbarButton, colorNewFocusText> {  }
+    class PreviousMarkerButton : TransparentButton, ButtonImage<18, svg_PreviousMarker, colorToolbarButton, colorNewFocusText> {  }
+    class NextMarkerButton : TransparentButton, ButtonImage<18, svg_NextMarker, colorToolbarButton, colorNewFocusText> {  }
     class MenuButton : HamburgerButton { }
 }
 
@@ -2437,23 +2438,23 @@ class SlotEnableButton : SlotButton
         Gravity = Center;
         Inner =
         {
-            Checked && (Pressed || Focused || Selected) && Error = makeImage2(16, svg_Enabled, colorFocusText, svg_Error, colorFocusText);
+            Checked && (Pressed || Focused || Selected) && Error = makeImage2(16, svg_Enabled, colorNewFocusText, svg_Error, colorNewFocusText);
             Checked && Error = makeImage2(16, svg_Enabled, colorDisabledText, svg_Error, colorError);
-            Checked && (Pressed || Focused || Selected) = makeImage(16, svg_Enabled, colorFocusText);
+            Checked && (Pressed || Focused || Selected) = makeImage(16, svg_Enabled, colorNewFocusText);
             Checked = makeImage(16, svg_Enabled, colorToolbarButton);
-            Pressed || Focused || Selected = makeImage(16, svg_Disabled, colorFocusText);
+            Pressed || Focused || Selected = makeImage(16, svg_Disabled, colorNewFocusText);
             else = makeImage(16, svg_Disabled, colorWarning);
         };
     };
 }
 
 // Other icons/buttons shown in slots
-class SlotBypassButton : SlotButton, ButtonImage<16, svg_BypassOff, colorToolbarButton, svg_BypassOn, colorWarning, colorFocusText> {}
-class SlotPlayButton : TransparentButton, GlowButton<18, svg_Play, colorPlay, colorFocusText> {  }
-class SlotPauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause, colorFocusText>  {  }
-class SlotStopButton : TransparentButton, ButtonImage<18, svg_Stop, colorToolbarButton, colorFocusText> {  }
-class SlotRackTypeIcon : SlotButton, ButtonImage<16, svg_LinkedRack, colorToolbarButton, svg_EmbeddedRack, colorToolbarButton, colorFocusText> {}
-class SlotMidiFiltersButton : TransparentButton, GlowButton<18, svg_MidiFilter, colorMidiFilters, colorFocusText> {  }
+class SlotBypassButton : SlotButton, ButtonImage<16, svg_BypassOff, colorToolbarButton, svg_BypassOn, colorWarning, colorNewFocusText> {}
+class SlotPlayButton : TransparentButton, GlowButton<18, svg_Play, colorPlay, colorNewFocusText> {  }
+class SlotPauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause, colorNewFocusText>  {  }
+class SlotStopButton : TransparentButton, ButtonImage<18, svg_Stop, colorToolbarButton, colorNewFocusText> {  }
+class SlotRackTypeIcon : SlotButton, ButtonImage<16, svg_LinkedRack, colorToolbarButton, svg_EmbeddedRack, colorToolbarButton, colorNewFocusText> {}
+class SlotMidiFiltersButton : TransparentButton, GlowButton<18, svg_MidiFilter, colorMidiFilters, colorNewFocusText> {  }
 class SlotStopwatchButton : TransparentButton
 {
     Image = Frame()
@@ -2462,7 +2463,7 @@ class SlotStopwatchButton : TransparentButton
         Gravity = Center;
         Inner =
         {
-            (Focused || Pressed || Selected) && ContainerFocused = makeImage(16, svg_Stopwatch, colorFocusText);
+            (Focused || Pressed || Selected) && ContainerFocused = makeImage(16, svg_Stopwatch, colorNewFocusText);
             Inactive = makeImage(16, svg_Stopwatch, colorDisabledText);
             Checked = makeImage(16, svg_Stopwatch, colorLedOn);
             else = makeImage(16, svg_Stopwatch, colorToolbarButton);
@@ -2481,13 +2482,13 @@ class SlotBidiButton : TransparentButton
         Gravity = Center;
         Inner =
         {
-            Checked && Alternate && Error && (Focused || Pressed || Selected) && ContainerFocused = makeImage2(16, svg_BidiHalf, colorFocusText, svg_Error, colorFocusText);
+            Checked && Alternate && Error && (Focused || Pressed || Selected) && ContainerFocused = makeImage2(16, svg_BidiHalf, colorNewFocusText, svg_Error, colorNewFocusText);
             Checked && Alternate && Error = makeImage2(16, svg_BidiHalf, colorDisabledText, svg_Error, colorError);
-            Checked && Error && (Focused || Pressed || Selected) && ContainerFocused = makeImage2(16, svg_BidiFull, colorFocusText, svg_Error, colorFocusText);
+            Checked && Error && (Focused || Pressed || Selected) && ContainerFocused = makeImage2(16, svg_BidiFull, colorNewFocusText, svg_Error, colorNewFocusText);
             Checked && Error = makeImage2(16, svg_BidiFull, colorDisabledText, svg_Error, colorError);
-            Checked && Alternate && (Focused || Pressed || Selected) && ContainerFocused = makeImage2(16, svg_BidiHalfForward, colorFocusText, svg_BidiHalfReverse, colorFocusText);
-            Checked && Alternate = makeImage2(16, svg_BidiHalfForward, colorWarning, svg_BidiHalfReverse, colorFocusText);
-            Checked && (Focused || Pressed || Selected) && ContainerFocused = makeImage(16, svg_BidiFull, colorFocusText);
+            Checked && Alternate && (Focused || Pressed || Selected) && ContainerFocused = makeImage2(16, svg_BidiHalfForward, colorNewFocusText, svg_BidiHalfReverse, colorNewFocusText);
+            Checked && Alternate = makeImage2(16, svg_BidiHalfForward, colorWarning, svg_BidiHalfReverse, colorNewFocusText);
+            Checked && (Focused || Pressed || Selected) && ContainerFocused = makeImage(16, svg_BidiFull, colorNewFocusText);
             Checked = makeImage(16, svg_BidiFull, colorWarning);
             else = makeImage(16, svg_BidiOff, colorToolbarButton);
         };
@@ -2533,7 +2534,7 @@ class SetListGrid
             else = subtleHighlight;
         };
         TextColor = {
-            Pressed || Selected || Focused = colorFocusText;
+            Pressed || Selected || Focused = colorNewFocusText;
             else = colorToolbarButton;
         };
 
@@ -2573,7 +2574,7 @@ class SetListGrid
     class Title 
     {
         TextColor = {
-            Selected= colorFocusText;
+            Selected= colorNewFocusText;
             else = colorText;
         };
         Gravity = Center;
@@ -2617,7 +2618,7 @@ class MidiMonitor
     {
         Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
 
-        class PauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause, colorFocusText>  {  }
+        class PauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause, colorNewFocusText>  {  }
         class ProbePointDropDown : ToolbarTextButton {}
         class Stats
         {
@@ -2634,7 +2635,7 @@ class MidiMonitor
             class Text
             {
                 TextColor = {
-                    (Selected || Focused) && ContainerFocused = colorFocusText;
+                    (Selected || Focused) && ContainerFocused = colorNewFocusText;
                     else = colorText;
                 };
                 Padding = (15, 0, 0, 0);
@@ -2670,9 +2671,9 @@ class Profiler
             Error = BorderFrame(Color.Blend(colorBaseBackground, Color.Red.WithAlpha(0.33)), colorPanelBorder, Top);
             else = BorderFrame(colorForm, colorPanelBorder, Bottom);
         };
-        class PauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause, colorFocusText>  {  }
-        class PreviousButton : TransparentButton, ButtonImage<18, svg_PrevPreset, colorToolbarButton, colorFocusText>  {  }
-        class NextButton : TransparentButton, ButtonImage<18, svg_NextPreset, colorToolbarButton, colorFocusText>  {  }
+        class PauseButton : TransparentButton, GlowButton<18, svg_Pause, colorPause, colorNewFocusText>  {  }
+        class PreviousButton : TransparentButton, ButtonImage<18, svg_PrevPreset, colorToolbarButton, colorNewFocusText>  {  }
+        class NextButton : TransparentButton, ButtonImage<18, svg_NextPreset, colorToolbarButton, colorNewFocusText>  {  }
         class TimeStamp
         {
             TextColor = colorText;
@@ -2687,7 +2688,7 @@ class Profiler
             class Text
             {
                 TextColor = {
-                    (Selected || Focused) && ContainerFocused = colorFocusText;
+                    (Selected || Focused) && ContainerFocused = colorNewFocusText;
                     else = colorText;
                 };
             }
@@ -2731,10 +2732,10 @@ class PluginEditor
     {
         Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
 
-        class SwitchToGuiButton : TransparentButton, ButtonImage<18, svg_GuiEditor, colorToolbarButton, colorFocusText> {}
-        class SwitchToParamsButton : TransparentButton, ButtonImage<18, svg_ParamEditor, colorToolbarButton, colorFocusText> {}
-        class PreviousPresetButton : TransparentButton, ButtonImage<16, svg_PrevPreset, colorToolbarButton, colorFocusText> {}
-        class NextPresetButton : TransparentButton, ButtonImage<16, svg_NextPreset, colorToolbarButton, colorFocusText> {}
+        class SwitchToGuiButton : TransparentButton, ButtonImage<18, svg_GuiEditor, colorToolbarButton, colorNewFocusText> {}
+        class SwitchToParamsButton : TransparentButton, ButtonImage<18, svg_ParamEditor, colorToolbarButton, colorNewFocusText> {}
+        class PreviousPresetButton : TransparentButton, ButtonImage<16, svg_PrevPreset, colorToolbarButton, colorNewFocusText> {}
+        class NextPresetButton : TransparentButton, ButtonImage<16, svg_NextPreset, colorToolbarButton, colorNewFocusText> {}
         class PresetDropDown
         {
             Background = 
@@ -2747,17 +2748,17 @@ class PluginEditor
             Gravity = LeftCenter;
             Padding = (5, 0);
         }
-        class LockedPresetButton : TransparentButton, ButtonImage<16, svg_Unlock, colorToolbarButton, svg_Lock, colorWarning, colorFocusText> {}
-        class NativePresetButton : TransparentButton, ButtonImage<16, svg_NativePreset, colorToolbarButton, colorFocusText> {}
-        class BypassButton : TransparentButton, ButtonImage<16, svg_BypassOff, colorToolbarButton, svg_BypassOn, colorWarning, colorFocusText> {}
+        class LockedPresetButton : TransparentButton, ButtonImage<16, svg_Unlock, colorToolbarButton, svg_Lock, colorWarning, colorNewFocusText> {}
+        class NativePresetButton : TransparentButton, ButtonImage<16, svg_NativePreset, colorToolbarButton, colorNewFocusText> {}
+        class BypassButton : TransparentButton, ButtonImage<16, svg_BypassOff, colorToolbarButton, svg_BypassOn, colorWarning, colorNewFocusText> {}
         class MenuButton : HamburgerButton {}
     }
 
     class MorphBar
     {
         Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
-        class AButton : TransparentButton, ButtonImageWH<38, 16, svg_AButton, colorToolbarButton, svg_AButton, colorWarning, colorFocusText> {}
-        class BButton : TransparentButton, ButtonImageWH<38, 16, svg_BButton, colorToolbarButton, svg_BButton, colorWarning, colorFocusText> {}
+        class AButton : TransparentButton, ButtonImageWH<38, 16, svg_AButton, colorToolbarButton, svg_AButton, colorWarning, colorNewFocusText> {}
+        class BButton : TransparentButton, ButtonImageWH<38, 16, svg_BButton, colorToolbarButton, svg_BButton, colorWarning, colorNewFocusText> {}
         class RandomizeButton : TransparentButton
         {
             Padding = (20, 0, 2, 0);
@@ -2768,12 +2769,12 @@ class PluginEditor
                 Padding = (2, 0, 0, 0);
                 Inner =
                 {
-                    Pressed = makeImage(16, svg_Randomize, colorFocusText);
+                    Pressed = makeImage(16, svg_Randomize, colorNewFocusText);
                     else = makeImage(16, svg_Randomize, colorToolbarButton);
                 };
             };
         }
-        class ConstrainButton : TransparentButton, ButtonImage<16, svg_Constrain, colorToolbarButton, svg_Constrain, colorWarning, colorFocusText> {}
+        class ConstrainButton : TransparentButton, ButtonImage<16, svg_Constrain, colorToolbarButton, svg_Constrain, colorWarning, colorNewFocusText> {}
     }
 
 
@@ -2788,7 +2789,7 @@ class PluginEditor
             {
                 InnerSize = (14,14);
                 Inner = {
-                    Checked = makeSidePanelCheck(colorFocus, colorFocus, colorFocusText, false, svg_Check);
+                    Checked = makeSidePanelCheck(colorFocus, colorFocus, colorNewFocusText, false, svg_Check);
                     else = makeSidePanelCheck(colorDisabledText, Color.Clear, Color.Clear, false, svg_Check);
                 };
             };            
