@@ -158,6 +158,12 @@ class TextAreaFixedPitch : TextArea
     Font = Font("Courier New", 14);
 }
 
+var activeHighlight => Rectangle()
+{
+    CornerRadius = 0;
+    FillColor = colorFocus.WithAlpha(0.25);
+};
+
 // Rounded off focused rectangle
 var focusHighlight => Rectangle()
 {
@@ -2525,16 +2531,28 @@ class SetListGrid
 
     Background = colorContentBackground;
 
+    class ItemBaseColor<color>
+    {
+        Background = color;
+    }
+
     // A song item
     class Item : ::Button
     {
         Background  = {
             Pressed = focusHighlightPressed;
             Focused || Selected = focusHighlight;
+            Checked = Rectangle()
+            {
+                CornerRadius = 0;
+                StrokeWidth = 1;
+                StrokeColor = Color.Blend(colorForm, colorText.WithAlpha(0.5));
+                FillColor = colorText.WithAlpha(0.1);
+            };
             else = subtleHighlight;
         };
         TextColor = {
-            Pressed || Selected || Focused = colorNewFocusText;
+            Pressed || Selected || Focused || Checked = colorNewFocusText;
             else = colorToolbarButton;
         };
 
@@ -2555,19 +2573,6 @@ class SetListGrid
             Gravity = BottomRight;
             Padding = 3;
         }
-    }
-
-    // Colored button
-    class Item<color> : Item
-    {
-        Background  = {
-            Pressed = focusHighlightPressed;
-            Focused || Selected = focusHighlight;
-            else = Rectangle()
-            {
-                FillColor = color;
-            };
-        };
     }
 
     // A set list break item
