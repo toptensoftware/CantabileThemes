@@ -999,6 +999,14 @@ context PopupMenu
     }
 }
 
+class TabbedDocumentPanel
+{
+    Background = {
+        ContainsFocus = colorFocus.WithAlpha(0.5);
+        else = colorForm;
+    };
+}
+
 class DocumentTabs
 {
     Background = BorderFrame(colorForm, colorPanelBorder, Bottom);
