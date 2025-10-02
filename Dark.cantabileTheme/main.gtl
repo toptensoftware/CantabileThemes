@@ -1002,7 +1002,8 @@ context PopupMenu
 class TabbedDocumentPanel
 {
     Background = {
-        ContainsFocus = colorFocus.WithAlpha(0.5);
+        //ContainsFocus = colorFocus.WithAlpha(0.5);
+        ContainsFocus = Frame() { Padding = (1, 1, 1, 100); Inner = colorFocus.WithAlpha(0.5); };
         else = colorForm;
     };
 }
