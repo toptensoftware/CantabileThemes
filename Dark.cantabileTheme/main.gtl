@@ -1029,6 +1029,26 @@ class DocumentTabButton
     Padding = EdgeInsets(15, 0);
 }
 
+class TabPanelCloseButton
+{
+    Background = {
+        Hover = make(colorNewFocusText);
+        else = make(colorDimText);
+    };
+
+    const make = (color) => Frame()
+    {
+        InnerSize = (16, 16);
+        Inner = Path()
+        {
+            SvgData = svg_CloseCross;
+            FillColor = color;
+        };
+    };
+}
+
+
+
 class DocumentTabTextButton<image> : DocumentTabButton
 {
     Padding = EdgeInsets(20, 0, 15, 0);
